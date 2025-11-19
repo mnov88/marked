@@ -6,7 +6,11 @@
 //
 
 import SwiftUI
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 import Combine
 
 // MARK: - Models
@@ -14,9 +18,9 @@ import Combine
 struct DHTextHighlight: Identifiable, Equatable, Codable {
     let id: UUID
     let range: NSRange
-    let color: UIColor
+    let color: PlatformColor
 
-    init(id: UUID = UUID(), range: NSRange, color: UIColor) {
+    init(id: UUID = UUID(), range: NSRange, color: PlatformColor) {
         self.id = id
         self.range = range
         self.color = color
@@ -40,7 +44,11 @@ struct DHTextHighlight: Identifiable, Equatable, Codable {
         let length = try container.decode(Int.self, forKey: .length)
         range = NSRange(location: location, length: length)
         let colorHex = try container.decode(String.self, forKey: .colorHex)
-        color = UIColor(hex: colorHex) ?? .systemYellow
+        #if canImport(UIKit)
+        color = PlatformColor(hex: colorHex) ?? .systemYellow
+        #elseif canImport(AppKit)
+        color = PlatformColor(hex: colorHex) ?? .systemYellow
+        #endif
     }
 
     func encode(to encoder: Encoder) throws {
@@ -69,13 +77,20 @@ struct DHIndentSpan: Identifiable, Equatable {
 // MARK: - Configuration
 
 struct DHStyle {
-    var font: UIFont = .preferredFont(forTextStyle: .body)
-    var textColor: UIColor = .label
-    var backgroundColor: UIColor = .systemBackground
+    #if canImport(UIKit)
+    var font: PlatformFont = .preferredFont(forTextStyle: .body)
+    var textColor: PlatformColor = .label
+    var backgroundColor: PlatformColor = .systemBackground
+    var contentInsets: PlatformEdgeInsets = .init(top: 24, left: 16, bottom: 24, right: 16)
+    #elseif canImport(AppKit)
+    var font: PlatformFont = .systemFont(ofSize: NSFont.systemFontSize)
+    var textColor: PlatformColor = .labelColor
+    var backgroundColor: PlatformColor = .windowBackgroundColor
+    var contentInsets: PlatformEdgeInsets = .init(top: 24, left: 16, bottom: 24, right: 16)
+    #endif
     var lineHeightMultiple: CGFloat = 1.2
     var paragraphSpacing: CGFloat = 4
     var alignment: NSTextAlignment = .left
-    var contentInsets: UIEdgeInsets = .init(top: 24, left: 16, bottom: 24, right: 16)
     var lineBreakStrategy: NSParagraphStyle.LineBreakStrategy = [.hangulWordPriority, .pushOut]
 }
 

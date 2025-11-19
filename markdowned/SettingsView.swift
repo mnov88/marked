@@ -6,7 +6,11 @@
 //
 
 import SwiftUI
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 struct SettingsView: View {
     @EnvironmentObject private var themeManager: ThemeManager
@@ -124,21 +128,21 @@ struct SettingsView: View {
                     themeManager.customTheme = updated
                 }
             ))
-            
+
             if !themeManager.customTheme.useSystemBackground {
                 ColorPicker(
                     "Background Color",
                     selection: Binding(
-                        get: { Color(UIColor(hex: themeManager.customTheme.backgroundColorHex) ?? .systemBackground) },
+                        get: { Color(PlatformColor(hex: themeManager.customTheme.backgroundColorHex) ?? .platformSystemBackground) },
                         set: {
                             var updated = themeManager.customTheme
-                            updated.backgroundColorHex = UIColor($0).hexString
+                            updated.backgroundColorHex = PlatformColor($0).hexString
                             themeManager.customTheme = updated
                         }
                     )
                 )
             }
-            
+
             // Text color
             Toggle("Use System Text Color", isOn: Binding(
                 get: { themeManager.customTheme.useSystemTextColor },
@@ -148,15 +152,15 @@ struct SettingsView: View {
                     themeManager.customTheme = updated
                 }
             ))
-            
+
             if !themeManager.customTheme.useSystemTextColor {
                 ColorPicker(
                     "Text Color",
                     selection: Binding(
-                        get: { Color(UIColor(hex: themeManager.customTheme.textColorHex) ?? .label) },
+                        get: { Color(PlatformColor(hex: themeManager.customTheme.textColorHex) ?? .platformLabel) },
                         set: {
                             var updated = themeManager.customTheme
-                            updated.textColorHex = UIColor($0).hexString
+                            updated.textColorHex = PlatformColor($0).hexString
                             themeManager.customTheme = updated
                         }
                     )
@@ -193,16 +197,23 @@ struct SettingsView: View {
             return "System"
         }
         // Try to get a nicer display name
+        #if canImport(UIKit)
         if let font = UIFont(name: fontName, size: 17) {
             return font.familyName
         }
+        #elseif canImport(AppKit)
+        if let font = NSFont(name: fontName, size: 17) {
+            return font.familyName
+        }
+        #endif
         return fontName
     }
 }
 
+#if canImport(UIKit)
 struct ThemePreviewView: UIViewRepresentable {
     let theme: Theme
-    
+
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
         textView.isEditable = false
@@ -211,51 +222,113 @@ struct ThemePreviewView: UIViewRepresentable {
         textView.textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         return textView
     }
-    
+
     func updateUIView(_ uiView: UITextView, context: Context) {
         let style = theme.toDHStyle()
-        
+
         // Create attributed string with proper line height
         let text = """
         Sample Text
-        
+
         The quick brown fox jumps over the lazy dog. This is a preview of how your text will appear with the selected theme.
-        
+
         Article 1
-        
+
         1. First paragraph of legal text for demonstration purposes.
         """
-        
+
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = theme.lineHeightMultiple
         paragraphStyle.paragraphSpacing = style.paragraphSpacing
-        
+
         let attributes: [NSAttributedString.Key: Any] = [
             .font: style.font,
             .foregroundColor: style.textColor,
             .paragraphStyle: paragraphStyle
         ]
-        
+
         uiView.attributedText = NSAttributedString(string: text, attributes: attributes)
         uiView.backgroundColor = style.backgroundColor
     }
 }
+#elseif canImport(AppKit)
+struct ThemePreviewView: NSViewRepresentable {
+    let theme: Theme
+
+    func makeNSView(context: Context) -> NSScrollView {
+        let scrollView = NSScrollView()
+        scrollView.hasVerticalScroller = false
+        scrollView.hasHorizontalScroller = false
+        scrollView.borderType = .noBorder
+
+        let textView = NSTextView()
+        textView.isEditable = false
+        textView.isSelectable = false
+        textView.drawsBackground = false
+        textView.textContainerInset = NSSize(width: 12, height: 12)
+
+        scrollView.documentView = textView
+        return scrollView
+    }
+
+    func updateNSView(_ nsView: NSScrollView, context: Context) {
+        guard let textView = nsView.documentView as? NSTextView else { return }
+
+        let style = theme.toDHStyle()
+
+        // Create attributed string with proper line height
+        let text = """
+        Sample Text
+
+        The quick brown fox jumps over the lazy dog. This is a preview of how your text will appear with the selected theme.
+
+        Article 1
+
+        1. First paragraph of legal text for demonstration purposes.
+        """
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = theme.lineHeightMultiple
+        paragraphStyle.paragraphSpacing = style.paragraphSpacing
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: style.font,
+            .foregroundColor: style.textColor,
+            .paragraphStyle: paragraphStyle
+        ]
+
+        textView.textStorage?.setAttributedString(NSAttributedString(string: text, attributes: attributes))
+        textView.backgroundColor = style.backgroundColor
+    }
+}
+#endif
 
 struct FontPickerView: View {
     @Environment(\.dismiss) private var dismiss
     @Binding var selectedFont: String
     @State private var searchText = ""
-    
+
     private var fontFamilies: [(displayName: String, fontName: String)] {
         var fonts: [(String, String)] = [("System", "System")]
-        
+
+        #if canImport(UIKit)
         let families = UIFont.familyNames.sorted()
         for family in families {
             if let firstFont = UIFont.fontNames(forFamilyName: family).first {
                 fonts.append((family, firstFont))
             }
         }
-        
+        #elseif canImport(AppKit)
+        let families = NSFontManager.shared.availableFontFamilies.sorted()
+        for family in families {
+            if let members = NSFontManager.shared.availableMembers(ofFontFamily: family),
+               let firstMember = members.first,
+               let fontName = firstMember[0] as? String {
+                fonts.append((family, fontName))
+            }
+        }
+        #endif
+
         return fonts
     }
     

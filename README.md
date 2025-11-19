@@ -1,332 +1,384 @@
-# Markdowned
+# markdowned
 
-A native iOS markdown document viewer with rich rendering and theming support. Built entirely with SwiftUI and SwiftData.
-
-**Current Status:** Core viewing and theming functionality is working. Advanced features (URL import, highlighting, export) are implemented in code but not yet connected to the UI.
+A native iOS document reader and highlighter with advanced theming, URL import, and EU legal case search. Built with SwiftUI and UIKit.
 
 ## Features
 
-### Currently Implemented
-- **📄 File Import**: Import markdown/text files from device
-- **🎨 Theming System**: 5 built-in themes with live theme switching
-- **📖 Markdown Rendering**: Rich markdown display with Apple's swift-markdown
-- **💾 SwiftData Storage**: Persistent local storage
-- **🗑️ Document Management**: List, view, delete documents
+### 📄 Document Management
+- **In-memory document storage** with mock documents for testing
+- **URL import**: Fetch HTML from any URL, convert to plain text
+- **EU legal case search**: Built-in database of ~4MB CSV with searchable case records
+- **Document list**: View all loaded documents with navigation
 
-### Implemented in Code, Not in UI Yet
-- **🔗 URL Import**: `URLImportService` can fetch and convert web pages to markdown
-- **📋 Paste Import**: `DocumentService` supports pasting markdown content
-- **🖍️ Text Highlighting**: Full highlight system exists but no UI to create/manage highlights
-- **📤 Export**: HTML and PDF generation ready but no export buttons
-- **📊 Statistics**: Word count, reading time calculations available but not displayed
+### 🖍️ Text Highlighting
+- **Interactive text selection** with long-press menu
+- **5 highlight colors**: Yellow, Green, Blue, Pink, Purple (semi-transparent overlays)
+- **Highlight list**: View, navigate to, and delete highlights
+- **Smooth scrolling**: Animated scroll-to-highlight with 0.3s ease-in-out
+- **Persistent per-document**: Highlights maintained with document model
+
+### 🎨 Advanced Theming
+- **6 preset themes**: System (adaptive), Light, Dark, Sepia, High Contrast, Custom
+- **System appearance**: Automatic light/dark mode adaptation using `.systemBackground` and `.label`
+- **Custom theme builder**:
+  - Font picker with all system fonts (100+)
+  - Font size adjustment (12-24pt)
+  - Line height control (1.0-2.0x)
+  - System or custom background color
+  - System or custom text color
+- **Live preview**: See all theme changes in real-time
+- **UserDefaults persistence**: All theme settings saved automatically
+
+### 📐 Layout Options
+- **Page-like appearance**: Optional constrained width (800pt max) with centered text
+- **Responsive design**: Adapts to iPhone, iPad, and Mac Catalyst
+- **Smooth scrolling**: All text rendered in native UITextView for optimal performance
+
+### 🔗 Smart Content Loading
+- **HTML to plain text**: Native NSAttributedString HTML parsing
+- **Post-processing**: Regex-based cleanup of orphaned list markers
+- **Paragraph spacing**: Automatic standardization for readability
+- **Title extraction**: Intelligent title parsing from HTML `<title>` tags
+- **Custom User-Agent**: Proper HTTP headers for reliable content fetching
+- **Redirect handling**: Automatic following of HTTP redirects
+
+### 🔍 EU Legal Case Search
+- **4MB CSV database**: Thousands of EU legal cases included in app bundle
+- **Searchable fields**: Case number, title, CELEX identifier
+- **Direct loading**: Tap search result to fetch and display full case text
+- **Publications.europa.eu integration**: Automatic URL construction from CELEX IDs
+- **Optimized loading**: CSV parsed once on first view, cached for instant navigation
 
 ## Architecture
 
-This app follows clean architecture principles with a clear separation of concerns:
+### Core Components
 
-### Data Layer
+**DocHighlightingView** - Main document viewer
+- Displays attributed text with highlights overlaid
+- Manages highlight creation/deletion
+- Handles link detection and tapping
+- Provides highlight list sheet
 
-**Models** (SwiftData)
-- `Document`: Core document model with metadata (name, content, size, source, dates)
-- `Highlight`: Text highlight annotations with color, range, and text
-- `Theme`: Theme configuration (fonts, colors, spacing)
-- `HighlightColor`: Color definitions (sun, mint, lavender, coral)
+**DHTextView** - UITextView bridge (UIViewRepresentable)
+- Native UITextView for optimal text rendering
+- Edit menu customization for highlight creation
+- Smooth animated scrolling to highlights
+- Page layout support with width constraints
 
-**Repositories** (Repository Pattern)
-- `DocumentRepository`: Data access for documents (CRUD, search, filtering)
-- `HighlightRepository`: Data access for highlights (CRUD, grouping, validation)
+**DHComposer** - Attributed string composition
+- Combines base content, links, indentation, and highlights
+- Applies paragraph styles (line height, spacing, alignment)
+- Overlays semi-transparent highlight backgrounds
+- Efficient re-composition on state changes
 
-### Business Logic Layer
+**ThemeManager** - Theme state management (@Observable)
+- Current theme selection (preset or custom)
+- Custom theme configuration
+- Page layout preference
+- UserDefaults persistence
 
-**Services**
-- `DocumentService`: Document operations (import, validation, duplicate detection)
-- `HighlightService`: Highlight management (create, navigation, batch operations)
-- `URLImportService`: URL fetching, HTML cleaning, HTML-to-Markdown conversion
-- `ExportService`: HTML and PDF export with theming
+### Data Models
 
-### Presentation Layer
+**Document** (In-memory)
+```swift
+struct Document: Identifiable {
+    let id: UUID
+    let title: String
+    let content: Content  // .plain(String) or .attributed(NSAttributedString)
+    let sourceURL: URL?
+}
+```
 
-**ViewModels**
-- `DocumentViewModel`: Document reading state, rendering, highlights, exports
-- `DocumentListViewModel`: Document list state and operations
+**DHTextHighlight**
+```swift
+struct DHTextHighlight: Identifiable {
+    let id: UUID
+    let range: NSRange
+    let color: UIColor
+}
+```
 
-**Renderers**
-- `MarkdownRenderer`: Converts markdown to NSAttributedString using Apple's swift-markdown
-- `HTMLBuilder`: Generates HTML with embedded CSS for exports
-- `PDFGenerator`: Creates PDFs with proper pagination and styling
+**Theme**
+```swift
+struct Theme: Codable {
+    var fontName: String
+    var fontSize: CGFloat
+    var backgroundColorHex: String
+    var textColorHex: String
+    var lineHeightMultiple: CGFloat
+    var usePageLayout: Bool
+    var useSystemBackground: Bool
+    var useSystemTextColor: Bool
+}
+```
 
-### Extensions
-- `Color+Extensions.swift`: UIColor/Color conversion helpers
-- `Date+Extensions.swift`: Date formatting utilities
-- `String+Extensions.swift`: String manipulation (sanitization, markdown extensions)
+**Case** (EU Legal Cases)
+```swift
+struct Case: Identifiable {
+    let caseNumber: String
+    let caseTitle: String
+    let judgmentCELEX: String
+    // ... additional metadata
+}
+```
+
+### Services
+
+**ContentLoader** - URL fetching and HTML conversion
+- Fetches content via URLSession with proper headers
+- Parses HTML to NSAttributedString natively
+- Post-processes text for clean formatting
+- Extracts titles from HTML
+
+**CaseDataParser** - CSV parsing
+- Loads EU legal case database from bundle
+- Parses CSV into structured Case objects
+- Optimized for one-time loading
+
+### UI Components
+
+**MockDocList** - Document list with search
+- Tab-based interface (Documents / Settings)
+- Searchable case database with live filtering
+- URL entry sheet for web imports
+- Navigation to document reader
+
+**SettingsView** - Theme customization
+- Theme picker (System, presets, custom)
+- Font selection with system font browser
+- Color pickers with system color toggles
+- Line height and page layout controls
+- Live theme preview
+
+**URLEntryView** - URL import sheet
+- URL text field with validation
+- Loading indicator during fetch
+- Error handling with alerts
+- Default URL pre-filled
+
+**FontPickerView** - System font browser
+- All system fonts with live preview
+- Searchable font list
+- Each font displayed in its own typeface
 
 ## Technical Details
 
-### Markdown Parsing
+### Text Rendering Pipeline
 
-Uses **Ink** markdown parser by John Sundell for fast and flexible markdown parsing. 
-
-**Rendering Pipeline:**
-1. Markdown → HTML (via Ink's `MarkdownParser`)
-2. HTML + Theme CSS → Styled HTML document
-3. Styled HTML → `NSAttributedString` (via `NSAttributedString(data:options:)`)
-4. Apply highlights as background colors on character ranges
-
-This approach provides excellent theme control through CSS while maintaining native iOS rendering performance.
-
-Supported markdown features (via Ink):
-- Headings (H1-H6)
-- Emphasis (bold, italic, strikethrough)
-- Links and images (including reference-style)
-- Inline and block code
-- Lists (ordered and unordered, nested)
-- Blockquotes
-- Horizontal rules
-- Tables
-- Inline HTML
-
-### HTML Import
-
-Uses **SwiftSoup** for HTML parsing when importing from URLs:
-1. Fetches HTML content with custom User-Agent
-2. Extracts title from multiple sources (title tag, Open Graph, h1)
-3. Cleans HTML (removes scripts, styles, navigation elements)
-4. Extracts main content (tries `<main>`, `<article>`, `[role=main]`, then `<body>`)
-5. Converts HTML to markdown with custom element converter
-
-### Document Storage
-
-Documents have a 10MB size limit and include:
-- `id`: Unique identifier (UUID)
-- `name`: Filename with markdown extension
-- `content`: Raw markdown text
-- `size`: Byte count
-- `source`: Import source ("upload", "url", "paste", "icloud")
-- `sourceUrl`: Original URL (if from web)
-- `createdAt`: Creation timestamp
-- `modifiedAt`: Last modification timestamp
-- `highlights`: Related highlight annotations (cascade delete)
+1. **Content Input**: Plain string or NSAttributedString
+2. **Link Detection**: Regex-based article reference detection (`Article \d+`)
+3. **Indentation**: Multi-level list indentation based on markers
+4. **Composition**: Combine base content + links + indents in DHComposer
+5. **Highlighting**: Overlay semi-transparent backgrounds on character ranges
+6. **Display**: Render in UITextView with theme styling
 
 ### Highlight System
 
-Highlights store character offsets (`rangeStart`, `rangeEnd`) for text selection:
-- 4 predefined colors with specific RGBA values
-- Text extraction for display
-- Overlap detection and validation
-- Navigation (next/previous highlight)
-- Batch operations (merge adjacent, update colors)
-- Export support for HTML/PDF
+Highlights are stored as character ranges (NSRange) with colors:
+- **Creation**: Long-press text → Select "Highlight [Color]" from menu
+- **Storage**: In-memory array per document
+- **Rendering**: Semi-transparent (0.25 alpha) background color overlay
+- **Navigation**: Tap in highlight list → Smooth scroll to range
+- **Deletion**: Swipe-to-delete in highlight list or "Remove Highlight" menu
 
 ### Theme System
 
-Themes define complete styling:
-- Font family and size
-- Line height and spacing
-- Text, background, link colors
-- Heading scale factor
-- Code font and background color
-- CSS generation for HTML export
+**DHStyle** (UI Configuration)
+```swift
+struct DHStyle {
+    var font: UIFont
+    var textColor: UIColor
+    var backgroundColor: UIColor
+    var lineHeightMultiple: CGFloat
+    var paragraphSpacing: CGFloat
+    var contentInsets: UIEdgeInsets
+}
+```
 
-5 preset themes available:
-- **Professional**: Georgia serif, traditional
-- **Modern**: System font, sky blue
-- **Minimal**: Large base size, neutral grays
-- **Academic**: Times New Roman, double-spaced
-- **Creative**: Purple accent, large headings
+Themes convert to DHStyle for rendering. System colors use iOS semantic colors:
+- `.systemBackground` → Adapts to light/dark mode automatically
+- `.label` → Primary text color that adapts
 
-Custom themes can be created and saved via UserDefaults.
+### Page Layout Implementation
 
-### Export Features
+When enabled:
+```swift
+HStack {
+    Spacer()
+    DHTextView(...).frame(maxWidth: 800)
+    Spacer()
+}
+```
 
-**HTML Export:**
-- Embedded CSS from theme
-- Highlight markup with class-based styling
-- Document metadata in footer
-- Print-friendly styles
-- Multi-document export with separators
+Constrains text width to 800pt, centers with spacers. Scrollbar appears next to text container.
 
-**PDF Export:**
-- Page sizes: A4, Letter, Legal
-- Automatic pagination with CTFramesetter
-- Headers with document title
-- Footers with page numbers
-- Multi-document support with separator pages
-- 2cm margins (56.7 points)
+### URL Import Flow
+
+1. User enters URL in URLEntryView
+2. ContentLoader.loadContent() fetches HTML with custom headers
+3. HTML converted to NSAttributedString via NSAttributedString(data:options:)
+4. Plain text extracted and post-processed
+5. Title extracted from `<title>` tag
+6. Document created and added to list
+
+### Post-Processing
+
+Cleans up HTML conversion artifacts:
+- Merges orphaned list markers (numbers, letters, bullets on separate lines)
+- Standardizes paragraph spacing (double newline between paragraphs)
+- ~30 regex patterns for comprehensive cleanup
 
 ## Requirements
 
-- iOS 17.0+
-- Xcode 15.0+
-- Swift 5.9+
+- **iOS 17.0+** (uses @Observable macro)
+- **Xcode 15.0+**
+- **Swift 5.9+**
+- **Mac Catalyst compatible** (Stepper instead of Slider for font size)
 
 ## Dependencies
 
-Managed via Swift Package Manager:
+Managed via Swift Package Manager (Package.swift):
 
-- **Ink**: Fast and flexible markdown parser by John Sundell
-- **SwiftSoup**: HTML parsing and cleaning for URL imports
-- **ZIPFoundation**: Listed in Package.swift but NOT currently used in the code
+- **Ink** - Markdown parsing (currently not used, legacy dependency)
+- **SwiftSoup** - HTML parsing (currently not used, legacy dependency)  
+- **Markdown** - Apple's swift-markdown (currently not used, legacy dependency)
+- **ZIPFoundation** - ZIP handling (currently not used, legacy dependency)
+
+**Note**: Current implementation uses native iOS APIs exclusively (NSAttributedString for HTML parsing, URLSession for fetching). Legacy dependencies can be removed.
 
 ## Project Structure
 
-All files are in a flat structure in the `markdowned/` directory:
-
 ```
 markdowned/
-├── Assets.xcassets/                # App icons and colors
-├── Color+Extensions.swift          # Color utilities
-├── Date+Extensions.swift           # Date formatting
-├── Document.swift                  # Document model + validation
-├── DocumentListViewModel.swift     # List view model
-├── DocumentRepository.swift        # Document data access
-├── DocumentService.swift           # Document business logic
-├── DocumentViewModel.swift         # Document detail view model
-├── Highlight.swift                 # Highlight model + helpers
-├── HighlightColor.swift            # Color definitions
-├── HighlightRepository.swift       # Highlight data access
-├── HighlightService.swift          # Highlight operations
-├── HTMLBuilder.swift               # HTML generation + export
-├── MarkdownRenderer.swift          # Markdown → AttributedString
-├── MarkdownStudioApp.swift         # Main app + AppState + ContentView
-├── markdownedApp.swift             # Original simple app entry point
-├── Package.swift                   # (empty file)
-├── PDFGenerator.swift              # PDF creation
-├── String+Extensions.swift         # String helpers
-├── Theme.swift                     # Theme config + presets
-└── URLImportService.swift          # URL fetching + conversion
+├── markdownedApp.swift          # App entry point with TabView
+├── DocHighlightingView.swift    # Main document viewer
+├── DHTextView.swift             # UITextView wrapper
+├── DHTextHighlight.swift        # Highlight, link, indent models + DHConfig
+├── DHViewModel.swift            # Highlight state management
+├── DHComposer.swift             # Attributed string composition
+├── TextHighlight.swift          # MockDocList + highlight list UI
+├── Utilities.swift              # UIColor extensions, lorem generator
+├── TestStrings.swift            # Mock document content
+├── Document.swift               # Document model
+├── ContentLoader.swift          # URL fetching + HTML conversion
+├── URLEntryView.swift           # URL import UI
+├── Case.swift                   # EU legal case model
+├── CaseDataParser.swift         # CSV parsing
+├── Theme.swift                  # Theme model + presets
+├── ThemeManager.swift           # Theme state + UserDefaults
+├── SettingsView.swift           # Settings UI + font picker
+├── allcases.csv                 # EU legal cases database (~4MB)
+├── Info.plist                   # App Transport Security config
+├── Assets.xcassets/             # App icons and colors
+└── Readme.md                    # This file
 ```
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository**:
 ```bash
 git clone <repository-url>
 cd markdowned
 ```
 
-2. Open in Xcode:
+2. **Open in Xcode**:
 ```bash
 open markdowned.xcodeproj
 ```
 
-3. Dependencies are managed automatically via Swift Package Manager
-4. Build and run (⌘R)
+3. **Build and run** (⌘R)
+
+Dependencies resolve automatically via Swift Package Manager.
 
 ## Usage
 
-### Importing Documents
-
-**Currently in UI:**
-1. Tap + button → "Import Options"
-2. Only "Import Files" is implemented in the UI
-3. Choose markdown/text files (.txt, .md, .markdown)
-4. Files are validated and imported
-
-**Available in Code but NOT in UI:**
-- URL import functionality exists in `URLImportService` but no UI button
-- Paste import exists in `DocumentService.importFromPaste()` but no UI
-- iCloud source type is defined but no import UI
-
-**Note:** The underlying services support URL fetching, HTML-to-markdown conversion, and paste import, but these features are not connected to the user interface yet.
-
 ### Viewing Documents
 
-1. Select document from list (sorted by creation date, newest first)
-2. Document renders with selected theme
-3. Scroll to read rendered markdown
-4. Tap theme button in toolbar to select from 5 preset themes
-5. Theme changes apply immediately and re-render the document
+1. Launch app → **Documents** tab
+2. Tap any mock document to view
+3. Scroll to read
+4. Long-press text → Select highlight color to create highlight
+5. Tap **Highlights** button → View/navigate/delete highlights
 
-### Highlighting Text
+### Importing from URL
 
-**Currently:** Highlights are fetched from the database and rendered if they exist, but there is NO UI for creating, editing, or managing highlights yet.
+1. **Documents** tab → Tap **+** button
+2. Enter URL (default: GDPR regulation)
+3. Tap **Load Content**
+4. Content fetches, converts, and displays
 
-**Available in Code:**
-- `HighlightService` with full CRUD operations
-- `DocumentViewModel` with highlight creation/deletion methods  
-- Color selection and navigation logic
-- 4 highlight colors defined (Sun, Mint, Lavender, Coral)
+### Searching EU Legal Cases
 
-**Not Yet Implemented in UI:**
-- Text selection to create highlights
-- Color picker for highlights
-- Highlight list view
-- Edit/delete highlight controls
-- Navigation between highlights
+1. **Documents** tab → Use search bar
+2. Type case number, title, or CELEX ID
+3. Tap search result
+4. Case loads from publications.europa.eu
 
-### Exporting
+### Customizing Themes
 
-**Currently:** NO export UI is implemented.
+1. **Settings** tab
+2. **Theme Selection**: Choose preset or Custom
+3. **Custom Theme** (if selected):
+   - Tap **Font** → Browse all system fonts
+   - **Font Size**: Stepper to adjust 12-24pt
+   - **Line Height**: Stepper to adjust 1.0-2.0x
+   - **Background/Text Colors**: Toggle system colors or pick custom
+4. **Layout**:
+   - Enable **Page-like Appearance** for centered 800pt width
+5. Changes apply immediately to all documents
 
-**Available in Code:**
-- `ExportService` with HTML and PDF generation
-- `HTMLBuilder` creates complete HTML documents with embedded CSS
-- `PDFGenerator` creates paginated PDFs (A4/Letter/Legal page sizes)
-- Multi-document export support
-- All highlights are included in exports
+### Theme Presets
 
-**Not Yet Implemented in UI:**
-- Export menu/buttons
-- Share sheet integration
-- Page size selection
-- File save dialog
+- **System**: Adapts to iOS light/dark mode automatically
+- **Light**: White background, black text
+- **Dark**: Dark gray background, white text
+- **Sepia**: Warm beige background, brown text
+- **High Contrast**: Black background, yellow text (18pt)
 
-## Architecture Patterns
+## Performance Optimizations
 
-- **Repository Pattern**: Abstracts data access from business logic
-- **Service Layer**: Encapsulates business rules and operations
-- **MVVM**: ViewModels manage state and coordinate between services and views
-- **Dependency Injection**: Services receive repository protocols, not implementations
-- **Protocol-Oriented**: Repositories use protocols for testability
-- **SwiftData**: Modern data persistence with `@Model` macro
-- **Observation Framework**: State management with `@Observable` macro (iOS 17+)
+- **CSV loading**: Parsed once on first appearance, cached in memory
+- **Highlight rendering**: Semi-transparent overlays, no text duplication
+- **Theme switching**: Instant re-render with cached attributed strings
+- **Smooth scrolling**: UIView.animate for 0.3s scroll-to-highlight
+- **Text layout**: Native UITextView with optimized text container sizing
 
-## Error Handling
+## Known Limitations
 
-Custom error types for each layer:
-- `DocumentError`: Invalid name, empty content, file too large, access denied, invalid format
-- `HighlightError`: Invalid range, text extraction failed, update failed
-- `URLImportError`: Invalid URL, fetch failed, decoding failed, parsing failed, conversion failed
-- `ExportError`: PDF generation failed, HTML generation failed, save failed
-
-## Performance Considerations
-
-- Markdown rendering is optimized with visitor pattern over AST
-- Highlights use character offsets for efficient range operations
-- Documents are lazy-loaded via SwiftData fetch descriptors
-- PDF generation uses CoreText's CTFramesetter for efficient pagination
-- HTML export minimizes DOM manipulation
+- **No persistence**: Documents and highlights stored in memory only
+- **No editing**: Read-only document viewer
+- **HTTP only for publications.europa.eu**: App Transport Security exception required
+- **Case search**: Requires allcases.csv in bundle (~4MB)
+- **System fonts**: Font picker only shows fonts available on current device
 
 ## Future Enhancements
 
-### High Priority (Code exists, needs UI)
-- Connect URL import UI to existing `URLImportService`
-- Add paste import button for `DocumentService.importFromPaste()`
-- Build highlight creation/management UI for existing `HighlightService`
-- Add export menu to use existing `ExportService`
-- Display statistics (word count, reading time) that are already calculated
+### High Priority
+- **CoreData/SwiftData**: Persistent storage for documents and highlights
+- **Document editing**: Rich text editor with markdown support
+- **Export**: PDF/HTML export with highlights preserved
+- **iCloud sync**: Cross-device document synchronization
+- **Search**: Full-text search within documents
 
-### New Features to Build
-- Document editing capabilities (currently read-only)
-- iCloud sync
-- Search within document content
-- Tags and folders organization
-- Markdown preview while editing
-- Dark mode theme variants
-- Accessibility improvements
-- Collaborative features
+### Nice to Have
+- **Folders/Tags**: Document organization
+- **Annotations**: Notes attached to highlights
+- **Sharing**: Share documents and highlights
+- **Dark mode themes**: More theme variants
+- **Font rendering**: Support for custom font files
+- **Backup/Restore**: Import/export app data
 
 ## Contributing
 
 Contributions welcome! Please:
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Follow existing code style and patterns
-4. Write tests for new functionality
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Follow existing SwiftUI/UIKit patterns
+4. Test on iPhone and iPad
 5. Commit changes (`git commit -m 'Add amazing feature'`)
 6. Push to branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
+7. Open Pull Request
 
 ## License
 
@@ -334,12 +386,10 @@ Contributions welcome! Please:
 
 ## Acknowledgments
 
-- Built with SwiftUI and SwiftData
-- Markdown parsing by [Ink](https://github.com/JohnSundell/Ink) by John Sundell
-- HTML parsing by [SwiftSoup](https://github.com/scinfu/SwiftSoup)
-- ZIP compression by [ZIPFoundation](https://github.com/weichsel/ZIPFoundation)
-- Inspired by modern document readers and annotation tools
+- Built with **SwiftUI** and **UIKit**
+- EU legal case data from **publications.europa.eu**
+- Inspired by document annotation tools like PDF Expert and Liquid Text
 
 ---
 
-**Note**: This app is iOS-only and uses the latest SwiftUI/SwiftData features requiring iOS 17+. For web counterpart or older iOS versions, additional implementation would be required.
+**Platform**: iOS 17+ • iPhone • iPad • Mac Catalyst

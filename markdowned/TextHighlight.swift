@@ -721,14 +721,14 @@ private let mockDocs: [Document] = {
 }()
 
 struct MockDocList: View {
-    @Environment(ThemeManager.self) private var themeManager
-    @State private var docs = mockDocs
+    @EnvironmentObject private var themeManager: ThemeManager
+    @ObservedObject private var documentsManager = DocumentsManager.shared
     @State private var showingURLEntry = false
     @State private var searchText = ""
     @State private var cases: [Case] = []
     @State private var isLoadingCase = false
     @State private var hasLoadedCSV = false
-    
+
     private let contentLoader = ContentLoader()
     
     // Load CSV data on appear
@@ -737,7 +737,7 @@ struct MockDocList: View {
             List {
                 // Documents section
                 Section("Documents") {
-                    ForEach(docs) { doc in
+                    ForEach(documentsManager.documents) { doc in
                         NavigationLink(doc.title) { destination(for: doc) }
                     }
                 }
@@ -781,7 +781,7 @@ struct MockDocList: View {
             }
             .sheet(isPresented: $showingURLEntry) {
                 URLEntryView { document in
-                    docs.append(document)
+                    documentsManager.addDocument(document)
                 }
             }
             .overlay {
@@ -835,7 +835,7 @@ struct MockDocList: View {
             do {
                 // Pass the case title from CSV instead of extracting from HTML
                 let document = try await contentLoader.loadContent(from: url.absoluteString, title: caseItem.displayTitle)
-                docs.append(document)
+                documentsManager.addDocument(document)
                 isLoadingCase = false
                 searchText = "" // Clear search after loading
             } catch {
@@ -848,17 +848,17 @@ struct MockDocList: View {
     @ViewBuilder
     private func destination(for doc: Document) -> some View {
         let config = makeConfig()
-        
+
         switch doc.content {
         case .plain(let s):
-            DocHighlightingView(string: s, config: config) { url in
+            DocHighlightingView(documentId: doc.id, string: s, config: config) { url in
                 // Handle "dh://article/<n>"
                 print("Tapped link:", url.absoluteString)
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)
         case .attributed(let a):
-            DocHighlightingView(attributedString: a, config: config) { url in
+            DocHighlightingView(documentId: doc.id, attributedString: a, config: config) { url in
                 print("Tapped link:", url.absoluteString)
             }
             .navigationTitle(doc.title)

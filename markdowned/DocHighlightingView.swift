@@ -9,6 +9,7 @@ import Foundation
 // MARK: - Composite SwiftUI view
 
 struct DocHighlightingView: View {
+    private let documentId: UUID
     private let baseContent: NSAttributedString
     private var config: DHConfig
     private var onLinkTap: (URL) -> Void
@@ -17,31 +18,41 @@ struct DocHighlightingView: View {
     private let cachedLinkSpans: [DHLinkSpan]
     private let cachedIndentSpans: [DHIndentSpan]
 
-    @StateObject private var vm = DHViewModel()
+    @StateObject private var vm: DHViewModel
     @State private var showList = false
     @State private var scrollTarget: NSRange? = nil
 
     // Plain string init
-    init(string: String,
+    init(documentId: UUID,
+         string: String,
          config: DHConfig = DHConfig(),
+         initialScrollTarget: NSRange? = nil,
          onLinkTap: @escaping (URL) -> Void = { _ in }) {
         let base = NSAttributedString(string: string)
+        self.documentId = documentId
         self.baseContent = base
         self.config = config
         self.onLinkTap = onLinkTap
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(base.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(base.string as NSString) ?? []) : [])
+        self._vm = StateObject(wrappedValue: DHViewModel(documentId: documentId))
+        self._scrollTarget = State(initialValue: initialScrollTarget)
     }
 
     // Attributed string init
-    init(attributedString: NSAttributedString,
+    init(documentId: UUID,
+         attributedString: NSAttributedString,
          config: DHConfig = DHConfig(),
+         initialScrollTarget: NSRange? = nil,
          onLinkTap: @escaping (URL) -> Void = { _ in }) {
+        self.documentId = documentId
         self.baseContent = attributedString
         self.config = config
         self.onLinkTap = onLinkTap
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(attributedString.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(attributedString.string as NSString) ?? []) : [])
+        self._vm = StateObject(wrappedValue: DHViewModel(documentId: documentId))
+        self._scrollTarget = State(initialValue: initialScrollTarget)
     }
 
     private var composed: NSAttributedString {

@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 struct markdownedApp: App {
-    @State private var themeManager = ThemeManager()
-    
+    @StateObject private var themeManager = ThemeManager()
+
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -18,13 +18,18 @@ struct markdownedApp: App {
                     .tabItem {
                         Label("Documents", systemImage: "doc.text")
                     }
-                
+
+                AllHighlightsView()
+                    .tabItem {
+                        Label("Highlights", systemImage: "highlighter")
+                    }
+
                 SettingsView()
                     .tabItem {
                         Label("Settings", systemImage: "gear")
                     }
             }
-            .environment(themeManager)
+            .environmentObject(themeManager)
         }
     }
 }

@@ -7,31 +7,30 @@
 
 import Foundation
 import SwiftUI
-import Observation
+import Combine
 
-@Observable
 @MainActor
-final class ThemeManager {
+final class ThemeManager: ObservableObject {
     private let userDefaults = UserDefaults.standard
     private let selectedThemeTypeKey = "selectedThemeType"
     private let customThemeKey = "customTheme"
     private let usePageLayoutKey = "usePageLayout"
-    
-    var selectedThemeType: String {
+
+    @Published var selectedThemeType: String {
         didSet {
             userDefaults.set(selectedThemeType, forKey: selectedThemeTypeKey)
         }
     }
-    
-    var customTheme: Theme {
+
+    @Published var customTheme: Theme {
         didSet {
             if let encoded = try? JSONEncoder().encode(customTheme) {
                 userDefaults.set(encoded, forKey: customThemeKey)
             }
         }
     }
-    
-    var usePageLayout: Bool {
+
+    @Published var usePageLayout: Bool {
         didSet {
             userDefaults.set(usePageLayout, forKey: usePageLayoutKey)
         }

@@ -26,6 +26,7 @@ struct DocHighlightingView: View {
     init(documentId: UUID,
          string: String,
          config: DHConfig = DHConfig(),
+         initialScrollTarget: NSRange? = nil,
          onLinkTap: @escaping (URL) -> Void = { _ in }) {
         let base = NSAttributedString(string: string)
         self.documentId = documentId
@@ -35,12 +36,14 @@ struct DocHighlightingView: View {
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(base.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(base.string as NSString) ?? []) : [])
         self._vm = StateObject(wrappedValue: DHViewModel(documentId: documentId))
+        self._scrollTarget = State(initialValue: initialScrollTarget)
     }
 
     // Attributed string init
     init(documentId: UUID,
          attributedString: NSAttributedString,
          config: DHConfig = DHConfig(),
+         initialScrollTarget: NSRange? = nil,
          onLinkTap: @escaping (URL) -> Void = { _ in }) {
         self.documentId = documentId
         self.baseContent = attributedString
@@ -49,6 +52,7 @@ struct DocHighlightingView: View {
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(attributedString.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(attributedString.string as NSString) ?? []) : [])
         self._vm = StateObject(wrappedValue: DHViewModel(documentId: documentId))
+        self._scrollTarget = State(initialValue: initialScrollTarget)
     }
 
     private var composed: NSAttributedString {

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/LRUCache.build/master.swiftdeps"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/LRUCache/Sources/LRUCache.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/LRUCache.build/LRUCache.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/LRUCache.build/LRUCache.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/LRUCache.build/LRUCache~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/LRUCache.build/LRUCache.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/LRUCache.build/LRUCache.dia"
+  }
+}

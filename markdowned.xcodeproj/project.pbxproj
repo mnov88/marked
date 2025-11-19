@@ -6,6 +6,40 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		076DEF122EC9FE450026D77C /* Demark in Frameworks */ = {isa = PBXBuildFile; productRef = 076DEF132EC9FE450026D77C /* Demark */; };
+		076DEF612ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
+		076DEF622ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
+		076DEF632ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
+		07EA7CBB2EBB71F5002AC733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07EA7CB72EBB71F5002AC733 /* Assets.xcassets */; };
+		07EA7CBD2EBB71F5002AC733 /* markdownedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA7CB92EBB71F5002AC733 /* markdownedApp.swift */; };
+		07EA7CDE2EBB7DF0002AC733 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 07EA7CDD2EBB7DF0002AC733 /* Ink */; };
+		07EA7CE02EBB7DF0002AC733 /* ink-cli in Frameworks */ = {isa = PBXBuildFile; productRef = 07EA7CDF2EBB7DF0002AC733 /* ink-cli */; };
+		07EA7CE62EBB7E1D002AC733 /* README-INK-Lib.md in Resources */ = {isa = PBXBuildFile; fileRef = 07EA7CE52EBB7E1D002AC733 /* README-INK-Lib.md */; };
+		07EA7D122EBBD951002AC733 /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 07EA7D112EBBD951002AC733 /* Markdown */; };
+		07EA7D142EBBD954002AC733 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 07EA7D132EBBD954002AC733 /* SwiftSoup */; };
+		07EA7D162EBBD957002AC733 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 07EA7D152EBBD957002AC733 /* ZIPFoundation */; };
+		07EA80A02EBFA38D002AC733 /* TextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA809F2EBFA38D002AC733 /* TextHighlight.swift */; };
+		07EA80A22EC1E2C9002AC733 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 07EA80A12EC1E2C9002AC733 /* Readme.md */; };
+		07EA80A32EC1E2C9002AC733 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 07EA80A12EC1E2C9002AC733 /* Readme.md */; };
+		07EA80A42EC1E2C9002AC733 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 07EA80A12EC1E2C9002AC733 /* Readme.md */; };
+		07EA80A62EC1E377002AC733 /* TestStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80A52EC1E377002AC733 /* TestStrings.swift */; };
+		07EA80A82EC1E48B002AC733 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80A72EC1E48B002AC733 /* Utilities.swift */; };
+		07EA80AA2EC1E4B1002AC733 /* DocHighlightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80A92EC1E4B1002AC733 /* DocHighlightingView.swift */; };
+		07EA80AC2EC1E554002AC733 /* DHTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80AB2EC1E554002AC733 /* DHTextView.swift */; };
+		07EA80AE2EC1E58F002AC733 /* DHTextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80AD2EC1E58F002AC733 /* DHTextHighlight.swift */; };
+		07EA80B02EC1E642002AC733 /* DHViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80AF2EC1E642002AC733 /* DHViewModel.swift */; };
+		07EA80B22EC1E667002AC733 /* DHComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B12EC1E667002AC733 /* DHComposer.swift */; };
+		07EA80B42EC1E800002AC733 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B32EC1E800002AC733 /* Document.swift */; };
+		07EA80B62EC1E810002AC733 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B52EC1E810002AC733 /* ContentLoader.swift */; };
+		07EA80B82EC1E820002AC733 /* URLEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B72EC1E820002AC733 /* URLEntryView.swift */; };
+		07EA80BA2EC1EA00002AC733 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B92EC1EA00002AC733 /* Case.swift */; };
+		07EA80BC2EC1EA10002AC733 /* CaseDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BB2EC1EA10002AC733 /* CaseDataParser.swift */; };
+		07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BD2EC1EB00002AC733 /* Theme.swift */; };
+		07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */; };
+		07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80C12EC1EB20002AC733 /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		07EA7C9B2EBB71EE002AC733 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,17 +58,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		076DEF602ECB52BF0026D77C /* allcases.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = allcases.csv; sourceTree = "<group>"; };
+		076DEF642ECB5BB90026D77C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07EA7C8D2EBB71EC002AC733 /* markdowned.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = markdowned.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07EA7C9A2EBB71EE002AC733 /* markdownedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markdownedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07EA7CA42EBB71EE002AC733 /* markdownedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markdownedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07EA7CB72EBB71F5002AC733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07EA7CB92EBB71F5002AC733 /* markdownedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = markdownedApp.swift; sourceTree = "<group>"; };
+		07EA7CE52EBB7E1D002AC733 /* README-INK-Lib.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README-INK-Lib.md"; sourceTree = "<group>"; };
+		07EA809F2EBFA38D002AC733 /* TextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHighlight.swift; sourceTree = "<group>"; };
+		07EA80A12EC1E2C9002AC733 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		07EA80A52EC1E377002AC733 /* TestStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStrings.swift; sourceTree = "<group>"; };
+		07EA80A72EC1E48B002AC733 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		07EA80A92EC1E4B1002AC733 /* DocHighlightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocHighlightingView.swift; sourceTree = "<group>"; };
+		07EA80AB2EC1E554002AC733 /* DHTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextView.swift; sourceTree = "<group>"; };
+		07EA80AD2EC1E58F002AC733 /* DHTextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextHighlight.swift; sourceTree = "<group>"; };
+		07EA80AF2EC1E642002AC733 /* DHViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHViewModel.swift; sourceTree = "<group>"; };
+		07EA80B12EC1E667002AC733 /* DHComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHComposer.swift; sourceTree = "<group>"; };
+		07EA80B32EC1E800002AC733 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		07EA80B52EC1E810002AC733 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
+		07EA80B72EC1E820002AC733 /* URLEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEntryView.swift; sourceTree = "<group>"; };
+		07EA80B92EC1EA00002AC733 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		07EA80BB2EC1EA10002AC733 /* CaseDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataParser.swift; sourceTree = "<group>"; };
+		07EA80BD2EC1EB00002AC733 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		07EA80C12EC1EB20002AC733 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		07EA7C8F2EBB71EC002AC733 /* markdowned */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = markdowned;
-			sourceTree = "<group>";
-		};
 		07EA7C9D2EBB71EE002AC733 /* markdownedTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = markdownedTests;
@@ -52,6 +103,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA7D122EBBD951002AC733 /* Markdown in Frameworks */,
+				07EA7D142EBBD954002AC733 /* SwiftSoup in Frameworks */,
+				07EA7CE02EBB7DF0002AC733 /* ink-cli in Frameworks */,
+				07EA7CDE2EBB7DF0002AC733 /* Ink in Frameworks */,
+				07EA7D162EBBD957002AC733 /* ZIPFoundation in Frameworks */,
+				076DEF122EC9FE450026D77C /* Demark in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +132,12 @@
 		07EA7C842EBB71EB002AC733 = {
 			isa = PBXGroup;
 			children = (
-				07EA7C8F2EBB71EC002AC733 /* markdowned */,
+				07EA7CBA2EBB71F5002AC733 /* markdowned */,
 				07EA7C9D2EBB71EE002AC733 /* markdownedTests */,
 				07EA7CA72EBB71EE002AC733 /* markdownedUITests */,
 				07EA7C8E2EBB71EC002AC733 /* Products */,
+				07EA7CE52EBB7E1D002AC733 /* README-INK-Lib.md */,
+				07EA7D102EBBD94C002AC733 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +149,41 @@
 				07EA7CA42EBB71EE002AC733 /* markdownedUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		07EA7CBA2EBB71F5002AC733 /* markdowned */ = {
+			isa = PBXGroup;
+			children = (
+				076DEF642ECB5BB90026D77C /* Info.plist */,
+				07EA7CB72EBB71F5002AC733 /* Assets.xcassets */,
+				07EA7CB92EBB71F5002AC733 /* markdownedApp.swift */,
+				07EA809F2EBFA38D002AC733 /* TextHighlight.swift */,
+				07EA80B12EC1E667002AC733 /* DHComposer.swift */,
+				07EA80AF2EC1E642002AC733 /* DHViewModel.swift */,
+				07EA80AD2EC1E58F002AC733 /* DHTextHighlight.swift */,
+				07EA80AB2EC1E554002AC733 /* DHTextView.swift */,
+				07EA80A92EC1E4B1002AC733 /* DocHighlightingView.swift */,
+				07EA80A72EC1E48B002AC733 /* Utilities.swift */,
+				07EA80A52EC1E377002AC733 /* TestStrings.swift */,
+				07EA80A12EC1E2C9002AC733 /* Readme.md */,
+				07EA80B32EC1E800002AC733 /* Document.swift */,
+				07EA80B52EC1E810002AC733 /* ContentLoader.swift */,
+				07EA80B72EC1E820002AC733 /* URLEntryView.swift */,
+				07EA80B92EC1EA00002AC733 /* Case.swift */,
+				07EA80BB2EC1EA10002AC733 /* CaseDataParser.swift */,
+				07EA80BD2EC1EB00002AC733 /* Theme.swift */,
+				07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */,
+				07EA80C12EC1EB20002AC733 /* SettingsView.swift */,
+				076DEF602ECB52BF0026D77C /* allcases.csv */,
+			);
+			path = markdowned;
+			sourceTree = "<group>";
+		};
+		07EA7D102EBBD94C002AC733 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,11 +201,13 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				07EA7C8F2EBB71EC002AC733 /* markdowned */,
-			);
 			name = markdowned;
 			packageProductDependencies = (
+				07EA7CDD2EBB7DF0002AC733 /* Ink */,
+				07EA7CDF2EBB7DF0002AC733 /* ink-cli */,
+				07EA7D112EBBD951002AC733 /* Markdown */,
+				07EA7D132EBBD954002AC733 /* SwiftSoup */,
+				07EA7D152EBBD957002AC733 /* ZIPFoundation */,
 			);
 			productName = markdowned;
 			productReference = 07EA7C8D2EBB71EC002AC733 /* markdowned.app */;
@@ -195,6 +291,13 @@
 			);
 			mainGroup = 07EA7C842EBB71EB002AC733;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				07EA7CDC2EBB7DF0002AC733 /* XCRemoteSwiftPackageReference "Ink" */,
+				07EA7D0D2EBBD810002AC733 /* XCRemoteSwiftPackageReference "swift-markdown" */,
+				07EA7D0E2EBBD82A002AC733 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				07EA7D0F2EBBD851002AC733 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				076DEF112EC9FE450026D77C /* XCRemoteSwiftPackageReference "Demark" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 07EA7C8E2EBB71EC002AC733 /* Products */;
 			projectDirPath = "";
@@ -212,6 +315,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA80A22EC1E2C9002AC733 /* Readme.md in Resources */,
+				07EA7CBB2EBB71F5002AC733 /* Assets.xcassets in Resources */,
+				076DEF622ECB52BF0026D77C /* allcases.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +325,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA80A32EC1E2C9002AC733 /* Readme.md in Resources */,
+				07EA7CE62EBB7E1D002AC733 /* README-INK-Lib.md in Resources */,
+				076DEF632ECB52BF0026D77C /* allcases.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +335,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076DEF612ECB52BF0026D77C /* allcases.csv in Resources */,
+				07EA80A42EC1E2C9002AC733 /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +347,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EA80AA2EC1E4B1002AC733 /* DocHighlightingView.swift in Sources */,
+				07EA80B02EC1E642002AC733 /* DHViewModel.swift in Sources */,
+				07EA80AE2EC1E58F002AC733 /* DHTextHighlight.swift in Sources */,
+				07EA80A82EC1E48B002AC733 /* Utilities.swift in Sources */,
+				07EA80A62EC1E377002AC733 /* TestStrings.swift in Sources */,
+				07EA80A02EBFA38D002AC733 /* TextHighlight.swift in Sources */,
+				07EA80B22EC1E667002AC733 /* DHComposer.swift in Sources */,
+				07EA7CBD2EBB71F5002AC733 /* markdownedApp.swift in Sources */,
+				07EA80AC2EC1E554002AC733 /* DHTextView.swift in Sources */,
+				07EA80B42EC1E800002AC733 /* Document.swift in Sources */,
+				07EA80B62EC1E810002AC733 /* ContentLoader.swift in Sources */,
+				07EA80B82EC1E820002AC733 /* URLEntryView.swift in Sources */,
+				07EA80BA2EC1EA00002AC733 /* Case.swift in Sources */,
+				07EA80BC2EC1EA10002AC733 /* CaseDataParser.swift in Sources */,
+				07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */,
+				07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */,
+				07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,10 +522,25 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 483MXLSNKF;
 				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
+				ENABLE_FILE_ACCESS_MOVIES_FOLDER = readwrite;
+				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readwrite;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readwrite;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = markdowned/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -418,13 +561,14 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,6,7";
 				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
@@ -438,10 +582,25 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 483MXLSNKF;
 				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
+				ENABLE_FILE_ACCESS_MOVIES_FOLDER = readwrite;
+				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readwrite;
+				ENABLE_FILE_ACCESS_PICTURE_FOLDER = readwrite;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = markdowned/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,13 +621,14 @@
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,6,7";
 				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
@@ -615,6 +775,82 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		076DEF112EC9FE450026D77C /* XCRemoteSwiftPackageReference "Demark" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/steipete/Demark";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		07EA7CDC2EBB7DF0002AC733 /* XCRemoteSwiftPackageReference "Ink" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Ink.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
+		07EA7D0D2EBBD810002AC733 /* XCRemoteSwiftPackageReference "swift-markdown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-markdown.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.3;
+			};
+		};
+		07EA7D0E2EBBD82A002AC733 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.11.1;
+			};
+		};
+		07EA7D0F2EBBD851002AC733 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.20;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		076DEF132EC9FE450026D77C /* Demark */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 076DEF112EC9FE450026D77C /* XCRemoteSwiftPackageReference "Demark" */;
+			productName = Demark;
+		};
+		07EA7CDD2EBB7DF0002AC733 /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07EA7CDC2EBB7DF0002AC733 /* XCRemoteSwiftPackageReference "Ink" */;
+			productName = Ink;
+		};
+		07EA7CDF2EBB7DF0002AC733 /* ink-cli */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07EA7CDC2EBB7DF0002AC733 /* XCRemoteSwiftPackageReference "Ink" */;
+			productName = "ink-cli";
+		};
+		07EA7D112EBBD951002AC733 /* Markdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07EA7D0D2EBBD810002AC733 /* XCRemoteSwiftPackageReference "swift-markdown" */;
+			productName = Markdown;
+		};
+		07EA7D132EBBD954002AC733 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07EA7D0E2EBBD82A002AC733 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		07EA7D152EBBD957002AC733 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07EA7D0F2EBBD851002AC733 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07EA7C852EBB71EB002AC733 /* Project object */;
 }

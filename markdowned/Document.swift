@@ -1,127 +1,39 @@
+//
+//  Document.swift
+//  markdowned
+//
+//  Created by Milos Novovic on 16/11/2025.
+//
+
 import Foundation
-import SwiftData
+import UIKit
 
-/// Core document model representing a markdown document
-/// Maps 1:1 with web app's UploadedFile interface
-@Model
-final class Document {
-    @Attribute(.unique) var id: String
-    var name: String
-    var content: String
-    var size: Int
-    var source: String // "upload", "url", "paste", "icloud"
-    var sourceUrl: String?
-    var createdAt: Date
-    var modifiedAt: Date
-
-    // Relationships
-    @Relationship(deleteRule: .cascade, inverse: \Highlight.document)
-    var highlights: [Highlight]?
-
-    init(
-        id: String = UUID().uuidString,
-        name: String,
-        content: String,
-        size: Int,
-        source: String,
-        sourceUrl: String? = nil,
-        createdAt: Date = Date(),
-        modifiedAt: Date = Date()
-    ) {
+/// Document model supporting both static content and URL-loaded content
+struct Document: Identifiable, Hashable {
+    enum Content: Hashable {
+        case plain(String)
+        case attributed(NSAttributedString)
+    }
+    
+    let id: UUID
+    let title: String
+    let content: Content
+    let sourceURL: URL?
+    
+    init(id: UUID = UUID(), title: String, content: Content, sourceURL: URL? = nil) {
         self.id = id
-        self.name = name
+        self.title = title
         self.content = content
-        self.size = size
-        self.source = source
-        self.sourceUrl = sourceUrl
-        self.createdAt = createdAt
-        self.modifiedAt = modifiedAt
+        self.sourceURL = sourceURL
+    }
+    
+    // Convenience initializers
+    static func plain(_ text: String, title: String, sourceURL: URL? = nil) -> Document {
+        Document(title: title, content: .plain(text), sourceURL: sourceURL)
+    }
+    
+    static func attributed(_ text: NSAttributedString, title: String, sourceURL: URL? = nil) -> Document {
+        Document(title: title, content: .attributed(text), sourceURL: sourceURL)
     }
 }
 
-// MARK: - Computed Properties
-extension Document {
-    /// Human-readable file size
-    var sizeFormatted: String {
-        ByteCountFormatter.string(fromByteCount: Int64(size), countStyle: .file)
-    }
-
-    /// Check if document was imported from URL
-    var isFromURL: Bool {
-        source == "url"
-    }
-
-    /// Check if document was uploaded from files
-    var isFromUpload: Bool {
-        source == "upload"
-    }
-
-    /// Check if document was pasted
-    var isFromPaste: Bool {
-        source == "paste"
-    }
-
-    /// Get source icon name
-    var sourceIcon: String {
-        switch source {
-        case "url": return "link"
-        case "upload": return "doc"
-        case "paste": return "doc.on.clipboard"
-        case "icloud": return "icloud"
-        default: return "doc.text"
-        }
-    }
-}
-
-// MARK: - Validation
-extension Document {
-    /// Maximum file size (10MB)
-    static let maxSize = 10_000_000
-
-    /// Check if document size is valid
-    var isValidSize: Bool {
-        size <= Self.maxSize
-    }
-
-    /// Validate document
-    func validate() throws {
-        guard !name.isEmpty else {
-            throw DocumentError.invalidName
-        }
-
-        guard !content.isEmpty else {
-            throw DocumentError.emptyContent
-        }
-
-        guard isValidSize else {
-            throw DocumentError.fileTooLarge
-        }
-    }
-}
-
-// MARK: - Document Errors
-enum DocumentError: LocalizedError {
-    case invalidName
-    case emptyContent
-    case fileTooLarge
-    case accessDenied
-    case invalidFormat
-    case importFailed(String)
-
-    var errorDescription: String? {
-        switch self {
-        case .invalidName:
-            return "Document name cannot be empty"
-        case .emptyContent:
-            return "Document content cannot be empty"
-        case .fileTooLarge:
-            return "File size exceeds 10MB limit"
-        case .accessDenied:
-            return "Access to file denied"
-        case .invalidFormat:
-            return "Invalid markdown format"
-        case .importFailed(let reason):
-            return "Import failed: \(reason)"
-        }
-    }
-}

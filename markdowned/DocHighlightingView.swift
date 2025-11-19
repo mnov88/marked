@@ -1,3 +1,11 @@
+//
+//  DocHighlightingView.swift
+//  markdowned
+//
+//  Created by Milos Novovic on 10/11/2025.
+//
+import SwiftUI
+import Foundation
 // MARK: - Composite SwiftUI view
 
 struct DocHighlightingView: View {
@@ -48,20 +56,42 @@ struct DocHighlightingView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            DHTextView(
-                attributedText: composed,
-                style: config.style,
-                highlightsSnapshot: vm.highlights,
-                addHighlight: { range, color in
-                    vm.add(range: range, color: color, in: baseContent)
-                },
-                removeHighlightsInRange: { range in
-                    vm.remove(intersecting: range)
-                },
-                onTapLink: onLinkTap,
-                scrollTarget: $scrollTarget
-            )
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            if config.usePageLayout {
+                HStack(spacing: 0) {
+                    Spacer(minLength: 0)
+                    DHTextView(
+                        attributedText: composed,
+                        style: config.style,
+                        highlightsSnapshot: vm.highlights,
+                        addHighlight: { range, color in
+                            vm.add(range: range, color: color, in: baseContent)
+                        },
+                        removeHighlightsInRange: { range in
+                            vm.remove(intersecting: range)
+                        },
+                        onTapLink: onLinkTap,
+                        scrollTarget: $scrollTarget
+                    )
+                    .frame(maxWidth: 800, maxHeight: .infinity)
+                    Spacer(minLength: 0)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                DHTextView(
+                    attributedText: composed,
+                    style: config.style,
+                    highlightsSnapshot: vm.highlights,
+                    addHighlight: { range, color in
+                        vm.add(range: range, color: color, in: baseContent)
+                    },
+                    removeHighlightsInRange: { range in
+                        vm.remove(intersecting: range)
+                    },
+                    onTapLink: onLinkTap,
+                    scrollTarget: $scrollTarget
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
 
             Divider()
 

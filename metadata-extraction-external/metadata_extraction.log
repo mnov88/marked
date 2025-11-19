@@ -1,0 +1,5161 @@
+Scanning directory: /Users/milos/Coding/eurlex-organized/REG
+Found 2576 XML files to process
+[1/2576] Processing: REG-2021-1819
+  ✓ Success: 32021R1819_metadata.json
+[2/2576] Processing: REG-2021-821
+  ✓ Success: 32021R0821_metadata.json
+[3/2576] Processing: REG-2021-479
+  ✓ Success: 32021R0479_metadata.json
+[4/2576] Processing: REG-2020-2170
+  ✓ Success: 32020R2170_metadata.json
+[5/2576] Processing: REG-2010-1250
+  ✓ Success: 32010R1250_metadata.json
+[6/2576] Processing: REG-2010-1096
+  ✓ Success: 32010R1096_metadata.json
+[7/2576] Processing: REG-2012-461
+  ✓ Success: 32012R0461_metadata.json
+[8/2576] Processing: REG-2012-653
+  ✓ Success: 32012R0653_metadata.json
+[9/2576] Processing: REG-2010-254
+  ✓ Success: 32010R0254_metadata.json
+[10/2576] Processing: REG-2015-140
+  ✓ Success: 32015R0140_metadata.json
+[11/2576] Processing: REG-2010-402
+  ✓ Success: 32010R0402_metadata.json
+[12/2576] Processing: REG-2013-297
+  ✓ Success: 32013R0297_metadata.json
+[13/2576] Processing: REG-2017-1413
+  ✓ Success: 32017R1413_metadata.json
+[14/2576] Processing: REG-2013-1416
+  ✓ Success: 32013R1416_metadata.json
+[15/2576] Processing: REG-2022-1207
+  ✓ Success: 32022R1207_metadata.json
+[16/2576] Processing: REG-2022-1035
+  ✓ Success: 32022R1035_metadata.json
+[17/2576] Processing: REG-2013-638
+  ✓ Success: 32013R0638_metadata.json
+[18/2576] Processing: REG-2015-1327
+  ✓ Success: 32015R1327_metadata.json
+[19/2576] Processing: REG-2013-1072
+  ✓ Success: 32013R1072_metadata.json
+[20/2576] Processing: REG-2014-1093
+  ✓ Success: 32014R1093_metadata.json
+[21/2576] Processing: REG-2018-336
+  ✓ Success: 32018R0336_metadata.json
+[22/2576] Processing: REG-2012-1100
+  ✓ Success: 32012R1100_metadata.json
+[23/2576] Processing: REG-2019-1919
+  ✓ Success: 32019R1919_metadata.json
+[24/2576] Processing: REG-2017-540
+  ✓ Success: 32017R0540_metadata.json
+[25/2576] Processing: REG-2015-2338
+  ✓ Success: 32015R2338_metadata.json
+[26/2576] Processing: REG-2015-523
+  ✓ Success: 32015R0523_metadata.json
+[27/2576] Processing: REG-2013-432
+  ✓ Success: 32013R0432_metadata.json
+[28/2576] Processing: REG-2011-207
+  ✓ Success: 32011R0207_metadata.json
+[29/2576] Processing: REG-2017-1084
+  ✓ Success: 32017R1084_metadata.json
+[30/2576] Processing: REG-2010-1065
+  ✓ Success: 32010R1065_metadata.json
+[31/2576] Processing: REG-2014-1299
+  ✓ Success: 32014R1299_metadata.json
+[32/2576] Processing: REG-2017-786
+  ✓ Success: 32017R0786_metadata.json
+[33/2576] Processing: REG-2020-1998
+  ✓ Success: 32020R1998_metadata.json
+[34/2576] Processing: REG-2012-459
+  ✓ Success: 32012R0459_metadata.json
+[35/2576] Processing: REG-2022-476
+  ✓ Success: 32022R0476_metadata.json
+[36/2576] Processing: REG-2019-89
+  ✓ Success: 32019R0089_metadata.json
+[37/2576] Processing: REG-2019-1926
+  ✓ Success: 32019R1926_metadata.json
+[38/2576] Processing: REG-2013-1075
+  ✓ Success: 32013R1075_metadata.json
+[39/2576] Processing: REG-2014-910
+  ✓ Success: 32014R0910_metadata.json
+[40/2576] Processing: REG-2021-819
+  ✓ Success: 32021R0819_metadata.json
+[41/2576] Processing: REG-2022-1032
+  ✓ Success: 32022R1032_metadata.json
+[42/2576] Processing: REG-2014-548
+  ✓ Success: 32014R0548_metadata.json
+[43/2576] Processing: REG-2010-896
+  ✓ Success: 32010R0896_metadata.json
+[44/2576] Processing: REG-2011-836
+  ✓ Success: 32011R0836_metadata.json
+[45/2576] Processing: REG-2010-265
+  ✓ Success: 32010R0265_metadata.json
+[46/2576] Processing: REG-2021-2201
+  ✓ Success: 32021R2201_metadata.json
+[47/2576] Processing: REG-2018-1095
+  ✓ Success: 32018R1095_metadata.json
+[48/2576] Processing: REG-2017-2095
+  ✓ Success: 32017R2095_metadata.json
+[49/2576] Processing: REG-2012-206
+  ✓ Success: 32012R0206_metadata.json
+[50/2576] Processing: REG-2015-1329
+  ✓ Success: 32015R1329_metadata.json
+[51/2576] Processing: REG-2017-2061
+  ✓ Success: 32017R2061_metadata.json
+[52/2576] Processing: REG-2014-317
+  ✓ Success: 32014R0317_metadata.json
+[53/2576] Processing: REG-2019-962
+  ✓ Success: 32019R0962_metadata.json
+[54/2576] Processing: REG-2010-1261
+  ✓ Success: 32010R1261_metadata.json
+[55/2576] Processing: REG-2013-897
+  ✓ Success: 32013R0897_metadata.json
+[56/2576] Processing: REG-2019-1910
+  ✓ Success: 32019R1910_metadata.json
+[57/2576] Processing: REG-2010-1098
+  ✓ Success: 32010R1098_metadata.json
+[58/2576] Processing: REG-2021-23
+  ✓ Success: 32021R0023_metadata.json
+[59/2576] Processing: REG-2013-609
+  ✓ Success: 32013R0609_metadata.json
+[60/2576] Processing: REG-2023-1182
+  ✓ Success: 32023R1182_metadata.json
+[61/2576] Processing: REG-2018-1862
+  ✓ Success: 32018R1862_metadata.json
+[62/2576] Processing: REG-2014-1290
+  ✓ Success: 32014R1290_metadata.json
+[63/2576] Processing: REG-2011-14
+  ✓ Success: 32011R0014_metadata.json
+[64/2576] Processing: REG-2014-546
+  ✓ Success: 32014R0546_metadata.json
+[65/2576] Processing: REG-2010-1054
+  ✓ Success: 32010R1054_metadata.json
+[66/2576] Processing: REG-2010-898
+  ✓ Success: 32010R0898_metadata.json
+[67/2576] Processing: REG-2017-2402
+  ✓ Success: 32017R2402_metadata.json
+[68/2576] Processing: REG-2011-460
+  ✓ Success: 32011R0460_metadata.json
+[69/2576] Processing: REG-2021-817
+  ✓ Success: 32021R0817_metadata.json
+[70/2576] Processing: REG-2010-606
+  ✓ Success: 32010R0606_metadata.json
+[71/2576] Processing: REG-2017-2092
+  ✓ Success: 32017R2092_metadata.json
+[72/2576] Processing: REG-2011-494
+  ✓ Success: 32011R0494_metadata.json
+[73/2576] Processing: REG-2010-262
+  ✓ Success: 32010R0262_metadata.json
+[74/2576] Processing: REG-2012-665
+  ✓ Success: 32012R0665_metadata.json
+[75/2576] Processing: REG-2014-1297
+  ✓ Success: 32014R1297_metadata.json
+[76/2576] Processing: REG-2021-1810
+  ✓ Success: 32021R1810_metadata.json
+[77/2576] Processing: REG-2010-1259
+  ✓ Success: 32010R1259_metadata.json
+[78/2576] Processing: REG-2015-1775
+  ✓ Success: 32015R1775_metadata.json
+[79/2576] Processing: REG-2011-209
+  ✓ Success: 32011R0209_metadata.json
+[80/2576] Processing: REG-2014-579
+  ✓ Success: 32014R0579_metadata.json
+[81/2576] Processing: REG-2011-699
+  ✓ Success: 32011R0699_metadata.json
+[82/2576] Processing: REG-2010-699
+  ✓ Success: 32010R0699_metadata.json
+[83/2576] Processing: REG-2023-675
+  ✓ Success: 32023R0675_metadata.json
+[84/2576] Processing: REG-2023-447
+  ✓ Success: 32023R0447_metadata.json
+[85/2576] Processing: REG-2016-1158
+  ✓ Success: 32016R1158_metadata.json
+[86/2576] Processing: REG-2021-616
+  ✓ Success: 32021R0616_metadata.json
+[87/2576] Processing: REG-2021-888
+  ✓ Success: 32021R0888_metadata.json
+[88/2576] Processing: REG-2016-1355
+  ✓ Success: 32016R1355_metadata.json
+[89/2576] Processing: REG-2022-880
+  ✓ Success: 32022R0880_metadata.json
+[90/2576] Processing: REG-2010-1000
+  ✓ Success: 32010R1000_metadata.json
+[91/2576] Processing: REG-2010-494
+  ✓ Success: 32010R0494_metadata.json
+[92/2576] Processing: REG-2021-1275
+  ✓ Success: 32021R1275_metadata.json
+[93/2576] Processing: REG-2017-1485
+  ✓ Success: 32017R1485_metadata.json
+[94/2576] Processing: REG-2016-2372
+  ✓ Success: 32016R2372_metadata.json
+[95/2576] Processing: REG-2019-1716
+  ✓ Success: 32019R1716_metadata.json
+[96/2576] Processing: REG-2010-838
+  ✓ Success: 32010R0838_metadata.json
+[97/2576] Processing: REG-2013-691
+  ✓ Success: 32013R0691_metadata.json
+[98/2576] Processing: REG-2022-626
+  ✓ Success: 32022R0626_metadata.json
+[99/2576] Processing: REG-2023-1774
+  ✓ Success: 32023R1774_metadata.json
+[100/2576] Processing: REG-2021-77
+  ✓ Success: 32021R0077_metadata.json
+[101/2576] Processing: REG-2015-2365
+  ✓ Success: 32015R2365_metadata.json
+[102/2576] Processing: REG-2023-440
+  ✓ Success: 32023R0440_metadata.json
+[103/2576] Processing: REG-2012-897
+  ✓ Success: 32012R0897_metadata.json
+[104/2576] Processing: REG-2013-1017
+  ✓ Success: 32013R1017_metadata.json
+[105/2576] Processing: REG-2011-291
+  ✓ Success: 32011R0291_metadata.json
+[106/2576] Processing: REG-2012-636
+  ✓ Success: 32012R0636_metadata.json
+[107/2576] Processing: REG-2021-48
+  ✓ Success: 32021R0048_metadata.json
+[108/2576] Processing: REG-2016-582
+  ✓ Success: 32016R0582_metadata.json
+[109/2576] Processing: REG-2014-185
+  ✓ Success: 32014R0185_metadata.json
+[110/2576] Processing: REG-2019-1381
+  ✓ Success: 32019R1381_metadata.json
+[111/2576] Processing: REG-2014-515
+  ✓ Success: 32014R0515_metadata.json
+[112/2576] Processing: REG-2010-1235
+  ✓ Success: 32010R1235_metadata.json
+[113/2576] Processing: REG-2019-2160
+  ✓ Success: 32019R2160_metadata.json
+[114/2576] Processing: REG-2010-238
+  ✓ Success: 32010R0238_metadata.json
+[115/2576] Processing: REG-2023-1114
+  ✓ Success: 32023R1114_metadata.json
+[116/2576] Processing: REG-2017-719
+  ✓ Success: 32017R0719_metadata.json
+[117/2576] Processing: REG-2021-1881
+  ✓ Success: 32021R1881_metadata.json
+[118/2576] Processing: REG-2013-1021
+  ✓ Success: 32013R1021_metadata.json
+[119/2576] Processing: REG-2015-1146
+  ✓ Success: 32015R1146_metadata.json
+[120/2576] Processing: REG-2010-663
+  ✓ Success: 32010R0663_metadata.json
+[121/2576] Processing: REG-2012-264
+  ✓ Success: 32012R0264_metadata.json
+[122/2576] Processing: REG-2012-432
+  ✓ Success: 32012R0432_metadata.json
+[123/2576] Processing: REG-2010-207
+  ✓ Success: 32010R0207_metadata.json
+[124/2576] Processing: REG-2016-1390
+  ✓ Success: 32016R1390_metadata.json
+[125/2576] Processing: REG-2017-170
+  ✓ Success: 32017R0170_metadata.json
+[126/2576] Processing: REG-2011-253
+  ✓ Success: 32011R0253_metadata.json
+[127/2576] Processing: REG-2016-918
+  ✓ Success: 32016R0918_metadata.json
+[128/2576] Processing: REG-2021-618
+  ✓ Success: 32021R0618_metadata.json
+[129/2576] Processing: REG-2011-1385
+  ✓ Success: 32011R1385_metadata.json
+[130/2576] Processing: REG-2010-697
+  ✓ Success: 32010R0697_metadata.json
+[131/2576] Processing: REG-2012-290
+  ✓ Success: 32012R0290_metadata.json
+[132/2576] Processing: REG-2016-1952
+  ✓ Success: 32016R1952_metadata.json
+[133/2576] Processing: REG-2015-2192
+  ✓ Success: 32015R2192_metadata.json
+[134/2576] Processing: REG-2014-729
+  ✓ Success: 32014R0729_metadata.json
+[135/2576] Processing: REG-2015-1525
+  ✓ Success: 32015R1525_metadata.json
+[136/2576] Processing: REG-2013-806
+  ✓ Success: 32013R0806_metadata.json
+[137/2576] Processing: REG-2018-1807
+  ✓ Success: 32018R1807_metadata.json
+[138/2576] Processing: REG-2022-2046
+  ✓ Success: 32022R2046_metadata.json
+[139/2576] Processing: REG-2019-1149
+  ✓ Success: 32019R1149_metadata.json
+[140/2576] Processing: REG-2014-1201
+  ✓ Success: 32014R1201_metadata.json
+[141/2576] Processing: REG-2023-1113
+  ✓ Success: 32023R1113_metadata.json
+[142/2576] Processing: REG-2023-1321
+  ✓ Success: 32023R1321_metadata.json
+[143/2576] Processing: REG-2012-899
+  ✓ Success: 32012R0899_metadata.json
+[144/2576] Processing: REG-2013-1019
+  ✓ Success: 32013R1019_metadata.json
+[145/2576] Processing: REG-2014-372
+  ✓ Success: 32014R0372_metadata.json
+[146/2576] Processing: REG-2020-1593
+  ✓ Success: 32020R1593_metadata.json
+[147/2576] Processing: REG-2010-1204
+  ✓ Success: 32010R1204_metadata.json
+[148/2576] Processing: REG-2010-1036
+  ✓ Success: 32010R1036_metadata.json
+[149/2576] Processing: REG-2010-200
+  ✓ Success: 32010R0200_metadata.json
+[150/2576] Processing: REG-2019-799
+  ✓ Success: 32019R0799_metadata.json
+[151/2576] Processing: REG-2019-1176
+  ✓ Success: 32019R1176_metadata.json
+[152/2576] Processing: REG-2015-326
+  ✓ Success: 32015R0326_metadata.json
+[153/2576] Processing: REG-2012-200
+  ✓ Success: 32012R0200_metadata.json
+[154/2576] Processing: REG-2023-1719
+  ✓ Success: 32023R1719_metadata.json
+[155/2576] Processing: REG-2016-372
+  ✓ Success: 32016R0372_metadata.json
+[156/2576] Processing: REG-2017-2403
+  ✓ Success: 32017R2403_metadata.json
+[157/2576] Processing: REG-2010-297
+  ✓ Success: 32010R0297_metadata.json
+[158/2576] Processing: REG-2010-899
+  ✓ Success: 32010R0899_metadata.json
+[159/2576] Processing: REG-2013-630
+  ✓ Success: 32013R0630_metadata.json
+[160/2576] Processing: REG-2013-1283
+  ✓ Success: 32006R0865_metadata.json
+[161/2576] Processing: REG-2022-1466
+  ✓ Success: 32022R1466_metadata.json
+[162/2576] Processing: REG-2011-208
+  ✓ Success: 32011R0208_metadata.json
+[163/2576] Processing: REG-2019-503
+  ✓ Success: 32019R0503_metadata.json
+[164/2576] Processing: REG-2014-316
+  ✓ Success: 32014R0316_metadata.json
+[165/2576] Processing: REG-2014-124
+  ✓ Success: 32014R0124_metadata.json
+[166/2576] Processing: REG-2015-1328
+  ✓ Success: 32015R1328_metadata.json
+[167/2576] Processing: REG-2011-230
+  ✓ Success: 32011R0230_metadata.json
+[168/2576] Processing: REG-2014-540
+  ✓ Success: 32014R0540_metadata.json
+[169/2576] Processing: REG-2019-1582
+  ✓ Success: 32019R1582_metadata.json
+[170/2576] Processing: REG-2010-290
+  ✓ Success: 32010R0290_metadata.json
+[171/2576] Processing: REG-2022-1208
+  ✓ Success: 32022R1208_metadata.json
+[172/2576] Processing: REG-2020-1503
+  ✓ Success: 32020R1503_metadata.json
+[173/2576] Processing: REG-2010-600
+  ✓ Success: 32010R0600_metadata.json
+[174/2576] Processing: REG-2011-492
+  ✓ Success: 32011R0492_metadata.json
+[175/2576] Processing: REG-2017-745
+  ✓ Success: 32017R0745_metadata.json
+[176/2576] Processing: REG-2021-644
+  ✓ Success: 32021R0644_metadata.json
+[177/2576] Processing: REG-2013-608
+  ✓ Success: 32013R0608_metadata.json
+[178/2576] Processing: REG-2016-178
+  ✓ Success: 32016R0178_metadata.json
+[179/2576] Processing: REG-2013-1270
+  ✓ Success: 32013R1270_metadata.json
+[180/2576] Processing: REG-2011-15
+  ✓ Success: 32011R0015_metadata.json
+[181/2576] Processing: REG-2015-1919
+  ✓ Success: 32015R1919_metadata.json
+[182/2576] Processing: REG-2012-836
+  ✓ Success: 32012R0836_metadata.json
+[183/2576] Processing: REG-2016-1103
+  ✓ Success: 32016R1103_metadata.json
+[184/2576] Processing: REG-2012-493
+  ✓ Success: 32012R0493_metadata.json
+[185/2576] Processing: REG-2010-1256
+  ✓ Success: 32010R1256_metadata.json
+[186/2576] Processing: REG-2015-1910
+  ✓ Success: 32015R1910_metadata.json
+[187/2576] Processing: REG-2012-231
+  ✓ Success: 32012R0231_metadata.json
+[188/2576] Processing: REG-2020-873
+  ✓ Success: 32020R0873_metadata.json
+[189/2576] Processing: REG-2010-404
+  ✓ Success: 32010R0404_metadata.json
+[190/2576] Processing: REG-2021-818
+  ✓ Success: 32021R0818_metadata.json
+[191/2576] Processing: REG-2013-1074
+  ✓ Success: 32013R1074_metadata.json
+[192/2576] Processing: REG-2022-1033
+  ✓ Success: 32022R1033_metadata.json
+[193/2576] Processing: REG-2010-897
+  ✓ Success: 32010R0897_metadata.json
+[194/2576] Processing: REG-2011-1129
+  ✓ Success: 32011R1129_metadata.json
+[195/2576] Processing: REG-2023-1141
+  ✓ Success: 32023R1141_metadata.json
+[196/2576] Processing: REG-2014-1253
+  ✓ Success: 32014R1253_metadata.json
+[197/2576] Processing: REG-2022-477
+  ✓ Success: 32022R0477_metadata.json
+[198/2576] Processing: REG-2019-88
+  ✓ Success: 32019R0088_metadata.json
+[199/2576] Processing: REG-2010-255
+  ✓ Success: 32010R0255_metadata.json
+[200/2576] Processing: REG-2017-310
+  ✓ Success: 32017R0310_metadata.json
+[201/2576] Processing: REG-2010-403
+  ✓ Success: 32010R0403_metadata.json
+[202/2576] Processing: REG-2015-373
+  ✓ Success: 32015R0373_metadata.json
+[203/2576] Processing: REG-2011-691
+  ✓ Success: 32011R0691_metadata.json
+[204/2576] Processing: REG-2012-236
+  ✓ Success: 32012R0236_metadata.json
+[205/2576] Processing: REG-2011-665
+  ✓ Success: 32011R0665_metadata.json
+[206/2576] Processing: REG-2016-1752
+  ✓ Success: 32016R1752_metadata.json
+[207/2576] Processing: REG-2019-952
+  ✓ Success: 32019R0952_metadata.json
+[208/2576] Processing: REG-2019-1781
+  ✓ Success: 32019R1781_metadata.json
+[209/2576] Processing: REG-2013-606
+  ✓ Success: 32013R0606_metadata.json
+[210/2576] Processing: REG-2016-1104
+  ✓ Success: 32016R1104_metadata.json
+[211/2576] Processing: REG-2023-888
+  ✓ Success: 32023R0888_metadata.json
+[212/2576] Processing: REG-2015-728
+  ✓ Success: 32015R0728_metadata.json
+[213/2576] Processing: REG-2014-788
+  ✓ Success: 32014R0788_metadata.json
+[214/2576] Processing: REG-2022-1034
+  ✓ Success: 32022R1034_metadata.json
+[215/2576] Processing: REG-2010-890
+  ✓ Success: 32010R0890_metadata.json
+[216/2576] Processing: REG-2013-1417
+  ✓ Success: 32013R1417_metadata.json
+[217/2576] Processing: REG-2011-830
+  ✓ Success: 32011R0830_metadata.json
+[218/2576] Processing: REG-2014-1092
+  ✓ Success: 32014R1092_metadata.json
+[219/2576] Processing: REG-2013-1073
+  ✓ Success: 32013R1073_metadata.json
+[220/2576] Processing: REG-2014-318
+  ✓ Success: 32014R0318_metadata.json
+[221/2576] Processing: REG-2021-1229
+  ✓ Success: 32021R1229_metadata.json
+[222/2576] Processing: REG-2010-468
+  ✓ Success: 32010R0468_metadata.json
+[223/2576] Processing: REG-2019-1148
+  ✓ Success: 32019R1148_metadata.json
+[224/2576] Processing: REG-2016-1953
+  ✓ Success: 32016R1953_metadata.json
+[225/2576] Processing: REG-2018-1806
+  ✓ Success: 32018R1806_metadata.json
+[226/2576] Processing: REG-2013-209
+  ✓ Success: 32013R0209_metadata.json
+[227/2576] Processing: REG-2016-67
+  ✓ Success: 32016R0067_metadata.json
+[228/2576] Processing: REG-2021-1873
+  ✓ Success: 32021R1873_metadata.json
+[229/2576] Processing: REG-2010-201
+  ✓ Success: 32010R0201_metadata.json
+[230/2576] Processing: REG-2020-1566
+  ✓ Success: 32020R1566_metadata.json
+[231/2576] Processing: REG-2016-1396
+  ✓ Success: 32016R1396_metadata.json
+[232/2576] Processing: REG-2015-327
+  ✓ Success: 32015R0327_metadata.json
+[233/2576] Processing: REG-2013-1018
+  ✓ Success: 32013R1018_metadata.json
+[234/2576] Processing: REG-2018-1461
+  ✓ Success: 32018R1461_metadata.json
+[235/2576] Processing: REG-2014-717
+  ✓ Success: 32014R0717_metadata.json
+[236/2576] Processing: REG-2016-60
+  ✓ Success: 32016R0060_metadata.json
+[237/2576] Processing: REG-2013-800
+  ✓ Success: 32013R0800_metadata.json
+[238/2576] Processing: REG-2022-1403
+  ✓ Success: 32022R1403_metadata.json
+[239/2576] Processing: REG-2015-1711
+  ✓ Success: 32015R1711_metadata.json
+[240/2576] Processing: REG-2010-837
+  ✓ Success: 32010R0837_metadata.json
+[241/2576] Processing: REG-2023-1115
+  ✓ Success: 32023R1115_metadata.json
+[242/2576] Processing: REG-2020-672
+  ✓ Success: 32020R0672_metadata.json
+[243/2576] Processing: REG-2019-592
+  ✓ Success: 32019R0592_metadata.json
+[244/2576] Processing: REG-2022-2040
+  ✓ Success: 32022R2040_metadata.json
+[245/2576] Processing: REG-2022-93
+  ✓ Success: 32022R0093_metadata.json
+[246/2576] Processing: REG-2014-42-EU
+  ✓ Success: 32014R0042_metadata.json
+[247/2576] Processing: REG-2011-252
+  ✓ Success: 32011R0252_metadata.json
+[248/2576] Processing: REG-2013-655
+  ✓ Success: 32013R0655_metadata.json
+[249/2576] Processing: REG-2021-1245
+  ✓ Success: 32021R1245_metadata.json
+[250/2576] Processing: REG-2021-1077
+  ✓ Success: 32021R1077_metadata.json
+[251/2576] Processing: REG-2010-450
+  ✓ Success: 32010R0450_metadata.json
+[252/2576] Processing: REG-2021-887
+  ✓ Success: 32021R0887_metadata.json
+[253/2576] Processing: REG-2014-380
+  ✓ Success: 32014R0380_metadata.json
+[254/2576] Processing: REG-2018-2025
+  ✓ Success: 32018R2025_metadata.json
+[255/2576] Processing: REG-2017-171
+  ✓ Success: 32017R0171_metadata.json
+[256/2576] Processing: REG-2012-1190
+  ✓ Success: 32012R1190_metadata.json
+[257/2576] Processing: REG-2021-1842
+  ✓ Success: 32021R1842_metadata.json
+[258/2576] Processing: REG-2023-1781
+  ✓ Success: 32023R1781_metadata.json
+[259/2576] Processing: REG-2016-56
+  ✓ Success: 32016R0056_metadata.json
+[260/2576] Processing: REG-2022-1435
+  ✓ Success: 32022R1435_metadata.json
+[261/2576] Processing: REG-2023-441
+  ✓ Success: 32023R0441_metadata.json
+[262/2576] Processing: REG-2015-1185
+  ✓ Success: 32015R1185_metadata.json
+[263/2576] Processing: REG-2014-1003
+  ✓ Success: 32014R1003_metadata.json
+[264/2576] Processing: REG-2010-459
+  ✓ Success: 32010R0459_metadata.json
+[265/2576] Processing: REG-2019-796
+  ✓ Success: 32019R0796_metadata.json
+[266/2576] Processing: REG-2010-801
+  ✓ Success: 32010R0801_metadata.json
+[267/2576] Processing: REG-2011-432
+  ✓ Success: 32011R0432_metadata.json
+[268/2576] Processing: REG-2013-809
+  ✓ Success: 32013R0809_metadata.json
+[269/2576] Processing: REG-2015-786
+  ✓ Success: 32015R0786_metadata.json
+[270/2576] Processing: REG-2016-113
+  ✓ Success: 32016R0113_metadata.json
+[271/2576] Processing: REG-2014-514
+  ✓ Success: 32014R0514_metadata.json
+[272/2576] Processing: REG-2023-826
+  ✓ Success: 32023R0826_metadata.json
+[273/2576] Processing: REG-2013-697
+  ✓ Success: 32013R0697_metadata.json
+[274/2576] Processing: REG-2011-1174
+  ✓ Success: 32011R1174_metadata.json
+[275/2576] Processing: REG-2016-583
+  ✓ Success: 32016R0583_metadata.json
+[276/2576] Processing: REG-2022-1290
+  ✓ Success: 32022R1290_metadata.json
+[277/2576] Processing: REG-2014-1004
+  ✓ Success: 32014R1004_metadata.json
+[278/2576] Processing: REG-2013-1223
+  ✓ Success: 32013R1223_metadata.json
+[279/2576] Processing: REG-2010-698
+  ✓ Success: 32010R0698_metadata.json
+[280/2576] Processing: REG-2022-1264
+  ✓ Success: 32022R1264_metadata.json
+[281/2576] Processing: REG-2010-461
+  ✓ Success: 32010R0461_metadata.json
+[282/2576] Processing: REG-2014-1209
+  ✓ Success: 32014R1209_metadata.json
+[283/2576] Processing: REG-2011-1173
+  ✓ Success: 32011R1173_metadata.json
+[284/2576] Processing: REG-2016-1192
+  ✓ Success: 32016R1192_metadata.json
+[285/2576] Processing: REG-2021-2061
+  ✓ Success: 32021R2061_metadata.json
+[286/2576] Processing: REG-2023-1329
+  ✓ Success: 32023R1329_metadata.json
+[287/2576] Processing: REG-2017-140
+  ✓ Success: 32017R0140_metadata.json
+[288/2576] Processing: REG-2010-237
+  ✓ Success: 32010R0237_metadata.json
+[289/2576] Processing: REG-2016-114
+  ✓ Success: 32016R0114_metadata.json
+[290/2576] Processing: REG-2011-263
+  ✓ Success: 32011R0263_metadata.json
+[291/2576] Processing: REG-2014-513
+  ✓ Success: 32014R0513_metadata.json
+[292/2576] Processing: REG-2010-1001
+  ✓ Success: 32010R1001_metadata.json
+[293/2576] Processing: REG-2010-1233
+  ✓ Success: 32010R1233_metadata.json
+[294/2576] Processing: REG-2019-26
+  ✓ Success: 32019R0026_metadata.json
+[295/2576] Processing: REG-2011-547
+  ✓ Success: 32011R0547_metadata.json
+[296/2576] Processing: REG-2021-1134
+  ✓ Success: 32021R1134_metadata.json
+[297/2576] Processing: REG-2016-1014
+  ✓ Success: 32016R1014_metadata.json
+[298/2576] Processing: REG-2014-653
+  ✓ Success: 32014R0653_metadata.json
+[299/2576] Processing: REG-2022-1329
+  ✓ Success: 32022R1329_metadata.json
+[300/2576] Processing: REG-2018-1717
+  ✓ Success: 32018R1717_metadata.json
+[301/2576] Processing: REG-2019-1691
+  ✓ Success: 32019R1691_metadata.json
+[302/2576] Processing: REG-2012-570
+  ✓ Success: 32012R0570_metadata.json
+[303/2576] Processing: REG-2023-1069
+  ✓ Success: 32023R1069_metadata.json
+[304/2576] Processing: REG-2011-1233
+  ✓ Success: 32011R1233_metadata.json
+[305/2576] Processing: REG-2010-721
+  ✓ Success: 32010R0721_metadata.json
+[306/2576] Processing: REG-2012-114
+  ✓ Success: 32012R0114_metadata.json
+[307/2576] Processing: REG-2021-765
+  ✓ Success: 32021R0765_metadata.json
+[308/2576] Processing: REG-2013-35
+  ✓ Success: 32013R0035_metadata.json
+[309/2576] Processing: REG-2017-1991
+  ✓ Success: 32017R1991_metadata.json
+[310/2576] Processing: REG-2019-2219
+  ✓ Success: 32019R2219_metadata.json
+[311/2576] Processing: REG-2021-557
+  ✓ Success: 32021R0557_metadata.json
+[312/2576] Processing: REG-2014-806
+  ✓ Success: 32014R0806_metadata.json
+[313/2576] Processing: REG-2023-706
+  ✓ Success: 32023R0706_metadata.json
+[314/2576] Processing: REG-2014-208
+  ✓ Success: 32014R0208_metadata.json
+[315/2576] Processing: REG-2019-287
+  ✓ Success: 32019R0287_metadata.json
+[316/2576] Processing: REG-2020-355
+  ✓ Success: 32020R0355_metadata.json
+[317/2576] Processing: REG-2012-1011
+  ✓ Success: 32012R1011_metadata.json
+[318/2576] Processing: REG-2013-1197
+  ✓ Success: 32013R1197_metadata.json
+[319/2576] Processing: REG-2015-1494
+  ✓ Success: 32015R1494_metadata.json
+[320/2576] Processing: REG-2018-643
+  ✓ Success: 32018R0643_metadata.json
+[321/2576] Processing: REG-2016-891
+  ✓ Success: 32016R0891_metadata.json
+[322/2576] Processing: REG-2010-148
+  ✓ Success: 32010R0148_metadata.json
+[323/2576] Processing: REG-2022-2309
+  ✓ Success: 32022R2309_metadata.json
+[324/2576] Processing: REG-2017-1505
+  ✓ Success: 32017R1505_metadata.json
+[325/2576] Processing: REG-2018-75
+  ✓ Success: 32018R0075_metadata.json
+[326/2576] Processing: REG-2020-1041
+  ✓ Success: 32020R1041_metadata.json
+[327/2576] Processing: REG-2011-1006
+  ✓ Success: 32011R1006_metadata.json
+[328/2576] Processing: REG-2012-577
+  ✓ Success: 32012R0577_metadata.json
+[329/2576] Processing: REG-2020-2092
+  ✓ Success: 32020R2092_metadata.json
+[330/2576] Processing: REG-2014-654
+  ✓ Success: 32014R0654_metadata.json
+[331/2576] Processing: REG-2012-583
+  ✓ Success: 32012R0583_metadata.json
+[332/2576] Processing: REG-2016-1013
+  ✓ Success: 32016R1013_metadata.json
+[333/2576] Processing: REG-2011-316
+  ✓ Success: 32011R0316_metadata.json
+[334/2576] Processing: REG-2016-637
+  ✓ Success: 32016R0637_metadata.json
+[335/2576] Processing: REG-2013-147
+  ✓ Success: 32013R0147_metadata.json
+[336/2576] Processing: REG-2021-1133
+  ✓ Success: 32021R1133_metadata.json
+[337/2576] Processing: REG-2017-238
+  ✓ Success: 32017R0238_metadata.json
+[338/2576] Processing: REG-2012-548
+  ✓ Success: 32012R0548_metadata.json
+[339/2576] Processing: REG-2022-2560
+  ✓ Success: 32022R2560_metadata.json
+[340/2576] Processing: REG-2018-644
+  ✓ Success: 32018R0644_metadata.json
+[341/2576] Processing: REG-2019-1239
+  ✓ Success: 32019R1239_metadata.json
+[342/2576] Processing: REG-2012-1224
+  ✓ Success: 32012R1224_metadata.json
+[343/2576] Processing: REG-2013-944
+  ✓ Success: 32013R0944_metadata.json
+[344/2576] Processing: REG-2013-1356
+  ✓ Success: 32013R1356_metadata.json
+[345/2576] Processing: REG-2010-987
+  ✓ Success: 32010R0987_metadata.json
+[346/2576] Processing: REG-2010-389
+  ✓ Success: 32010R0389_metadata.json
+[347/2576] Processing: REG-2017-1398
+  ✓ Success: 32017R1398_metadata.json
+[348/2576] Processing: REG-2012-125
+  ✓ Success: 32012R0125_metadata.json
+[349/2576] Processing: REG-2019-289
+  ✓ Success: 32019R0289_metadata.json
+[350/2576] Processing: REG-2020-1245
+  ✓ Success: 32020R1245_metadata.json
+[351/2576] Processing: REG-2016-2230
+  ✓ Success: 32016R2230_metadata.json
+[352/2576] Processing: REG-2010-710
+  ✓ Success: 32010R0710_metadata.json
+[353/2576] Processing: REG-2011-582
+  ✓ Success: 32011R0582_metadata.json
+[354/2576] Processing: REG-2020-169
+  ✓ Success: 32020R0169_metadata.json
+[355/2576] Processing: REG-2010-380
+  ✓ Success: 32010R0380_metadata.json
+[356/2576] Processing: REG-2011-112
+  ✓ Success: 32011R0112_metadata.json
+[357/2576] Processing: REG-2018-1514
+  ✓ Success: 32018R1514_metadata.json
+[358/2576] Processing: REG-2017-458
+  ✓ Success: 32017R0458_metadata.json
+[359/2576] Processing: REG-2019-5
+  ✓ Success: 32019R0005_metadata.json
+[360/2576] Processing: REG-2010-23
+  ✓ Success: 32010R0053_metadata.json
+[361/2576] Processing: REG-2023-1067
+  ✓ Success: 32023R1067_metadata.json
+[362/2576] Processing: REG-2017-1954
+  ✓ Success: 32017R1954_metadata.json
+[363/2576] Processing: REG-2022-135
+  ✓ Success: 32022R0135_metadata.json
+[364/2576] Processing: REG-2019-414
+  ✓ Success: 32019R0414_metadata.json
+[365/2576] Processing: REG-2018-1719
+  ✓ Success: 32018R1719_metadata.json
+[366/2576] Processing: REG-2018-686
+  ✓ Success: 32018R0686_metadata.json
+[367/2576] Processing: REG-2018-88
+  ✓ Success: 32018R0088_metadata.json
+[368/2576] Processing: REG-2013-1152
+  ✓ Success: 32013R1152_metadata.json
+[369/2576] Processing: REG-2013-1360
+  ✓ Success: 32013R1360_metadata.json
+[370/2576] Processing: REG-2011-327
+  ✓ Success: 32011R0327_metadata.json
+[371/2576] Processing: REG-2018-1513
+  ✓ Success: 32018R1513_metadata.json
+[372/2576] Processing: REG-2013-512
+  ✓ Success: 32013R0512_metadata.json
+[373/2576] Processing: REG-2019-2022
+  ✓ Success: 32019R2022_metadata.json
+[374/2576] Processing: REG-2011-115
+  ✓ Success: 32011R0115_metadata.json
+[375/2576] Processing: REG-2013-344
+  ✓ Success: 32013R0344_metadata.json
+[376/2576] Processing: REG-2013-182
+  ✓ Success: 32013R0182_metadata.json
+[377/2576] Processing: REG-2010-717
+  ✓ Success: 32010R0717_metadata.json
+[378/2576] Processing: REG-2017-460
+  ✓ Success: 32017R0460_metadata.json
+[379/2576] Processing: REG-2019-880
+  ✓ Success: 32019R0880_metadata.json
+[380/2576] Processing: REG-2017-236
+  ✓ Success: 32017R0236_metadata.json
+[381/2576] Processing: REG-2015-403
+  ✓ Success: 32015R0403_metadata.json
+[382/2576] Processing: REG-2021-2317
+  ✓ Success: 32021R2317_metadata.json
+[383/2576] Processing: REG-2015-1200
+  ✓ Success: 32015R1200_metadata.json
+[384/2576] Processing: REG-2021-1901
+  ✓ Success: 32021R1901_metadata.json
+[385/2576] Processing: REG-2021-337
+  ✓ Success: 32021R0337_metadata.json
+[386/2576] Processing: REG-2018-681
+  ✓ Success: 32018R0681_metadata.json
+[387/2576] Processing: REG-2014-468
+  ✓ Success: 32014R0468_metadata.json
+[388/2576] Processing: REG-2020-535
+  ✓ Success: 32020R0535_metadata.json
+[389/2576] Processing: REG-2022-132
+  ✓ Success: 32022R0132_metadata.json
+[390/2576] Processing: REG-2018-675
+  ✓ Success: 32018R0675_metadata.json
+[391/2576] Processing: REG-2012-1215
+  ✓ Success: 32012R1215_metadata.json
+[392/2576] Processing: REG-2010-24
+  ✓ Success: 32010R0024_metadata.json
+[393/2576] Processing: REG-2019-2
+  ✓ Success: 32019R0002_metadata.json
+[394/2576] Processing: REG-2012-1027
+  ✓ Success: 32012R1027_metadata.json
+[395/2576] Processing: REG-2022-2195
+  ✓ Success: 32022R2195_metadata.json
+[396/2576] Processing: REG-2014-40
+  ✓ Success: 32014R0040_metadata.json
+[397/2576] Processing: REG-2013-57
+  ✓ Success: 32013R0057_metadata.json
+[398/2576] Processing: REG-2019-681
+  ✓ Success: 32019R0681_metadata.json
+[399/2576] Processing: REG-2010-916
+  ✓ Success: 32010R0916_metadata.json
+[400/2576] Processing: REG-2010-318
+  ✓ Success: 32010R0318_metadata.json
+[401/2576] Processing: REG-2020-561
+  ✓ Success: 32020R0561_metadata.json
+[402/2576] Processing: REG-2015-830
+  ✓ Success: 32015R0830_metadata.json
+[403/2576] Processing: REG-2010-70
+  ✓ Success: 32010R0070_metadata.json
+[404/2576] Processing: REG-2013-68
+  ✓ Success: 32013R0068_metadata.json
+[405/2576] Processing: REG-2016-1244
+  ✓ Success: 32016R1244_metadata.json
+[406/2576] Processing: REG-2022-991
+  ✓ Success: 32022R0991_metadata.json
+[407/2576] Processing: REG-2021-1532
+  ✓ Success: 32021R1532_metadata.json
+[408/2576] Processing: REG-2016-1076
+  ✓ Success: 32016R1076_metadata.json
+[409/2576] Processing: REG-2016-1412
+  ✓ Success: 32016R1412_metadata.json
+[410/2576] Processing: REG-2014-255
+  ✓ Success: 32014R0255_metadata.json
+[411/2576] Processing: REG-2021-1156
+  ✓ Success: 32021R1156_metadata.json
+[412/2576] Processing: REG-2013-122
+  ✓ Success: 32013R0122_metadata.json
+[413/2576] Processing: REG-2011-1251
+  ✓ Success: 32011R1251_metadata.json
+[414/2576] Processing: REG-2010-115
+  ✓ Success: 32010R0115_metadata.json
+[415/2576] Processing: REG-2017-1938
+  ✓ Success: 32017R1938_metadata.json
+[416/2576] Processing: REG-2015-2422
+  ✓ Success: 32015R2422_metadata.json
+[417/2576] Processing: REG-2014-1321
+  ✓ Success: 32014R1321_metadata.json
+[418/2576] Processing: REG-2015-1095
+  ✓ Success: 32015R1095_metadata.json
+[419/2576] Processing: REG-2015-9
+  ✓ Success: 32015R0009_metadata.json
+[420/2576] Processing: REG-2019-440
+  ✓ Success: 32019R0440_metadata.json
+[421/2576] Processing: REG-2014-609
+  ✓ Success: 32014R0609_metadata.json
+[422/2576] Processing: REG-2016-1872
+  ✓ Success: 32016R1872_metadata.json
+[423/2576] Processing: REG-2019-216
+  ✓ Success: 32019R0216_metadata.json
+[424/2576] Processing: REG-2016-458
+  ✓ Success: 32016R0458_metadata.json
+[425/2576] Processing: REG-2022-2192
+  ✓ Success: 32022R2192_metadata.json
+[426/2576] Processing: REG-2019-818
+  ✓ Success: 32019R0818_metadata.json
+[427/2576] Processing: REG-2021-2176
+  ✓ Success: 32021R2176_metadata.json
+[428/2576] Processing: REG-2020-559
+  ✓ Success: 32020R0559_metadata.json
+[429/2576] Processing: REG-2011-1256
+  ✓ Success: 32011R1256_metadata.json
+[430/2576] Processing: REG-2010-320
+  ✓ Success: 32010R0320_metadata.json
+[431/2576] Processing: REG-2015-1298
+  ✓ Success: 32015R1298_metadata.json
+[432/2576] Processing: REG-2021-1151
+  ✓ Success: 32021R1151_metadata.json
+[433/2576] Processing: REG-2013-317
+  ✓ Success: 32013R0317_metadata.json
+[434/2576] Processing: REG-2019-229
+  ✓ Success: 32019R0229_metadata.json
+[435/2576] Processing: REG-2020-1681
+  ✓ Success: 32020R1681_metadata.json
+[436/2576] Processing: REG-2022-398
+  ✓ Success: 32022R0398_metadata.json
+[437/2576] Processing: REG-2015-1608
+  ✓ Success: 32015R1608_metadata.json
+[438/2576] Processing: REG-2020-2004
+  ✓ Success: 32020R2004_metadata.json
+[439/2576] Processing: REG-2020-762
+  ✓ Success: 32020R0762_metadata.json
+[440/2576] Processing: REG-2018-1911
+  ✓ Success: 32018R1911_metadata.json
+[441/2576] Processing: REG-2013-1302
+  ✓ Success: 32013R1302_metadata.json
+[442/2576] Processing: REG-2019-220
+  ✓ Success: 32019R0220_metadata.json
+[443/2576] Processing: REG-2023-331
+  ✓ Success: 32023R0331_metadata.json
+[444/2576] Processing: REG-2016-238
+  ✓ Success: 32016R0238_metadata.json
+[445/2576] Processing: REG-2014-71
+  ✓ Success: 32014R0071_metadata.json
+[446/2576] Processing: REG-2010-772
+  ✓ Success: 32010R0772_metadata.json
+[447/2576] Processing: REG-2017-405
+  ✓ Success: 32017R0405_metadata.json
+[448/2576] Processing: REG-2017-1135
+  ✓ Success: 32017R1135_metadata.json
+[449/2576] Processing: REG-2010-918
+  ✓ Success: 32010R0918_metadata.json
+[450/2576] Processing: REG-2010-316
+  ✓ Success: 32010R0316_metadata.json
+[451/2576] Processing: REG-2014-432
+  ✓ Success: 32014R0432_metadata.json
+[452/2576] Processing: REG-2020-1485
+  ✓ Success: 32020R1485_metadata.json
+[453/2576] Processing: REG-2020-49
+  ✓ Success: 32020R0049_metadata.json
+[454/2576] Processing: REG-2014-600
+  ✓ Success: 32014R0600_metadata.json
+[455/2576] Processing: REG-2014-264
+  ✓ Success: 32014R0264_metadata.json
+[456/2576] Processing: REG-2013-321
+  ✓ Success: 32013R0321_metadata.json
+[457/2576] Processing: REG-2010-1118
+  ✓ Success: 32010R1118_metadata.json
+[458/2576] Processing: REG-2021-167
+  ✓ Success: 32021R0167_metadata.json
+[459/2576] Processing: REG-2019-1890
+  ✓ Success: 32019R1890_metadata.json
+[460/2576] Processing: REG-2013-1305
+  ✓ Success: 32013R1305_metadata.json
+[461/2576] Processing: REG-2015-1898
+  ✓ Success: 32015R1898_metadata.json
+[462/2576] Processing: REG-2010-578
+  ✓ Success: 32010R0578_metadata.json
+[463/2576] Processing: REG-2023-1230
+  ✓ Success: 32023R1230_metadata.json
+[464/2576] Processing: REG-2011-513
+  ✓ Success: 32011R0513_metadata.json
+[465/2576] Processing: REG-2019-816
+  ✓ Success: 32019R0816_metadata.json
+[466/2576] Processing: REG-2012-386
+  ✓ Success: 32012R0386_metadata.json
+[467/2576] Processing: REG-2014-607
+  ✓ Success: 32014R0607_metadata.json
+[468/2576] Processing: REG-2010-1127
+  ✓ Success: 32010R1127_metadata.json
+[469/2576] Processing: REG-2015-7
+  ✓ Success: 32015R0007_metadata.json
+[470/2576] Processing: REG-2018-842
+  ✓ Success: 32018R0842_metadata.json
+[471/2576] Processing: REG-2010-775
+  ✓ Success: 32010R0775_metadata.json
+[472/2576] Processing: REG-2010-716
+  ✓ Success: 32010R0716_metadata.json
+[473/2576] Processing: REG-2019-881
+  ✓ Success: 32019R0881_metadata.json
+[474/2576] Processing: REG-2010-372
+  ✓ Success: 32010R0372_metadata.json
+[475/2576] Processing: REG-2015-402
+  ✓ Success: 32015R0402_metadata.json
+[476/2576] Processing: REG-2015-2219
+  ✓ Success: 32015R2219_metadata.json
+[477/2576] Processing: REG-2017-839
+  ✓ Success: 32017R0839_metadata.json
+[478/2576] Processing: REG-2017-237
+  ✓ Success: 32017R0237_metadata.json
+[479/2576] Processing: REG-2017-1151
+  ✓ Success: 32017R1151_metadata.json
+[480/2576] Processing: REG-2012-547
+  ✓ Success: 32012R0547_metadata.json
+[481/2576] Processing: REG-2016-263
+  ✓ Success: 32016R0263_metadata.json
+[482/2576] Processing: REG-2019-2023
+  ✓ Success: 32019R2023_metadata.json
+[483/2576] Processing: REG-2021-1755
+  ✓ Success: 32021R1755_metadata.json
+[484/2576] Processing: REG-2016-1447
+  ✓ Success: 32016R1447_metadata.json
+[485/2576] Processing: REG-2013-345
+  ✓ Success: 32013R0345_metadata.json
+[486/2576] Processing: REG-2021-907
+  ✓ Success: 32021R0907_metadata.json
+[487/2576] Processing: REG-2020-1085
+  ✓ Success: 32020R1085_metadata.json
+[488/2576] Processing: REG-2017-1952
+  ✓ Success: 32017R1952_metadata.json
+[489/2576] Processing: REG-2012-1026
+  ✓ Success: 32012R1026_metadata.json
+[490/2576] Processing: REG-2014-1141
+  ✓ Success: 32014R1141_metadata.json
+[491/2576] Processing: REG-2014-469
+  ✓ Success: 32014R0469_metadata.json
+[492/2576] Processing: REG-2022-1321
+  ✓ Success: 32022R1321_metadata.json
+[493/2576] Processing: REG-2017-492
+  ✓ Success: 32017R0492_metadata.json
+[494/2576] Processing: REG-2022-1917
+  ✓ Success: 32022R1917_metadata.json
+[495/2576] Processing: REG-2021-558
+  ✓ Success: 32021R0558_metadata.json
+[496/2576] Processing: REG-2018-1515
+  ✓ Success: 32018R1515_metadata.json
+[497/2576] Processing: REG-2019-2024
+  ✓ Success: 32019R2024_metadata.json
+[498/2576] Processing: REG-2011-113
+  ✓ Success: 32011R0113_metadata.json
+[499/2576] Processing: REG-2010-147
+  ✓ Success: 32010R0147_metadata.json
+[500/2576] Processing: REG-2010-375
+  ✓ Success: 32010R0375_metadata.json
+[501/2576] Processing: REG-2014-697
+  ✓ Success: 32014R0697_metadata.json
+[502/2576] Processing: REG-2013-1198
+  ✓ Success: 32013R1198_metadata.json
+[503/2576] Processing: REG-2016-1686
+  ✓ Success: 32016R1686_metadata.json
+[504/2576] Processing: REG-2018-687
+  ✓ Success: 32018R0687_metadata.json
+[505/2576] Processing: REG-2018-1718
+  ✓ Success: 32018R1718_metadata.json
+[506/2576] Processing: REG-2023-1092
+  ✓ Success: 32023R1092_metadata.json
+[507/2576] Processing: REG-2014-1380
+  ✓ Success: 32014R1380_metadata.json
+[508/2576] Processing: REG-2015-896
+  ✓ Success: 32015R0896_metadata.json
+[509/2576] Processing: REG-2013-1153
+  ✓ Success: 32013R1153_metadata.json
+[510/2576] Processing: REG-2013-389
+  ✓ Success: 32013R0389_metadata.json
+[511/2576] Processing: REG-2014-1374
+  ✓ Success: 32014R1374_metadata.json
+[512/2576] Processing: REG-2012-927
+  ✓ Success: 32012R0972_metadata.json
+[513/2576] Processing: REG-2019-4
+  ✓ Success: 32019R0004_metadata.json
+[514/2576] Processing: REG-2017-459
+  ✓ Success: 32017R0459_metadata.json
+[515/2576] Processing: REG-2014-1146
+  ✓ Success: 32014R1146_metadata.json
+[516/2576] Processing: REG-2020-533
+  ✓ Success: 32020R0533_metadata.json
+[517/2576] Processing: REG-2018-673
+  ✓ Success: 32018R0673_metadata.json
+[518/2576] Processing: REG-2023-1066
+  ✓ Success: 32023R1066_metadata.json
+[519/2576] Processing: REG-2023-955
+  ✓ Success: 32023R0955_metadata.json
+[520/2576] Processing: REG-2016-1012
+  ✓ Success: 32016R1012_metadata.json
+[521/2576] Processing: REG-2014-655
+  ✓ Success: 32014R0655_metadata.json
+[522/2576] Processing: REG-2018-74
+  ✓ Success: 32018R0074_metadata.json
+[523/2576] Processing: REG-2010-727
+  ✓ Success: 32010R0727_metadata.json
+[524/2576] Processing: REG-2020-1040
+  ✓ Success: 32020R1040_metadata.json
+[525/2576] Processing: REG-2010-171
+  ✓ Success: 32010R0171_metadata.json
+[526/2576] Processing: REG-2011-1007
+  ✓ Success: 32011R1007_metadata.json
+[527/2576] Processing: REG-2020-2093
+  ✓ Success: 32020R2093_metadata.json
+[528/2576] Processing: REG-2021-2115
+  ✓ Success: 32021R2115_metadata.json
+[529/2576] Processing: REG-2012-744
+  ✓ Success: 32012R0744_metadata.json
+[530/2576] Processing: REG-2017-1399
+  ✓ Success: 32017R1399_metadata.json
+[531/2576] Processing: REG-2011-328
+  ✓ Success: 32011R0328_metadata.json
+[532/2576] Processing: REG-2016-863
+  ✓ Success: 32016R0863_metadata.json
+[533/2576] Processing: REG-2014-24
+  ✓ Success: 32014R0024_metadata.json
+[534/2576] Processing: REG-2010-986
+  ✓ Success: 32010R0986_metadata.json
+[535/2576] Processing: REG-2022-330
+  ✓ Success: 32022R0330_metadata.json
+[536/2576] Processing: REG-2018-221
+  ✓ Success: 32018R0221_metadata.json
+[537/2576] Processing: REG-2022-566
+  ✓ Success: 32022R0566_metadata.json
+[538/2576] Processing: REG-2019-1238
+  ✓ Success: 32019R1238_metadata.json
+[539/2576] Processing: REG-2023-1068
+  ✓ Success: 32023R1068_metadata.json
+[540/2576] Processing: REG-2020-2094
+  ✓ Success: 32020R2094_metadata.json
+[541/2576] Processing: REG-2018-73
+  ✓ Success: 32018R0073_metadata.json
+[542/2576] Processing: REG-2010-720
+  ✓ Success: 32010R0720_metadata.json
+[543/2576] Processing: REG-2014-1148
+  ✓ Success: 32014R1148_metadata.json
+[544/2576] Processing: REG-2016-403
+  ✓ Success: 32016R0403_metadata.json
+[545/2576] Processing: REG-2011-546
+  ✓ Success: 32011R0546_metadata.json
+[546/2576] Processing: REG-2016-631
+  ✓ Success: 32016R0631_metadata.json
+[547/2576] Processing: REG-2013-141
+  ✓ Success: 32013R0141_metadata.json
+[548/2576] Processing: REG-2010-182
+  ✓ Success: 32010R0182_metadata.json
+[549/2576] Processing: REG-2013-717
+  ✓ Success: 32013R0717_metadata.json
+[550/2576] Processing: REG-2011-310
+  ✓ Success: 32011R0310_metadata.json
+[551/2576] Processing: REG-2014-460
+  ✓ Success: 32014R0460_metadata.json
+[552/2576] Processing: REG-2019-629
+  ✓ Success: 32019R0629_metadata.json
+[553/2576] Processing: REG-2016-1015
+  ✓ Success: 32016R1015_metadata.json
+[554/2576] Processing: REG-2023-1433
+  ✓ Success: 32023R1433_metadata.json
+[555/2576] Processing: REG-2020-354
+  ✓ Success: 32020R0354_metadata.json
+[556/2576] Processing: REG-2015-639
+  ✓ Success: 32015R0639_metadata.json
+[557/2576] Processing: REG-2010-975
+  ✓ Success: 32010R0975_metadata.json
+[558/2576] Processing: REG-2013-34
+  ✓ Success: 32013R0034_metadata.json
+[559/2576] Processing: REG-2019-424
+  ✓ Success: 32019R0424_metadata.json
+[560/2576] Processing: REG-2015-1839
+  ✓ Success: 32015R1839_metadata.json
+[561/2576] Processing: REG-2020-192
+  ✓ Success: 32020R0192_metadata.json
+[562/2576] Processing: REG-2013-1350
+  ✓ Success: 32013R1350_metadata.json
+[563/2576] Processing: REG-2014-1311
+  ✓ Success: 32014R1311_metadata.json
+[564/2576] Processing: REG-2023-1231
+  ✓ Success: 32023R1231_metadata.json
+[565/2576] Processing: REG-2014-83
+  ✓ Success: 32014R0083_metadata.json
+[566/2576] Processing: REG-2020-764
+  ✓ Success: 32020R0764_metadata.json
+[567/2576] Processing: REG-2022-1343
+  ✓ Success: 32022R1343_metadata.json
+[568/2576] Processing: REG-2013-1304
+  ✓ Success: 32013R1304_metadata.json
+[569/2576] Processing: REG-2013-318
+  ✓ Success: 32013R0318_metadata.json
+[570/2576] Processing: REG-2019-226
+  ✓ Success: 32019R0226_metadata.json
+[571/2576] Processing: REG-2016-1628
+  ✓ Success: 32016R1628_metadata.json
+[572/2576] Processing: REG-2010-310
+  ✓ Success: 32010R0310_metadata.json
+[573/2576] Processing: REG-2011-182
+  ✓ Success: 32011R0182_metadata.json
+[574/2576] Processing: REG-2016-691
+  ✓ Success: 32016R0691_metadata.json
+[575/2576] Processing: REG-2016-2066
+  ✓ Success: 32016R2066_metadata.json
+[576/2576] Processing: REG-2010-78
+  ✓ Success: 32010R0078_metadata.json
+[577/2576] Processing: REG-2010-780
+  ✓ Success: 32010R0780_metadata.json
+[578/2576] Processing: REG-2019-817
+  ✓ Success: 32019R0817_metadata.json
+[579/2576] Processing: REG-2011-720
+  ✓ Success: 32011R0720_metadata.json
+[580/2576] Processing: REG-2010-1126
+  ✓ Success: 32010R1126_metadata.json
+[581/2576] Processing: REG-2011-176
+  ✓ Success: 32011R0176_metadata.json
+[582/2576] Processing: REG-2013-1303
+  ✓ Success: 32013R1303_metadata.json
+[583/2576] Processing: REG-2019-1896
+  ✓ Success: 32019R1896_metadata.json
+[584/2576] Processing: REG-2014-70
+  ✓ Success: 32014R0070_metadata.json
+[585/2576] Processing: REG-2020-797
+  ✓ Success: 32020R0797_metadata.json
+[586/2576] Processing: REG-2022-1176
+  ✓ Success: 32022R1176_metadata.json
+[587/2576] Processing: REG-2013-549
+  ✓ Success: 32013R0549_metadata.json
+[588/2576] Processing: REG-2020-763
+  ✓ Success: 32020R0763_metadata.json
+[589/2576] Processing: REG-2018-275
+  ✓ Success: 32018R0275_metadata.json
+[590/2576] Processing: REG-2013-576
+  ✓ Success: 32013R0576_metadata.json
+[591/2576] Processing: REG-2011-1295
+  ✓ Success: 32011R1295_metadata.json
+[592/2576] Processing: REG-2014-601
+  ✓ Success: 32014R0601_metadata.json
+[593/2576] Processing: REG-2011-171
+  ✓ Success: 32011R0171_metadata.json
+[594/2576] Processing: REG-2010-1121
+  ✓ Success: 32010R1121_metadata.json
+[595/2576] Processing: REG-2017-2321
+  ✓ Success: 32017R2321_metadata.json
+[596/2576] Processing: REG-2012-1088
+  ✓ Success: 32012R1088_metadata.json
+[597/2576] Processing: REG-2013-112
+  ✓ Success: 32013R0112_metadata.json
+[598/2576] Processing: REG-2010-787
+  ✓ Success: 32010R0787_metadata.json
+[599/2576] Processing: REG-2012-380
+  ✓ Success: 32012R0380_metadata.json
+[600/2576] Processing: REG-2021-996
+  ✓ Success: 32021R0996_metadata.json
+[601/2576] Processing: REG-2010-317
+  ✓ Success: 32010R0317_metadata.json
+[602/2576] Processing: REG-2011-185
+  ✓ Success: 32011R0185_metadata.json
+[603/2576] Processing: REG-2013-51
+  ✓ Success: 32013R0051_metadata.json
+[604/2576] Processing: REG-2011-178
+  ✓ Success: 32011R0178_metadata.json
+[605/2576] Processing: REG-2012-389
+  ✓ Success: 32012R0389_metadata.json
+[606/2576] Processing: REG-2010-82
+  ✓ Success: 32010R0082_metadata.json
+[607/2576] Processing: REG-2022-504
+  ✓ Success: 32022R0504_metadata.json
+[608/2576] Processing: REG-2014-298
+  ✓ Success: 32014R0298_metadata.json
+[609/2576] Processing: REG-2014-1320
+  ✓ Success: 32014R1320_metadata.json
+[610/2576] Processing: REG-2018-627
+  ✓ Success: 32018R0627_metadata.json
+[611/2576] Processing: REG-2015-8
+  ✓ Success: 32015R0008_metadata.json
+[612/2576] Processing: REG-2010-583
+  ✓ Success: 32010R0583_metadata.json
+[613/2576] Processing: REG-2021-168
+  ✓ Success: 32021R0168_metadata.json
+[614/2576] Processing: REG-2013-1138
+  ✓ Success: 32013R1138_metadata.json
+[615/2576] Processing: REG-2021-1150
+  ✓ Success: 32021R1150_metadata.json
+[616/2576] Processing: REG-2013-772
+  ✓ Success: 32013R0772_metadata.json
+[617/2576] Processing: REG-2018-1541
+  ✓ Success: 32018R1541_metadata.json
+[618/2576] Processing: REG-2014-79
+  ✓ Success: 32014R0079_metadata.json
+[619/2576] Processing: REG-2020-558
+  ✓ Success: 32020R0558_metadata.json
+[620/2576] Processing: REG-2019-1601
+  ✓ Success: 32019R1601_metadata.json
+[621/2576] Processing: REG-2013-786
+  ✓ Success: 32013R0786_metadata.json
+[622/2576] Processing: REG-2022-709
+  ✓ Success: 32022R0709_metadata.json
+[623/2576] Processing: REG-2010-745
+  ✓ Success: 32010R0745_metadata.json
+[624/2576] Processing: REG-2017-852
+  ✓ Success: 32017R0852_metadata.json
+[625/2576] Processing: REG-2020-560
+  ✓ Success: 32020R0560_metadata.json
+[626/2576] Processing: REG-2019-680
+  ✓ Success: 32019R0680_metadata.json
+[627/2576] Processing: REG-2010-917
+  ✓ Success: 32010R0917_metadata.json
+[628/2576] Processing: REG-2022-355
+  ✓ Success: 32022R0355_metadata.json
+[629/2576] Processing: REG-2014-865
+  ✓ Success: 32011R0010_metadata.json
+[630/2576] Processing: REG-2013-1332
+  ✓ Success: 32013R1332_metadata.json
+[631/2576] Processing: REG-2013-56
+  ✓ Success: 32013R0056_metadata.json
+[632/2576] Processing: REG-2020-1819
+  ✓ Success: 32020R1819_metadata.json
+[633/2576] Processing: REG-2010-114
+  ✓ Success: 32010R0114_metadata.json
+[634/2576] Processing: REG-2017-1939
+  ✓ Success: 32017R1939_metadata.json
+[635/2576] Processing: REG-2011-524
+  ✓ Success: 32011R0524_metadata.json
+[636/2576] Processing: REG-2022-2399
+  ✓ Success: 32022R2399_metadata.json
+[637/2576] Processing: REG-2010-584
+  ✓ Success: 32010R0584_metadata.json
+[638/2576] Processing: REG-2016-1413
+  ✓ Success: 32016R1413_metadata.json
+[639/2576] Processing: REG-2011-716
+  ✓ Success: 32011R0716_metadata.json
+[640/2576] Processing: REG-2011-196
+  ✓ Success: 32011R0196_metadata.json
+[641/2576] Processing: REG-2013-591
+  ✓ Success: 32013R0591_metadata.json
+[642/2576] Processing: REG-2010-304
+  ✓ Success: 32010R0304_metadata.json
+[643/2576] Processing: REG-2017-625
+  ✓ Success: 32017R0625_metadata.json
+[644/2576] Processing: REG-2019-1240
+  ✓ Success: 32019R1240_metadata.json
+[645/2576] Processing: REG-2013-101
+  ✓ Success: 32013R0101_metadata.json
+[646/2576] Processing: REG-2021-1175
+  ✓ Success: 32021R1175_metadata.json
+[647/2576] Processing: REG-2011-1286
+  ✓ Success: 32011R1286_metadata.json
+[648/2576] Processing: REG-2012-1050
+  ✓ Success: 32012R1050_metadata.json
+[649/2576] Processing: REG-2014-1137
+  ✓ Success: 32014R1137_metadata.json
+[650/2576] Processing: REG-2014-1305
+  ✓ Success: 32014R1305_metadata.json
+[651/2576] Processing: REG-2012-1262
+  ✓ Success: 32012R1262_metadata.json
+[652/2576] Processing: REG-2022-2370
+  ✓ Success: 32022R2370_metadata.json
+[653/2576] Processing: REG-2019-1871
+  ✓ Success: 32019R1871_metadata.json
+[654/2576] Processing: REG-2020-770
+  ✓ Success: 32020R0770_metadata.json
+[655/2576] Processing: REG-2010-109
+  ✓ Success: 32010R0109_metadata.json
+[656/2576] Processing: REG-2014-249
+  ✓ Success: 32014R0249_metadata.json
+[657/2576] Processing: REG-2013-1310
+  ✓ Success: 32013R1310_metadata.json
+[658/2576] Processing: REG-2018-1903
+  ✓ Success: 32018R1903_metadata.json
+[659/2576] Processing: REG-2013-750
+  ✓ Success: 32013R0750_metadata.json
+[660/2576] Processing: REG-2023-129
+  ✓ Success: 32023R0129_metadata.json
+[661/2576] Processing: REG-2023-915
+  ✓ Success: 32023R0915_metadata.json
+[662/2576] Processing: REG-2011-165
+  ✓ Success: 32011R0165_metadata.json
+[663/2576] Processing: REG-2011-501
+  ✓ Success: 32011R0501_metadata.json
+[664/2576] Processing: REG-2014-271
+  ✓ Success: 32014R0271_metadata.json
+[665/2576] Processing: REG-2017-2107
+  ✓ Success: 32017R2107_metadata.json
+[666/2576] Processing: REG-2021-378
+  ✓ Success: 32021R0378_metadata.json
+[667/2576] Processing: REG-2021-976
+  ✓ Success: 32021R0976_metadata.json
+[668/2576] Processing: REG-2023-1679
+  ✓ Success: 32023R1679_metadata.json
+[669/2576] Processing: REG-2020-1000
+  ✓ Success: 32020R1000_metadata.json
+[670/2576] Processing: REG-2010-555
+  ✓ Success: 32010R0555_metadata.json
+[671/2576] Processing: REG-2013-596
+  ✓ Success: 32013R0596_metadata.json
+[672/2576] Processing: REG-2013-1317
+  ✓ Success: 32013R1317_metadata.json
+[673/2576] Processing: REG-2022-2383
+  ✓ Success: 32022R2383_metadata.json
+[674/2576] Processing: REG-2021-1529
+  ✓ Success: 32021R1529_metadata.json
+[675/2576] Processing: REG-2019-651
+  ✓ Success: 32019R0651_metadata.json
+[676/2576] Processing: REG-2022-384
+  ✓ Success: 32022R0384_metadata.json
+[677/2576] Processing: REG-2018-605
+  ✓ Success: 32018R0605_metadata.json
+[678/2576] Processing: REG-2019-2099
+  ✓ Success: 32019R2099_metadata.json
+[679/2576] Processing: REG-2019-497
+  ✓ Success: 32019R0497_metadata.json
+[680/2576] Processing: REG-2012-509
+  ✓ Success: 32012R0509_metadata.json
+[681/2576] Processing: REG-2014-1302
+  ✓ Success: 32014R1302_metadata.json
+[682/2576] Processing: REG-2012-1057
+  ✓ Success: 32012R1057_metadata.json
+[683/2576] Processing: REG-2021-1985
+  ✓ Success: 32021R1985_metadata.json
+[684/2576] Processing: REG-2010-758
+  ✓ Success: 32010R0758_metadata.json
+[685/2576] Processing: REG-2011-537
+  ✓ Success: 32011R0537_metadata.json
+[686/2576] Processing: REG-2016-2285
+  ✓ Success: 32016R2285_metadata.json
+[687/2576] Processing: REG-2020-2011
+  ✓ Success: 32020R2011_metadata.json
+[688/2576] Processing: REG-2010-1103
+  ✓ Success: 32010R1103_metadata.json
+[689/2576] Processing: REG-2017-284
+  ✓ Success: 32017R0284_metadata.json
+[690/2576] Processing: REG-2023-923
+  ✓ Success: 32023R0923_metadata.json
+[691/2576] Processing: REG-2018-1555
+  ✓ Success: 32018R1555_metadata.json
+[692/2576] Processing: REG-2020-1694
+  ✓ Success: 32020R1694_metadata.json
+[693/2576] Processing: REG-2020-2223
+  ✓ Success: 32020R2223_metadata.json
+[694/2576] Processing: REG-2011-1071
+  ✓ Success: 32011R1071_metadata.json
+[695/2576] Processing: REG-2018-1793
+  ✓ Success: 32018R1793_metadata.json
+[696/2576] Processing: REG-2015-445
+  ✓ Success: 32015R0445_metadata.json
+[697/2576] Processing: REG-2010-751
+  ✓ Success: 32010R0751_metadata.json
+[698/2576] Processing: REG-2016-486
+  ✓ Success: 32016R0486_metadata.json
+[699/2576] Processing: REG-2011-508
+  ✓ Success: 32011R0508_metadata.json
+[700/2576] Processing: REG-2012-967
+  ✓ Success: 32012R0967_metadata.json
+[701/2576] Processing: REG-2023-1442
+  ✓ Success: 32023R1442_metadata.json
+[702/2576] Processing: REG-2023-1670
+  ✓ Success: 32023R1670_metadata.json
+[703/2576] Processing: REG-2023-1214
+  ✓ Success: 32023R1214_metadata.json
+[704/2576] Processing: REG-2010-904
+  ✓ Success: 32010R0904_metadata.json
+[705/2576] Processing: REG-2015-648
+  ✓ Success: 32015R0648_metadata.json
+[706/2576] Processing: REG-2018-401
+  ✓ Success: 32018R0401_metadata.json
+[707/2576] Processing: REG-2017-1129
+  ✓ Success: 32017R1129_metadata.json
+[708/2576] Processing: REG-2020-741
+  ✓ Success: 32020R0741_metadata.json
+[709/2576] Processing: REG-2023-588
+  ✓ Success: 32023R0588_metadata.json
+[710/2576] Processing: REG-2022-2379
+  ✓ Success: 32022R2379_metadata.json
+[711/2576] Processing: REG-2010-564
+  ✓ Success: 32010R0564_metadata.json
+[712/2576] Processing: REG-2019-499
+  ✓ Success: 32019R0499_metadata.json
+[713/2576] Processing: REG-2011-366
+  ✓ Success: 32011R0366_metadata.json
+[714/2576] Processing: REG-2020-1693
+  ✓ Success: 32020R1693_metadata.json
+[715/2576] Processing: REG-2013-1319
+  ✓ Success: 32013R1319_metadata.json
+[716/2576] Processing: REG-2021-947
+  ✓ Success: 32021R0947_metadata.json
+[717/2576] Processing: REG-2016-2282
+  ✓ Success: 32016R2282_metadata.json
+[718/2576] Processing: REG-2010-590
+  ✓ Success: 32010R0590_metadata.json
+[719/2576] Processing: REG-2021-382
+  ✓ Success: 32021R0382_metadata.json
+[720/2576] Processing: REG-2014-1333
+  ✓ Success: 32014R1333_metadata.json
+[721/2576] Processing: REG-2013-1326
+  ✓ Success: 32013R1326_metadata.json
+[722/2576] Processing: REG-2023-127
+  ✓ Success: 32023R0127_metadata.json
+[723/2576] Processing: REG-2011-359
+  ✓ Success: 32011R0359_metadata.json
+[724/2576] Processing: REG-2019-452
+  ✓ Success: 32019R0452_metadata.json
+[725/2576] Processing: REG-2010-957
+  ✓ Success: 32010R0957_metadata.json
+[726/2576] Processing: REG-2010-31
+  ✓ Success: 32010R0031_metadata.json
+[727/2576] Processing: REG-2014-1367
+  ✓ Success: 32014R1367_metadata.json
+[728/2576] Processing: REG-2014-825
+  ✓ Success: 32014R0825_metadata.json
+[729/2576] Processing: REG-2013-1372
+  ✓ Success: 32013R1372_metadata.json
+[730/2576] Processing: REG-2023-173
+  ✓ Success: 32023R0173_metadata.json
+[731/2576] Processing: REG-2017-2196
+  ✓ Success: 32017R2196_metadata.json
+[732/2576] Processing: REG-2010-702
+  ✓ Success: 32010R0702_metadata.json
+[733/2576] Processing: REG-2010-530
+  ✓ Success: 32010R0530_metadata.json
+[734/2576] Processing: REG-2019-1010
+  ✓ Success: 32019R1010_metadata.json
+[735/2576] Processing: REG-2020-1633
+  ✓ Success: 32020R1633_metadata.json
+[736/2576] Processing: REG-2010-366
+  ✓ Success: 32010R0366_metadata.json
+[737/2576] Processing: REG-2022-1904
+  ✓ Success: 32022R1904_metadata.json
+[738/2576] Processing: REG-2016-1037
+  ✓ Success: 32016R1037_metadata.json
+[739/2576] Processing: REG-2016-277
+  ✓ Success: 32016R0277_metadata.json
+[740/2576] Processing: REG-2023-2055
+  ✓ Success: 32023R2055_metadata.json
+[741/2576] Processing: REG-2010-36
+  ✓ Success: 32010R0036_metadata.json
+[742/2576] Processing: REG-2014-1360
+  ✓ Success: 32014R1360_metadata.json
+[743/2576] Processing: REG-2017-1941
+  ✓ Success: 32017R1941_metadata.json
+[744/2576] Processing: REG-2023-180
+  ✓ Success: 32023R0180_metadata.json
+[745/2576] Processing: REG-2018-455
+  ✓ Success: 32018R0455_metadata.json
+[746/2576] Processing: REG-2022-312
+  ✓ Success: 32022R0312_metadata.json
+[747/2576] Processing: REG-2011-1228
+  ✓ Success: 32011R1228_metadata.json
+[748/2576] Processing: REG-2016-426
+  ✓ Success: 32016R0426_metadata.json
+[749/2576] Processing: REG-2019-268
+  ✓ Success: 32019R0268_metadata.json
+[750/2576] Processing: REG-2021-1110
+  ✓ Success: 32021R1110_metadata.json
+[751/2576] Processing: REG-2010-395
+  ✓ Success: 32010R0395_metadata.json
+[752/2576] Processing: REG-2013-500
+  ✓ Success: 32013R0500_metadata.json
+[753/2576] Processing: REG-2022-1903
+  ✓ Success: 32022R1903_metadata.json
+[754/2576] Processing: REG-2010-1157
+  ✓ Success: 32010R1157_metadata.json
+[755/2576] Processing: REG-2017-1370
+  ✓ Success: 32017R1370_metadata.json
+[756/2576] Processing: REG-2015-623
+  ✓ Success: 32015R0623_metadata.json
+[757/2576] Processing: REG-2010-153
+  ✓ Success: 32010R0153_metadata.json
+[758/2576] Processing: REG-2018-832
+  ✓ Success: 32018R0832_metadata.json
+[759/2576] Processing: REG-2021-1119
+  ✓ Success: 32021R1119_metadata.json
+[760/2576] Processing: REG-2022-586
+  ✓ Success: 32022R0586_metadata.json
+[761/2576] Processing: REG-2021-1925
+  ✓ Success: 32021R1925_metadata.json
+[762/2576] Processing: REG-2013-509
+  ✓ Success: 32013R0509_metadata.json
+[763/2576] Processing: REG-2010-966
+  ✓ Success: 32010R0966_metadata.json
+[764/2576] Processing: REG-2021-783
+  ✓ Success: 32021R0783_metadata.json
+[765/2576] Processing: REG-2014-1356
+  ✓ Success: 32014R1356_metadata.json
+[766/2576] Processing: REG-2016-246
+  ✓ Success: 32016R0246_metadata.json
+[767/2576] Processing: REG-2013-536
+  ✓ Success: 32013R0536_metadata.json
+[768/2576] Processing: REG-2011-131
+  ✓ Success: 32011R0131_metadata.json
+[769/2576] Processing: REG-2019-2234
+  ✓ Success: 32019R2234_metadata.json
+[770/2576] Processing: REG-2010-1161
+  ✓ Success: 32010R1161_metadata.json
+[771/2576] Processing: REG-2012-596
+  ✓ Success: 32012R0596_metadata.json
+[772/2576] Processing: REG-2016-622
+  ✓ Success: 32016R0622_metadata.json
+[773/2576] Processing: REG-2011-555
+  ✓ Success: 32011R0555_metadata.json
+[774/2576] Processing: REG-2017-1510
+  ✓ Success: 32017R1510_metadata.json
+[775/2576] Processing: REG-2017-2395
+  ✓ Success: 32017R2395_metadata.json
+[776/2576] Processing: REG-2019-1021
+  ✓ Success: 32019R1021_metadata.json
+[777/2576] Processing: REG-2020-1054
+  ✓ Success: 32020R1054_metadata.json
+[778/2576] Processing: REG-2017-212
+  ✓ Success: 32017R0212_metadata.json
+[779/2576] Processing: REG-2012-1236
+  ✓ Success: 32012R1236_metadata.json
+[780/2576] Processing: REG-2014-1351
+  ✓ Success: 32014R1351_metadata.json
+[781/2576] Processing: REG-2014-1163
+  ✓ Success: 32014R1163_metadata.json
+[782/2576] Processing: REG-2013-1182
+  ✓ Success: 32013R1182_metadata.json
+[783/2576] Processing: REG-2021-784
+  ✓ Success: 32021R0784_metadata.json
+[784/2576] Processing: REG-2022-111
+  ✓ Success: 32022R0111_metadata.json
+[785/2576] Processing: REG-2017-1970
+  ✓ Success: 32017R1970_metadata.json
+[786/2576] Processing: REG-2013-20
+  ✓ Success: 32013R0020_metadata.json
+[787/2576] Processing: REG-2023-377
+  ✓ Success: 32023R0377_metadata.json
+[788/2576] Processing: REG-2021-770
+  ✓ Success: 32021R0770_metadata.json
+[789/2576] Processing: REG-2022-2586
+  ✓ Success: 32022R2586_metadata.json
+[790/2576] Processing: REG-2015-1475
+  ✓ Success: 32015R1475_metadata.json
+[791/2576] Processing: REG-2014-37
+  ✓ Success: 32014R0037_metadata.json
+[792/2576] Processing: REG-2010-995
+  ✓ Success: 32010R0995_metadata.json
+[793/2576] Processing: REG-2010-1159
+  ✓ Success: 32010R1159_metadata.json
+[794/2576] Processing: REG-2017-488
+  ✓ Success: 32017R0488_metadata.json
+[795/2576] Processing: REG-2010-1192
+  ✓ Success: 32010R1192_metadata.json
+[796/2576] Processing: REG-2015-612
+  ✓ Success: 32015R0612_metadata.json
+[797/2576] Processing: REG-2018-669
+  ✓ Success: 32018R0669_metadata.json
+[798/2576] Processing: REG-2015-878
+  ✓ Success: 32015R0878_metadata.json
+[799/2576] Processing: REG-2011-794
+  ✓ Success: 32011R0794_metadata.json
+[800/2576] Processing: REG-2012-101
+  ✓ Success: 32012R0101_metadata.json
+[801/2576] Processing: REG-2017-671
+  ✓ Success: 32017R0671_metadata.json
+[802/2576] Processing: REG-2017-2392
+  ✓ Success: 32017R2392_metadata.json
+[803/2576] Processing: REG-2015-282
+  ✓ Success: 32015R0282_metadata.json
+[804/2576] Processing: REG-2014-474
+  ✓ Success: 32014R0474_metadata.json
+[805/2576] Processing: REG-2011-304
+  ✓ Success: 32011R0304_metadata.json
+[806/2576] Processing: REG-2010-1166
+  ✓ Success: 32010R1166_metadata.json
+[807/2576] Processing: REG-2011-969
+  ✓ Success: 32011R0969_metadata.json
+[808/2576] Processing: REG-2019-834
+  ✓ Success: 32019R0834_metadata.json
+[809/2576] Processing: REG-2017-2305
+  ✓ Success: 32017R2305_metadata.json
+[810/2576] Processing: REG-2013-1318
+  ✓ Success: 32013R1318_metadata.json
+[811/2576] Processing: REG-2020-1666
+  ✓ Success: 32020R1666_metadata.json
+[812/2576] Processing: REG-2019-498
+  ✓ Success: 32019R0498_metadata.json
+[813/2576] Processing: REG-2021-979
+  ✓ Success: 32021R0979_metadata.json
+[814/2576] Processing: REG-2013-109
+  ✓ Success: 32013R0109_metadata.json
+[815/2576] Processing: REG-2016-679
+  ✓ Success: 32016R0679_metadata.json
+[816/2576] Processing: REG-2010-768
+  ✓ Success: 32010R0768_metadata.json
+[817/2576] Processing: REG-2021-383
+  ✓ Success: 32021R0383_metadata.json
+[818/2576] Processing: REG-2012-1067
+  ✓ Success: 32012R1067_metadata.json
+[819/2576] Processing: REG-2010-334
+  ✓ Success: 32010R0334_metadata.json
+[820/2576] Processing: REG-2017-1325
+  ✓ Success: 32017R1325_metadata.json
+[821/2576] Processing: REG-2011-394
+  ✓ Success: 32011R0394_metadata.json
+[822/2576] Processing: REG-2010-750
+  ✓ Success: 32010R0750_metadata.json
+[823/2576] Processing: REG-2014-246
+  ✓ Success: 32014R0246_metadata.json
+[824/2576] Processing: REG-2019-833
+  ✓ Success: 32019R0833_metadata.json
+[825/2576] Processing: REG-2013-555
+  ✓ Success: 32013R0555_metadata.json
+[826/2576] Processing: REG-2011-152
+  ✓ Success: 32011R0152_metadata.json
+[827/2576] Processing: REG-2018-1554
+  ✓ Success: 32018R1554_metadata.json
+[828/2576] Processing: REG-2018-858
+  ✓ Success: 32018R0858_metadata.json
+[829/2576] Processing: REG-2022-2340
+  ✓ Success: 32022R2340_metadata.json
+[830/2576] Processing: REG-2015-649
+  ✓ Success: 32015R0649_metadata.json
+[831/2576] Processing: REG-2020-740
+  ✓ Success: 32020R0740_metadata.json
+[832/2576] Processing: REG-2017-1128
+  ✓ Success: 32017R1128_metadata.json
+[833/2576] Processing: REG-2023-1215
+  ✓ Success: 32023R1215_metadata.json
+[834/2576] Processing: REG-2022-175
+  ✓ Success: 32022R0175_metadata.json
+[835/2576] Processing: REG-2013-758
+  ✓ Success: 32013R0758_metadata.json
+[836/2576] Processing: REG-2016-1866
+  ✓ Success: 32016R1866_metadata.json
+[837/2576] Processing: REG-2015-2294
+  ✓ Success: 32015R2294_metadata.json
+[838/2576] Processing: REG-2018-1933
+  ✓ Success: 32018R1933_metadata.json
+[839/2576] Processing: REG-2019-1089
+  ✓ Success: 32019R1089_metadata.json
+[840/2576] Processing: REG-2010-97
+  ✓ Success: 32010R0097_metadata.json
+[841/2576] Processing: REG-2022-1531
+  ✓ Success: 32022R1531_metadata.json
+[842/2576] Processing: REG-2017-623
+  ✓ Success: 32017R0623_metadata.json
+[843/2576] Processing: REG-2023-1678
+  ✓ Success: 32023R1678_metadata.json
+[844/2576] Processing: REG-2018-35
+  ✓ Success: 32018R0035_metadata.json
+[845/2576] Processing: REG-2017-1777
+  ✓ Success: 32017R1777_metadata.json
+[846/2576] Processing: REG-2021-1187
+  ✓ Success: 32021L1187_metadata.json
+[847/2576] Processing: REG-2016-683
+  ✓ Success: 32016R0683_metadata.json
+[848/2576] Processing: REG-2015-1088
+  ✓ Success: 32015R1088_metadata.json
+[849/2576] Processing: REG-2015-640
+  ✓ Success: 32015R0640_metadata.json
+[850/2576] Processing: REG-2020-749
+  ✓ Success: 32020R0749_metadata.json
+[851/2576] Processing: REG-2023-128
+  ✓ Success: 32023R0128_metadata.json
+[852/2576] Processing: REG-2016-445
+  ✓ Success: 32016R0445_metadata.json
+[853/2576] Processing: REG-2021-379
+  ✓ Success: 32021R0379_metadata.json
+[854/2576] Processing: REG-2021-1173
+  ✓ Success: 32021R1173_metadata.json
+[855/2576] Processing: REG-2013-107
+  ✓ Success: 32013R0107_metadata.json
+[856/2576] Processing: REG-2015-2256
+  ✓ Success: 32015R2256_metadata.json
+[857/2576] Processing: REG-2010-759
+  ✓ Success: 32010R0759_metadata.json
+[858/2576] Processing: REG-2012-1056
+  ✓ Success: 32012R1056_metadata.json
+[859/2576] Processing: REG-2014-1303
+  ✓ Success: 32014R1303_metadata.json
+[860/2576] Processing: REG-2021-948
+  ✓ Success: 32021R0948_metadata.json
+[861/2576] Processing: REG-2018-1139
+  ✓ Success: 32018R1139_metadata.json
+[862/2576] Processing: REG-2019-650
+  ✓ Success: 32019R0650_metadata.json
+[863/2576] Processing: REG-2013-100
+  ✓ Success: 32013R0100_metadata.json
+[864/2576] Processing: REG-2014-421
+  ✓ Success: 32014R0421_metadata.json
+[865/2576] Processing: REG-2016-214
+  ✓ Success: 32016R0214_metadata.json
+[866/2576] Processing: REG-2015-647
+  ✓ Success: 32015R0647_metadata.json
+[867/2576] Processing: REG-2023-1029
+  ✓ Success: 32023R1029_metadata.json
+[868/2576] Processing: REG-2012-530
+  ✓ Success: 32012R0530_metadata.json
+[869/2576] Processing: REG-2015-475
+  ✓ Success: 32015R0475_metadata.json
+[870/2576] Processing: REG-2017-1770
+  ✓ Success: 32017R1770_metadata.json
+[871/2576] Processing: REG-2010-761
+  ✓ Success: 32010R0761_metadata.json
+[872/2576] Processing: REG-2019-1241
+  ✓ Success: 32019R1241_metadata.json
+[873/2576] Processing: REG-2012-154
+  ✓ Success: 32012R0154_metadata.json
+[874/2576] Processing: REG-2017-624
+  ✓ Success: 32017R0624_metadata.json
+[875/2576] Processing: REG-2020-785
+  ✓ Success: 32020R0785_metadata.json
+[876/2576] Processing: REG-2013-1311
+  ✓ Success: 32013R1311_metadata.json
+[877/2576] Processing: REG-2021-341
+  ✓ Success: 32021R0341_metadata.json
+[878/2576] Processing: REG-2013-1123
+  ✓ Success: 32013R1123_metadata.json
+[879/2576] Processing: REG-2014-248
+  ✓ Success: 32014R0248_metadata.json
+[880/2576] Processing: REG-2012-1263
+  ✓ Success: 32012R1263_metadata.json
+[881/2576] Processing: REG-2014-1304
+  ✓ Success: 32014R1304_metadata.json
+[882/2576] Processing: REG-2022-2371
+  ✓ Success: 32022R2371_metadata.json
+[883/2576] Processing: REG-2015-812
+  ✓ Success: 32015R0812_metadata.json
+[884/2576] Processing: REG-2014-1136
+  ✓ Success: 32014R1136_metadata.json
+[885/2576] Processing: REG-2022-520
+  ✓ Success: 32022R0520_metadata.json
+[886/2576] Processing: REG-2017-871
+  ✓ Success: 32017R0871_metadata.json
+[887/2576] Processing: REG-2019-491
+  ✓ Success: 32019R0491_metadata.json
+[888/2576] Processing: REG-2020-771
+  ✓ Success: 32020R0771_metadata.json
+[889/2576] Processing: REG-2022-1190
+  ✓ Success: 32022R1190_metadata.json
+[890/2576] Processing: REG-2014-36
+  ✓ Success: 32014R0036_metadata.json
+[891/2576] Processing: REG-2015-1474
+  ✓ Success: 32015R1474_metadata.json
+[892/2576] Processing: REG-2022-580
+  ✓ Success: 32022R0580_metadata.json
+[893/2576] Processing: REG-2014-1196
+  ✓ Success: 32014R1196_metadata.json
+[894/2576] Processing: REG-2015-1222
+  ✓ Success: 32015R1222_metadata.json
+[895/2576] Processing: REG-2016-429
+  ✓ Success: 32016R0429_metadata.json
+[896/2576] Processing: REG-2015-846
+  ✓ Success: 32015R0846_metadata.json
+[897/2576] Processing: REG-2014-1350
+  ✓ Success: 32014R1350_metadata.json
+[898/2576] Processing: REG-2023-1042
+  ✓ Success: 32023R1042_metadata.json
+[899/2576] Processing: REG-2017-825
+  ✓ Success: 32017R0825_metadata.json
+[900/2576] Processing: REG-2022-110
+  ✓ Success: 32022R0110_metadata.json
+[901/2576] Processing: REG-2021-785
+  ✓ Success: 32021R0785_metadata.json
+[902/2576] Processing: REG-2017-2367
+  ✓ Success: 32017R2367_metadata.json
+[903/2576] Processing: REG-2014-223
+  ✓ Success: 32014R0223_metadata.json
+[904/2576] Processing: REG-2010-1167
+  ✓ Success: 32010R1167_metadata.json
+[905/2576] Processing: REG-2011-305
+  ✓ Success: 32011R0305_metadata.json
+[906/2576] Processing: REG-2023-1089
+  ✓ Success: 32023R1089_metadata.json
+[907/2576] Processing: REG-2010-351
+  ✓ Success: 32010R0351_metadata.json
+[908/2576] Processing: REG-2011-1227
+  ✓ Success: 32011R1227_metadata.json
+[909/2576] Processing: REG-2010-1193
+  ✓ Success: 32010R1193_metadata.json
+[910/2576] Processing: REG-2020-2081
+  ✓ Success: 32020R2081_metadata.json
+[911/2576] Processing: REG-2015-613
+  ✓ Success: 32015R0613_metadata.json
+[912/2576] Processing: REG-2010-163
+  ✓ Success: 32010R0163_metadata.json
+[913/2576] Processing: REG-2012-100
+  ✓ Success: 32012R0100_metadata.json
+[914/2576] Processing: REG-2017-2393
+  ✓ Success: 32017R2393_metadata.json
+[915/2576] Processing: REG-2010-507
+  ✓ Success: 32010R0507_metadata.json
+[916/2576] Processing: REG-2021-782
+  ✓ Success: 32021R0782_metadata.json
+[917/2576] Processing: REG-2014-1357
+  ✓ Success: 32014R1357_metadata.json
+[918/2576] Processing: REG-2015-1017
+  ✓ Success: 32015R1017_metadata.json
+[919/2576] Processing: REG-2014-31
+  ✓ Success: 32014R0031_metadata.json
+[920/2576] Processing: REG-2010-732
+  ✓ Success: 32010R0732_metadata.json
+[921/2576] Processing: REG-2020-1055
+  ✓ Success: 32020R1055_metadata.json
+[922/2576] Processing: REG-2013-1389
+  ✓ Success: 32013R1389_metadata.json
+[923/2576] Processing: REG-2014-1368
+  ✓ Success: 32014R1368_metadata.json
+[924/2576] Processing: REG-2019-1020
+  ✓ Success: 32019R1020_metadata.json
+[925/2576] Processing: REG-2017-2394
+  ✓ Success: 32017R2394_metadata.json
+[926/2576] Processing: REG-2010-958
+  ✓ Success: 32010R0958_metadata.json
+[927/2576] Processing: REG-2019-1676
+  ✓ Success: 32019R1676_metadata.json
+[928/2576] Processing: REG-2010-356
+  ✓ Success: 32010R0356_metadata.json
+[929/2576] Processing: REG-2017-1347
+  ✓ Success: 32017R1347_metadata.json
+[930/2576] Processing: REG-2022-1934
+  ✓ Success: 32022R1934_metadata.json
+[931/2576] Processing: REG-2021-1771
+  ✓ Success: 32021R1771_metadata.json
+[932/2576] Processing: REG-2013-19
+  ✓ Success: 32013R0019_metadata.json
+[933/2576] Processing: REG-2014-224
+  ✓ Success: 32014R0224_metadata.json
+[934/2576] Processing: REG-2017-2360
+  ✓ Success: 32017R2360_metadata.json
+[935/2576] Processing: REG-2013-1380
+  ✓ Success: 32013R1380_metadata.json
+[936/2576] Processing: REG-2010-37
+  ✓ Success: 32010R0037_metadata.json
+[937/2576] Processing: REG-2014-1153
+  ✓ Success: 32014R1153_metadata.json
+[938/2576] Processing: REG-2016-2029
+  ✓ Success: 32016R2029_metadata.json
+[939/2576] Processing: REG-2011-1229
+  ✓ Success: 32011R1229_metadata.json
+[940/2576] Processing: REG-2019-632
+  ✓ Success: 32019R0632_metadata.json
+[941/2576] Processing: REG-2010-152
+  ✓ Success: 32010R0152_metadata.json
+[942/2576] Processing: REG-2012-555
+  ✓ Success: 32012R0555_metadata.json
+[943/2576] Processing: REG-2022-922
+  ✓ Success: 32022R0922_metadata.json
+[944/2576] Processing: REG-2015-848
+  ✓ Success: 32015R0848_metadata.json
+[945/2576] Processing: REG-2023-1428
+  ✓ Success: 32023R1428_metadata.json
+[946/2576] Processing: REG-2011-106
+  ✓ Success: 32011R0106_metadata.json
+[947/2576] Processing: REG-2023-2053
+  ✓ Success: 32023R2053_metadata.json
+[948/2576] Processing: REG-2010-956
+  ✓ Success: 32010R0956_metadata.json
+[949/2576] Processing: REG-2020-521
+  ✓ Success: 32020R0521_metadata.json
+[950/2576] Processing: REG-2014-1154
+  ✓ Success: 32014R1154_metadata.json
+[951/2576] Processing: REG-2015-870
+  ✓ Success: 32015R0870_metadata.json
+[952/2576] Processing: REG-2012-109
+  ✓ Success: 32012R0109_metadata.json
+[953/2576] Processing: REG-2010-30
+  ✓ Success: 32010R0030_metadata.json
+[954/2576] Processing: REG-2011-101
+  ✓ Success: 32011R0101_metadata.json
+[955/2576] Processing: REG-2022-1905
+  ✓ Success: 32022R1905_metadata.json
+[956/2576] Processing: REG-2010-1151
+  ✓ Success: 32010R1151_metadata.json
+[957/2576] Processing: REG-2016-1036
+  ✓ Success: 32016R1036_metadata.json
+[958/2576] Processing: REG-2011-333
+  ✓ Success: 32011R0333_metadata.json
+[959/2576] Processing: REG-2021-1116
+  ✓ Success: 32021R1116_metadata.json
+[960/2576] Processing: REG-2010-531
+  ✓ Success: 32010R0531_metadata.json
+[961/2576] Processing: REG-2021-2303
+  ✓ Success: 32021R2303_metadata.json
+[962/2576] Processing: REG-2014-685
+  ✓ Success: 32014R0685_metadata.json
+[963/2576] Processing: REG-2016-282
+  ✓ Success: 32016R0282_metadata.json
+[964/2576] Processing: REG-2017-1978
+  ✓ Success: 32017R1978_metadata.json
+[965/2576] Processing: REG-2012-612
+  ✓ Success: 32012R0612_metadata.json
+[966/2576] Processing: REG-2019-1735
+  ✓ Success: 32019R1735_metadata.json
+[967/2576] Processing: REG-2015-757
+  ✓ Success: 32015R0757_metadata.json
+[968/2576] Processing: REG-2022-259
+  ✓ Success: 32022R0259_metadata.json
+[969/2576] Processing: REG-2018-1481
+  ✓ Success: 32018R1481_metadata.json
+[970/2576] Processing: REG-2010-443
+  ✓ Success: 32010R0443_metadata.json
+[971/2576] Processing: REG-2018-946
+  ✓ Success: 32018R0946_metadata.json
+[972/2576] Processing: REG-2010-671
+  ✓ Success: 32010R0671_metadata.json
+[973/2576] Processing: REG-2016-794
+  ✓ Success: 32016R0794_metadata.json
+[974/2576] Processing: REG-2019-1197
+  ✓ Success: 32019R1197_metadata.json
+[975/2576] Processing: REG-2014-155
+  ✓ Success: 32014R0155_metadata.json
+[976/2576] Processing: REG-2014-969
+  ✓ Success: 32014R0969_metadata.json
+[977/2576] Processing: REG-2010-685
+  ✓ Success: 32010R0685_metadata.json
+[978/2576] Processing: REG-2019-2144
+  ✓ Success: 32019R2144_metadata.json
+[979/2576] Processing: REG-2014-703
+  ✓ Success: 32014R0703_metadata.json
+[980/2576] Processing: REG-2010-1023
+  ✓ Success: 32010R1023_metadata.json
+[981/2576] Processing: REG-2012-847
+  ✓ Success: 32012R0847_metadata.json
+[982/2576] Processing: REG-2020-205
+  ✓ Success: 32020R0205_metadata.json
+[983/2576] Processing: REG-2015-768
+  ✓ Success: 32015R0768_metadata.json
+[984/2576] Processing: REG-2022-868
+  ✓ Success: 32022R0868_metadata.json
+[985/2576] Processing: REG-2012-43
+  ✓ Success: 32012R0043_metadata.json
+[986/2576] Processing: REG-2022-1848
+  ✓ Success: 32022R1848_metadata.json
+[987/2576] Processing: REG-2013-679
+  ✓ Success: 32013R0679_metadata.json
+[988/2576] Processing: REG-2013-813
+  ✓ Success: 32013R0813_metadata.json
+[989/2576] Processing: REG-2021-251
+  ✓ Success: 32021R0251_metadata.json
+[990/2576] Processing: REG-2011-428
+  ✓ Success: 32011R0428_metadata.json
+[991/2576] Processing: REG-2014-358
+  ✓ Success: 32014R0358_metadata.json
+[992/2576] Processing: REG-2016-73
+  ✓ Success: 32016R0073_metadata.json
+[993/2576] Processing: REG-2023-464
+  ✓ Success: 32023R0464_metadata.json
+[994/2576] Processing: REG-2018-1472
+  ✓ Success: 32018R1472_metadata.json
+[995/2576] Processing: REG-2014-536
+  ✓ Success: 32014R0536_metadata.json
+[996/2576] Processing: REG-2016-1143
+  ✓ Success: 32016R1143_metadata.json
+[997/2576] Processing: REG-2021-2282
+  ✓ Success: 32021R2282_metadata.json
+[998/2576] Processing: REG-2010-1216
+  ✓ Success: 32010R1216_metadata.json
+[999/2576] Processing: REG-2013-473
+  ✓ Success: 32013R0473_metadata.json
+[1000/2576] Processing: REG-2019-129
+  ✓ Success: 32019R0129_metadata.json
+[1001/2576] Processing: REG-2016-555
+  ✓ Success: 32016R0555_metadata.json
+[1002/2576] Processing: REG-2015-106
+  ✓ Success: 32015R0106_metadata.json
+[1003/2576] Processing: REG-2016-793
+  ✓ Success: 32016R0793_metadata.json
+[1004/2576] Processing: REG-2012-1179
+  ✓ Success: 32012R1179_metadata.json
+[1005/2576] Processing: REG-2020-1323
+  ✓ Success: 32020R1323_metadata.json
+[1006/2576] Processing: REG-2010-444
+  ✓ Success: 32010R0444_metadata.json
+[1007/2576] Processing: REG-2017-1203
+  ✓ Success: 32017R1203_metadata.json
+[1008/2576] Processing: REG-2022-850
+  ✓ Success: 32022R0850_metadata.json
+[1009/2576] Processing: REG-2013-487
+  ✓ Success: 32013R0487_metadata.json
+[1010/2576] Processing: REG-2011-63
+  ✓ Success: 32011R0063_metadata.json
+[1011/2576] Processing: REG-2013-814
+  ✓ Success: 32013R0814_metadata.json
+[1012/2576] Processing: REG-2012-44
+  ✓ Success: 32012R0044_metadata.json
+[1013/2576] Processing: REG-2023-1101
+  ✓ Success: 32023R1101_metadata.json
+[1014/2576] Processing: REG-2011-1169
+  ✓ Success: 32011R1169_metadata.json
+[1015/2576] Processing: REG-2023-1565
+  ✓ Success: 32023R1565_metadata.json
+[1016/2576] Processing: REG-2011-97
+  ✓ Success: 32011R0097_metadata.json
+[1017/2576] Processing: REG-2017-2212
+  ✓ Success: 32017R2212_metadata.json
+[1018/2576] Processing: REG-2020-1785
+  ✓ Success: 32020R1785_metadata.json
+[1019/2576] Processing: REG-2014-732
+  ✓ Success: 32014R0732_metadata.json
+[1020/2576] Processing: REG-2019-2175
+  ✓ Success: 32019R2175_metadata.json
+[1021/2576] Processing: REG-2011-284
+  ✓ Success: 32011R0284_metadata.json
+[1022/2576] Processing: REG-2011-1160
+  ✓ Success: 32011R1160_metadata.json
+[1023/2576] Processing: REG-2020-1543
+  ✓ Success: 32020R1543_metadata.json
+[1024/2576] Processing: REG-2012-623
+  ✓ Success: 32012R0623_metadata.json
+[1025/2576] Processing: REG-2015-302
+  ✓ Success: 32015R0302_metadata.json
+[1026/2576] Processing: REG-2010-472
+  ✓ Success: 32010R0472_metadata.json
+[1027/2576] Processing: REG-2018-1649
+  ✓ Success: 32018R1649_metadata.json
+[1028/2576] Processing: REG-2018-174
+  ✓ Success: 32018R0174_metadata.json
+[1029/2576] Processing: REG-2012-278
+  ✓ Success: 32012R0278_metadata.json
+[1030/2576] Processing: REG-2015-759
+  ✓ Success: 32015R0759_metadata.json
+[1031/2576] Processing: REG-2019-1155
+  ✓ Success: 32019R1155_metadata.json
+[1032/2576] Processing: REG-2012-1148
+  ✓ Success: 32012R1148_metadata.json
+[1033/2576] Processing: REG-2022-861
+  ✓ Success: 32022R0861_metadata.json
+[1034/2576] Processing: REG-2018-2000
+  ✓ Success: 32018R2000_metadata.json
+[1035/2576] Processing: REG-2017-1000
+  ✓ Success: 32017R1000_metadata.json
+[1036/2576] Processing: REG-2018-1671
+  ✓ Success: 32018R1671_metadata.json
+[1037/2576] Processing: REG-2010-1227
+  ✓ Success: 32010R1227_metadata.json
+[1038/2576] Processing: REG-2010-481
+  ✓ Success: 32010R0481_metadata.json
+[1039/2576] Processing: REG-2015-1961
+  ✓ Success: 32015R1961_metadata.json
+[1040/2576] Processing: REG-2010-812
+  ✓ Success: 32010R0812_metadata.json
+[1041/2576] Processing: REG-2021-2278
+  ✓ Success: 32021R2278_metadata.json
+[1042/2576] Processing: REG-2021-1099
+  ✓ Success: 32021R1099_metadata.json
+[1043/2576] Processing: REG-2022-2065
+  ✓ Success: 32022R2065_metadata.json
+[1044/2576] Processing: REG-2019-127
+  ✓ Success: 32019R0127_metadata.json
+[1045/2576] Processing: REG-2021-267
+  ✓ Success: 32021R0267_metadata.json
+[1046/2576] Processing: REG-2015-1162
+  ✓ Success: 32015R1162_metadata.json
+[1047/2576] Processing: REG-2012-1183
+  ✓ Success: 32012R1183_metadata.json
+[1048/2576] Processing: REG-2014-960
+  ✓ Success: 32014R0960_metadata.json
+[1049/2576] Processing: REG-2014-538
+  ✓ Success: 32014R0538_metadata.json
+[1050/2576] Processing: REG-2019-543
+  ✓ Success: 32019R0543_metadata.json
+[1051/2576] Processing: REG-2022-2455
+  ✓ Success: 32022R2455_metadata.json
+[1052/2576] Processing: REG-2010-248
+  ✓ Success: 32010R0248_metadata.json
+[1053/2576] Processing: REG-2015-538
+  ✓ Success: 32015R0538_metadata.json
+[1054/2576] Processing: REG-2014-598
+  ✓ Success: 32014R0598_metadata.json
+[1055/2576] Processing: REG-2015-960
+  ✓ Success: 32015R0960_metadata.json
+[1056/2576] Processing: REG-2023-250
+  ✓ Success: 32023R0250_metadata.json
+[1057/2576] Processing: REG-2011-812
+  ✓ Success: 32011R0812_metadata.json
+[1058/2576] Processing: REG-2019-517
+  ✓ Success: 32019R0517_metadata.json
+[1059/2576] Processing: REG-2023-1190
+  ✓ Success: 32023R1190_metadata.json
+[1060/2576] Processing: REG-2015-1760
+  ✓ Success: 32015R1760_metadata.json
+[1061/2576] Processing: REG-2020-856
+  ✓ Success: 32020R0856_metadata.json
+[1062/2576] Processing: REG-2019-1333
+  ✓ Success: 32019R1333_metadata.json
+[1063/2576] Processing: REG-2010-613
+  ✓ Success: 32010R0613_metadata.json
+[1064/2576] Processing: REG-2010-421
+  ✓ Success: 32010R0421_metadata.json
+[1065/2576] Processing: REG-2010-879
+  ✓ Success: 32010R0879_metadata.json
+[1066/2576] Processing: REG-2015-735
+  ✓ Success: 32015R0735_metadata.json
+[1067/2576] Processing: REG-2015-1599
+  ✓ Success: 32015R1599_metadata.json
+[1068/2576] Processing: REG-2018-588
+  ✓ Success: 32018R0588_metadata.json
+[1069/2576] Processing: REG-2010-1041
+  ✓ Success: 32010R1041_metadata.json
+[1070/2576] Processing: REG-2018-1241
+  ✓ Success: 32018R1241_metadata.json
+[1071/2576] Processing: REG-2018-782
+  ✓ Success: 32018R0782_metadata.json
+[1072/2576] Processing: REG-2017-2279
+  ✓ Success: 32017R2279_metadata.json
+[1073/2576] Processing: REG-2018-1877
+  ✓ Success: 32018R1877_metadata.json
+[1074/2576] Processing: REG-2022-455
+  ✓ Success: 32022R0455_metadata.json
+[1075/2576] Processing: REG-2022-2036
+  ✓ Success: 32022R2036_metadata.json
+[1076/2576] Processing: REG-2018-120
+  ✓ Success: 32018R0120_metadata.json
+[1077/2576] Processing: REG-2012-648
+  ✓ Success: 32012R0648_metadata.json
+[1078/2576] Processing: REG-2019-977
+  ✓ Success: 32019R0977_metadata.json
+[1079/2576] Processing: REG-2013-1069
+  ✓ Success: 32013R1069_metadata.json
+[1080/2576] Processing: REG-2016-1121
+  ✓ Success: 32016R1121_metadata.json
+[1081/2576] Processing: REG-2017-1261
+  ✓ Success: 32017R1261_metadata.json
+[1082/2576] Processing: REG-2017-335
+  ✓ Success: 32017R0335_metadata.json
+[1083/2576] Processing: REG-2020-851
+  ✓ Success: 32020R0851_metadata.json
+[1084/2576] Processing: REG-2014-139
+  ✓ Success: 32014R0139_metadata.json
+[1085/2576] Processing: REG-2015-2120
+  ✓ Success: 32015R2120_metadata.json
+[1086/2576] Processing: REG-2021-692
+  ✓ Success: 32021R0692_metadata.json
+[1087/2576] Processing: REG-2010-279
+  ✓ Success: 32010R0279_metadata.json
+[1088/2576] Processing: REG-2019-1933
+  ✓ Success: 32019R1933_metadata.json
+[1089/2576] Processing: REG-2019-2117
+  ✓ Success: 32019R2117_metadata.json
+[1090/2576] Processing: REG-2019-519
+  ✓ Success: 32019R0519_metadata.json
+[1091/2576] Processing: REG-2023-850
+  ✓ Success: 32023R0850_metadata.json
+[1092/2576] Processing: REG-2018-1042
+  ✓ Success: 32018R1042_metadata.json
+[1093/2576] Processing: REG-2019-941
+  ✓ Success: 32019R0941_metadata.json
+[1094/2576] Processing: REG-2014-334
+  ✓ Success: 32014R0334_metadata.json
+[1095/2576] Processing: REG-2018-915
+  ✓ Success: 32018R0915_metadata.json
+[1096/2576] Processing: REG-2013-1299
+  ✓ Success: 32013R1299_metadata.json
+[1097/2576] Processing: REG-2010-410
+  ✓ Success: 32010R0410_metadata.json
+[1098/2576] Processing: REG-2010-622
+  ✓ Success: 32010R0622_metadata.json
+[1099/2576] Processing: REG-2012-225
+  ✓ Success: 32012R0225_metadata.json
+[1100/2576] Processing: REG-2010-246
+  ✓ Success: 32010R0246_metadata.json
+[1101/2576] Processing: REG-2012-641
+  ✓ Success: 32012R0641_metadata.json
+[1102/2576] Processing: REG-2012-473
+  ✓ Success: 32012R0473_metadata.json
+[1103/2576] Processing: REG-2014-596
+  ✓ Success: 32014R0596_metadata.json
+[1104/2576] Processing: REG-2010-428
+  ✓ Success: 32010R0428_metadata.json
+[1105/2576] Processing: REG-2023-1536
+  ✓ Success: 32023R1536_metadata.json
+[1106/2576] Processing: REG-2022-2463
+  ✓ Success: 32022R2463_metadata.json
+[1107/2576] Processing: REG-2021-695
+  ✓ Success: 32021R0695_metadata.json
+[1108/2576] Processing: REG-2019-521
+  ✓ Success: 32019R0521_metadata.json
+[1109/2576] Processing: REG-2010-884
+  ✓ Success: 32010R0884_metadata.json
+[1110/2576] Processing: REG-2018-581
+  ✓ Success: 32018R0581_metadata.json
+[1111/2576] Processing: REG-2016-539
+  ✓ Success: 32016R0539_metadata.json
+[1112/2576] Processing: REG-2019-979
+  ✓ Success: 32019R0979_metadata.json
+[1113/2576] Processing: REG-2016-27
+  ✓ Success: 32016R0027_metadata.json
+[1114/2576] Processing: REG-2019-145
+  ✓ Success: 32019R0145_metadata.json
+[1115/2576] Processing: REG-2015-703
+  ✓ Success: 32015R0703_metadata.json
+[1116/2576] Processing: REG-2017-1250
+  ✓ Success: 32017R1250_metadata.json
+[1117/2576] Processing: REG-2022-2038
+  ✓ Success: 32022R2038_metadata.json
+[1118/2576] Processing: REG-2016-2137
+  ✓ Success: 32016R2137_metadata.json
+[1119/2576] Processing: REG-2010-417
+  ✓ Success: 32010R0417_metadata.json
+[1120/2576] Processing: REG-2021-1030
+  ✓ Success: 32021R1030_metadata.json
+[1121/2576] Processing: REG-2019-50
+  ✓ Success: 32019R0050_metadata.json
+[1122/2576] Processing: REG-2023-1199
+  ✓ Success: 32023R1199_metadata.json
+[1123/2576] Processing: REG-2011-215
+  ✓ Success: 32011R0215_metadata.json
+[1124/2576] Processing: REG-2023-857
+  ✓ Success: 32023R0857_metadata.json
+[1125/2576] Processing: REG-2014-506
+  ✓ Success: 32014R0506_metadata.json
+[1126/2576] Processing: REG-2020-1783
+  ✓ Success: 32020R1783_metadata.json
+[1127/2576] Processing: REG-2010-480
+  ✓ Success: 32010R0480_metadata.json
+[1128/2576] Processing: REG-2012-1149
+  ✓ Success: 32012R1149_metadata.json
+[1129/2576] Processing: REG-2016-591
+  ✓ Success: 32016R0591_metadata.json
+[1130/2576] Processing: REG-2019-1154
+  ✓ Success: 32019R1154_metadata.json
+[1131/2576] Processing: REG-2011-98
+  ✓ Success: 32011R0098_metadata.json
+[1132/2576] Processing: REG-2017-1001
+  ✓ Success: 32017R1001_metadata.json
+[1133/2576] Processing: REG-2013-685
+  ✓ Success: 32013R0685_metadata.json
+[1134/2576] Processing: REG-2015-760
+  ✓ Success: 32015R0760_metadata.json
+[1135/2576] Processing: REG-2010-222
+  ✓ Success: 32010R0222_metadata.json
+[1136/2576] Processing: REG-2022-860
+  ✓ Success: 32022R0860_metadata.json
+[1137/2576] Processing: REG-2015-552
+  ✓ Success: 32015R0552_metadata.json
+[1138/2576] Processing: REG-2013-1236
+  ✓ Success: 32013R1236_metadata.json
+[1139/2576] Processing: REG-2016-44
+  ✓ Success: 32016R0044_metadata.json
+[1140/2576] Processing: REG-2019-126
+  ✓ Success: 32019R0126_metadata.json
+[1141/2576] Processing: REG-2013-1004
+  ✓ Success: 32013R1004_metadata.json
+[1142/2576] Processing: REG-2015-1163
+  ✓ Success: 32015R1163_metadata.json
+[1143/2576] Processing: REG-2011-249
+  ✓ Success: 32011R0249_metadata.json
+[1144/2576] Processing: REG-2014-539
+  ✓ Success: 32014R0539_metadata.json
+[1145/2576] Processing: REG-2022-2400
+  ✓ Success: 32022R2400_metadata.json
+[1146/2576] Processing: REG-2010-679
+  ✓ Success: 32010R0679_metadata.json
+[1147/2576] Processing: REG-2021-1098
+  ✓ Success: 32021R1098_metadata.json
+[1148/2576] Processing: REG-2020-1542
+  ✓ Success: 32020R1542_metadata.json
+[1149/2576] Processing: REG-2012-622
+  ✓ Success: 32012R0622_metadata.json
+[1150/2576] Processing: REG-2011-1161
+  ✓ Success: 32011R1161_metadata.json
+[1151/2576] Processing: REG-2016-1
+  ✓ Success: 32016R0001_metadata.json
+[1152/2576] Processing: REG-2012-848
+  ✓ Success: 32012R0848_metadata.json
+[1153/2576] Processing: REG-2018-976
+  ✓ Success: 32018R0976_metadata.json
+[1154/2576] Processing: REG-2010-473
+  ✓ Success: 32010R0473_metadata.json
+[1155/2576] Processing: REG-2014-959
+  ✓ Success: 32014R0959_metadata.json
+[1156/2576] Processing: REG-2014-165
+  ✓ Success: 32014R0165_metadata.json
+[1157/2576] Processing: REG-2021-850
+  ✓ Success: 32021R0850_metadata.json
+[1158/2576] Processing: REG-2013-212
+  ✓ Success: 32013R0212_metadata.json
+[1159/2576] Processing: REG-2014-733
+  ✓ Success: 32014R0733_metadata.json
+[1160/2576] Processing: REG-2020-1784
+  ✓ Success: 32020R1784_metadata.json
+[1161/2576] Processing: REG-2015-1190
+  ✓ Success: 32015R1190_metadata.json
+[1162/2576] Processing: REG-2018-511
+  ✓ Success: 32018R0511_metadata.json
+[1163/2576] Processing: REG-2015-758
+  ✓ Success: 32015R0758_metadata.json
+[1164/2576] Processing: REG-2022-858
+  ✓ Success: 32022R0858_metadata.json
+[1165/2576] Processing: REG-2016-1379
+  ✓ Success: 32016R1379_metadata.json
+[1166/2576] Processing: REG-2014-966
+  ✓ Success: 32014R0966_metadata.json
+[1167/2576] Processing: REG-2012-270
+  ✓ Success: 32012R0270_metadata.json
+[1168/2576] Processing: REG-2016-792
+  ✓ Success: 32016R0792_metadata.json
+[1169/2576] Processing: REG-2017-1202
+  ✓ Success: 32017R1202_metadata.json
+[1170/2576] Processing: REG-2016-1384
+  ✓ Success: 32016R1384_metadata.json
+[1171/2576] Processing: REG-2015-751
+  ✓ Success: 32015R0751_metadata.json
+[1172/2576] Processing: REG-2021-2045
+  ✓ Success: 32021R2045_metadata.json
+[1173/2576] Processing: REG-2021-2283
+  ✓ Success: 32021R2283_metadata.json
+[1174/2576] Processing: REG-2013-472
+  ✓ Success: 32013R0472_metadata.json
+[1175/2576] Processing: REG-2010-1025
+  ✓ Success: 32010R1025_metadata.json
+[1176/2576] Processing: REG-2014-537
+  ✓ Success: 32014R0537_metadata.json
+[1177/2576] Processing: REG-2017-2225
+  ✓ Success: 32017R2225_metadata.json
+[1178/2576] Processing: REG-2014-153
+  ✓ Success: 32014R0153_metadata.json
+[1179/2576] Processing: REG-2014-361
+  ✓ Success: 32014R0361_metadata.json
+[1180/2576] Processing: REG-2019-128
+  ✓ Success: 32019R0128_metadata.json
+[1181/2576] Processing: REG-2010-822
+  ✓ Success: 32010R0822_metadata.json
+[1182/2576] Processing: REG-2012-1147
+  ✓ Success: 32012R1147_metadata.json
+[1183/2576] Processing: REG-2015-138
+  ✓ Success: 32015R0138_metadata.json
+[1184/2576] Processing: REG-2011-96
+  ✓ Success: 32011R0096_metadata.json
+[1185/2576] Processing: REG-2019-1966
+  ✓ Success: 32019R1966_metadata.json
+[1186/2576] Processing: REG-2013-815
+  ✓ Success: 32013R0815_metadata.json
+[1187/2576] Processing: REG-2016-75
+  ✓ Success: 32016R0075_metadata.json
+[1188/2576] Processing: REG-2011-62
+  ✓ Success: 32011R0062_metadata.json
+[1189/2576] Processing: REG-2015-1360
+  ✓ Success: 32015R1360_metadata.json
+[1190/2576] Processing: REG-2014-508
+  ✓ Success: 32014R0508_metadata.json
+[1191/2576] Processing: REG-2015-1536
+  ✓ Success: 32015R1536_metadata.json
+[1192/2576] Processing: REG-2010-1228
+  ✓ Success: 32010R1228_metadata.json
+[1193/2576] Processing: REG-2017-2010
+  ✓ Success: 32017R2010_metadata.json
+[1194/2576] Processing: REG-2010-1022
+  ✓ Success: 32010R1022_metadata.json
+[1195/2576] Processing: REG-2010-1210
+  ✓ Success: 32010R1210_metadata.json
+[1196/2576] Processing: REG-2022-1278
+  ✓ Success: 32022R1278_metadata.json
+[1197/2576] Processing: REG-2014-702
+  ✓ Success: 32014R0702_metadata.json
+[1198/2576] Processing: REG-2020-499
+  ✓ Success: 32020R0499_metadata.json
+[1199/2576] Processing: REG-2018-1480
+  ✓ Success: 32018R1480_metadata.json
+[1200/2576] Processing: REG-2015-756
+  ✓ Success: 32015R0756_metadata.json
+[1201/2576] Processing: REG-2012-613
+  ✓ Success: 32012R0613_metadata.json
+[1202/2576] Processing: REG-2012-277
+  ✓ Success: 32012R0277_metadata.json
+[1203/2576] Processing: REG-2016-795
+  ✓ Success: 32016R0795_metadata.json
+[1204/2576] Processing: REG-2010-670
+  ✓ Success: 32010R0670_metadata.json
+[1205/2576] Processing: REG-2010-442
+  ✓ Success: 32010R0442_metadata.json
+[1206/2576] Processing: REG-2017-735
+  ✓ Success: 32017R0735_metadata.json
+[1207/2576] Processing: REG-2013-678
+  ✓ Success: 32013R0678_metadata.json
+[1208/2576] Processing: REG-2014-957
+  ✓ Success: 32014R0957_metadata.json
+[1209/2576] Processing: REG-2022-2294
+  ✓ Success: 32022R2294_metadata.json
+[1210/2576] Processing: REG-2021-250
+  ✓ Success: 32021R0250_metadata.json
+[1211/2576] Processing: REG-2023-657
+  ✓ Success: 32023R0657_metadata.json
+[1212/2576] Processing: REG-2016-72
+  ✓ Success: 32016R0072_metadata.json
+[1213/2576] Processing: REG-2018-978
+  ✓ Success: 32018R0978_metadata.json
+[1214/2576] Processing: REG-2011-91
+  ✓ Success: 32011R0091_metadata.json
+[1215/2576] Processing: REG-2022-869
+  ✓ Success: 32022R0869_metadata.json
+[1216/2576] Processing: REG-2015-2340
+  ✓ Success: 32015R2340_metadata.json
+[1217/2576] Processing: REG-2021-452
+  ✓ Success: 32021R0452_metadata.json
+[1218/2576] Processing: REG-2010-885
+  ✓ Success: 32010R0885_metadata.json
+[1219/2576] Processing: REG-2019-712
+  ✓ Success: 32019R0712_metadata.json
+[1220/2576] Processing: REG-2022-2496
+  ✓ Success: 32022R2496_metadata.json
+[1221/2576] Processing: REG-2016-26
+  ✓ Success: 32016R0026_metadata.json
+[1222/2576] Processing: REG-2019-978
+  ✓ Success: 32019R0978_metadata.json
+[1223/2576] Processing: REG-2015-1101
+  ✓ Success: 32015R1101_metadata.json
+[1224/2576] Processing: REG-2013-1066
+  ✓ Success: 32013R1066_metadata.json
+[1225/2576] Processing: REG-2018-1847
+  ✓ Success: 32018R1847_metadata.json
+[1226/2576] Processing: REG-2011-31
+  ✓ Success: 32011R0031_metadata.json
+[1227/2576] Processing: REG-2010-429
+  ✓ Success: 32010R0429_metadata.json
+[1228/2576] Processing: REG-2015-359
+  ✓ Success: 32015R0359_metadata.json
+[1229/2576] Processing: REG-2009-204
+  ✓ Success: 32009R0204_metadata.json
+[1230/2576] Processing: REG-2012-16
+  ✓ Success: 32012R0016_metadata.json
+[1231/2576] Processing: REG-2015-2314
+  ✓ Success: 32015R2314_metadata.json
+[1232/2576] Processing: REG-2021-694
+  ✓ Success: 32021R0694_metadata.json
+[1233/2576] Processing: REG-2014-100
+  ✓ Success: 32014R0100_metadata.json
+[1234/2576] Processing: REG-2021-1203
+  ✓ Success: 32021R1203_metadata.json
+[1235/2576] Processing: REG-2014-332
+  ✓ Success: 32014R0332_metadata.json
+[1236/2576] Processing: REG-2014-756
+  ✓ Success: 32014R0756_metadata.json
+[1237/2576] Processing: REG-2010-1244
+  ✓ Success: 32010R1244_metadata.json
+[1238/2576] Processing: REG-2010-1076
+  ✓ Success: 32010R1076_metadata.json
+[1239/2576] Processing: REG-2017-1407
+  ✓ Success: 32017R1407_metadata.json
+[1240/2576] Processing: REG-2013-283
+  ✓ Success: 32013R0283_metadata.json
+[1241/2576] Processing: REG-2010-624
+  ✓ Success: 32010R0624_metadata.json
+[1242/2576] Processing: REG-2022-2039
+  ✓ Success: 32022R2039_metadata.json
+[1243/2576] Processing: REG-2015-2313
+  ✓ Success: 32015R2313_metadata.json
+[1244/2576] Processing: REG-2010-278
+  ✓ Success: 32010R0278_metadata.json
+[1245/2576] Processing: REG-2021-693
+  ✓ Success: 32021R0693_metadata.json
+[1246/2576] Processing: REG-2022-650
+  ✓ Success: 32022R0650_metadata.json
+[1247/2576] Processing: REG-2011-36
+  ✓ Success: 32011R0036_metadata.json
+[1248/2576] Processing: REG-2013-1253
+  ✓ Success: 32013R1253_metadata.json
+[1249/2576] Processing: REG-2016-369
+  ✓ Success: 32016R0369_metadata.json
+[1250/2576] Processing: REG-2010-623
+  ✓ Success: 32010R0623_metadata.json
+[1251/2576] Processing: REG-2020-268
+  ✓ Success: 32020R0268_metadata.json
+[1252/2576] Processing: REG-2011-683
+  ✓ Success: 32011R0683_metadata.json
+[1253/2576] Processing: REG-2013-284
+  ✓ Success: 32013R0284_metadata.json
+[1254/2576] Processing: REG-2017-1858
+  ✓ Success: 32017R1858_metadata.json
+[1255/2576] Processing: REG-2012-472
+  ✓ Success: 32012R0472_metadata.json
+[1256/2576] Processing: REG-2010-849
+  ✓ Success: 32010R0849_metadata.json
+[1257/2576] Processing: REG-2015-537
+  ✓ Success: 32015R0537_metadata.json
+[1258/2576] Processing: REG-2012-640
+  ✓ Success: 32012R0640_metadata.json
+[1259/2576] Processing: REG-2011-213
+  ✓ Success: 32011R0213_metadata.json
+[1260/2576] Processing: REG-2023-851
+  ✓ Success: 32023R0851_metadata.json
+[1261/2576] Processing: REG-2010-1071
+  ✓ Success: 32010R1071_metadata.json
+[1262/2576] Processing: REG-2015-1905
+  ✓ Success: 32015R1905_metadata.json
+[1263/2576] Processing: REG-2023-1506
+  ✓ Success: 32023R1506_metadata.json
+[1264/2576] Processing: REG-2020-261
+  ✓ Success: 32020R0261_metadata.json
+[1265/2576] Processing: REG-2012-823
+  ✓ Success: 32012R0823_metadata.json
+[1266/2576] Processing: REG-2013-883
+  ✓ Success: 32013R0883_metadata.json
+[1267/2576] Processing: REG-2022-2037
+  ✓ Success: 32022R2037_metadata.json
+[1268/2576] Processing: REG-2012-649
+  ✓ Success: 32012R0649_metadata.json
+[1269/2576] Processing: REG-2020-605
+  ✓ Success: 32020R0605_metadata.json
+[1270/2576] Processing: REG-2015-30
+  ✓ Success: 32015R0030_metadata.json
+[1271/2576] Processing: REG-2011-1135
+  ✓ Success: 32011R1135_metadata.json
+[1272/2576] Processing: REG-2017-334
+  ✓ Success: 32017R0334_metadata.json
+[1273/2576] Processing: REG-2015-165
+  ✓ Success: 32015R0165_metadata.json
+[1274/2576] Processing: REG-2016-1776
+  ✓ Success: 32016R1776_metadata.json
+[1275/2576] Processing: REG-2013-1068
+  ✓ Success: 32013R1068_metadata.json
+[1276/2576] Processing: REG-2021-1232
+  ✓ Success: 32021R1232_metadata.json
+[1277/2576] Processing: REG-2016-1120
+  ✓ Success: 32016R1120_metadata.json
+[1278/2576] Processing: REG-2021-1464
+  ✓ Success: 32021R1464_metadata.json
+[1279/2576] Processing: REG-2010-285
+  ✓ Success: 32010R0285_metadata.json
+[1280/2576] Processing: REG-2013-870
+  ✓ Success: 32013R0870_metadata.json
+[1281/2576] Processing: REG-2021-1804
+  ✓ Success: 32021R1804_metadata.json
+[1282/2576] Processing: REG-2019-58
+  ✓ Success: 32019R0058_metadata.json
+[1283/2576] Processing: REG-2023-407
+  ✓ Success: 32023R0407_metadata.json
+[1284/2576] Processing: REG-2023-1191
+  ✓ Success: 32023R1191_metadata.json
+[1285/2576] Processing: REG-2012-488
+  ✓ Success: 32012R0488_metadata.json
+[1286/2576] Processing: REG-2019-516
+  ✓ Success: 32019R0516_metadata.json
+[1287/2576] Processing: REG-2011-813
+  ✓ Success: 32011R0813_metadata.json
+[1288/2576] Processing: REG-2015-539
+  ✓ Success: 32015R0539_metadata.json
+[1289/2576] Processing: REG-2010-249
+  ✓ Success: 32010R0249_metadata.json
+[1290/2576] Processing: REG-2019-529
+  ✓ Success: 32019R0529_metadata.json
+[1291/2576] Processing: REG-2018-589
+  ✓ Success: 32018R0589_metadata.json
+[1292/2576] Processing: REG-2013-241
+  ✓ Success: 32013R0241_metadata.json
+[1293/2576] Processing: REG-2014-136
+  ✓ Success: 32014R0136_metadata.json
+[1294/2576] Processing: REG-2020-1181
+  ✓ Success: 32020R1181_metadata.json
+[1295/2576] Processing: REG-2018-1240
+  ✓ Success: 32018R1240_metadata.json
+[1296/2576] Processing: REG-2016-1785
+  ✓ Success: 32016R1785_metadata.json
+[1297/2576] Processing: REG-2010-612
+  ✓ Success: 32010R0612_metadata.json
+[1298/2576] Processing: REG-2010-276
+  ✓ Success: 32010R0276_metadata.json
+[1299/2576] Processing: REG-2015-734
+  ✓ Success: 32015R0734_metadata.json
+[1300/2576] Processing: REG-2012-1166
+  ✓ Success: 32012R1166_metadata.json
+[1301/2576] Processing: REG-2023-1545
+  ✓ Success: 32023R1545_metadata.json
+[1302/2576] Processing: REG-2022-2246
+  ✓ Success: 32022R2246_metadata.json
+[1303/2576] Processing: REG-2022-625
+  ✓ Success: 32022R0625_metadata.json
+[1304/2576] Processing: REG-2021-2269
+  ✓ Success: 32021R2269_metadata.json
+[1305/2576] Processing: REG-2012-64
+  ✓ Success: 32012R0064_metadata.json
+[1306/2576] Processing: REG-2015-1725
+  ✓ Success: 32015R1725_metadata.json
+[1307/2576] Processing: REG-2016-912
+  ✓ Success: 32016R0912_metadata.json
+[1308/2576] Processing: REG-2019-552
+  ✓ Success: 32019R0552_metadata.json
+[1309/2576] Processing: REG-2021-1840
+  ✓ Success: 32021R1840_metadata.json
+[1310/2576] Processing: REG-2012-1192
+  ✓ Success: 32012R1192_metadata.json
+[1311/2576] Processing: REG-2013-834
+  ✓ Success: 32013R0834_metadata.json
+[1312/2576] Processing: REG-2016-54
+  ✓ Success: 32016R0054_metadata.json
+[1313/2576] Processing: REG-2023-1783
+  ✓ Success: 32023R1783_metadata.json
+[1314/2576] Processing: REG-2023-443
+  ✓ Success: 32023R0443_metadata.json
+[1315/2576] Processing: REG-2018-196
+  ✓ Success: 32018R0196_metadata.json
+[1316/2576] Processing: REG-2011-1176
+  ✓ Success: 32011R1176_metadata.json
+[1317/2576] Processing: REG-2014-186
+  ✓ Success: 32014R0186_metadata.json
+[1318/2576] Processing: REG-2022-428
+  ✓ Success: 32022R0428_metadata.json
+[1319/2576] Processing: REG-2021-847
+  ✓ Success: 32021R0847_metadata.json
+[1320/2576] Processing: REG-2010-1004
+  ✓ Success: 32010R1004_metadata.json
+[1321/2576] Processing: REG-2014-516
+  ✓ Success: 32014R0516_metadata.json
+[1322/2576] Processing: REG-2018-1832
+  ✓ Success: 32018R1832_metadata.json
+[1323/2576] Processing: REG-2015-1948
+  ✓ Success: 32015R1948_metadata.json
+[1324/2576] Processing: REG-2016-53
+  ✓ Success: 32016R0053_metadata.json
+[1325/2576] Processing: REG-2011-408
+  ✓ Success: 32011R0408_metadata.json
+[1326/2576] Processing: REG-2012-867
+  ✓ Success: 32012R0867_metadata.json
+[1327/2576] Processing: REG-2023-1542
+  ✓ Success: 32023R1542_metadata.json
+[1328/2576] Processing: REG-2013-666
+  ✓ Success: 32013R0666_metadata.json
+[1329/2576] Processing: REG-2021-418
+  ✓ Success: 32021R0418_metadata.json
+[1330/2576] Processing: REG-2014-511
+  ✓ Success: 32014R0511_metadata.json
+[1331/2576] Processing: REG-2010-1231
+  ✓ Success: 32010R1231_metadata.json
+[1332/2576] Processing: REG-2016-324
+  ✓ Success: 32016R0324_metadata.json
+[1333/2576] Processing: REG-2021-840
+  ✓ Success: 32021R0840_metadata.json
+[1334/2576] Processing: REG-2014-175
+  ✓ Success: 32014R0175_metadata.json
+[1335/2576] Processing: REG-2017-1016
+  ✓ Success: 32017R1016_metadata.json
+[1336/2576] Processing: REG-2011-1171
+  ✓ Success: 32011R1171_metadata.json
+[1337/2576] Processing: REG-2017-1224
+  ✓ Success: 32017R1224_metadata.json
+[1338/2576] Processing: REG-2022-877
+  ✓ Success: 32022R0877_metadata.json
+[1339/2576] Processing: REG-2010-1238
+  ✓ Success: 32010R1238_metadata.json
+[1340/2576] Processing: REG-2017-983
+  ✓ Success: 32017R0983_metadata.json
+[1341/2576] Processing: REG-2015-1526
+  ✓ Success: 32015R1526_metadata.json
+[1342/2576] Processing: REG-2022-1406
+  ✓ Success: 32022R1406_metadata.json
+[1343/2576] Processing: REG-2018-395
+  ✓ Success: 32018R0395_metadata.json
+[1344/2576] Processing: REG-2020-213
+  ✓ Success: 32020R0213_metadata.json
+[1345/2576] Processing: REG-2023-1322
+  ✓ Success: 32023R1322_metadata.json
+[1346/2576] Processing: REG-2010-832
+  ✓ Success: 32010R0832_metadata.json
+[1347/2576] Processing: REG-2016-1199
+  ✓ Success: 32012R0965_metadata.json
+[1348/2576] Processing: REG-2011-1178
+  ✓ Success: 32011R1178_metadata.json
+[1349/2576] Processing: REG-2022-1439
+  ✓ Success: 32022R1439_metadata.json
+[1350/2576] Processing: REG-2010-1035
+  ✓ Success: 32010R1035_metadata.json
+[1351/2576] Processing: REG-2013-462
+  ✓ Success: 32013R0462_metadata.json
+[1352/2576] Processing: REG-2019-2152
+  ✓ Success: 32019R2152_metadata.json
+[1353/2576] Processing: REG-2018-1497
+  ✓ Success: 32018R1497_metadata.json
+[1354/2576] Processing: REG-2010-203
+  ✓ Success: 32010R0203_metadata.json
+[1355/2576] Processing: REG-2015-1189
+  ✓ Success: 32015R1189_metadata.json
+[1356/2576] Processing: REG-2012-260
+  ✓ Success: 32012R0260_metadata.json
+[1357/2576] Processing: REG-2010-455
+  ✓ Success: 32010R0455_metadata.json
+[1358/2576] Processing: REG-2010-835
+  ✓ Success: 32010R0835_metadata.json
+[1359/2576] Processing: REG-2015-45
+  ✓ Success: 32015R0045_metadata.json
+[1360/2576] Processing: REG-2015-779
+  ✓ Success: 32015R0779_metadata.json
+[1361/2576] Processing: REG-2022-879
+  ✓ Success: 32022R0879_metadata.json
+[1362/2576] Processing: REG-2012-258
+  ✓ Success: 32012R0258_metadata.json
+[1363/2576] Processing: REG-2022-2042
+  ✓ Success: 32022R2042_metadata.json
+[1364/2576] Processing: REG-2022-613
+  ✓ Success: 32022R0613_metadata.json
+[1365/2576] Processing: REG-2013-1022
+  ✓ Success: 32013R1022_metadata.json
+[1366/2576] Processing: REG-2015-1145
+  ✓ Success: 32015R1145_metadata.json
+[1367/2576] Processing: REG-2021-240
+  ✓ Success: 32021R0240_metadata.json
+[1368/2576] Processing: REG-2013-668
+  ✓ Success: 32013R0668_metadata.json
+[1369/2576] Processing: REG-2015-322
+  ✓ Success: 32015R0322_metadata.json
+[1370/2576] Processing: REG-2016-2340
+  ✓ Success: 32016R2340_metadata.json
+[1371/2576] Processing: REG-2012-267
+  ✓ Success: 32012R0267_metadata.json
+[1372/2576] Processing: REG-2022-2419
+  ✓ Success: 32022R2419_metadata.json
+[1373/2576] Processing: REG-2021-2260
+  ✓ Success: 32021R2260_metadata.json
+[1374/2576] Processing: REG-2020-1751
+  ✓ Success: 32020R1751_metadata.json
+[1375/2576] Processing: REG-2011-1386
+  ✓ Success: 32011R1386_metadata.json
+[1376/2576] Processing: REG-2019-2155
+  ✓ Success: 32019R2155_metadata.json
+[1377/2576] Processing: REG-2015-1348
+  ✓ Success: 32015R1348_metadata.json
+[1378/2576] Processing: REG-2021-1247
+  ✓ Success: 32021R1247_metadata.json
+[1379/2576] Processing: REG-2014-376
+  ✓ Success: 32014R0376_metadata.json
+[1380/2576] Processing: REG-2010-634
+  ✓ Success: 32010R0634_metadata.json
+[1381/2576] Processing: REG-2013-293
+  ✓ Success: 32013R0293_metadata.json
+[1382/2576] Processing: REG-2017-771
+  ✓ Success: 32017R0771_metadata.json
+[1383/2576] Processing: REG-2012-465
+  ✓ Success: 32012R0465_metadata.json
+[1384/2576] Processing: REG-2010-1092
+  ✓ Success: 32010R1092_metadata.json
+[1385/2576] Processing: REG-2017-127
+  ✓ Success: 32017R0127_metadata.json
+[1386/2576] Processing: REG-2010-250
+  ✓ Success: 32010R0250_metadata.json
+[1387/2576] Processing: REG-2013-603
+  ✓ Success: 32013R0603_metadata.json
+[1388/2576] Processing: REG-2019-1784
+  ✓ Success: 32019R1784_metadata.json
+[1389/2576] Processing: REG-2013-431
+  ✓ Success: 32013R0431_metadata.json
+[1390/2576] Processing: REG-2019-957
+  ✓ Success: 32019R0957_metadata.json
+[1391/2576] Processing: REG-2011-660
+  ✓ Success: 32011R0660_metadata.json
+[1392/2576] Processing: REG-2022-2472
+  ✓ Success: 32022R2472_metadata.json
+[1393/2576] Processing: REG-2010-861
+  ✓ Success: 32010R0861_metadata.json
+[1394/2576] Processing: REG-2018-1259
+  ✓ Success: 32018R1259_metadata.json
+[1395/2576] Processing: REG-2016-1902
+  ✓ Success: 32016R1902_metadata.json
+[1396/2576] Processing: REG-2022-1031
+  ✓ Success: 32022R1031_metadata.json
+[1397/2576] Processing: REG-2010-895
+  ✓ Success: 32010R0895_metadata.json
+[1398/2576] Processing: REG-2019-1783
+  ✓ Success: 32019R1783_metadata.json
+[1399/2576] Processing: REG-2013-604
+  ✓ Success: 32013R0604_metadata.json
+[1400/2576] Processing: REG-2012-650
+  ✓ Success: 32012R0650_metadata.json
+[1401/2576] Processing: REG-2020-1530
+  ✓ Success: 32020R1530_metadata.json
+[1402/2576] Processing: REG-2010-257
+  ✓ Success: 32010R0257_metadata.json
+[1403/2576] Processing: REG-2019-1777
+  ✓ Success: 32019R1777_metadata.json
+[1404/2576] Processing: REG-2010-1095
+  ✓ Success: 32010R1095_metadata.json
+[1405/2576] Processing: REG-2017-776
+  ✓ Success: 32017R0776_metadata.json
+[1406/2576] Processing: REG-2017-1410
+  ✓ Success: 32017R1410_metadata.json
+[1407/2576] Processing: REG-2016-1139
+  ✓ Success: 32016R1139_metadata.json
+[1408/2576] Processing: REG-2010-892
+  ✓ Success: 32010R0892_metadata.json
+[1409/2576] Processing: REG-2013-1415
+  ✓ Success: 32013R1415_metadata.json
+[1410/2576] Processing: REG-2013-851
+  ✓ Success: 32013R0851_metadata.json
+[1411/2576] Processing: REG-2016-31
+  ✓ Success: 32016R0031_metadata.json
+[1412/2576] Processing: REG-2023-426
+  ✓ Success: 32023R0426_metadata.json
+[1413/2576] Processing: REG-2015-940
+  ✓ Success: 32015R0940_metadata.json
+[1414/2576] Processing: REG-2016-983
+  ✓ Success: 32016R0983_metadata.json
+[1415/2576] Processing: REG-2010-268
+  ✓ Success: 32010R0268_metadata.json
+[1416/2576] Processing: REG-2022-2475
+  ✓ Success: 32022R2475_metadata.json
+[1417/2576] Processing: REG-2017-2401
+  ✓ Success: 32017R2401_metadata.json
+[1418/2576] Processing: REG-2012-692
+  ✓ Success: 32012R0692_metadata.json
+[1419/2576] Processing: REG-2018-1065
+  ✓ Success: 32018R1065_metadata.json
+[1420/2576] Processing: REG-2013-256
+  ✓ Success: 32013R0256_metadata.json
+[1421/2576] Processing: REG-2023-1529
+  ✓ Success: 32023R1529_metadata.json
+[1422/2576] Processing: REG-2018-932
+  ✓ Success: 32018R0932_metadata.json
+[1423/2576] Processing: REG-2018-1091
+  ✓ Success: 32018R1091_metadata.json
+[1424/2576] Processing: REG-2014-783
+  ✓ Success: 32014R0783_metadata.json
+[1425/2576] Processing: REG-2017-1270
+  ✓ Success: 32017R1270_metadata.json
+[1426/2576] Processing: REG-2017-324
+  ✓ Success: 32017R0324_metadata.json
+[1427/2576] Processing: REG-2011-10
+  ✓ Success: 32011R0010_metadata.json
+[1428/2576] Processing: REG-2013-1275
+  ✓ Success: 32013R1275_metadata.json
+[1429/2576] Processing: REG-2015-1776
+  ✓ Success: 32015R1776_metadata.json
+[1430/2576] Processing: REG-2023-246
+  ✓ Success: 32023R0246_metadata.json
+[1431/2576] Processing: REG-2022-212
+  ✓ Success: 32022R0212_metadata.json
+[1432/2576] Processing: REG-2010-850
+  ✓ Success: 32010R0850_metadata.json
+[1433/2576] Processing: REG-2020-271
+  ✓ Success: 32020R0271_metadata.json
+[1434/2576] Processing: REG-2017-1419
+  ✓ Success: 32017R1419_metadata.json
+[1435/2576] Processing: REG-2021-2030
+  ✓ Success: 32021R2030_metadata.json
+[1436/2576] Processing: REG-2015-1588
+  ✓ Success: 32015R1588_metadata.json
+[1437/2576] Processing: REG-2021-2202
+  ✓ Success: 32021R2202_metadata.json
+[1438/2576] Processing: REG-2015-340
+  ✓ Success: 32015R0340_metadata.json
+[1439/2576] Processing: REG-2015-186
+  ✓ Success: 32015R0186_metadata.json
+[1440/2576] Processing: REG-2017-2062
+  ✓ Success: 32017R2062_metadata.json
+[1441/2576] Processing: REG-2022-488
+  ✓ Success: 32022R0488_metadata.json
+[1442/2576] Processing: REG-2011-656
+  ✓ Success: 32011R0656_metadata.json
+[1443/2576] Processing: REG-2013-251
+  ✓ Success: 32013R0251_metadata.json
+[1444/2576] Processing: REG-2022-1038
+  ✓ Success: 32022R1038_metadata.json
+[1445/2576] Processing: REG-2014-542
+  ✓ Success: 32014R0542_metadata.json
+[1446/2576] Processing: REG-2013-407
+  ✓ Success: 32013R0407_metadata.json
+[1447/2576] Processing: REG-2020-878
+  ✓ Success: 32020R0878_metadata.json
+[1448/2576] Processing: REG-2010-259
+  ✓ Success: 32010R0259_metadata.json
+[1449/2576] Processing: REG-2013-438
+  ✓ Success: 32013R0438_metadata.json
+[1450/2576] Processing: REG-2018-1861
+  ✓ Success: 32018R1861_metadata.json
+[1451/2576] Processing: REG-2013-1272
+  ✓ Success: 32013R1272_metadata.json
+[1452/2576] Processing: REG-2014-119
+  ✓ Success: 32014R0119_metadata.json
+[1453/2576] Processing: REG-2021-1814
+  ✓ Success: 32021R1814_metadata.json
+[1454/2576] Processing: REG-2021-241
+  ✓ Success: 32021R0241_metadata.json
+[1455/2576] Processing: REG-2013-1023
+  ✓ Success: 32013R1023_metadata.json
+[1456/2576] Processing: REG-2023-1324
+  ✓ Success: 32023R1324_metadata.json
+[1457/2576] Processing: REG-2016-589
+  ✓ Success: 32016R0589_metadata.json
+[1458/2576] Processing: REG-2022-612
+  ✓ Success: 32022R0612_metadata.json
+[1459/2576] Processing: REG-2018-969
+  ✓ Success: 32018R0969_metadata.json
+[1460/2576] Processing: REG-2012-259
+  ✓ Success: 32012R0259_metadata.json
+[1461/2576] Processing: REG-2016-314
+  ✓ Success: 32016R0314_metadata.json
+[1462/2576] Processing: REG-2020-488
+  ✓ Success: 32020R0488_metadata.json
+[1463/2576] Processing: REG-2022-1269
+  ✓ Success: 32022R1269_metadata.json
+[1464/2576] Processing: REG-2023-679
+  ✓ Success: 32023R0679_metadata.json
+[1465/2576] Processing: REG-2010-453
+  ✓ Success: 32010R0453_metadata.json
+[1466/2576] Processing: REG-2011-1141
+  ✓ Success: 32011R1141_metadata.json
+[1467/2576] Processing: REG-2018-2026
+  ✓ Success: 32018R2026_metadata.json
+[1468/2576] Processing: REG-2017-172
+  ✓ Success: 32017R0172_metadata.json
+[1469/2576] Processing: REG-2021-1884
+  ✓ Success: 32021R1884_metadata.json
+[1470/2576] Processing: REG-2022-615
+  ✓ Success: 32022R0615_metadata.json
+[1471/2576] Processing: REG-2017-378
+  ✓ Success: 32017R0378_metadata.json
+[1472/2576] Processing: REG-2016-1198
+  ✓ Success: 32016R1198_metadata.json
+[1473/2576] Processing: REG-2021-2259
+  ✓ Success: 32021R2259_metadata.json
+[1474/2576] Processing: REG-2011-269
+  ✓ Success: 32011R0269_metadata.json
+[1475/2576] Processing: REG-2010-1239
+  ✓ Success: 32010R1239_metadata.json
+[1476/2576] Processing: REG-2018-394
+  ✓ Success: 32018R0394_metadata.json
+[1477/2576] Processing: REG-2013-1024
+  ✓ Success: 32013R1024_metadata.json
+[1478/2576] Processing: REG-2018-1805
+  ✓ Success: 32018R1805_metadata.json
+[1479/2576] Processing: REG-2022-63
+  ✓ Success: 32022R0063_metadata.json
+[1480/2576] Processing: REG-2020-1565
+  ✓ Success: 32020R1565_metadata.json
+[1481/2576] Processing: REG-2010-202
+  ✓ Success: 32010R0202_metadata.json
+[1482/2576] Processing: REG-2013-497
+  ✓ Success: 32013R0497_metadata.json
+[1483/2576] Processing: REG-2012-437
+  ✓ Success: 32012R0437_metadata.json
+[1484/2576] Processing: REG-2010-454
+  ✓ Success: 32010R0454_metadata.json
+[1485/2576] Processing: REG-2022-1438
+  ✓ Success: 32022R1438_metadata.json
+[1486/2576] Processing: REG-2018-199
+  ✓ Success: 32018R0199_metadata.json
+[1487/2576] Processing: REG-2010-692
+  ✓ Success: 32010R0692_metadata.json
+[1488/2576] Processing: REG-2016-777
+  ✓ Success: 32016R0777_metadata.json
+[1489/2576] Processing: REG-2018-1462
+  ✓ Success: 32018R1462_metadata.json
+[1490/2576] Processing: REG-2023-1315
+  ✓ Success: 32023R1315_metadata.json
+[1491/2576] Processing: REG-2012-62
+  ✓ Success: 32012R0062_metadata.json
+[1492/2576] Processing: REG-2020-1108
+  ✓ Success: 32020R1108_metadata.json
+[1493/2576] Processing: REG-2023-1543
+  ✓ Success: 32023R1543_metadata.json
+[1494/2576] Processing: REG-2014-379
+  ✓ Success: 32014R0379_metadata.json
+[1495/2576] Processing: REG-2016-52
+  ✓ Success: 32016R0052_metadata.json
+[1496/2576] Processing: REG-2015-81
+  ✓ Success: 32015R0081_metadata.json
+[1497/2576] Processing: REG-2013-658
+  ✓ Success: 32013R0658_metadata.json
+[1498/2576] Processing: REG-2019-554
+  ✓ Success: 32019R0554_metadata.json
+[1499/2576] Processing: REG-2011-1342
+  ✓ Success: 32011R1342_metadata.json
+[1500/2576] Processing: REG-2010-234
+  ✓ Success: 32010R0234_metadata.json
+[1501/2576] Processing: REG-2011-1170
+  ✓ Success: 32011R1170_metadata.json
+[1502/2576] Processing: REG-2017-1017
+  ✓ Success: 32017R1017_metadata.json
+[1503/2576] Processing: REG-2016-1191
+  ✓ Success: 32016R1191_metadata.json
+[1504/2576] Processing: REG-2017-2454
+  ✓ Success: 32017R2454_metadata.json
+[1505/2576] Processing: REG-2011-260
+  ✓ Success: 32011R0260_metadata.json
+[1506/2576] Processing: REG-2023-822
+  ✓ Success: 32023R0822_metadata.json
+[1507/2576] Processing: REG-2014-510
+  ✓ Success: 32014R0510_metadata.json
+[1508/2576] Processing: REG-2016-1165
+  ✓ Success: 32016R1165_metadata.json
+[1509/2576] Processing: REG-2015-1378
+  ✓ Success: 32015R1378_metadata.json
+[1510/2576] Processing: REG-2023-648
+  ✓ Success: 32023R0648_metadata.json
+[1511/2576] Processing: REG-2019-933
+  ✓ Success: 32019R0933_metadata.json
+[1512/2576] Processing: REG-2021-1841
+  ✓ Success: 32021R1841_metadata.json
+[1513/2576] Processing: REG-2023-1782
+  ✓ Success: 32023R1782_metadata.json
+[1514/2576] Processing: REG-2016-55
+  ✓ Success: 32016R0055_metadata.json
+[1515/2576] Processing: REG-2015-924
+  ✓ Success: 32015R0924_metadata.json
+[1516/2576] Processing: REG-2010-802
+  ✓ Success: 32010R0802_metadata.json
+[1517/2576] Processing: REG-2011-1177
+  ✓ Success: 32011R1177_metadata.json
+[1518/2576] Processing: REG-2017-978
+  ✓ Success: 32017R0978_metadata.json
+[1519/2576] Processing: REG-2016-2145
+  ✓ Success: 32016R2145_metadata.json
+[1520/2576] Processing: REG-2012-1158
+  ✓ Success: 32012R1158_metadata.json
+[1521/2576] Processing: REG-2010-465
+  ✓ Success: 32010R0465_metadata.json
+[1522/2576] Processing: REG-2018-960
+  ✓ Success: 32018R0960_metadata.json
+[1523/2576] Processing: REG-2016-580
+  ✓ Success: 32016R0580_metadata.json
+[1524/2576] Processing: REG-2017-712
+  ✓ Success: 32017R0712_metadata.json
+[1525/2576] Processing: REG-2017-2063
+  ✓ Success: 32017R2063_metadata.json
+[1526/2576] Processing: REG-2014-315
+  ✓ Success: 32014R0315_metadata.json
+[1527/2576] Processing: REG-2012-694
+  ✓ Success: 32012R0694_metadata.json
+[1528/2576] Processing: REG-2010-1263
+  ✓ Success: 32010R1263_metadata.json
+[1529/2576] Processing: REG-2015-1589
+  ✓ Success: 32015R1589_metadata.json
+[1530/2576] Processing: REG-2017-110
+  ✓ Success: 32017R0110_metadata.json
+[1531/2576] Processing: REG-2017-746
+  ✓ Success: 32017R0746_metadata.json
+[1532/2576] Processing: REG-2019-1111
+  ✓ Success: 32019R1111_metadata.json
+[1533/2576] Processing: REG-2013-1273
+  ✓ Success: 32013R1273_metadata.json
+[1534/2576] Processing: REG-2018-1860
+  ✓ Success: 32018R1860_metadata.json
+[1535/2576] Processing: REG-2020-283
+  ✓ Success: 32020R0283_metadata.json
+[1536/2576] Processing: REG-2012-835
+  ✓ Success: 32012R0835_metadata.json
+[1537/2576] Processing: REG-2023-1510
+  ✓ Success: 32023R1510_metadata.json
+[1538/2576] Processing: REG-2014-588
+  ✓ Success: 32014R0588_metadata.json
+[1539/2576] Processing: REG-2019-1778
+  ✓ Success: 32019R1778_metadata.json
+[1540/2576] Processing: REG-2015-174
+  ✓ Success: 32015R0174_metadata.json
+[1541/2576] Processing: REG-2010-260
+  ✓ Success: 32010R0260_metadata.json
+[1542/2576] Processing: REG-2021-2204
+  ✓ Success: 32021R2204_metadata.json
+[1543/2576] Processing: REG-2017-1271
+  ✓ Success: 32017R1271_metadata.json
+[1544/2576] Processing: REG-2011-234
+  ✓ Success: 32011R0234_metadata.json
+[1545/2576] Processing: REG-2016-143
+  ✓ Success: 32016R0143_metadata.json
+[1546/2576] Processing: REG-2013-401
+  ✓ Success: 32013R0401_metadata.json
+[1547/2576] Processing: REG-2016-371
+  ✓ Success: 32016R0371_metadata.json
+[1548/2576] Processing: REG-2017-2400
+  ✓ Success: 32017R2400_metadata.json
+[1549/2576] Processing: REG-2014-1098
+  ✓ Success: 32014R1098_metadata.json
+[1550/2576] Processing: REG-2013-859
+  ✓ Success: 32013R0859_metadata.json
+[1551/2576] Processing: REG-2015-180
+  ✓ Success: 32015R0180_metadata.json
+[1552/2576] Processing: REG-2014-312
+  ✓ Success: 32014R0312_metadata.json
+[1553/2576] Processing: REG-2016-527
+  ✓ Success: 32016R0527_metadata.json
+[1554/2576] Processing: REG-2012-36
+  ✓ Success: 32012R0036_metadata.json
+[1555/2576] Processing: REG-2010-851
+  ✓ Success: 32010R0851_metadata.json
+[1556/2576] Processing: REG-2010-409
+  ✓ Success: 32010R0409_metadata.json
+[1557/2576] Processing: REG-2018-302
+  ✓ Success: 32018R0302_metadata.json
+[1558/2576] Processing: REG-2011-11
+  ✓ Success: 32011R0011_metadata.json
+[1559/2576] Processing: REG-2013-1274
+  ✓ Success: 32013R1274_metadata.json
+[1560/2576] Processing: REG-2023-411
+  ✓ Success: 32023R0411_metadata.json
+[1561/2576] Processing: REG-2022-1465
+  ✓ Success: 32022R1465_metadata.json
+[1562/2576] Processing: REG-2019-500
+  ✓ Success: 32019R0500_metadata.json
+[1563/2576] Processing: REG-2010-1094
+  ✓ Success: 32010R1094_metadata.json
+[1564/2576] Processing: REG-2012-651
+  ✓ Success: 32012R0651_metadata.json
+[1565/2576] Processing: REG-2010-256
+  ✓ Success: 32010R0256_metadata.json
+[1566/2576] Processing: REG-2020-279
+  ✓ Success: 32020R0279_metadata.json
+[1567/2576] Processing: REG-2011-692
+  ✓ Success: 32011R0692_metadata.json
+[1568/2576] Processing: REG-2011-454
+  ✓ Success: 32011R0454_metadata.json
+[1569/2576] Processing: REG-2011-666
+  ✓ Success: 32011R0666_metadata.json
+[1570/2576] Processing: REG-2013-605
+  ✓ Success: 32013R0605_metadata.json
+[1571/2576] Processing: REG-2011-202
+  ✓ Success: 32011R0202_metadata.json
+[1572/2576] Processing: REG-2022-1008
+  ✓ Success: 32022R1008_metadata.json
+[1573/2576] Processing: REG-2019-1782
+  ✓ Success: 32019R1782_metadata.json
+[1574/2576] Processing: REG-2022-641
+  ✓ Success: 32022R0641_metadata.json
+[1575/2576] Processing: REG-2015-941
+  ✓ Success: 32015R0941_metadata.json
+[1576/2576] Processing: REG-2022-2474
+  ✓ Success: 32022R2474_metadata.json
+[1577/2576] Processing: REG-2018-750
+  ✓ Success: 32018R0750_metadata.json
+[1578/2576] Processing: REG-2022-225
+  ✓ Success: 32022R0225_metadata.json
+[1579/2576] Processing: REG-2022-2480
+  ✓ Success: 32022R2480_metadata.json
+[1580/2576] Processing: REG-2013-1414
+  ✓ Success: 32013R1414_metadata.json
+[1581/2576] Processing: REG-2022-1037
+  ✓ Success: 32022R1037_metadata.json
+[1582/2576] Processing: REG-2010-893
+  ✓ Success: 32010R0893_metadata.json
+[1583/2576] Processing: REG-2021-444
+  ✓ Success: 32021R0444_metadata.json
+[1584/2576] Processing: REG-2023-427
+  ✓ Success: 32023R0427_metadata.json
+[1585/2576] Processing: REG-2014-747
+  ✓ Success: 32014R0747_metadata.json
+[1586/2576] Processing: REG-2010-1067
+  ✓ Success: 32010R1067_metadata.json
+[1587/2576] Processing: REG-2011-661
+  ✓ Success: 32011R0661_metadata.json
+[1588/2576] Processing: REG-2010-407
+  ✓ Success: 32010R0407_metadata.json
+[1589/2576] Processing: REG-2012-232
+  ✓ Success: 32012R0232_metadata.json
+[1590/2576] Processing: REG-2017-542
+  ✓ Success: 32017R0542_metadata.json
+[1591/2576] Processing: REG-2010-251
+  ✓ Success: 32010R0251_metadata.json
+[1592/2576] Processing: REG-2010-1093
+  ✓ Success: 32010R1093_metadata.json
+[1593/2576] Processing: REG-2012-464
+  ✓ Success: 32012R0464_metadata.json
+[1594/2576] Processing: REG-2014-1096
+  ✓ Success: 32014R1096_metadata.json
+[1595/2576] Processing: REG-2014-912
+  ✓ Success: 32014R0912_metadata.json
+[1596/2576] Processing: REG-2016-1903
+  ✓ Success: 32016R1903_metadata.json
+[1597/2576] Processing: REG-2010-860
+  ✓ Success: 32010R0860_metadata.json
+[1598/2576] Processing: REG-2022-2473
+  ✓ Success: 32022R2473_metadata.json
+[1599/2576] Processing: REG-2010-778
+  ✓ Success: 32010R0778_metadata.json
+[1600/2576] Processing: REG-2021-1199
+  ✓ Success: 32021R1199_metadata.json
+[1601/2576] Processing: REG-2015-2421
+  ✓ Success: 32015R2421_metadata.json
+[1602/2576] Processing: REG-2012-1245
+  ✓ Success: 32012R1245_metadata.json
+[1603/2576] Processing: REG-2020-757
+  ✓ Success: 32020R0757_metadata.json
+[1604/2576] Processing: REG-2023-1030
+  ✓ Success: 32023R1030_metadata.json
+[1605/2576] Processing: REG-2012-529
+  ✓ Success: 32012R0529_metadata.json
+[1606/2576] Processing: REG-2022-350
+  ✓ Success: 32022R0350_metadata.json
+[1607/2576] Processing: REG-2015-2283
+  ✓ Success: 32015R2283_metadata.json
+[1608/2576] Processing: REG-2012-1083
+  ✓ Success: 32012R1083_metadata.json
+[1609/2576] Processing: REG-2021-155
+  ✓ Success: 32021R0155_metadata.json
+[1610/2576] Processing: REG-2010-80
+  ✓ Success: 32010R0080_metadata.json
+[1611/2576] Processing: REG-2019-1869
+  ✓ Success: 32019R1869_metadata.json
+[1612/2576] Processing: REG-2012-1048
+  ✓ Success: 32012R1048_metadata.json
+[1613/2576] Processing: REG-2010-581
+  ✓ Success: 32010R0581_metadata.json
+[1614/2576] Processing: REG-2013-1308
+  ✓ Success: 32013R1308_metadata.json
+[1615/2576] Processing: REG-2016-1416
+  ✓ Success: 32016R1416_metadata.json
+[1616/2576] Processing: REG-2014-251
+  ✓ Success: 32014R0251_metadata.json
+[1617/2576] Processing: REG-2015-1861
+  ✓ Success: 32015R1861_metadata.json
+[1618/2576] Processing: REG-2021-1152
+  ✓ Success: 32021R1152_metadata.json
+[1619/2576] Processing: REG-2013-126
+  ✓ Success: 32013R0126_metadata.json
+[1620/2576] Processing: REG-2020-1682
+  ✓ Success: 32020R1682_metadata.json
+[1621/2576] Processing: REG-2018-1923
+  ✓ Success: 32018R1923_metadata.json
+[1622/2576] Processing: REG-2014-269
+  ✓ Success: 32014R0269_metadata.json
+[1623/2576] Processing: REG-2015-2284
+  ✓ Success: 32015R2284_metadata.json
+[1624/2576] Processing: REG-2014-43
+  ✓ Success: 32014R0043_metadata.json
+[1625/2576] Processing: REG-2016-804
+  ✓ Success: 32016R0804_metadata.json
+[1626/2576] Processing: REG-2011-189
+  ✓ Success: 32011R0189_metadata.json
+[1627/2576] Processing: REG-2012-976
+  ✓ Success: 32012R0976_metadata.json
+[1628/2576] Processing: REG-2018-848
+  ✓ Success: 32018R0848_metadata.json
+[1629/2576] Processing: REG-2012-378
+  ✓ Success: 32012R0378_metadata.json
+[1630/2576] Processing: REG-2013-777
+  ✓ Success: 32013R0777_metadata.json
+[1631/2576] Processing: REG-2011-370
+  ✓ Success: 32011R0370_metadata.json
+[1632/2576] Processing: REG-2019-649
+  ✓ Success: 32019R0649_metadata.json
+[1633/2576] Processing: REG-2011-142
+  ✓ Success: 32011R0142_metadata.json
+[1634/2576] Processing: REG-2021-1531
+  ✓ Success: 32021R1531_metadata.json
+[1635/2576] Processing: REG-2022-992
+  ✓ Success: 32022R0992_metadata.json
+[1636/2576] Processing: REG-2013-545
+  ✓ Success: 32013R0545_metadata.json
+[1637/2576] Processing: REG-2010-586
+  ✓ Success: 32010R0586_metadata.json
+[1638/2576] Processing: REG-2023-1498
+  ✓ Success: 32023R1498_metadata.json
+[1639/2576] Processing: REG-2016-1411
+  ✓ Success: 32016R1411_metadata.json
+[1640/2576] Processing: REG-2017-1563
+  ✓ Success: 32017R1563_metadata.json
+[1641/2576] Processing: REG-2010-116
+  ✓ Success: 32010R0116_metadata.json
+[1642/2576] Processing: REG-2019-472
+  ✓ Success: 32019R0472_metadata.json
+[1643/2576] Processing: REG-2011-977
+  ✓ Success: 32011R0977_metadata.json
+[1644/2576] Processing: REG-2013-1306
+  ✓ Success: 32013R1306_metadata.json
+[1645/2576] Processing: REG-2014-851
+  ✓ Success: 32014R0851_metadata.json
+[1646/2576] Processing: REG-2012-1046
+  ✓ Success: 32012R1046_metadata.json
+[1647/2576] Processing: REG-2019-2088
+  ✓ Success: 32019R2088_metadata.json
+[1648/2576] Processing: REG-2010-923
+  ✓ Success: 32010R0923_metadata.json
+[1649/2576] Processing: REG-2021-1163
+  ✓ Success: 32021R1163_metadata.json
+[1650/2576] Processing: REG-2014-260
+  ✓ Success: 32014R0260_metadata.json
+[1651/2576] Processing: REG-2018-1116
+  ✓ Success: 32018R1116_metadata.json
+[1652/2576] Processing: REG-2013-325
+  ✓ Success: 32013R0325_metadata.json
+[1653/2576] Processing: REG-2010-1124
+  ✓ Success: 32010R1124_metadata.json
+[1654/2576] Processing: REG-2015-496
+  ✓ Success: 32015R0496_metadata.json
+[1655/2576] Processing: REG-2011-174
+  ✓ Success: 32011R0174_metadata.json
+[1656/2576] Processing: REG-2017-1131
+  ✓ Success: 32017R1131_metadata.json
+[1657/2576] Processing: REG-2010-776
+  ✓ Success: 32010R0776_metadata.json
+[1658/2576] Processing: REG-2019-1858
+  ✓ Success: 32019R1858_metadata.json
+[1659/2576] Processing: REG-2018-841
+  ✓ Success: 32018R0841_metadata.json
+[1660/2576] Processing: REG-2010-118
+  ✓ Success: 32010R0118_metadata.json
+[1661/2576] Processing: REG-2014-1126
+  ✓ Success: 32014R1126_metadata.json
+[1662/2576] Processing: REG-2015-802
+  ✓ Success: 32015R0802_metadata.json
+[1663/2576] Processing: REG-2010-42
+  ✓ Success: 32010R0042_metadata.json
+[1664/2576] Processing: REG-2023-1462
+  ✓ Success: 32023R1462_metadata.json
+[1665/2576] Processing: REG-2013-913
+  ✓ Success: 32013R0913_metadata.json
+[1666/2576] Processing: REG-2010-588
+  ✓ Success: 32010R0588_metadata.json
+[1667/2576] Processing: REG-2013-1301
+  ✓ Success: 32013R1301_metadata.json
+[1668/2576] Processing: REG-2022-1346
+  ✓ Success: 32022R1346_metadata.json
+[1669/2576] Processing: REG-2012-978
+  ✓ Success: 32012R0978_metadata.json
+[1670/2576] Processing: REG-2010-543
+  ✓ Success: 32010R0543_metadata.json
+[1671/2576] Processing: REG-2014-1119
+  ✓ Success: 32014R1119_metadata.json
+[1672/2576] Processing: REG-2012-712
+  ✓ Success: 32012R0712_metadata.json
+[1673/2576] Processing: REG-2023-1805
+  ✓ Success: 32023R1805_metadata.json
+[1674/2576] Processing: REG-2015-491
+  ✓ Success: 32015R0491_metadata.json
+[1675/2576] Processing: REG-2022-1379
+  ✓ Success: 32022R1379_metadata.json
+[1676/2576] Processing: REG-2011-173
+  ✓ Success: 32011R0173_metadata.json
+[1677/2576] Processing: REG-2014-431
+  ✓ Success: 32014R0431_metadata.json
+[1678/2576] Processing: REG-2019-1097
+  ✓ Success: 32019R1097_metadata.json
+[1679/2576] Processing: REG-2016-452
+  ✓ Success: 32016R0452_metadata.json
+[1680/2576] Processing: REG-2013-322
+  ✓ Success: 32013R0322_metadata.json
+[1681/2576] Processing: REG-2011-517
+  ✓ Success: 32011R0517_metadata.json
+[1682/2576] Processing: REG-2012-322
+  ✓ Success: 32012R0322_metadata.json
+[1683/2576] Processing: REG-2018-76
+  ✓ Success: 32018R0076_metadata.json
+[1684/2576] Processing: REG-2010-725
+  ✓ Success: 32010R0725_metadata.json
+[1685/2576] Processing: REG-2010-29
+  ✓ Success: 32010R0029_metadata.json
+[1686/2576] Processing: REG-2012-1218
+  ✓ Success: 32012R1218_metadata.json
+[1687/2576] Processing: REG-2015-603
+  ✓ Success: 32015R0603_metadata.json
+[1688/2576] Processing: REG-2010-173
+  ✓ Success: 32010R0173_metadata.json
+[1689/2576] Processing: REG-2021-2117
+  ✓ Success: 32021R2117_metadata.json
+[1690/2576] Processing: REG-2014-491
+  ✓ Success: 32014R0491_metadata.json
+[1691/2576] Processing: REG-2020-538
+  ✓ Success: 32020R0538_metadata.json
+[1692/2576] Processing: REG-2018-678
+  ✓ Success: 32018R0678_metadata.json
+[1693/2576] Processing: REG-2022-1923
+  ✓ Success: 32022R1923_metadata.json
+[1694/2576] Processing: REG-2010-1177
+  ✓ Success: 32010R1177_metadata.json
+[1695/2576] Processing: REG-2011-315
+  ✓ Success: 32011R0315_metadata.json
+[1696/2576] Processing: REG-2023-957
+  ✓ Success: 32023R0957_metadata.json
+[1697/2576] Processing: REG-2014-657
+  ✓ Success: 32014R0657_metadata.json
+[1698/2576] Processing: REG-2022-2563
+  ✓ Success: 32022R2563_metadata.json
+[1699/2576] Processing: REG-2020-1419
+  ✓ Success: 32020R1419_metadata.json
+[1700/2576] Processing: REG-2018-647
+  ✓ Success: 32018R0647_metadata.json
+[1701/2576] Processing: REG-2020-507
+  ✓ Success: 32020R0507_metadata.json
+[1702/2576] Processing: REG-2020-735
+  ✓ Success: 32020R0735_metadata.json
+[1703/2576] Processing: REG-2022-332
+  ✓ Success: 32022R0332_metadata.json
+[1704/2576] Processing: REG-2010-970
+  ✓ Success: 32010R0970_metadata.json
+[1705/2576] Processing: REG-2017-1539
+  ✓ Success: 32017R1539_metadata.json
+[1706/2576] Processing: REG-2020-351
+  ✓ Success: 32020R0351_metadata.json
+[1707/2576] Processing: REG-2023-2081
+  ✓ Success: 32023R2081_metadata.json
+[1708/2576] Processing: REG-2011-588
+  ✓ Success: 32011R0588_metadata.json
+[1709/2576] Processing: REG-2016-439
+  ✓ Success: 32016R0439_metadata.json
+[1710/2576] Processing: REG-2022-590
+  ✓ Success: 32022R0590_metadata.json
+[1711/2576] Processing: REG-2011-118
+  ✓ Success: 32011R0118_metadata.json
+[1712/2576] Processing: REG-2023-154
+  ✓ Success: 32023R0154_metadata.json
+[1713/2576] Processing: REG-2010-984
+  ✓ Success: 32010R0984_metadata.json
+[1714/2576] Processing: REG-2018-1142
+  ✓ Success: 32018R1142_metadata.json
+[1715/2576] Processing: REG-2016-401
+  ✓ Success: 32016R0401_metadata.json
+[1716/2576] Processing: REG-2017-693
+  ✓ Success: 32017R0693_metadata.json
+[1717/2576] Processing: REG-2013-143
+  ✓ Success: 32013R0143_metadata.json
+[1718/2576] Processing: REG-2013-715
+  ✓ Success: 32013R0715_metadata.json
+[1719/2576] Processing: REG-2016-1017
+  ✓ Success: 32016R1017_metadata.json
+[1720/2576] Processing: REG-2010-1170
+  ✓ Success: 32010R1170_metadata.json
+[1721/2576] Processing: REG-2011-312
+  ✓ Success: 32011R0312_metadata.json
+[1722/2576] Processing: REG-2011-1230
+  ✓ Success: 32011R1230_metadata.json
+[1723/2576] Processing: REG-2012-741
+  ✓ Success: 32012R0741_metadata.json
+[1724/2576] Processing: REG-2021-1795
+  ✓ Success: 32021R1795_metadata.json
+[1725/2576] Processing: REG-2020-2096
+  ✓ Success: 32020R2096_metadata.json
+[1726/2576] Processing: REG-2023-198
+  ✓ Success: 32023R0198_metadata.json
+[1727/2576] Processing: REG-2016-2030
+  ✓ Success: 32016R2030_metadata.json
+[1728/2576] Processing: REG-2016-1814
+  ✓ Success: 32016R1814_metadata.json
+[1729/2576] Processing: REG-2013-518
+  ✓ Success: 32013R0518_metadata.json
+[1730/2576] Processing: REG-2011-749
+  ✓ Success: 32011R0749_metadata.json
+[1731/2576] Processing: REG-2023-2086
+  ✓ Success: 32023R2086_metadata.json
+[1732/2576] Processing: REG-2014-1175
+  ✓ Success: 32014R1175_metadata.json
+[1733/2576] Processing: REG-2020-356
+  ✓ Success: 32020R0356_metadata.json
+[1734/2576] Processing: REG-2010-977
+  ✓ Success: 32010R0977_metadata.json
+[1735/2576] Processing: REG-2010-384
+  ✓ Success: 32010R0384_metadata.json
+[1736/2576] Processing: REG-2019-2021
+  ✓ Success: 32019R2021_metadata.json
+[1737/2576] Processing: REG-2023-966
+  ✓ Success: 32023R0966_metadata.json
+[1738/2576] Processing: REG-2013-723
+  ✓ Success: 32013R0723_metadata.json
+[1739/2576] Processing: REG-2015-1832
+  ✓ Success: 32015R1832_metadata.json
+[1740/2576] Processing: REG-2019-877
+  ✓ Success: 32019R0877_metadata.json
+[1741/2576] Processing: REG-2014-202
+  ✓ Success: 32014R0202_metadata.json
+[1742/2576] Processing: REG-2010-18
+  ✓ Success: 32010R0018_metadata.json
+[1743/2576] Processing: REG-2015-400
+  ✓ Success: 32015R0400_metadata.json
+[1744/2576] Processing: REG-2014-692
+  ✓ Success: 32014R0692_metadata.json
+[1745/2576] Processing: REG-2012-545
+  ✓ Success: 32012R0545_metadata.json
+[1746/2576] Processing: REG-2021-1902
+  ✓ Success: 32021R1902_metadata.json
+[1747/2576] Processing: REG-2014-1385
+  ✓ Success: 32014R1385_metadata.json
+[1748/2576] Processing: REG-2014-833
+  ✓ Success: 32014R0833_metadata.json
+[1749/2576] Processing: REG-2016-1822
+  ✓ Success: 32016R1822_metadata.json
+[1750/2576] Processing: REG-2018-682
+  ✓ Success: 32018R0682_metadata.json
+[1751/2576] Processing: REG-2012-748
+  ✓ Success: 32012R0748_metadata.json
+[1752/2576] Processing: REG-2018-676
+  ✓ Success: 32018R0676_metadata.json
+[1753/2576] Processing: REG-2018-78
+  ✓ Success: 32018R0078_metadata.json
+[1754/2576] Processing: REG-2014-1143
+  ✓ Success: 32014R1143_metadata.json
+[1755/2576] Processing: REG-2022-555
+  ✓ Success: 32022R0555_metadata.json
+[1756/2576] Processing: REG-2012-1024
+  ✓ Success: 32012R1024_metadata.json
+[1757/2576] Processing: REG-2012-1216
+  ✓ Success: 32012R1216_metadata.json
+[1758/2576] Processing: REG-2013-1390
+  ✓ Success: 32013R1390_metadata.json
+[1759/2576] Processing: REG-2010-519
+  ✓ Success: 32010R0519_metadata.json
+[1760/2576] Processing: REG-2017-1154
+  ✓ Success: 32017R1154_metadata.json
+[1761/2576] Processing: REG-2010-979
+  ✓ Success: 32010R0979_metadata.json
+[1762/2576] Processing: REG-2022-109
+  ✓ Success: 32022R0109_metadata.json
+[1763/2576] Processing: REG-2010-377
+  ✓ Success: 32010R0377_metadata.json
+[1764/2576] Processing: REG-2010-713
+  ✓ Success: 32010R0713_metadata.json
+[1765/2576] Processing: REG-2019-884
+  ✓ Success: 32019L0884_metadata.json
+[1766/2576] Processing: REG-2010-1141
+  ✓ Success: 32010R1141_metadata.json
+[1767/2576] Processing: REG-2013-724
+  ✓ Success: 32013R0724_metadata.json
+[1768/2576] Processing: REG-2021-1750
+  ✓ Success: 32021R1750_metadata.json
+[1769/2576] Processing: REG-2016-266
+  ✓ Success: 32016R0266_metadata.json
+[1770/2576] Processing: REG-2021-768
+  ✓ Success: 32021R0768_metadata.json
+[1771/2576] Processing: REG-2010-383
+  ✓ Success: 32010R0383_metadata.json
+[1772/2576] Processing: REG-2014-661
+  ✓ Success: 32014R0661_metadata.json
+[1773/2576] Processing: REG-2011-111
+  ✓ Success: 32011R0111_metadata.json
+[1774/2576] Processing: REG-2010-20
+  ✓ Success: 32010R0020_metadata.json
+[1775/2576] Processing: REG-2019-6
+  ✓ Success: 32019R0006_metadata.json
+[1776/2576] Processing: REG-2014-1144
+  ✓ Success: 32014R1144_metadata.json
+[1777/2576] Processing: REG-2013-985
+  ✓ Success: 32013R0985_metadata.json
+[1778/2576] Processing: REG-2020-703
+  ✓ Success: 32020R0703_metadata.json
+[1779/2576] Processing: REG-2022-1324
+  ✓ Success: 32022R1324_metadata.json
+[1780/2576] Processing: REG-2019-2019
+  ✓ Success: 32019R2019_metadata.json
+[1781/2576] Processing: REG-2018-685
+  ✓ Success: 32018R0685_metadata.json
+[1782/2576] Processing: REG-2021-101
+  ✓ Success: 32021R0101_metadata.json
+[1783/2576] Processing: REG-2023-734
+  ✓ Success: 32023R0734_metadata.json
+[1784/2576] Processing: REG-2013-971
+  ✓ Success: 32013R0971_metadata.json
+[1785/2576] Processing: REG-2021-1139
+  ✓ Success: 32021R1139_metadata.json
+[1786/2576] Processing: REG-2013-1300
+  ✓ Success: 32013R1300_metadata.json
+[1787/2576] Processing: REG-2010-589
+  ✓ Success: 32010R0589_metadata.json
+[1788/2576] Processing: REG-2013-912
+  ✓ Success: 32013R0912_metadata.json
+[1789/2576] Processing: REG-2019-474
+  ✓ Success: 32019R0474_metadata.json
+[1790/2576] Processing: REG-2017-894
+  ✓ Success: 32017R0894_metadata.json
+[1791/2576] Processing: REG-2010-119
+  ✓ Success: 32010R0119_metadata.json
+[1792/2576] Processing: REG-2014-87
+  ✓ Success: 32014R0087_metadata.json
+[1793/2576] Processing: REG-2022-1181
+  ✓ Success: 32022R1181_metadata.json
+[1794/2576] Processing: REG-2015-2072
+  ✓ Success: 32015R2072_metadata.json
+[1795/2576] Processing: REG-2012-1040
+  ✓ Success: 32012R1040_metadata.json
+[1796/2576] Processing: REG-2014-1127
+  ✓ Success: 32014R1127_metadata.json
+[1797/2576] Processing: REG-2010-1122
+  ✓ Success: 32010R1122_metadata.json
+[1798/2576] Processing: REG-2013-575
+  ✓ Success: 32013R0575_metadata.json
+[1799/2576] Processing: REG-2010-784
+  ✓ Success: 32010R0784_metadata.json
+[1800/2576] Processing: REG-2016-2096
+  ✓ Success: 32016R2096_metadata.json
+[1801/2576] Processing: REG-2012-383
+  ✓ Success: 32012R0383_metadata.json
+[1802/2576] Processing: REG-2014-868
+  ✓ Success: 32014R0868_metadata.json
+[1803/2576] Processing: REG-2014-1118
+  ✓ Success: 32014R1118_metadata.json
+[1804/2576] Processing: REG-2012-377
+  ✓ Success: 32012R0377_metadata.json
+[1805/2576] Processing: REG-2023-1804
+  ✓ Success: 32023R1804_metadata.json
+[1806/2576] Processing: REG-2012-1047
+  ✓ Success: 32012R1047_metadata.json
+[1807/2576] Processing: REG-2022-2367
+  ✓ Success: 32022R2367_metadata.json
+[1808/2576] Processing: REG-2014-1312
+  ✓ Success: 32014R1312_metadata.json
+[1809/2576] Processing: REG-2012-941
+  ✓ Success: 32012R0941_metadata.json
+[1810/2576] Processing: REG-2023-1464
+  ✓ Success: 32023R1464_metadata.json
+[1811/2576] Processing: REG-2015-2075
+  ✓ Success: 32015R2075_metadata.json
+[1812/2576] Processing: REG-2019-2089
+  ✓ Success: 32019R2089_metadata.json
+[1813/2576] Processing: REG-2022-394
+  ✓ Success: 32022R0394_metadata.json
+[1814/2576] Processing: REG-2020-2008
+  ✓ Success: 32020R2008_metadata.json
+[1815/2576] Processing: REG-2023-334
+  ✓ Success: 32023R0334_metadata.json
+[1816/2576] Processing: REG-2019-473
+  ✓ Success: 32019R0473_metadata.json
+[1817/2576] Processing: REG-2017-893
+  ✓ Success: 32017R0893_metadata.json
+[1818/2576] Processing: REG-2015-1052
+  ✓ Success: 32015R1052_metadata.json
+[1819/2576] Processing: REG-2018-285
+  ✓ Success: 32018R0285_metadata.json
+[1820/2576] Processing: REG-2019-225
+  ✓ Success: 32019R0225_metadata.json
+[1821/2576] Processing: REG-2023-1490
+  ✓ Success: 32023R1490_metadata.json
+[1822/2576] Processing: REG-2015-463
+  ✓ Success: 32015R0463_metadata.json
+[1823/2576] Processing: REG-2020-1474
+  ✓ Success: 32020R1474_metadata.json
+[1824/2576] Processing: REG-2011-181
+  ✓ Success: 32011R0181_metadata.json
+[1825/2576] Processing: REG-2023-1803
+  ✓ Success: 32023R1803_metadata.json
+[1826/2576] Processing: REG-2017-1130
+  ✓ Success: 32017R1130_metadata.json
+[1827/2576] Processing: REG-2010-121
+  ✓ Success: 32010R0121_metadata.json
+[1828/2576] Processing: REG-2019-1257
+  ✓ Success: 32019R1257_metadata.json
+[1829/2576] Processing: REG-2016-692
+  ✓ Success: 32016R0692_metadata.json
+[1830/2576] Processing: REG-2012-1078
+  ✓ Success: 32012R1078_metadata.json
+[1831/2576] Processing: REG-2010-777
+  ✓ Success: 32010R0777_metadata.json
+[1832/2576] Processing: REG-2017-400
+  ✓ Success: 32017R0400_metadata.json
+[1833/2576] Processing: REG-2019-1091
+  ✓ Success: 32019R1091_metadata.json
+[1834/2576] Processing: REG-2010-783
+  ✓ Success: 32010R0783_metadata.json
+[1835/2576] Processing: REG-2011-511
+  ✓ Success: 32011R0511_metadata.json
+[1836/2576] Processing: REG-2014-605
+  ✓ Success: 32014R0605_metadata.json
+[1837/2576] Processing: REG-2016-1042
+  ✓ Success: 32016R1042_metadata.json
+[1838/2576] Processing: REG-2010-914
+  ✓ Success: 32010R0914_metadata.json
+[1839/2576] Processing: REG-2011-188
+  ✓ Success: 32011R0188_metadata.json
+[1840/2576] Processing: REG-2012-379
+  ✓ Success: 32012R0379_metadata.json
+[1841/2576] Processing: REG-2010-72
+  ✓ Success: 32010R0072_metadata.json
+[1842/2576] Processing: REG-2014-866
+  ✓ Success: 32014R0866_metadata.json
+[1843/2576] Processing: REG-2013-1331
+  ✓ Success: 32013R1331_metadata.json
+[1844/2576] Processing: REG-2010-86
+  ✓ Success: 32010R0086_metadata.json
+[1845/2576] Processing: REG-2016-805
+  ✓ Success: 32016R0805_metadata.json
+[1846/2576] Processing: REG-2015-2285
+  ✓ Success: 32015R2285_metadata.json
+[1847/2576] Processing: REG-2013-55
+  ✓ Success: 32013R0055_metadata.json
+[1848/2576] Processing: REG-2010-741
+  ✓ Success: 32010R0741_metadata.json
+[1849/2576] Processing: REG-2012-722
+  ✓ Success: 32012R0722_metadata.json
+[1850/2576] Processing: REG-2013-782
+  ✓ Success: 32013R0782_metadata.json
+[1851/2576] Processing: REG-2010-117
+  ✓ Success: 32010R0117_metadata.json
+[1852/2576] Processing: REG-2011-143
+  ✓ Success: 32011R0143_metadata.json
+[1853/2576] Processing: REG-2022-993
+  ✓ Success: 32022L0993_metadata.json
+[1854/2576] Processing: REG-2020-1684
+  ✓ Success: 32020R1684_metadata.json
+[1855/2576] Processing: REG-2017-294
+  ✓ Success: 32017R0294_metadata.json
+[1856/2576] Processing: REG-2014-257
+  ✓ Success: 32014R0257_metadata.json
+[1857/2576] Processing: REG-2015-2282
+  ✓ Success: 32015R2282_metadata.json
+[1858/2576] Processing: REG-2011-349
+  ✓ Success: 32011R0349_metadata.json
+[1859/2576] Processing: REG-2013-1336
+  ✓ Success: 32013R1336_metadata.json
+[1860/2576] Processing: REG-2018-1119
+  ✓ Success: 32018R1119_metadata.json
+[1861/2576] Processing: REG-2017-2119
+  ✓ Success: 32017R2119_metadata.json
+[1862/2576] Processing: REG-2014-895
+  ✓ Success: 32014R0895_metadata.json
+[1863/2576] Processing: REG-2014-1323
+  ✓ Success: 32014R1323_metadata.json
+[1864/2576] Processing: REG-2019-1857
+  ✓ Success: 32019R1857_metadata.json
+[1865/2576] Processing: REG-2010-779
+  ✓ Success: 32010R0779_metadata.json
+[1866/2576] Processing: REG-2012-528
+  ✓ Success: 32012R0528_metadata.json
+[1867/2576] Processing: REG-2010-913
+  ✓ Success: 32010R0913_metadata.json
+[1868/2576] Processing: REG-2016-1625
+  ✓ Success: 32016R1625_metadata.json
+[1869/2576] Processing: REG-2011-520
+  ✓ Success: 32011R0520_metadata.json
+[1870/2576] Processing: REG-2021-1153
+  ✓ Success: 32021R1153_metadata.json
+[1871/2576] Processing: REG-2018-885
+  ✓ Success: 32018R0885_metadata.json
+[1872/2576] Processing: REG-2018-1542
+  ✓ Success: 32018R1542_metadata.json
+[1873/2576] Processing: REG-2020-1683
+  ✓ Success: 32020R1683_metadata.json
+[1874/2576] Processing: REG-2011-978
+  ✓ Success: 32011R0978_metadata.json
+[1875/2576] Processing: REG-2013-543
+  ✓ Success: 32013R0543_metadata.json
+[1876/2576] Processing: REG-2010-110
+  ✓ Success: 32010R0110_metadata.json
+[1877/2576] Processing: REG-2012-1049
+  ✓ Success: 32012R1049_metadata.json
+[1878/2576] Processing: REG-2011-574
+  ✓ Success: 32011R0574_metadata.json
+[1879/2576] Processing: REG-2010-382
+  ✓ Success: 32010R0382_metadata.json
+[1880/2576] Processing: REG-2021-769
+  ✓ Success: 32021R0769_metadata.json
+[1881/2576] Processing: REG-2013-517
+  ✓ Success: 32013R0517_metadata.json
+[1882/2576] Processing: REG-2011-110
+  ✓ Success: 32011R0110_metadata.json
+[1883/2576] Processing: REG-2013-39
+  ✓ Success: 32013R0039_metadata.json
+[1884/2576] Processing: REG-2014-452
+  ✓ Success: 32014R0452_metadata.json
+[1885/2576] Processing: REG-2018-1516
+  ✓ Success: 32018R1516_metadata.json
+[1886/2576] Processing: REG-2010-376
+  ✓ Success: 32010R0376_metadata.json
+[1887/2576] Processing: REG-2010-978
+  ✓ Success: 32010R0978_metadata.json
+[1888/2576] Processing: REG-2018-825
+  ✓ Success: 32018R0825_metadata.json
+[1889/2576] Processing: REG-2010-712
+  ✓ Success: 32010R0712_metadata.json
+[1890/2576] Processing: REG-2014-11
+  ✓ Success: 32014R0011_metadata.json
+[1891/2576] Processing: REG-2023-163
+  ✓ Success: 32023R0163_metadata.json
+[1892/2576] Processing: REG-2021-100
+  ✓ Success: 32021R0100_metadata.json
+[1893/2576] Processing: REG-2018-1971
+  ✓ Success: 32018R1971_metadata.json
+[1894/2576] Processing: REG-2011-779
+  ✓ Success: 32011R0779_metadata.json
+[1895/2576] Processing: REG-2014-1145
+  ✓ Success: 32014R1145_metadata.json
+[1896/2576] Processing: REG-2010-21
+  ✓ Success: 32010R0021_metadata.json
+[1897/2576] Processing: REG-2021-590
+  ✓ Success: 32021R0590_metadata.json
+[1898/2576] Processing: REG-2023-1065
+  ✓ Success: 32023R1065_metadata.json
+[1899/2576] Processing: REG-2022-2554
+  ✓ Success: 32022R2554_metadata.json
+[1900/2576] Processing: REG-2010-715
+  ✓ Success: 32010R0715_metadata.json
+[1901/2576] Processing: REG-2016-2235
+  ✓ Success: 32016R2235_metadata.json
+[1902/2576] Processing: REG-2015-401
+  ✓ Success: 32015R0401_metadata.json
+[1903/2576] Processing: REG-2021-1756
+  ✓ Success: 32021R1756_metadata.json
+[1904/2576] Processing: REG-2013-510
+  ✓ Success: 32013R0510_metadata.json
+[1905/2576] Processing: REG-2019-2020
+  ✓ Success: 32019R2020_metadata.json
+[1906/2576] Processing: REG-2013-174
+  ✓ Success: 32013R0174_metadata.json
+[1907/2576] Processing: REG-2019-876
+  ✓ Success: 32019R0876_metadata.json
+[1908/2576] Processing: REG-2019-278
+  ✓ Success: 32019R0278_metadata.json
+[1909/2576] Processing: REG-2013-346
+  ✓ Success: 32013R0346_metadata.json
+[1910/2576] Processing: REG-2018-677
+  ✓ Success: 32018R0677_metadata.json
+[1911/2576] Processing: REG-2020-1429
+  ✓ Success: 32020R1429_metadata.json
+[1912/2576] Processing: REG-2010-26
+  ✓ Success: 32010R0026_metadata.json
+[1913/2576] Processing: REG-2012-1217
+  ✓ Success: 32012R1217_metadata.json
+[1914/2576] Processing: REG-2017-1509
+  ✓ Success: 32017R1509_metadata.json
+[1915/2576] Processing: REG-2018-79
+  ✓ Success: 32018R0079_metadata.json
+[1916/2576] Processing: REG-2012-1025
+  ✓ Success: 32012R1025_metadata.json
+[1917/2576] Processing: REG-2018-683
+  ✓ Success: 32018R0683_metadata.json
+[1918/2576] Processing: REG-2017-1199
+  ✓ Success: 32017R1199_metadata.json
+[1919/2576] Processing: REG-2014-497
+  ✓ Success: 32014R0497_metadata.json
+[1920/2576] Processing: REG-2017-1164
+  ✓ Success: 32017R1164_metadata.json
+[1921/2576] Processing: REG-2012-572
+  ✓ Success: 32012R0572_metadata.json
+[1922/2576] Processing: REG-2011-1231
+  ✓ Success: 32011R1231_metadata.json
+[1923/2576] Processing: REG-2018-70
+  ✓ Success: 32018R0070_metadata.json
+[1924/2576] Processing: REG-2016-2031
+  ✓ Success: 32016R2031_metadata.json
+[1925/2576] Processing: REG-2013-7
+  ✓ Success: 32013R0007_metadata.json
+[1926/2576] Processing: REG-2015-1039
+  ✓ Success: 32015R1039_metadata.json
+[1927/2576] Processing: REG-2016-400
+  ✓ Success: 32016R0400_metadata.json
+[1928/2576] Processing: REG-2011-313
+  ✓ Success: 32011R0313_metadata.json
+[1929/2576] Processing: REG-2022-1925
+  ✓ Success: 32022R1925_metadata.json
+[1930/2576] Processing: REG-2010-1171
+  ✓ Success: 32010R1171_metadata.json
+[1931/2576] Processing: REG-2016-1016
+  ✓ Success: 32016R1016_metadata.json
+[1932/2576] Processing: REG-2014-651
+  ✓ Success: 32014R0651_metadata.json
+[1933/2576] Processing: REG-2022-562
+  ✓ Success: 32022R0562_metadata.json
+[1934/2576] Processing: REG-2017-1369
+  ✓ Success: 32017R1369_metadata.json
+[1935/2576] Processing: REG-2022-334
+  ✓ Success: 32022R0334_metadata.json
+[1936/2576] Processing: REG-2010-976
+  ✓ Success: 32010R0976_metadata.json
+[1937/2576] Processing: REG-2013-519
+  ✓ Success: 32013R0519_metadata.json
+[1938/2576] Processing: REG-2016-867
+  ✓ Success: 32016R0867_metadata.json
+[1939/2576] Processing: REG-2011-126
+  ✓ Success: 32011R0126_metadata.json
+[1940/2576] Processing: REG-2014-656
+  ✓ Success: 32014R0656_metadata.json
+[1941/2576] Processing: REG-2013-521
+  ✓ Success: 32013R0521_metadata.json
+[1942/2576] Processing: REG-2021-1767
+  ✓ Success: 32021R1767_metadata.json
+[1943/2576] Processing: REG-2013-713
+  ✓ Success: 32013R0713_metadata.json
+[1944/2576] Processing: REG-2023-956
+  ✓ Success: 32023R0956_metadata.json
+[1945/2576] Processing: REG-2011-314
+  ✓ Success: 32011R0314_metadata.json
+[1946/2576] Processing: REG-2022-1922
+  ✓ Success: 32022R1922_metadata.json
+[1947/2576] Processing: REG-2016-1011
+  ✓ Success: 32016R1011_metadata.json
+[1948/2576] Processing: REG-2012-1219
+  ✓ Success: 32012R1219_metadata.json
+[1949/2576] Processing: REG-2020-1043
+  ✓ Success: 32020R1043_metadata.json
+[1950/2576] Processing: REG-2010-724
+  ✓ Success: 32010R0724_metadata.json
+[1951/2576] Processing: REG-2015-868
+  ✓ Success: 32015R0868_metadata.json
+[1952/2576] Processing: REG-2010-172
+  ✓ Success: 32010R0172_metadata.json
+[1953/2576] Processing: REG-2021-2116
+  ✓ Success: 32021R2116_metadata.json
+[1954/2576] Processing: REG-2013-348
+  ✓ Success: 32013R0348_metadata.json
+[1955/2576] Processing: REG-2023-969
+  ✓ Success: 32023R0969_metadata.json
+[1956/2576] Processing: REG-2023-155
+  ✓ Success: 32023R0155_metadata.json
+[1957/2576] Processing: REG-2010-985
+  ✓ Success: 32010R0985_metadata.json
+[1958/2576] Processing: REG-2010-971
+  ✓ Success: 32010R0971_metadata.json
+[1959/2576] Processing: REG-2023-2080
+  ✓ Success: 32023R2080_metadata.json
+[1960/2576] Processing: REG-2012-1014
+  ✓ Success: 32012R1014_metadata.json
+[1961/2576] Processing: REG-2017-1538
+  ✓ Success: 32017R1538_metadata.json
+[1962/2576] Processing: REG-2019-1009
+  ✓ Success: 32019R1009_metadata.json
+[1963/2576] Processing: REG-2019-630
+  ✓ Success: 32019R0630_metadata.json
+[1964/2576] Processing: REG-2023-1627
+  ✓ Success: 32023R1627_metadata.json
+[1965/2576] Processing: REG-2022-123
+  ✓ Success: 32022R0123_metadata.json
+[1966/2576] Processing: REG-2013-167
+  ✓ Success: 32013R0167_metadata.json
+[1967/2576] Processing: REG-2016-425
+  ✓ Success: 32016R0425_metadata.json
+[1968/2576] Processing: REG-2016-1033
+  ✓ Success: 32016R1033_metadata.json
+[1969/2576] Processing: REG-2019-2033
+  ✓ Success: 32019R2033_metadata.json
+[1970/2576] Processing: REG-2012-791
+  ✓ Success: 32012R0791_metadata.json
+[1971/2576] Processing: REG-2011-1214
+  ✓ Success: 32011R1214_metadata.json
+[1972/2576] Processing: REG-2019-891
+  ✓ Success: 32019R0891_metadata.json
+[1973/2576] Processing: REG-2018-831
+  ✓ Success: 32018R0831_metadata.json
+[1974/2576] Processing: REG-2015-2003
+  ✓ Success: 32015R2003_metadata.json
+[1975/2576] Processing: REG-2010-168
+  ✓ Success: 32010R0168_metadata.json
+[1976/2576] Processing: REG-2013-1385
+  ✓ Success: 32013R1385_metadata.json
+[1977/2576] Processing: REG-2010-32
+  ✓ Success: 32010R0032_metadata.json
+[1978/2576] Processing: REG-2021-1917
+  ✓ Success: 32021R1917_metadata.json
+[1979/2576] Processing: REG-2014-1390
+  ✓ Success: 32014R1390_metadata.json
+[1980/2576] Processing: REG-2022-1104
+  ✓ Success: 32022R1104_metadata.json
+[1981/2576] Processing: REG-2012-134
+  ✓ Success: 32012R0134_metadata.json
+[1982/2576] Processing: REG-2017-644
+  ✓ Success: 32017R0644_metadata.json
+[1983/2576] Processing: REG-2017-2195
+  ✓ Success: 32017R2195_metadata.json
+[1984/2576] Processing: REG-2010-701
+  ✓ Success: 32010R0701_metadata.json
+[1985/2576] Processing: REG-2010-365
+  ✓ Success: 32010R0365_metadata.json
+[1986/2576] Processing: REG-2023-1049
+  ✓ Success: 32023R1049_metadata.json
+[1987/2576] Processing: REG-2014-673
+  ✓ Success: 32014R0673_metadata.json
+[1988/2576] Processing: REG-2014-217
+  ✓ Success: 32014R0217_metadata.json
+[1989/2576] Processing: REG-2020-171
+  ✓ Success: 32020R0171_metadata.json
+[1990/2576] Processing: REG-2018-231
+  ✓ Success: 32018R0231_metadata.json
+[1991/2576] Processing: REG-2022-576
+  ✓ Success: 32022R0576_metadata.json
+[1992/2576] Processing: REG-2013-1181
+  ✓ Success: 32013R1181_metadata.json
+[1993/2576] Processing: REG-2014-1352
+  ✓ Success: 32014R1352_metadata.json
+[1994/2576] Processing: REG-2017-1973
+  ✓ Success: 32017R1973_metadata.json
+[1995/2576] Processing: REG-2022-112
+  ✓ Success: 32022R0112_metadata.json
+[1996/2576] Processing: REG-2010-996
+  ✓ Success: 32010R0996_metadata.json
+[1997/2576] Processing: REG-2023-710
+  ✓ Success: 32023R0710_metadata.json
+[1998/2576] Processing: REG-2010-353
+  ✓ Success: 32010R0353_metadata.json
+[1999/2576] Processing: REG-2017-2391
+  ✓ Success: 32017R2391_metadata.json
+[2000/2576] Processing: REG-2010-737
+  ✓ Success: 32010R0737_metadata.json
+[2001/2576] Processing: REG-2020-972
+  ✓ Success: 32020R0972_metadata.json
+[2002/2576] Processing: REG-2016-1002
+  ✓ Success: 32016R1002_metadata.json
+[2003/2576] Processing: REG-2012-592
+  ✓ Success: 32012R0592_metadata.json
+[2004/2576] Processing: REG-2010-1165
+  ✓ Success: 32010R1165_metadata.json
+[2005/2576] Processing: REG-2013-952
+  ✓ Success: 32013R0952_metadata.json
+[2006/2576] Processing: REG-2022-585
+  ✓ Success: 32022R0585_metadata.json
+[2007/2576] Processing: REG-2021-774
+  ✓ Success: 32021R0774_metadata.json
+[2008/2576] Processing: REG-2013-738
+  ✓ Success: 32013R0738_metadata.json
+[2009/2576] Processing: REG-2010-991
+  ✓ Success: 32010R0991_metadata.json
+[2010/2576] Processing: REG-2017-1980
+  ✓ Success: 32017R1980_metadata.json
+[2011/2576] Processing: REG-2010-1162
+  ✓ Success: 32010R1162_metadata.json
+[2012/2576] Processing: REG-2016-1005
+  ✓ Success: 32016R1005_metadata.json
+[2013/2576] Processing: REG-2011-132
+  ✓ Success: 32011R0132_metadata.json
+[2014/2576] Processing: REG-2016-621
+  ✓ Success: 32016R0621_metadata.json
+[2015/2576] Processing: REG-2018-97
+  ✓ Success: 32018R0097_metadata.json
+[2016/2576] Processing: REG-2017-2396
+  ✓ Success: 32017R2396_metadata.json
+[2017/2576] Processing: REG-2019-1022
+  ✓ Success: 32019R1022_metadata.json
+[2018/2576] Processing: REG-2011-1282
+  ✓ Success: 32011R1282_metadata.json
+[2019/2576] Processing: REG-2011-354
+  ✓ Success: 32011R0354_metadata.json
+[2020/2576] Processing: REG-2012-999
+  ✓ Success: 32012R0999_metadata.json
+[2021/2576] Processing: REG-2012-1259
+  ✓ Success: 32012D0826_metadata.json
+[2022/2576] Processing: REG-2017-1547
+  ✓ Success: 32017R1547_metadata.json
+[2023/2576] Processing: REG-2011-1276
+  ✓ Success: 32011R1276_metadata.json
+[2024/2576] Processing: REG-2010-300
+  ✓ Success: 32010R0300_metadata.json
+[2025/2576] Processing: REG-2017-1123
+  ✓ Success: 32017R1123_metadata.json
+[2026/2576] Processing: REG-2015-1041
+  ✓ Success: 32015R1041_metadata.json
+[2027/2576] Processing: REG-2014-67
+  ✓ Success: 32014R0067_metadata.json
+[2028/2576] Processing: REG-2017-880
+  ✓ Success: 32017R0880_metadata.json
+[2029/2576] Processing: REG-2011-159
+  ✓ Success: 32011R0159_metadata.json
+[2030/2576] Processing: REG-2022-141
+  ✓ Success: 32022R0141_metadata.json
+[2031/2576] Processing: REG-2019-494
+  ✓ Success: 32019R0494_metadata.json
+[2032/2576] Processing: REG-2017-874
+  ✓ Success: 32017R0874_metadata.json
+[2033/2576] Processing: REG-2021-1986
+  ✓ Success: 32021R1986_metadata.json
+[2034/2576] Processing: REG-2014-1301
+  ✓ Success: 32014R1301_metadata.json
+[2035/2576] Processing: REG-2011-195
+  ✓ Success: 32011R0195_metadata.json
+[2036/2576] Processing: REG-2010-307
+  ✓ Success: 32010R0307_metadata.json
+[2037/2576] Processing: REG-2015-477
+  ✓ Success: 32015R0477_metadata.json
+[2038/2576] Processing: REG-2019-1243
+  ✓ Success: 32019R1243_metadata.json
+[2039/2576] Processing: REG-2017-626
+  ✓ Success: 32017R0626_metadata.json
+[2040/2576] Processing: REG-2019-800
+  ✓ Success: 32019R0800_metadata.json
+[2041/2576] Processing: REG-2021-1176
+  ✓ Success: 32021R1176_metadata.json
+[2042/2576] Processing: REG-2016-440
+  ✓ Success: 32016R0440_metadata.json
+[2043/2576] Processing: REG-2014-423
+  ✓ Success: 32014R0423_metadata.json
+[2044/2576] Processing: REG-2011-161
+  ✓ Success: 32011R0161_metadata.json
+[2045/2576] Processing: REG-2022-2373
+  ✓ Success: 32022R2373_metadata.json
+[2046/2576] Processing: REG-2022-710
+  ✓ Success: 32022R0710_metadata.json
+[2047/2576] Processing: REG-2012-1261
+  ✓ Success: 32012R1261_metadata.json
+[2048/2576] Processing: REG-2019-493
+  ✓ Success: 32019R0493_metadata.json
+[2049/2576] Processing: REG-2013-1313
+  ✓ Success: 32013D1313_metadata.json
+[2050/2576] Processing: REG-2021-1149
+  ✓ Success: 32021R1149_metadata.json
+[2051/2576] Processing: REG-2023-1479
+  ✓ Success: 32023R1479_metadata.json
+[2052/2576] Processing: REG-2022-719
+  ✓ Success: 32022R0719_metadata.json
+[2053/2576] Processing: REG-2010-1107
+  ✓ Success: 32010R1107_metadata.json
+[2054/2576] Processing: REG-2014-69
+  ✓ Success: 32014R0069_metadata.json
+[2055/2576] Processing: REG-2016-1252
+  ✓ Success: 32016R1252_metadata.json
+[2056/2576] Processing: REG-2020-2227
+  ✓ Success: 32020R2227_metadata.json
+[2057/2576] Processing: REG-2014-627
+  ✓ Success: 32014R0627_metadata.json
+[2058/2576] Processing: REG-2016-2281
+  ✓ Success: 32016R2281_metadata.json
+[2059/2576] Processing: REG-2010-593
+  ✓ Success: 32010R0593_metadata.json
+[2060/2576] Processing: REG-2021-1372
+  ✓ Success: 32021R1372_metadata.json
+[2061/2576] Processing: REG-2018-1909
+  ✓ Success: 32018R1909_metadata.json
+[2062/2576] Processing: REG-2022-1396
+  ✓ Success: 32022R1396_metadata.json
+[2063/2576] Processing: REG-2010-900
+  ✓ Success: 32010R0900_metadata.json
+[2064/2576] Processing: REG-2010-66
+  ✓ Success: 32010R0066_metadata.json
+[2065/2576] Processing: REG-2012-1257
+  ✓ Success: 32012R1257_metadata.json
+[2066/2576] Processing: REG-2010-558
+  ✓ Success: 32010R0558_metadata.json
+[2067/2576] Processing: REG-2013-1325
+  ✓ Success: 32013R1325_metadata.json
+[2068/2576] Processing: REG-2021-523
+  ✓ Success: 32021R0523_metadata.json
+[2069/2576] Processing: REG-2010-1138
+  ✓ Success: 32010R1138_metadata.json
+[2070/2576] Processing: REG-2021-943
+  ✓ Success: 32021R0943_metadata.json
+[2071/2576] Processing: REG-2021-1147
+  ✓ Success: 32021R1147_metadata.json
+[2072/2576] Processing: REG-2019-831
+  ✓ Success: 32019R0831_metadata.json
+[2073/2576] Processing: REG-2013-557
+  ✓ Success: 32013R0557_metadata.json
+[2074/2576] Processing: REG-2020-2220
+  ✓ Success: 32020R2220_metadata.json
+[2075/2576] Processing: REG-2011-150
+  ✓ Success: 32011R0150_metadata.json
+[2076/2576] Processing: REG-2013-79
+  ✓ Success: 32013R0079_metadata.json
+[2077/2576] Processing: REG-2011-1086
+  ✓ Success: 32011R1086_metadata.json
+[2078/2576] Processing: REG-2011-362
+  ✓ Success: 32011R0362_metadata.json
+[2079/2576] Processing: REG-2018-1556
+  ✓ Success: 32018R1556_metadata.json
+[2080/2576] Processing: REG-2022-148
+  ✓ Success: 32022R0148_metadata.json
+[2081/2576] Processing: REG-2010-336
+  ✓ Success: 32010R0336_metadata.json
+[2082/2576] Processing: REG-2010-560
+  ✓ Success: 32010R0560_metadata.json
+[2083/2576] Processing: REG-2014-51
+  ✓ Success: 32014R0051_metadata.json
+[2084/2576] Processing: REG-2022-345
+  ✓ Success: 32022R0345_metadata.json
+[2085/2576] Processing: REG-2022-2514
+  ✓ Success: 32022R2514_metadata.json
+[2086/2576] Processing: REG-2015-479
+  ✓ Success: 32015R0479_metadata.json
+[2087/2576] Processing: REG-2010-309
+  ✓ Success: 32010R0309_metadata.json
+[2088/2576] Processing: REG-2015-628
+  ✓ Success: 32015R0628_metadata.json
+[2089/2576] Processing: REG-2023-988
+  ✓ Success: 32023R0988_metadata.json
+[2090/2576] Processing: REG-2017-821
+  ✓ Success: 32017R0821_metadata.json
+[2091/2576] Processing: REG-2012-907
+  ✓ Success: 32012R0907_metadata.json
+[2092/2576] Processing: REG-2014-218
+  ✓ Success: 32014R0218_metadata.json
+[2093/2576] Processing: REG-2015-1828
+  ✓ Success: 32015R1828_metadata.json
+[2094/2576] Processing: REG-2013-953
+  ✓ Success: 32013R0953_metadata.json
+[2095/2576] Processing: REG-2010-990
+  ✓ Success: 32010R0990_metadata.json
+[2096/2576] Processing: REG-2013-739
+  ✓ Success: 32013R0739_metadata.json
+[2097/2576] Processing: REG-2014-32
+  ✓ Success: 32014R0032_metadata.json
+[2098/2576] Processing: REG-2017-1981
+  ✓ Success: 32017R1981_metadata.json
+[2099/2576] Processing: REG-2013-25
+  ✓ Success: 32013R0025_metadata.json
+[2100/2576] Processing: REG-2022-2583
+  ✓ Success: 32022R2583_metadata.json
+[2101/2576] Processing: REG-2018-1999
+  ✓ Success: 32018R1999_metadata.json
+[2102/2576] Processing: REG-2020-1056
+  ✓ Success: 32020R1056_metadata.json
+[2103/2576] Processing: REG-2018-208
+  ✓ Success: 32018R0208_metadata.json
+[2104/2576] Processing: REG-2010-731
+  ✓ Success: 32010R0731_metadata.json
+[2105/2576] Processing: REG-2018-62
+  ✓ Success: 32018R0062_metadata.json
+[2106/2576] Processing: REG-2010-1163
+  ✓ Success: 32010R1163_metadata.json
+[2107/2576] Processing: REG-2019-2236
+  ✓ Success: 32019R2236_metadata.json
+[2108/2576] Processing: REG-2011-937
+  ✓ Success: 32011R0937_metadata.json
+[2109/2576] Processing: REG-2022-2584
+  ✓ Success: 32022R2584_metadata.json
+[2110/2576] Processing: REG-2023-147
+  ✓ Success: 32023R0147_metadata.json
+[2111/2576] Processing: REG-2015-1221
+  ✓ Success: 32015R1221_metadata.json
+[2112/2576] Processing: REG-2014-811
+  ✓ Success: 32014R0811_metadata.json
+[2113/2576] Processing: REG-2013-168
+  ✓ Success: 32013R0168_metadata.json
+[2114/2576] Processing: REG-2013-1180
+  ✓ Success: 32013R1180_metadata.json
+[2115/2576] Processing: REG-2015-845
+  ✓ Success: 32015R0845_metadata.json
+[2116/2576] Processing: REG-2014-1161
+  ✓ Success: 32014R1161_metadata.json
+[2117/2576] Processing: REG-2022-577
+  ✓ Success: 32022R0577_metadata.json
+[2118/2576] Processing: REG-2010-709
+  ✓ Success: 32010R0709_metadata.json
+[2119/2576] Processing: REG-2017-228
+  ✓ Success: 32017R0228_metadata.json
+[2120/2576] Processing: REG-2017-1972
+  ✓ Success: 32017R1972_metadata.json
+[2121/2576] Processing: REG-2014-220
+  ✓ Success: 32014R0220_metadata.json
+[2122/2576] Processing: REG-2011-550
+  ✓ Success: 32011R0550_metadata.json
+[2123/2576] Processing: REG-2013-1379
+  ✓ Success: 32013R1379_metadata.json
+[2124/2576] Processing: REG-2010-1164
+  ✓ Success: 32010R1164_metadata.json
+[2125/2576] Processing: REG-2016-1003
+  ✓ Success: 32016R1003_metadata.json
+[2126/2576] Processing: REG-2014-476
+  ✓ Success: 32014R0476_metadata.json
+[2127/2576] Processing: REG-2010-1190
+  ✓ Success: 32010R1190_metadata.json
+[2128/2576] Processing: REG-2010-352
+  ✓ Success: 32010R0352_metadata.json
+[2129/2576] Processing: REG-2017-1515
+  ✓ Success: 32017R1515_metadata.json
+[2130/2576] Processing: REG-2014-827
+  ✓ Success: 32014R0827_metadata.json
+[2131/2576] Processing: REG-2013-1370
+  ✓ Success: 32013R1370_metadata.json
+[2132/2576] Processing: REG-2021-1916
+  ✓ Success: 32021R1916_metadata.json
+[2133/2576] Processing: REG-2018-98
+  ✓ Success: 32018R0098_metadata.json
+[2134/2576] Processing: REG-2011-559
+  ✓ Success: 32011R0559_metadata.json
+[2135/2576] Processing: REG-2012-936
+  ✓ Success: 32012R0936_metadata.json
+[2136/2576] Processing: REG-2010-33
+  ✓ Success: 32010R0033_metadata.json
+[2137/2576] Processing: REG-2018-1504
+  ✓ Success: 32018R1504_metadata.json
+[2138/2576] Processing: REG-2010-1152
+  ✓ Success: 32010R1152_metadata.json
+[2139/2576] Processing: REG-2016-1035
+  ✓ Success: 32016R1035_metadata.json
+[2140/2576] Processing: REG-2011-102
+  ✓ Success: 32011R0102_metadata.json
+[2141/2576] Processing: REG-2023-3
+  ✓ Success: 32023R0003_metadata.json
+[2142/2576] Processing: REG-2010-390
+  ✓ Success: 32010R0390_metadata.json
+[2143/2576] Processing: REG-2011-566
+  ✓ Success: 32011R0566_metadata.json
+[2144/2576] Processing: REG-2021-1929
+  ✓ Success: 32021R1929_metadata.json
+[2145/2576] Processing: REG-2011-754
+  ✓ Success: 32011R0754_metadata.json
+[2146/2576] Processing: REG-2010-700
+  ✓ Success: 32010R0700_metadata.json
+[2147/2576] Processing: REG-2017-645
+  ✓ Success: 32017R0645_metadata.json
+[2148/2576] Processing: REG-2022-328
+  ✓ Success: 32022R0328_metadata.json
+[2149/2576] Processing: REG-2014-686
+  ✓ Success: 32014R0686_metadata.json
+[2150/2576] Processing: REG-2015-414
+  ✓ Success: 32015R0414_metadata.json
+[2151/2576] Processing: REG-2014-1150
+  ✓ Success: 32014R1150_metadata.json
+[2152/2576] Processing: REG-2010-738
+  ✓ Success: 32010R0738_metadata.json
+[2153/2576] Processing: REG-2014-478
+  ✓ Success: 32014R0478_metadata.json
+[2154/2576] Processing: REG-2019-631
+  ✓ Success: 32019R0631_metadata.json
+[2155/2576] Processing: REG-2017-2158
+  ✓ Success: 32017R2158_metadata.json
+[2156/2576] Processing: REG-2023-720
+  ✓ Success: 32023R0720_metadata.json
+[2157/2576] Processing: REG-2012-556
+  ✓ Success: 32012R0556_metadata.json
+[2158/2576] Processing: REG-2019-1015
+  ✓ Success: 32019R1015_metadata.json
+[2159/2576] Processing: REG-2015-245
+  ✓ Success: 32015R0245_metadata.json
+[2160/2576] Processing: REG-2016-2015
+  ✓ Success: 32016R2015_metadata.json
+[2161/2576] Processing: REG-2016-424
+  ✓ Success: 32016R0424_metadata.json
+[2162/2576] Processing: REG-2011-753
+  ✓ Success: 32011R0753_metadata.json
+[2163/2576] Processing: REG-2011-939
+  ✓ Success: 32008R0617_metadata.json
+[2164/2576] Processing: REG-2010-999
+  ✓ Success: 32010R0999_metadata.json
+[2165/2576] Processing: REG-2010-1155
+  ✓ Success: 32010R1155_metadata.json
+[2166/2576] Processing: REG-2012-502
+  ✓ Success: 32012R0502_metadata.json
+[2167/2576] Processing: REG-2022-149
+  ✓ Success: 32022R0149_metadata.json
+[2168/2576] Processing: REG-2017-1326
+  ✓ Success: 32017R1326_metadata.json
+[2169/2576] Processing: REG-2011-999
+  ✓ Success: 32011R0999_metadata.json
+[2170/2576] Processing: REG-2012-354
+  ✓ Success: 32012R0354_metadata.json
+[2171/2576] Processing: REG-2014-245
+  ✓ Success: 32014R0245_metadata.json
+[2172/2576] Processing: REG-2019-1889
+  ✓ Success: 32019R1889_metadata.json
+[2173/2576] Processing: REG-2011-363
+  ✓ Success: 32011R0363_metadata.json
+[2174/2576] Processing: REG-2020-2221
+  ✓ Success: 32020R2221_metadata.json
+[2175/2576] Processing: REG-2022-720
+  ✓ Success: 32022R0720_metadata.json
+[2176/2576] Processing: REG-2022-2343
+  ✓ Success: 32022R2343_metadata.json
+[2177/2576] Processing: REG-2012-965
+  ✓ Success: 32012R0965_metadata.json
+[2178/2576] Processing: REG-2018-255
+  ✓ Success: 32018R0255_metadata.json
+[2179/2576] Processing: REG-2012-1063
+  ✓ Success: 32012R1063_metadata.json
+[2180/2576] Processing: REG-2010-308
+  ✓ Success: 32010R0308_metadata.json
+[2181/2576] Processing: REG-2010-906
+  ✓ Success: 32010R0906_metadata.json
+[2182/2576] Processing: REG-2011-156
+  ✓ Success: 32011R0156_metadata.json
+[2183/2576] Processing: REG-2011-364
+  ✓ Success: 32011R0364_metadata.json
+[2184/2576] Processing: REG-2014-68
+  ✓ Success: 32014R0068_metadata.json
+[2185/2576] Processing: REG-2023-1478
+  ✓ Success: 32023R1478_metadata.json
+[2186/2576] Processing: REG-2015-1886
+  ✓ Success: 32015R1886_metadata.json
+[2187/2576] Processing: REG-2022-972
+  ✓ Success: 32022R0972_metadata.json
+[2188/2576] Processing: REG-2013-936
+  ✓ Success: 32013R0936_metadata.json
+[2189/2576] Processing: REG-2021-522
+  ✓ Success: 32021R0522_metadata.json
+[2190/2576] Processing: REG-2010-1139
+  ✓ Success: 32010R1139_metadata.json
+[2191/2576] Processing: REG-2011-169
+  ✓ Success: 32011R0169_metadata.json
+[2192/2576] Processing: REG-2013-40
+  ✓ Success: 32013R0040_metadata.json
+[2193/2576] Processing: REG-2022-1363
+  ✓ Success: 32022R1363_metadata.json
+[2194/2576] Processing: REG-2010-901
+  ✓ Success: 32010R0901_metadata.json
+[2195/2576] Processing: REG-2015-2264
+  ✓ Success: 32015R2264_metadata.json
+[2196/2576] Processing: REG-2012-708
+  ✓ Success: 32012R0708_metadata.json
+[2197/2576] Processing: REG-2014-289
+  ✓ Success: 32014R0289_metadata.json
+[2198/2576] Processing: REG-2022-515
+  ✓ Success: 32022R0515_metadata.json
+[2199/2576] Processing: REG-2015-827
+  ✓ Success: 32015R0827_metadata.json
+[2200/2576] Processing: REG-2012-1064
+  ✓ Success: 32012R1064_metadata.json
+[2201/2576] Processing: REG-2015-229
+  ✓ Success: 32015R0229_metadata.json
+[2202/2576] Processing: REG-2022-727
+  ✓ Success: 32022R0727_metadata.json
+[2203/2576] Processing: REG-2017-1548
+  ✓ Success: 32017R1548_metadata.json
+[2204/2576] Processing: REG-2016-441
+  ✓ Success: 32016R0441_metadata.json
+[2205/2576] Processing: REG-2014-274
+  ✓ Success: 32014R0274_metadata.json
+[2206/2576] Processing: REG-2019-801
+  ✓ Success: 32019R0801_metadata.json
+[2207/2576] Processing: REG-2011-160
+  ✓ Success: 32011R0160_metadata.json
+[2208/2576] Processing: REG-2013-49
+  ✓ Success: 32013R0049_metadata.json
+[2209/2576] Processing: REG-2016-217
+  ✓ Success: 32016R0217_metadata.json
+[2210/2576] Processing: REG-2014-422
+  ✓ Success: 32014R0422_metadata.json
+[2211/2576] Processing: REG-2011-194
+  ✓ Success: 32011R0194_metadata.json
+[2212/2576] Processing: REG-2015-476
+  ✓ Success: 32015R0476_metadata.json
+[2213/2576] Processing: REG-2010-306
+  ✓ Success: 32010R0306_metadata.json
+[2214/2576] Processing: REG-2017-627
+  ✓ Success: 32017R0627_metadata.json
+[2215/2576] Processing: REG-2019-1242
+  ✓ Success: 32019R1242_metadata.json
+[2216/2576] Processing: REG-2014-61
+  ✓ Success: 32014R0061_metadata.json
+[2217/2576] Processing: REG-2021-1148
+  ✓ Success: 32021R1148_metadata.json
+[2218/2576] Processing: REG-2018-264
+  ✓ Success: 32018R0264_metadata.json
+[2219/2576] Processing: REG-2014-1135
+  ✓ Success: 32014R1135_metadata.json
+[2220/2576] Processing: REG-2012-168
+  ✓ Success: 32012R0168_metadata.json
+[2221/2576] Processing: REG-2022-2372
+  ✓ Success: 32022R2372_metadata.json
+[2222/2576] Processing: REG-2012-1260
+  ✓ Success: 32012R1260_metadata.json
+[2223/2576] Processing: REG-2022-711
+  ✓ Success: 32022R0711_metadata.json
+[2224/2576] Processing: REG-2014-1307
+  ✓ Success: 32014R1307_metadata.json
+[2225/2576] Processing: REG-2020-772
+  ✓ Success: 32020R0772_metadata.json
+[2226/2576] Processing: REG-2019-492
+  ✓ Success: 32019R0492_metadata.json
+[2227/2576] Processing: REG-2010-765
+  ✓ Success: 32010R0765_metadata.json
+[2228/2576] Processing: REG-2010-557
+  ✓ Success: 32010R0557_metadata.json
+[2229/2576] Processing: REG-2012-1258
+  ✓ Success: 32012R1258_metadata.json
+[2230/2576] Processing: REG-2019-698
+  ✓ Success: 32019R0698_metadata.json
+[2231/2576] Processing: REG-2011-193
+  ✓ Success: 32011R0193_metadata.json
+[2232/2576] Processing: REG-2022-943
+  ✓ Success: 32022R0943_metadata.json
+[2233/2576] Processing: REG-2014-59
+  ✓ Success: 32014R0059_metadata.json
+[2234/2576] Processing: REG-2023-917
+  ✓ Success: 32023R0917_metadata.json
+[2235/2576] Processing: REG-2010-1137
+  ✓ Success: 32010R1137_metadata.json
+[2236/2576] Processing: REG-2014-617
+  ✓ Success: 32014R0617_metadata.json
+[2237/2576] Processing: REG-2010-791
+  ✓ Success: 32010R0791_metadata.json
+[2238/2576] Processing: REG-2015-1843
+  ✓ Success: 32015R1843_metadata.json
+[2239/2576] Processing: REG-2012-998
+  ✓ Success: 32012R0998_metadata.json
+[2240/2576] Processing: REG-2018-1798
+  ✓ Success: 32018R1798_metadata.json
+[2241/2576] Processing: REG-2013-85
+  ✓ Success: 32013R0085_metadata.json
+[2242/2576] Processing: REG-2010-930
+  ✓ Success: 32010R0930_metadata.json
+[2243/2576] Processing: REG-2015-2403
+  ✓ Success: 32015R2403_metadata.json
+[2244/2576] Processing: REG-2010-568
+  ✓ Success: 32010R0568_metadata.json
+[2245/2576] Processing: REG-2014-1300
+  ✓ Success: 32014R1300_metadata.json
+[2246/2576] Processing: REG-2014-842
+  ✓ Success: 32014R0842_metadata.json
+[2247/2576] Processing: REG-2021-177
+  ✓ Success: 32021R0177_metadata.json
+[2248/2576] Processing: REG-2016-479
+  ✓ Success: 32016R0479_metadata.json
+[2249/2576] Processing: REG-2013-907
+  ✓ Success: 32013R0907_metadata.json
+[2250/2576] Processing: REG-2018-1308
+  ✓ Success: 32018R1308_metadata.json
+[2251/2576] Processing: REG-2021-1973
+  ✓ Success: 32021R1973_metadata.json
+[2252/2576] Processing: REG-2015-1040
+  ✓ Success: 32015R1040_metadata.json
+[2253/2576] Processing: REG-2011-158
+  ✓ Success: 32011R0158_metadata.json
+[2254/2576] Processing: REG-2011-964
+  ✓ Success: 32011R0964_metadata.json
+[2255/2576] Processing: REG-2010-1108
+  ✓ Success: 32010R1108_metadata.json
+[2256/2576] Processing: REG-2014-66
+  ✓ Success: 32014R0066_metadata.json
+[2257/2576] Processing: REG-2018-781
+  ✓ Success: 32018R0781_metadata.json
+[2258/2576] Processing: REG-2010-1248
+  ✓ Success: 32010R1248_metadata.json
+[2259/2576] Processing: REG-2014-1286
+  ✓ Success: 32014R1286_metadata.json
+[2260/2576] Processing: REG-2014-301
+  ✓ Success: 32014R0301_metadata.json
+[2261/2576] Processing: REG-2013-1258
+  ✓ Success: 32013R1258_metadata.json
+[2262/2576] Processing: REG-2013-244
+  ✓ Success: 32013R0244_metadata.json
+[2263/2576] Processing: REG-2021-1230
+  ✓ Success: 32021R1230_metadata.json
+[2264/2576] Processing: REG-2014-133
+  ✓ Success: 32014R0133_metadata.json
+[2265/2576] Processing: REG-2019-1561
+  ✓ Success: 32019R1561_metadata.json
+[2266/2576] Processing: REG-2017-1262
+  ✓ Success: 32017R1262_metadata.json
+[2267/2576] Processing: REG-2012-674
+  ✓ Success: 32012R0674_metadata.json
+[2268/2576] Processing: REG-2014-791
+  ✓ Success: 32014R0791_metadata.json
+[2269/2576] Processing: REG-2019-1753
+  ✓ Success: 32019R1753_metadata.json
+[2270/2576] Processing: REG-2010-273
+  ✓ Success: 32010R0273_metadata.json
+[2271/2576] Processing: REG-2020-852
+  ✓ Success: 32020R0852_metadata.json
+[2272/2576] Processing: REG-2016-2105
+  ✓ Success: 32016R2105_metadata.json
+[2273/2576] Processing: REG-2019-1939
+  ✓ Success: 32019R1939_metadata.json
+[2274/2576] Processing: REG-2017-752
+  ✓ Success: 32017R0752_metadata.json
+[2275/2576] Processing: REG-2010-1089
+  ✓ Success: 32010R1089_metadata.json
+[2276/2576] Processing: REG-2015-1797
+  ✓ Success: 32015R1797_metadata.json
+[2277/2576] Processing: REG-2019-1559
+  ✓ Success: 32019R1559_metadata.json
+[2278/2576] Processing: REG-2022-2456
+  ✓ Success: 32022R2456_metadata.json
+[2279/2576] Processing: REG-2013-1260
+  ✓ Success: 32013R1260_metadata.json
+[2280/2576] Processing: REG-2015-399
+  ✓ Success: 32015R0399_metadata.json
+[2281/2576] Processing: REG-2019-1102
+  ✓ Success: 32019R1102_metadata.json
+[2282/2576] Processing: REG-2010-6
+  ✓ Success: 32010R0006_metadata.json
+[2283/2576] Processing: REG-2019-91
+  ✓ Success: 32019R0091_metadata.json
+[2284/2576] Processing: REG-2022-238
+  ✓ Success: 32022R0238_metadata.json
+[2285/2576] Processing: REG-2011-1130
+  ✓ Success: 32011R1130_metadata.json
+[2286/2576] Processing: REG-2017-331
+  ✓ Success: 32017R0331_metadata.json
+[2287/2576] Processing: REG-2012-441
+  ✓ Success: 32012R0441_metadata.json
+[2288/2576] Processing: REG-2013-1409
+  ✓ Success: 32013R1409_metadata.json
+[2289/2576] Processing: REG-2013-415
+  ✓ Success: 32013R0415_metadata.json
+[2290/2576] Processing: REG-2010-1042
+  ✓ Success: 32010R1042_metadata.json
+[2291/2576] Processing: REG-2018-1070
+  ✓ Success: 32018R1070_metadata.json
+[2292/2576] Processing: REG-2021-1237
+  ✓ Success: 32021R1237_metadata.json
+[2293/2576] Processing: REG-2019-973
+  ✓ Success: 32019R0973_metadata.json
+[2294/2576] Processing: REG-2021-1005
+  ✓ Success: 32021R1005_metadata.json
+[2295/2576] Processing: REG-2016-2339
+  ✓ Success: 32016R2339_metadata.json
+[2296/2576] Processing: REG-2021-696
+  ✓ Success: 32021R0696_metadata.json
+[2297/2576] Processing: REG-2015-1755
+  ✓ Success: 32015R1755_metadata.json
+[2298/2576] Processing: REG-2022-1023
+  ✓ Success: 32022R1023_metadata.json
+[2299/2576] Processing: REG-2021-662
+  ✓ Success: 32021R0662_metadata.json
+[2300/2576] Processing: REG-2018-1845
+  ✓ Success: 32018R1845_metadata.json
+[2301/2576] Processing: REG-2017-135
+  ✓ Success: 32017R0135_metadata.json
+[2302/2576] Processing: REG-2010-1080
+  ✓ Success: 32010R1080_metadata.json
+[2303/2576] Processing: REG-2011-1106
+  ✓ Success: 32011R1106_metadata.json
+[2304/2576] Processing: REG-2014-592
+  ✓ Success: 32014R0592_metadata.json
+[2305/2576] Processing: REG-2010-414
+  ✓ Success: 32010R0414_metadata.json
+[2306/2576] Processing: REG-2011-440
+  ✓ Success: 32011R0440_metadata.json
+[2307/2576] Processing: REG-2011-216
+  ✓ Success: 32011R0216_metadata.json
+[2308/2576] Processing: REG-2014-566
+  ✓ Success: 32014R0566_metadata.json
+[2309/2576] Processing: REG-2013-611
+  ✓ Success: 32013R0611_metadata.json
+[2310/2576] Processing: REG-2022-1440
+  ✓ Success: 32022R1440_metadata.json
+[2311/2576] Processing: REG-2023-606
+  ✓ Success: 32023R0606_metadata.json
+[2312/2576] Processing: REG-2018-1628
+  ✓ Success: 32018R1628_metadata.json
+[2313/2576] Processing: REG-2010-880
+  ✓ Success: 32010R0880_metadata.json
+[2314/2576] Processing: REG-2022-838
+  ✓ Success: 32022R0838_metadata.json
+[2315/2576] Processing: REG-2021-691
+  ✓ Success: 32021R0691_metadata.json
+[2316/2576] Processing: REG-2010-874
+  ✓ Success: 32010R0874_metadata.json
+[2317/2576] Processing: REG-2010-8
+  ✓ Success: 32010R0008_metadata.json
+[2318/2576] Processing: REG-2011-211
+  ✓ Success: 32011R0211_metadata.json
+[2319/2576] Processing: REG-2021-468
+  ✓ Success: 32021R0468_metadata.json
+[2320/2576] Processing: REG-2019-942
+  ✓ Success: 32019R0942_metadata.json
+[2321/2576] Processing: REG-2010-621
+  ✓ Success: 32010R0621_metadata.json
+[2322/2576] Processing: REG-2018-318
+  ✓ Success: 32018R0318_metadata.json
+[2323/2576] Processing: REG-2012-5
+  ✓ Success: 32012R0005_metadata.json
+[2324/2576] Processing: REG-2012-470
+  ✓ Success: 32012R0470_metadata.json
+[2325/2576] Processing: REG-2021-1696
+  ✓ Success: 32021R1696_metadata.json
+[2326/2576] Processing: REG-2012-642
+  ✓ Success: 32012R0642_metadata.json
+[2327/2576] Processing: REG-2010-1215
+  ✓ Success: 32010R1215_metadata.json
+[2328/2576] Processing: REG-2016-300
+  ✓ Success: 32016R0300_metadata.json
+[2329/2576] Processing: REG-2015-1739
+  ✓ Success: 32015R1739_metadata.json
+[2330/2576] Processing: REG-2010-1027
+  ✓ Success: 32010R1027_metadata.json
+[2331/2576] Processing: REG-2019-318
+  ✓ Success: 32019R0318_metadata.json
+[2332/2576] Processing: REG-2010-681
+  ✓ Success: 32010R0681_metadata.json
+[2333/2576] Processing: REG-2021-1060
+  ✓ Success: 32021R1060_metadata.json
+[2334/2576] Processing: REG-2010-675
+  ✓ Success: 32010R0675_metadata.json
+[2335/2576] Processing: REG-2015-939
+  ✓ Success: 32015R0939_metadata.json
+[2336/2576] Processing: REG-2017-1200
+  ✓ Success: 32017R1200_metadata.json
+[2337/2576] Processing: REG-2010-211
+  ✓ Success: 32010R0211_metadata.json
+[2338/2576] Processing: REG-2015-753
+  ✓ Success: 32015R0753_metadata.json
+[2339/2576] Processing: REG-2019-788
+  ✓ Success: 32019R0788_metadata.json
+[2340/2576] Processing: REG-2017-354
+  ✓ Success: 32017R0354_metadata.json
+[2341/2576] Processing: REG-2013-817
+  ✓ Success: 32013R0817_metadata.json
+[2342/2576] Processing: REG-2018-387
+  ✓ Success: 32018R0387_metadata.json
+[2343/2576] Processing: REG-2021-1863
+  ✓ Success: 32021R1863_metadata.json
+[2344/2576] Processing: REG-2015-1362
+  ✓ Success: 32015R1362_metadata.json
+[2345/2576] Processing: REG-2023-838
+  ✓ Success: 32023R0838_metadata.json
+[2346/2576] Processing: REG-2022-262
+  ✓ Success: 32022R0262_metadata.json
+[2347/2576] Processing: REG-2021-57
+  ✓ Success: 32021R0057_metadata.json
+[2348/2576] Processing: REG-2011-880
+  ✓ Success: 32011R0880_metadata.json
+[2349/2576] Processing: REG-2022-2057
+  ✓ Success: 32022R2057_metadata.json
+[2350/2576] Processing: REG-2010-478
+  ✓ Success: 32010R0478_metadata.json
+[2351/2576] Processing: REG-2014-1210
+  ✓ Success: 32014R1210_metadata.json
+[2352/2576] Processing: REG-2011-94
+  ✓ Success: 32011R0094_metadata.json
+[2353/2576] Processing: REG-2015-754
+  ✓ Success: 32015R0754_metadata.json
+[2354/2576] Processing: REG-2018-1482
+  ✓ Success: 32018R1482_metadata.json
+[2355/2576] Processing: REG-2017-353
+  ✓ Success: 32017R0353_metadata.json
+[2356/2576] Processing: REG-2017-161
+  ✓ Success: 32017R0161_metadata.json
+[2357/2576] Processing: REG-2016-1381
+  ✓ Success: 32016R1381_metadata.json
+[2358/2576] Processing: REG-2012-611
+  ✓ Success: 32012R0611_metadata.json
+[2359/2576] Processing: REG-2010-216
+  ✓ Success: 32010R0216_metadata.json
+[2360/2576] Processing: REG-2013-483
+  ✓ Success: 32013R0483_metadata.json
+[2361/2576] Processing: REG-2010-440
+  ✓ Success: 32010R0440_metadata.json
+[2362/2576] Processing: REG-2014-1228
+  ✓ Success: 32014R1228_metadata.json
+[2363/2576] Processing: REG-2014-364
+  ✓ Success: 32014R0364_metadata.json
+[2364/2576] Processing: REG-2010-1020
+  ✓ Success: 32010D0686_metadata.json
+[2365/2576] Processing: REG-2010-1212
+  ✓ Success: 32010R1212_metadata.json
+[2366/2576] Processing: REG-2011-93
+  ✓ Success: 32011R0093_metadata.json
+[2367/2576] Processing: REG-2023-1753
+  ✓ Success: 32023R1753_metadata.json
+[2368/2576] Processing: REG-2010-229
+  ✓ Success: 32010R0229_metadata.json
+[2369/2576] Processing: REG-2017-1836
+  ✓ Success: 32017R1836_metadata.json
+[2370/2576] Processing: REG-2011-289
+  ✓ Success: 32009R1272_metadata.json
+[2371/2576] Processing: REG-2020-696
+  ✓ Success: 32020R0696_metadata.json
+[2372/2576] Processing: REG-2011-619
+  ✓ Success: 32011R0619_metadata.json
+[2373/2576] Processing: REG-2021-1058
+  ✓ Success: 32021R1058_metadata.json
+[2374/2576] Processing: REG-2021-1864
+  ✓ Success: 32021R1864_metadata.json
+[2375/2576] Processing: REG-2019-38
+  ✓ Success: 32019R0038_metadata.json
+[2376/2576] Processing: REG-2022-1621
+  ✓ Success: 32022R1621_metadata.json
+[2377/2576] Processing: REG-2021-1297
+  ✓ Success: 32021R1297_metadata.json
+[2378/2576] Processing: REG-2020-1311
+  ✓ Success: 32020R1311_metadata.json
+[2379/2576] Processing: REG-2019-1156
+  ✓ Success: 32019R1156_metadata.json
+[2380/2576] Processing: REG-2018-973
+  ✓ Success: 32018R0973_metadata.json
+[2381/2576] Processing: REG-2011-1164
+  ✓ Success: 32011R1164_metadata.json
+[2382/2576] Processing: REG-2010-220
+  ✓ Success: 32010R0220_metadata.json
+[2383/2576] Processing: REG-2019-1700
+  ✓ Success: 32019R1700_metadata.json
+[2384/2576] Processing: REG-2020-459
+  ✓ Success: 32020R0459_metadata.json
+[2385/2576] Processing: REG-2020-1781
+  ✓ Success: 32020R1781_metadata.json
+[2386/2576] Processing: REG-2016-103
+  ✓ Success: 32016R0103_metadata.json
+[2387/2576] Processing: REG-2018-1672
+  ✓ Success: 32018R1672_metadata.json
+[2388/2576] Processing: REG-2019-1390
+  ✓ Success: 32019R1390_metadata.json
+[2389/2576] Processing: REG-2016-567
+  ✓ Success: 32016R0567_metadata.json
+[2390/2576] Processing: REG-2012-618
+  ✓ Success: 32012R0618_metadata.json
+[2391/2576] Processing: REG-2016-1388
+  ✓ Success: 32016R1388_metadata.json
+[2392/2576] Processing: REG-2010-449
+  ✓ Success: 32010R0449_metadata.json
+[2393/2576] Processing: REG-2014-1221
+  ✓ Success: 32014R1221_metadata.json
+[2394/2576] Processing: REG-2017-2229
+  ✓ Success: 32017R2229_metadata.json
+[2395/2576] Processing: REG-2013-228
+  ✓ Success: 32013R0228_metadata.json
+[2396/2576] Processing: REG-2019-316
+  ✓ Success: 32019R0316_metadata.json
+[2397/2576] Processing: REG-2019-124
+  ✓ Success: 32019R0124_metadata.json
+[2398/2576] Processing: REG-2016-1718
+  ✓ Success: 32016R1718_metadata.json
+[2399/2576] Processing: REG-2016-46
+  ✓ Success: 32016R0046_metadata.json
+[2400/2576] Processing: REG-2022-1273
+  ✓ Success: 32022R1273_metadata.json
+[2401/2576] Processing: REG-2014-709
+  ✓ Success: 32014R0709_metadata.json
+[2402/2576] Processing: REG-2013-210
+  ✓ Success: 32013R0210_metadata.json
+[2403/2576] Processing: REG-2021-1056
+  ✓ Success: 32021R1056_metadata.json
+[2404/2576] Processing: REG-2019-36
+  ✓ Success: 32019R0036_metadata.json
+[2405/2576] Processing: REG-2019-2176
+  ✓ Success: 32019R2176_metadata.json
+[2406/2576] Processing: REG-2020-698
+  ✓ Success: 32020R0698_metadata.json
+[2407/2576] Processing: REG-2021-2085
+  ✓ Success: 32021R2085_metadata.json
+[2408/2576] Processing: REG-2018-2004
+  ✓ Success: 32018R2004_metadata.json
+[2409/2576] Processing: REG-2012-412
+  ✓ Success: 32012R0412_metadata.json
+[2410/2576] Processing: REG-2017-1004
+  ✓ Success: 32017R1004_metadata.json
+[2411/2576] Processing: REG-2013-680
+  ✓ Success: 32013R0680_metadata.json
+[2412/2576] Processing: REG-2017-706
+  ✓ Success: 32017R0706_metadata.json
+[2413/2576] Processing: REG-2018-974
+  ✓ Success: 32018R0974_metadata.json
+[2414/2576] Processing: REG-2022-1274
+  ✓ Success: 32022R1274_metadata.json
+[2415/2576] Processing: REG-2013-479
+  ✓ Success: 32013R0479_metadata.json
+[2416/2576] Processing: REG-2014-1226
+  ✓ Success: 32014R1226_metadata.json
+[2417/2576] Processing: REG-2021-899
+  ✓ Success: 32021R0899_metadata.json
+[2418/2576] Processing: REG-2012-875
+  ✓ Success: 32012R0875_metadata.json
+[2419/2576] Processing: REG-2022-1280
+  ✓ Success: 32022R1280_metadata.json
+[2420/2576] Processing: REG-2020-461
+  ✓ Success: 32020R0461_metadata.json
+[2421/2576] Processing: REG-2010-875
+  ✓ Success: 32010R0875_metadata.json
+[2422/2576] Processing: REG-2018-2058
+  ✓ Success: 32018R2058_metadata.json
+[2423/2576] Processing: REG-2021-690
+  ✓ Success: 32021R0690_metadata.json
+[2424/2576] Processing: REG-2022-839
+  ✓ Success: 32022R0839_metadata.json
+[2425/2576] Processing: REG-2019-988
+  ✓ Success: 32019R0988_metadata.json
+[2426/2576] Processing: REG-2010-9
+  ✓ Success: 32010R0009_metadata.json
+[2427/2576] Processing: REG-2023-607
+  ✓ Success: 32023R0607_metadata.json
+[2428/2576] Processing: REG-2022-1441
+  ✓ Success: 32022R1441_metadata.json
+[2429/2576] Processing: REG-2023-435
+  ✓ Success: 32023R0435_metadata.json
+[2430/2576] Processing: REG-2015-534
+  ✓ Success: 32015R0534_metadata.json
+[2431/2576] Processing: REG-2011-1332
+  ✓ Success: 32011R1332_metadata.json
+[2432/2576] Processing: REG-2012-471
+  ✓ Success: 32012R0471_metadata.json
+[2433/2576] Processing: REG-2016-355
+  ✓ Success: 32016R0355_metadata.json
+[2434/2576] Processing: REG-2014-752
+  ✓ Success: 32014R0752_metadata.json
+[2435/2576] Processing: REG-2019-2115
+  ✓ Success: 32019R2115_metadata.json
+[2436/2576] Processing: REG-2010-1240
+  ✓ Success: 32010R1240_metadata.json
+[2437/2576] Processing: REG-2020-2160
+  ✓ Success: 32020R2160_metadata.json
+[2438/2576] Processing: REG-2013-617
+  ✓ Success: 32013R0617_metadata.json
+[2439/2576] Processing: REG-2019-943
+  ✓ Success: 32019R0943_metadata.json
+[2440/2576] Processing: REG-2021-663
+  ✓ Success: 32021R0663_metadata.json
+[2441/2576] Processing: REG-2022-2495
+  ✓ Success: 32022R2495_metadata.json
+[2442/2576] Processing: REG-2010-886
+  ✓ Success: 32010R0886_metadata.json
+[2443/2576] Processing: REG-2019-711
+  ✓ Success: 32019R0711_metadata.json
+[2444/2576] Processing: REG-2013-1257
+  ✓ Success: 32013R1257_metadata.json
+[2445/2576] Processing: REG-2014-900
+  ✓ Success: 32014R0900_metadata.json
+[2446/2576] Processing: REG-2014-1084
+  ✓ Success: 32014R1084_metadata.json
+[2447/2576] Processing: REG-2015-1102
+  ✓ Success: 32015R1102_metadata.json
+[2448/2576] Processing: REG-2016-2338
+  ✓ Success: 32016R2338_metadata.json
+[2449/2576] Processing: REG-2022-2237
+  ✓ Success: 32022R2237_metadata.json
+[2450/2576] Processing: REG-2019-1338
+  ✓ Success: 32019R1338_metadata.json
+[2451/2576] Processing: REG-2021-697
+  ✓ Success: 32021R0697_metadata.json
+[2452/2576] Processing: REG-2016-399
+  ✓ Success: 32016R0399_metadata.json
+[2453/2576] Processing: REG-2015-391
+  ✓ Success: 32015R0391_metadata.json
+[2454/2576] Processing: REG-2021-836
+  ✓ Success: 32021R0836_metadata.json
+[2455/2576] Processing: REG-2014-567
+  ✓ Success: 32014R0567_metadata.json
+[2456/2576] Processing: REG-2011-217
+  ✓ Success: 32011R0217_metadata.json
+[2457/2576] Processing: REG-2013-610
+  ✓ Success: 32013R0610_metadata.json
+[2458/2576] Processing: REG-2016-2135
+  ✓ Success: 32016R2135_metadata.json
+[2459/2576] Processing: REG-2017-762
+  ✓ Success: 32017R0762_metadata.json
+[2460/2576] Processing: REG-2010-415
+  ✓ Success: 32010R0415_metadata.json
+[2461/2576] Processing: REG-2019-343
+  ✓ Success: 32019R0343_metadata.json
+[2462/2576] Processing: REG-2013-1261
+  ✓ Success: 32013R1261_metadata.json
+[2463/2576] Processing: REG-2021-1807
+  ✓ Success: 32021R1807_metadata.json
+[2464/2576] Processing: REG-2019-515
+  ✓ Success: 32019R0515_metadata.json
+[2465/2576] Processing: REG-2010-1088
+  ✓ Success: 32010R1088_metadata.json
+[2466/2576] Processing: REG-2020-1149
+  ✓ Success: 32020R1149_metadata.json
+[2467/2576] Processing: REG-2016-156
+  ✓ Success: 32016R0156_metadata.json
+[2468/2576] Processing: REG-2011-221
+  ✓ Success: 32011R0221_metadata.json
+[2469/2576] Processing: REG-2017-2415
+  ✓ Success: 32017R2415_metadata.json
+[2470/2576] Processing: REG-2013-1408
+  ✓ Success: 32013R1408_metadata.json
+[2471/2576] Processing: REG-2011-477
+  ✓ Success: 32011R0477_metadata.json
+[2472/2576] Processing: REG-2014-909
+  ✓ Success: 32014R0909_metadata.json
+[2473/2576] Processing: REG-2019-90
+  ✓ Success: 32019R0090_metadata.json
+[2474/2576] Processing: REG-2010-611
+  ✓ Success: 32010R0611_metadata.json
+[2475/2576] Processing: REG-2017-1432
+  ✓ Success: 32017R1432_metadata.json
+[2476/2576] Processing: REG-2020-1720
+  ✓ Success: 32020R1720_metadata.json
+[2477/2576] Processing: REG-2011-1131
+  ✓ Success: 32011R1131_metadata.json
+[2478/2576] Processing: REG-2018-2056
+  ✓ Success: 32018R2056_metadata.json
+[2479/2576] Processing: REG-2015-159
+  ✓ Success: 32015R0159_metadata.json
+[2480/2576] Processing: REG-2018-1881
+  ✓ Success: 32018R1881_metadata.json
+[2481/2576] Processing: REG-2010-1249
+  ✓ Success: 32010R1249_metadata.json
+[2482/2576] Processing: REG-2018-1049
+  ✓ Success: 32018R1049_metadata.json
+[2483/2576] Processing: REG-2012-675
+  ✓ Success: 32012R0675_metadata.json
+[2484/2576] Processing: REG-2015-730
+  ✓ Success: 32015R0730_metadata.json
+[2485/2576] Processing: REG-2016-2336
+  ✓ Success: 32016R2336_metadata.json
+[2486/2576] Processing: REG-2021-1231
+  ✓ Success: 32021R1231_metadata.json
+[2487/2576] Processing: REG-2013-245
+  ✓ Success: 32013R0245_metadata.json
+[2488/2576] Processing: REG-2013-1259
+  ✓ Success: 32013R1259_metadata.json
+[2489/2576] Processing: REG-2017-595
+  ✓ Success: 32017R0595_metadata.json
+[2490/2576] Processing: REG-2010-286
+  ✓ Success: 32010R0286_metadata.json
+[2491/2576] Processing: REG-2016-363
+  ✓ Success: 32016R0363_metadata.json
+[2492/2576] Processing: REG-2017-363
+  ✓ Success: 32017R0363_metadata.json
+[2493/2576] Processing: REG-2011-286
+  ✓ Success: 32011R0286_metadata.json
+[2494/2576] Processing: REG-2013-681
+  ✓ Success: 32013R0681_metadata.json
+[2495/2576] Processing: REG-2018-2005
+  ✓ Success: 32018R2005_metadata.json
+[2496/2576] Processing: REG-2019-1150
+  ✓ Success: 32019R1150_metadata.json
+[2497/2576] Processing: REG-2018-975
+  ✓ Success: 32018R0975_metadata.json
+[2498/2576] Processing: REG-2021-1057
+  ✓ Success: 32021R1057_metadata.json
+[2499/2576] Processing: REG-2019-37
+  ✓ Success: 32019R0037_metadata.json
+[2500/2576] Processing: REG-2017-1495
+  ✓ Success: 32017R1495_metadata.json
+[2501/2576] Processing: REG-2022-78
+  ✓ Success: 32022R0078_metadata.json
+[2502/2576] Processing: REG-2020-699
+  ✓ Success: 32020R0699_metadata.json
+[2503/2576] Processing: REG-2017-999
+  ✓ Success: 32017R0999_metadata.json
+[2504/2576] Processing: REG-2014-991
+  ✓ Success: 32014R0991_metadata.json
+[2505/2576] Processing: REG-2012-70
+  ✓ Success: 32012R0070_metadata.json
+[2506/2576] Processing: REG-2020-460
+  ✓ Success: 32020R0460_metadata.json
+[2507/2576] Processing: REG-2010-219
+  ✓ Success: 32010R0219_metadata.json
+[2508/2576] Processing: REG-2022-1275
+  ✓ Success: 32022R1275_metadata.json
+[2509/2576] Processing: REG-2015-2386
+  ✓ Success: 32015R2386_metadata.json
+[2510/2576] Processing: REG-2011-57
+  ✓ Success: 32011R0057_metadata.json
+[2511/2576] Processing: REG-2021-1068
+  ✓ Success: 32021R1068_metadata.json
+[2512/2576] Processing: REG-2010-1225
+  ✓ Success: 32010R1225_metadata.json
+[2513/2576] Processing: REG-2014-737
+  ✓ Success: 32014R0737_metadata.json
+[2514/2576] Processing: REG-2014-505
+  ✓ Success: 32014R0505_metadata.json
+[2515/2576] Processing: REG-2013-216
+  ✓ Success: 32013R0216_metadata.json
+[2516/2576] Processing: REG-2013-818
+  ✓ Success: 32013R0818_metadata.json
+[2517/2576] Processing: REG-2016-1726
+  ✓ Success: 32016R1726_metadata.json
+[2518/2576] Processing: REG-2023-1569
+  ✓ Success: 32023R1569_metadata.json
+[2519/2576] Processing: REG-2016-5
+  ✓ Success: 32016R0005_metadata.json
+[2520/2576] Processing: REG-2016-1719
+  ✓ Success: 32016R1719_metadata.json
+[2521/2576] Processing: REG-2022-1616
+  ✓ Success: 32022R1616_metadata.json
+[2522/2576] Processing: REG-2019-125
+  ✓ Success: 32019R0125_metadata.json
+[2523/2576] Processing: REG-2013-229
+  ✓ Success: 32013R0229_metadata.json
+[2524/2576] Processing: REG-2017-2228
+  ✓ Success: 32017R2228_metadata.json
+[2525/2576] Processing: REG-2015-2381
+  ✓ Success: 32015R2381_metadata.json
+[2526/2576] Processing: REG-2020-493
+  ✓ Success: 32020R0493_metadata.json
+[2527/2576] Processing: REG-2021-2048
+  ✓ Success: 32021R2048_metadata.json
+[2528/2576] Processing: REG-2023-1132
+  ✓ Success: 32023R1132_metadata.json
+[2529/2576] Processing: REG-2019-787
+  ✓ Success: 32019R0787_metadata.json
+[2530/2576] Processing: REG-2016-1389
+  ✓ Success: 32016R1389_metadata.json
+[2531/2576] Processing: REG-2014-398
+  ✓ Success: 32014R0398_metadata.json
+[2532/2576] Processing: REG-2015-936
+  ✓ Success: 32015R0936_metadata.json
+[2533/2576] Processing: REG-2012-873
+  ✓ Success: 32012R0873_metadata.json
+[2534/2576] Processing: REG-2016-1710
+  ✓ Success: 32016R1710_metadata.json
+[2535/2576] Processing: REG-2019-2146
+  ✓ Success: 32019R2146_metadata.json
+[2536/2576] Processing: REG-2010-1021
+  ✓ Success: 32010R1021_metadata.json
+[2537/2576] Processing: REG-2012-610
+  ✓ Success: 32012R0610_metadata.json
+[2538/2576] Processing: REG-2017-160
+  ✓ Success: 32017R0160_metadata.json
+[2539/2576] Processing: REG-2015-755
+  ✓ Success: 32015R0755_metadata.json
+[2540/2576] Processing: REG-2017-352
+  ✓ Success: 32017R0352_metadata.json
+[2541/2576] Processing: REG-2010-441
+  ✓ Success: 32010R0441_metadata.json
+[2542/2576] Processing: REG-2016-796
+  ✓ Success: 32016R0796_metadata.json
+[2543/2576] Processing: REG-2016-1179
+  ✓ Success: 32016R1179_metadata.json
+[2544/2576] Processing: REG-2020-697
+  ✓ Success: 32020R0697_metadata.json
+[2545/2576] Processing: REG-2017-997
+  ✓ Success: 32017R0997_metadata.json
+[2546/2576] Processing: REG-2021-1059
+  ✓ Success: 32021R1059_metadata.json
+[2547/2576] Processing: REG-2016-71
+  ✓ Success: 32016R0071_metadata.json
+[2548/2576] Processing: REG-2019-113
+  ✓ Success: 32019R0113_metadata.json
+[2549/2576] Processing: REG-2023-466
+  ✓ Success: 32023R0466_metadata.json
+[2550/2576] Processing: REG-2023-1594
+  ✓ Success: 32023R1594_metadata.json
+[2551/2576] Processing: REG-2021-1891
+  ✓ Success: 32021R1891_metadata.json
+[2552/2576] Processing: REG-2011-92
+  ✓ Success: 32011R0092_metadata.json
+[2553/2576] Processing: REG-2018-147
+  ✓ Success: 32018R0147_metadata.json
+[2554/2576] Processing: REG-2010-228
+  ✓ Success: 32010R0228_metadata.json
+[2555/2576] Processing: REG-2015-938
+  ✓ Success: 32015R0938_metadata.json
+[2556/2576] Processing: REG-2016-791
+  ✓ Success: 32016R0791_metadata.json
+[2557/2576] Processing: REG-2015-104
+  ✓ Success: 32015R0104_metadata.json
+[2558/2576] Processing: REG-2015-752
+  ✓ Success: 32015R0752_metadata.json
+[2559/2576] Processing: REG-2017-355
+  ✓ Success: 32017R0355_metadata.json
+[2560/2576] Processing: REG-2019-789
+  ✓ Success: 32019L0789_metadata.json
+[2561/2576] Processing: REG-2017-1201
+  ✓ Success: 32017R1201_metadata.json
+[2562/2576] Processing: REG-2010-1214
+  ✓ Success: 32010R1214_metadata.json
+[2563/2576] Processing: REG-2021-2280
+  ✓ Success: 32021R2280_metadata.json
+[2564/2576] Processing: REG-2017-2226
+  ✓ Success: 32017R2226_metadata.json
+[2565/2576] Processing: REG-2019-319
+  ✓ Success: 32019R0319_metadata.json
+[2566/2576] Processing: REG-2021-56
+  ✓ Success: 32021R0056_metadata.json
+[2567/2576] Processing: REG-2017-964
+  ✓ Success: 32017R0964_metadata.json
+[2568/2576] Processing: REG-2010-821
+  ✓ Success: 32010R0821_metadata.json
+[2569/2576] Processing: REG-2022-263
+  ✓ Success: 32022R0263_metadata.json
+[2570/2576] Processing: REG-2022-85
+  ✓ Success: 32022R0085_metadata.json
+[2571/2576] Processing: REG-2011-95
+  ✓ Success: 32011R0095_metadata.json
+[2572/2576] Processing: REG-2010-479
+  ✓ Success: 32010R0479_metadata.json
+[2573/2576] Processing: REG-2022-2056
+  ✓ Success: 32022R2056_metadata.json
+[2574/2576] Processing: REG-2023-1593
+  ✓ Success: 32023R1593_metadata.json
+[2575/2576] Processing: REG-2013-816
+  ✓ Success: 32013R0816_metadata.json
+[2576/2576] Processing: REG-2023-839
+  ✓ Success: 32023R0839_metadata.json
+
+============================================================
+PROCESSING SUMMARY
+============================================================
+✓ Success: 2576
+✗ Failed:  0
+⏭ Skipped: 0

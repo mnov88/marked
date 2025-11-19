@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/master.swiftdeps"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/InkCLI/Printing.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/Printing.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/Printing.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/Printing~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/Printing.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/Printing.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/InkCLI/main.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/main.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/main.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/main.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/InkCLI.build/main.dia"
+  }
+}

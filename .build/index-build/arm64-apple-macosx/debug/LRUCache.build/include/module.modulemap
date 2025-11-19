@@ -1,0 +1,3 @@
+module LRUCache {
+    header "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/LRUCache.build/include/LRUCache-Swift.h"
+}

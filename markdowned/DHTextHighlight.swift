@@ -1,3 +1,14 @@
+//
+//  DHTextHighlight.swift
+//  markdowned
+//
+//  Created by Milos Novovic on 10/11/2025.
+//
+
+import SwiftUI
+import UIKit
+import Combine
+
 // MARK: - Models
 
 struct DHTextHighlight: Identifiable, Equatable {
@@ -48,6 +59,7 @@ struct DHConfig {
     var style = DHStyle()
     var enableLinks = true
     var enableIndentation = true
+    var usePageLayout = false
 
     // Rule providers
     var linkDetector: ((NSString) -> [DHLinkSpan])? = DHConfig.defaultArticleLinks

@@ -1,11 +1,11 @@
 //
-//  LoremGen.swift
+//  Utilities.swift
 //  markdowned
 //
 //  Created by Milos Novovic on 10/11/2025.
 //
-
-
+import Foundation
+import UIKit
 // MARK: - Helpers (consolidated)
 
 // Lorem generator for demos
@@ -109,6 +109,18 @@ extension UIColor {
         getRed(&r, green: &g, blue: &b, alpha: &a)
         return (r, g, b, a)
     }
+    
+    var hexString: String {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb = Int(r * 255) << 16 | Int(g * 255) << 8 | Int(b * 255)
+        return String(format: "#%06X", rgb)
+    }
 }
 
 extension NSRange {
@@ -121,7 +133,7 @@ extension NSRange {
     }
 }
 
-private extension NSString {
+extension NSString {
     func paragraphRanges() -> [NSRange] {
         var ranges: [NSRange] = []
         var pos = 0

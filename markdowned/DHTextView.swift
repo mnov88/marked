@@ -1,3 +1,14 @@
+//
+//  DHTextView.swift
+//  markdowned
+//
+//  Created by Milos Novovic on 10/11/2025.
+//
+
+import SwiftUI
+import Foundation
+import UIKit
+
 // MARK: - UITextView bridge
 
 struct DHTextView: UIViewRepresentable {
@@ -31,6 +42,11 @@ struct DHTextView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UITextView, context: Context) {
+        // Update insets if changed
+        if uiView.textContainerInset != style.contentInsets {
+            uiView.textContainerInset = style.contentInsets
+        }
+        
         // Avoid resetting if identical
         if uiView.attributedText?.isEqual(to: attributedText) != true {
             uiView.attributedText = attributedText
@@ -39,11 +55,26 @@ struct DHTextView: UIViewRepresentable {
             uiView.backgroundColor = style.backgroundColor
         }
 
-        // Scroll target without flashing selection
+        // Scroll target with smooth animation
         if let target = scrollTarget, target.clamped(toStringLength: uiView.attributedText?.length ?? 0) != nil {
             DispatchQueue.main.async {
                 uiView.layoutIfNeeded()
-                uiView.scrollRangeToVisible(target)
+                
+                // Calculate rect for the target range
+                if let textRange = uiView.textRange(from: uiView.beginningOfDocument, to: uiView.beginningOfDocument),
+                   let start = uiView.position(from: textRange.start, offset: target.location),
+                   let end = uiView.position(from: start, offset: target.length),
+                   let range = uiView.textRange(from: start, to: end) {
+                    let rect = uiView.firstRect(for: range)
+                    
+                    // Animate scroll
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
+                        uiView.scrollRectToVisible(rect, animated: false)
+                    }
+                } else {
+                    // Fallback to non-animated scroll
+                    uiView.scrollRangeToVisible(target)
+                }
             }
             DispatchQueue.main.async { self.scrollTarget = nil }
         }

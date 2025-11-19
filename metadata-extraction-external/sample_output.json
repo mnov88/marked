@@ -1,0 +1,130 @@
+{
+  "extraction_timestamp": "2025-11-07T00:08:36.051418",
+  "selected_language": "eng",
+  "available_languages": [
+    "bul",
+    "ces",
+    "dan",
+    "deu",
+    "ell",
+    "..."
+  ],
+  "document": {
+    "languages": [
+      "bul",
+      "ces",
+      "dan",
+      "deu",
+      "ell",
+      "..."
+    ],
+    "title": {
+      "primary": "Official Journal of the European Union, L 37, 8 February 2019",
+      "work": "Not found",
+      "alternative": [],
+      "subtitle": [
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761",
+        "C/2019/761"
+      ],
+      "multilingual": {}
+    },
+    "dates": {
+      "document": "2019-02-08",
+      "publication": "2019-02-08",
+      "signature": "Not found",
+      "entryIntoForce": "2019-02-11",
+      "endOfValidity": "9999-12-31",
+      "transpositionDeadline": "Not found"
+    },
+    "identifiers": {
+      "celex": "32019D0236",
+      "eli": "http://data.europa.eu/eli/dec/2019/236/oj",
+      "ojReference": "JOL_2019_037_R_0010",
+      "immc": "20150302-043:C(2015)629/801639",
+      "naturalNumber": "0236",
+      "type": "D",
+      "year": "2019",
+      "sector": "3"
+    },
+    "eurovoc": {
+      "concepts": [
+        {
+          "id": "3453",
+          "label": "European security",
+          "language": "unknown"
+        },
+        {
+          "id": "5181",
+          "label": "data protection",
+          "language": "unknown"
+        },
+        {
+          "note": "... 8 more concepts"
+        }
+      ],
+      "domains": [],
+      "microthesaurus": [],
+      "terms": [
+        {
+          "id": "5769",
+          "label": "No label",
+          "language": "unknown"
+        }
+      ]
+    },
+    "caselaw": [
+      {
+        "note": "No case law for this document type"
+      }
+    ],
+    "legalRelations": {
+      "basedOn": [
+        "treaty:tfeu_2016:art_249:oj",
+        "12016E249"
+      ],
+      "cites": [
+        "32016L0680",
+        "dir:2016:680:oj"
+      ],
+      "note": "... and 5 more relation types"
+    },
+    "metadata": {
+      "createdBy": "European Commission",
+      "responsibleAgent": "Directorate-General for Human Resources and Security",
+      "inForce": "true",
+      "subjectMatter": "Provisions governing the Institutions",
+      "dossierReference": "Not found",
+      "version": "1.38",
+      "lastModified": "2024-12-31T16:57:35.264+01:00"
+    }
+  },
+  "stats": {
+    "languages": 23,
+    "cases": 0,
+    "eurovoc": 13,
+    "articles": 0,
+    "relations": 26,
+    "implementations": 0
+  }
+}

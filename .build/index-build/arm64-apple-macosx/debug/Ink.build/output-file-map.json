@@ -1,0 +1,243 @@
+{
+  "": {
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/master.swiftdeps"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/API/Markdown.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Markdown.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Markdown.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Markdown~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Markdown.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Markdown.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/API/MarkdownParser.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/MarkdownParser.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/MarkdownParser.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/MarkdownParser~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/MarkdownParser.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/MarkdownParser.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/API/Modifier.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifier.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifier.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifier~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifier.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifier.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Blockquote.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Blockquote.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Blockquote.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Blockquote~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Blockquote.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Blockquote.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Character+Classification.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Classification.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Classification.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Classification~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Classification.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Classification.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Character+Escaping.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Escaping.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Escaping.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Escaping~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Escaping.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Character+Escaping.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/CodeBlock.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/CodeBlock.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/CodeBlock.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/CodeBlock~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/CodeBlock.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/CodeBlock.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/FormattedText.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/FormattedText.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/FormattedText.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/FormattedText~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/FormattedText.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/FormattedText.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Fragment.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Fragment.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Fragment.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Fragment~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Fragment.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Fragment.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/HTML.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTML.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTML.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTML~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTML.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTML.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/HTMLConvertible.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTMLConvertible.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTMLConvertible.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTMLConvertible~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTMLConvertible.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HTMLConvertible.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Hashable+AnyOf.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Hashable+AnyOf.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Hashable+AnyOf.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Hashable+AnyOf~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Hashable+AnyOf.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Hashable+AnyOf.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Heading.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Heading.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Heading.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Heading~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Heading.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Heading.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/HorizontalLine.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HorizontalLine.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HorizontalLine.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HorizontalLine~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HorizontalLine.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/HorizontalLine.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Image.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Image.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Image.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Image~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Image.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Image.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/InlineCode.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/InlineCode.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/InlineCode.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/InlineCode~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/InlineCode.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/InlineCode.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/KeyPathPatterns.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/KeyPathPatterns.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/KeyPathPatterns.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/KeyPathPatterns~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/KeyPathPatterns.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/KeyPathPatterns.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Link.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Link.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Link.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Link~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Link.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Link.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/List.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/List.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/List.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/List~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/List.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/List.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Metadata.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Metadata.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Metadata.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Metadata~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Metadata.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Metadata.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Modifiable.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifiable.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifiable.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifiable~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifiable.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Modifiable.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/ModifierCollection.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/ModifierCollection.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/ModifierCollection.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/ModifierCollection~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/ModifierCollection.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/ModifierCollection.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/NamedURLCollection.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/NamedURLCollection.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/NamedURLCollection.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/NamedURLCollection~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/NamedURLCollection.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/NamedURLCollection.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Paragraph.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Paragraph.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Paragraph.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Paragraph~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Paragraph.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Paragraph.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/PlainTextConvertible.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/PlainTextConvertible.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/PlainTextConvertible.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/PlainTextConvertible~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/PlainTextConvertible.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/PlainTextConvertible.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Readable.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Readable.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Readable.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Readable~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Readable.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Readable.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Reader.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Reader.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Reader.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Reader~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Reader.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Reader.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Require.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Require.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Require.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Require~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Require.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Require.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Substring+Trimming.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Substring+Trimming.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Substring+Trimming.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Substring+Trimming~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Substring+Trimming.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Substring+Trimming.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/Table.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Table.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Table.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Table~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Table.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/Table.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/TextStyle.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyle.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyle.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyle~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyle.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyle.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/TextStyleMarker.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyleMarker.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyleMarker.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyleMarker~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyleMarker.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/TextStyleMarker.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/URL.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URL.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URL.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URL~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URL.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URL.dia"
+  },
+  "/Users/milos/Desktop/markdowned/.build/index-build/checkouts/Ink/Sources/Ink/Internal/URLDeclaration.swift": {
+    "dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URLDeclaration.d",
+    "object": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URLDeclaration.swift.o",
+    "swiftmodule": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URLDeclaration~partial.swiftmodule",
+    "swift-dependencies": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URLDeclaration.swiftdeps",
+    "diagnostics": "/Users/milos/Desktop/markdowned/.build/index-build/arm64-apple-macosx/debug/Ink.build/URLDeclaration.dia"
+  }
+}

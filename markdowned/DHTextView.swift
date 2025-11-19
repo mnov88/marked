@@ -99,8 +99,7 @@ struct DHTextView: UIViewRepresentable {
         // MARK: - Tap Gesture Handling
 
         @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-            guard gesture.state == .ended,
-                  let textView = gesture.view as? UITextView else { return }
+            guard let textView = gesture.view as? UITextView else { return }
 
             let location = gesture.location(in: textView)
 
@@ -121,8 +120,13 @@ struct DHTextView: UIViewRepresentable {
             if let tappedHighlight = currentHighlights.first(where: { highlight in
                 NSLocationInRange(characterIndex, highlight.range)
             }) {
+                // Consume the gesture to prevent UITextView from handling it
+                gesture.state = .cancelled
+
                 // Clear any text selection to prevent rendering issues
                 textView.selectedRange = NSRange(location: 0, length: 0)
+                textView.resignFirstResponder()
+
                 showRemovalMenu(for: tappedHighlight, in: textView, at: location)
             }
         }
@@ -162,17 +166,57 @@ struct DHTextView: UIViewRepresentable {
             }
         }
 
-        // Only allow simultaneous gestures with UITextView's built-in gestures for text selection
-        // But prevent tap from interfering when on a highlight
+        // Check if touch is on a highlight before allowing gesture to begin
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+            guard gestureRecognizer == tapGesture,
+                  let textView = gestureRecognizer.view as? UITextView else {
+                return true
+            }
+
+            let location = touch.location(in: textView)
+            let layoutManager = textView.layoutManager
+            let textContainer = textView.textContainer
+            var point = location
+            point.x -= textView.textContainerInset.left
+            point.y -= textView.textContainerInset.top
+
+            let characterIndex = layoutManager.characterIndex(
+                for: point,
+                in: textContainer,
+                fractionOfDistanceBetweenInsertionPoints: nil
+            )
+
+            // Only receive touch if it's on a highlight
+            let isOnHighlight = currentHighlights.contains { highlight in
+                NSLocationInRange(characterIndex, highlight.range)
+            }
+
+            return isOnHighlight
+        }
+
+        // Block other gestures when our tap gesture is on a highlight
         func gestureRecognizer(
             _ gestureRecognizer: UIGestureRecognizer,
             shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
         ) -> Bool {
-            // Don't allow simultaneous if this is our tap gesture
+            // If this is our tap gesture, don't allow simultaneous recognition
+            // This prevents UITextView's gestures from interfering
             if gestureRecognizer == tapGesture {
                 return false
             }
             return true
+        }
+
+        // Block UITextView's gestures when our tap is on a highlight
+        func gestureRecognizer(
+            _ gestureRecognizer: UIGestureRecognizer,
+            shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer
+        ) -> Bool {
+            // If the other gesture is our tap, UITextView gestures should wait
+            if otherGestureRecognizer == tapGesture {
+                return true
+            }
+            return false
         }
 
         // Add/Remove highlight menu

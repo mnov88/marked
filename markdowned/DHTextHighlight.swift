@@ -11,7 +11,7 @@ import Combine
 
 // MARK: - Models
 
-struct DHTextHighlight: Identifiable, Equatable {
+struct DHTextHighlight: Identifiable, Equatable, Codable {
     let id: UUID
     let range: NSRange
     let color: UIColor
@@ -25,6 +25,30 @@ struct DHTextHighlight: Identifiable, Equatable {
     // Equatable without relying on UIColor conformance
     static func == (lhs: DHTextHighlight, rhs: DHTextHighlight) -> Bool {
         lhs.id == rhs.id && lhs.range == rhs.range && lhs.color.rgba == rhs.color.rgba
+    }
+
+    // MARK: - Codable
+
+    enum CodingKeys: String, CodingKey {
+        case id, location, length, colorHex
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        let location = try container.decode(Int.self, forKey: .location)
+        let length = try container.decode(Int.self, forKey: .length)
+        range = NSRange(location: location, length: length)
+        let colorHex = try container.decode(String.self, forKey: .colorHex)
+        color = UIColor(hex: colorHex) ?? .systemYellow
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(range.location, forKey: .location)
+        try container.encode(range.length, forKey: .length)
+        try container.encode(color.hexString, forKey: .colorHex)
     }
 }
 

@@ -99,7 +99,9 @@ struct DHTextView: UIViewRepresentable {
         // MARK: - Tap Gesture Handling
 
         @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-            guard let textView = gesture.view as? UITextView else { return }
+            guard gesture.state == .ended,
+                  let textView = gesture.view as? UITextView else { return }
+
             let location = gesture.location(in: textView)
 
             // Get the character index at tap location
@@ -119,11 +121,16 @@ struct DHTextView: UIViewRepresentable {
             if let tappedHighlight = currentHighlights.first(where: { highlight in
                 NSLocationInRange(characterIndex, highlight.range)
             }) {
+                // Clear any text selection to prevent rendering issues
+                textView.selectedRange = NSRange(location: 0, length: 0)
                 showRemovalMenu(for: tappedHighlight, in: textView, at: location)
             }
         }
 
         private func showRemovalMenu(for highlight: DHTextHighlight, in textView: UITextView, at location: CGPoint) {
+            // Clear selection before showing menu
+            textView.selectedRange = NSRange(location: 0, length: 0)
+
             let alert = UIAlertController(
                 title: "Highlight",
                 message: "Do you want to remove this highlight?",
@@ -132,9 +139,16 @@ struct DHTextView: UIViewRepresentable {
 
             alert.addAction(UIAlertAction(title: "Remove Highlight", style: .destructive) { [weak self] _ in
                 self?.parent.removeHighlightsInRange(highlight.range)
+                // Ensure selection stays cleared after removal
+                DispatchQueue.main.async {
+                    textView.selectedRange = NSRange(location: 0, length: 0)
+                }
             })
 
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                // Ensure selection stays cleared on cancel
+                textView.selectedRange = NSRange(location: 0, length: 0)
+            })
 
             // For iPad popover presentation
             if let popover = alert.popoverPresentationController {
@@ -148,11 +162,16 @@ struct DHTextView: UIViewRepresentable {
             }
         }
 
-        // Allow simultaneous gestures so text selection still works
+        // Only allow simultaneous gestures with UITextView's built-in gestures for text selection
+        // But prevent tap from interfering when on a highlight
         func gestureRecognizer(
             _ gestureRecognizer: UIGestureRecognizer,
             shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
         ) -> Bool {
+            // Don't allow simultaneous if this is our tap gesture
+            if gestureRecognizer == tapGesture {
+                return false
+            }
             return true
         }
 

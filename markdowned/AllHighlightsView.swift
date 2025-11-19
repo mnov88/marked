@@ -11,7 +11,7 @@ struct AllHighlightsView: View {
     @ObservedObject private var highlightsManager = HighlightsManager.shared
     @ObservedObject private var documentsManager = DocumentsManager.shared
     @EnvironmentObject private var themeManager: ThemeManager
-    @State private var selectedDocumentId: UUID?
+    @State private var navigationTarget: NavigationTarget?
 
     var body: some View {
         NavigationStack {
@@ -23,9 +23,9 @@ struct AllHighlightsView: View {
                 }
             }
             .navigationTitle("All Highlights")
-            .navigationDestination(item: $selectedDocumentId) { documentId in
-                if let document = documentsManager.document(withId: documentId) {
-                    destinationView(for: document)
+            .navigationDestination(item: $navigationTarget) { target in
+                if let document = documentsManager.document(withId: target.documentId) {
+                    destinationView(for: document, scrollTo: target.highlightRange)
                 }
             }
         }
@@ -72,7 +72,7 @@ struct AllHighlightsView: View {
         documentTitle: String
     ) -> some View {
         Button {
-            selectedDocumentId = documentId
+            navigationTarget = NavigationTarget(documentId: documentId, highlightRange: highlight.range)
         } label: {
             HStack(alignment: .top, spacing: 12) {
                 Color(uiColor: highlight.color)
@@ -162,18 +162,28 @@ struct AllHighlightsView: View {
     }
 
     @ViewBuilder
-    private func destinationView(for document: Document) -> some View {
+    private func destinationView(for document: Document, scrollTo range: NSRange?) -> some View {
         let config = makeConfig()
 
         switch document.content {
         case .plain(let s):
-            DocHighlightingView(documentId: document.id, string: s, config: config) { url in
+            DocHighlightingView(
+                documentId: document.id,
+                string: s,
+                config: config,
+                initialScrollTarget: range
+            ) { url in
                 print("Tapped link:", url.absoluteString)
             }
             .navigationTitle(document.title)
             .navigationBarTitleDisplayMode(.inline)
         case .attributed(let a):
-            DocHighlightingView(documentId: document.id, attributedString: a, config: config) { url in
+            DocHighlightingView(
+                documentId: document.id,
+                attributedString: a,
+                config: config,
+                initialScrollTarget: range
+            ) { url in
                 print("Tapped link:", url.absoluteString)
             }
             .navigationTitle(document.title)
@@ -190,6 +200,20 @@ struct AllHighlightsView: View {
 }
 
 // MARK: - Supporting Types
+
+private struct NavigationTarget: Identifiable, Hashable {
+    let id = UUID()
+    let documentId: UUID
+    let highlightRange: NSRange
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+    static func == (lhs: NavigationTarget, rhs: NavigationTarget) -> Bool {
+        lhs.id == rhs.id
+    }
+}
 
 private struct HighlightGroup {
     let documentId: UUID

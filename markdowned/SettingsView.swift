@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct SettingsView: View {
-    @Environment(ThemeManager.self) private var themeManager
+    @EnvironmentObject private var themeManager: ThemeManager
     @State private var showingFontPicker = false
     
     var body: some View {
@@ -305,6 +305,6 @@ struct FontPickerView: View {
 
 #Preview {
     SettingsView()
-        .environment(ThemeManager())
+        .environmentObject(ThemeManager())
 }
 

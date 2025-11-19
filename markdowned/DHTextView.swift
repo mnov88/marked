@@ -39,9 +39,11 @@ struct DHTextView: UIViewRepresentable {
         ]
         tv.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
-        // Add tap gesture recognizer for highlight removal
+        // Add tap gesture recognizer for highlight removal with delay requirement
         let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
-        tapGesture.delegate = context.coordinator
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.delaysTouchesBegan = false
+        tapGesture.cancelsTouchesInView = false
         tv.addGestureRecognizer(tapGesture)
         context.coordinator.tapGesture = tapGesture
 
@@ -89,7 +91,7 @@ struct DHTextView: UIViewRepresentable {
         context.coordinator.currentHighlights = highlightsSnapshot
     }
 
-    final class Coordinator: NSObject, UITextViewDelegate, UIGestureRecognizerDelegate {
+    final class Coordinator: NSObject, UITextViewDelegate {
         var parent: DHTextView
         var currentHighlights: [DHTextHighlight] = []
         var tapGesture: UITapGestureRecognizer?
@@ -99,7 +101,8 @@ struct DHTextView: UIViewRepresentable {
         // MARK: - Tap Gesture Handling
 
         @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-            guard let textView = gesture.view as? UITextView else { return }
+            guard gesture.state == .ended,
+                  let textView = gesture.view as? UITextView else { return }
 
             let location = gesture.location(in: textView)
 
@@ -120,21 +123,11 @@ struct DHTextView: UIViewRepresentable {
             if let tappedHighlight = currentHighlights.first(where: { highlight in
                 NSLocationInRange(characterIndex, highlight.range)
             }) {
-                // Consume the gesture to prevent UITextView from handling it
-                gesture.state = .cancelled
-
-                // Clear any text selection to prevent rendering issues
-                textView.selectedRange = NSRange(location: 0, length: 0)
-                textView.resignFirstResponder()
-
                 showRemovalMenu(for: tappedHighlight, in: textView, at: location)
             }
         }
 
         private func showRemovalMenu(for highlight: DHTextHighlight, in textView: UITextView, at location: CGPoint) {
-            // Clear selection before showing menu
-            textView.selectedRange = NSRange(location: 0, length: 0)
-
             let alert = UIAlertController(
                 title: "Highlight",
                 message: "Do you want to remove this highlight?",
@@ -143,16 +136,9 @@ struct DHTextView: UIViewRepresentable {
 
             alert.addAction(UIAlertAction(title: "Remove Highlight", style: .destructive) { [weak self] _ in
                 self?.parent.removeHighlightsInRange(highlight.range)
-                // Ensure selection stays cleared after removal
-                DispatchQueue.main.async {
-                    textView.selectedRange = NSRange(location: 0, length: 0)
-                }
             })
 
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-                // Ensure selection stays cleared on cancel
-                textView.selectedRange = NSRange(location: 0, length: 0)
-            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
             // For iPad popover presentation
             if let popover = alert.popoverPresentationController {
@@ -164,59 +150,6 @@ struct DHTextView: UIViewRepresentable {
             if let viewController = textView.window?.rootViewController {
                 viewController.present(alert, animated: true)
             }
-        }
-
-        // Check if touch is on a highlight before allowing gesture to begin
-        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-            guard gestureRecognizer == tapGesture,
-                  let textView = gestureRecognizer.view as? UITextView else {
-                return true
-            }
-
-            let location = touch.location(in: textView)
-            let layoutManager = textView.layoutManager
-            let textContainer = textView.textContainer
-            var point = location
-            point.x -= textView.textContainerInset.left
-            point.y -= textView.textContainerInset.top
-
-            let characterIndex = layoutManager.characterIndex(
-                for: point,
-                in: textContainer,
-                fractionOfDistanceBetweenInsertionPoints: nil
-            )
-
-            // Only receive touch if it's on a highlight
-            let isOnHighlight = currentHighlights.contains { highlight in
-                NSLocationInRange(characterIndex, highlight.range)
-            }
-
-            return isOnHighlight
-        }
-
-        // Block other gestures when our tap gesture is on a highlight
-        func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
-        ) -> Bool {
-            // If this is our tap gesture, don't allow simultaneous recognition
-            // This prevents UITextView's gestures from interfering
-            if gestureRecognizer == tapGesture {
-                return false
-            }
-            return true
-        }
-
-        // Block UITextView's gestures when our tap is on a highlight
-        func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer
-        ) -> Bool {
-            // If the other gesture is our tap, UITextView gestures should wait
-            if otherGestureRecognizer == tapGesture {
-                return true
-            }
-            return false
         }
 
         // Add/Remove highlight menu
@@ -235,6 +168,10 @@ struct DHTextView: UIViewRepresentable {
             let add = palette.map { name, color in
                 UIAction(title: "Highlight \(name)") { [weak self] _ in
                     self?.parent.addHighlight(range, color)
+                    // Clear selection immediately after adding highlight
+                    DispatchQueue.main.async {
+                        textView.selectedRange = NSRange(location: 0, length: 0)
+                    }
                 }
             }
 
@@ -244,6 +181,10 @@ struct DHTextView: UIViewRepresentable {
             if intersects {
                 items.insert(UIAction(title: "Remove Highlight", attributes: .destructive) { [weak self] _ in
                     self?.parent.removeHighlightsInRange(range)
+                    // Clear selection immediately after removing highlight
+                    DispatchQueue.main.async {
+                        textView.selectedRange = NSRange(location: 0, length: 0)
+                    }
                 }, at: 0)
             }
 

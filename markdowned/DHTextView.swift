@@ -38,15 +38,6 @@ struct DHTextView: UIViewRepresentable {
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
         tv.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-
-        // Add tap gesture recognizer for highlight removal with delay requirement
-        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
-        tapGesture.numberOfTapsRequired = 1
-        tapGesture.delaysTouchesBegan = false
-        tapGesture.cancelsTouchesInView = false
-        tv.addGestureRecognizer(tapGesture)
-        context.coordinator.tapGesture = tapGesture
-
         return tv
     }
 
@@ -94,63 +85,8 @@ struct DHTextView: UIViewRepresentable {
     final class Coordinator: NSObject, UITextViewDelegate {
         var parent: DHTextView
         var currentHighlights: [DHTextHighlight] = []
-        var tapGesture: UITapGestureRecognizer?
 
         init(_ parent: DHTextView) { self.parent = parent }
-
-        // MARK: - Tap Gesture Handling
-
-        @objc func handleTap(_ gesture: UITapGestureRecognizer) {
-            guard gesture.state == .ended,
-                  let textView = gesture.view as? UITextView else { return }
-
-            let location = gesture.location(in: textView)
-
-            // Get the character index at tap location
-            let layoutManager = textView.layoutManager
-            let textContainer = textView.textContainer
-            var point = location
-            point.x -= textView.textContainerInset.left
-            point.y -= textView.textContainerInset.top
-
-            let characterIndex = layoutManager.characterIndex(
-                for: point,
-                in: textContainer,
-                fractionOfDistanceBetweenInsertionPoints: nil
-            )
-
-            // Check if tap is on a highlight
-            if let tappedHighlight = currentHighlights.first(where: { highlight in
-                NSLocationInRange(characterIndex, highlight.range)
-            }) {
-                showRemovalMenu(for: tappedHighlight, in: textView, at: location)
-            }
-        }
-
-        private func showRemovalMenu(for highlight: DHTextHighlight, in textView: UITextView, at location: CGPoint) {
-            let alert = UIAlertController(
-                title: "Highlight",
-                message: "Do you want to remove this highlight?",
-                preferredStyle: .actionSheet
-            )
-
-            alert.addAction(UIAlertAction(title: "Remove Highlight", style: .destructive) { [weak self] _ in
-                self?.parent.removeHighlightsInRange(highlight.range)
-            })
-
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-
-            // For iPad popover presentation
-            if let popover = alert.popoverPresentationController {
-                popover.sourceView = textView
-                popover.sourceRect = CGRect(origin: location, size: .zero)
-            }
-
-            // Present from the view controller
-            if let viewController = textView.window?.rootViewController {
-                viewController.present(alert, animated: true)
-            }
-        }
 
         // Add/Remove highlight menu
         func textView(_ textView: UITextView,
@@ -168,10 +104,6 @@ struct DHTextView: UIViewRepresentable {
             let add = palette.map { name, color in
                 UIAction(title: "Highlight \(name)") { [weak self] _ in
                     self?.parent.addHighlight(range, color)
-                    // Clear selection immediately after adding highlight
-                    DispatchQueue.main.async {
-                        textView.selectedRange = NSRange(location: 0, length: 0)
-                    }
                 }
             }
 
@@ -181,10 +113,6 @@ struct DHTextView: UIViewRepresentable {
             if intersects {
                 items.insert(UIAction(title: "Remove Highlight", attributes: .destructive) { [weak self] _ in
                     self?.parent.removeHighlightsInRange(range)
-                    // Clear selection immediately after removing highlight
-                    DispatchQueue.main.async {
-                        textView.selectedRange = NSRange(location: 0, length: 0)
-                    }
                 }, at: 0)
             }
 

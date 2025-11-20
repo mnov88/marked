@@ -18,7 +18,9 @@ let package = Package(
         // HTML parsing for URL imports
         .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "2.6.0"),
         // ZIP compression for export all
-        .package(url: "https://github.com/weichsel/ZIPFoundation.git", from: "0.9.0")
+        .package(url: "https://github.com/weichsel/ZIPFoundation.git", from: "0.9.0"),
+        // GRDB for SQLite database persistence
+        .package(url: "https://github.com/groue/GRDB.swift.git", from: "7.8.0")
     ],
     targets: [
         .target(
@@ -26,7 +28,8 @@ let package = Package(
             dependencies: [
                 .product(name: "Ink", package: "Ink"),
                 "SwiftSoup",
-                "ZIPFoundation"
+                "ZIPFoundation",
+                .product(name: "GRDB", package: "GRDB.swift")
             ],
             path: "MarkdownStudio"
         )

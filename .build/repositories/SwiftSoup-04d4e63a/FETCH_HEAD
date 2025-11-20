@@ -3,7 +3,7 @@ d61b7df1c9a00a45f92e90dc7f4ca29d50bec5e6	not-for-merge	branch 'feature/Bits' of 
 f7da3abc12841a3714fbf88e4e3356522fff414f	not-for-merge	branch 'feature/Remove_Regex' of https://github.com/scinfu/SwiftSoup
 d0c9a886f2c158909158317fd8ff70da773559cd	not-for-merge	branch 'feature/Xcode_8.3_beta' of https://github.com/scinfu/SwiftSoup
 6e12e9238c4564ddb131d38e87fd87ce0415bdd6	not-for-merge	branch 'feature/connection' of https://github.com/scinfu/SwiftSoup
-4206bc7b8bd9a4ff8e9511211e1b4bff979ef9c4	not-for-merge	branch 'master' of https://github.com/scinfu/SwiftSoup
+ffb47d5b86b3ada62022cb02534215d79c8111f9	not-for-merge	branch 'master' of https://github.com/scinfu/SwiftSoup
 b2e20da3146d049257dd4a9f8960cb2f3a1909cc	not-for-merge	branch 'pr/110' of https://github.com/scinfu/SwiftSoup
 f695dc797defefaca3d97b2453c3e20c95a345ee	not-for-merge	branch 'pr/70' of https://github.com/scinfu/SwiftSoup
 0dcbd17c32476d60b5ccaa42d6ff332667a24e54	not-for-merge	branch 'pr/71' of https://github.com/scinfu/SwiftSoup
@@ -112,6 +112,7 @@ bf598e1872bb75b143291de111cd844a277974f7	not-for-merge	'refs/pull/345/head' of h
 693fd7b8ee16604ebe13882eb1f45cf36823273d	not-for-merge	'refs/pull/349/head' of https://github.com/scinfu/SwiftSoup
 affdde8757f2ce199e7b8ea904946dfe6c2c7b8d	not-for-merge	'refs/pull/35/head' of https://github.com/scinfu/SwiftSoup
 2099475c8a7dee90f999773512eb833c036d415b	not-for-merge	'refs/pull/350/head' of https://github.com/scinfu/SwiftSoup
+b7d0082c6f60523bad829b48a4d34858cbf7c7e3	not-for-merge	'refs/pull/352/head' of https://github.com/scinfu/SwiftSoup
 50a319a361b19cb255235589c73ee4ce1bb644d6	not-for-merge	'refs/pull/36/head' of https://github.com/scinfu/SwiftSoup
 15296f3ab3ecd5469636d6214efa15a98a576831	not-for-merge	'refs/pull/4/head' of https://github.com/scinfu/SwiftSoup
 0a1632044c01342ef6713e9c8a13c7cf09230948	not-for-merge	'refs/pull/41/head' of https://github.com/scinfu/SwiftSoup

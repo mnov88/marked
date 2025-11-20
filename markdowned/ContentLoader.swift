@@ -134,7 +134,7 @@ final class ContentLoader {
         let compiledPatterns = patterns.compactMap { try? NSRegularExpression(pattern: $0, options: []) }
         
         // Split into lines
-        var lines = text.components(separatedBy: .newlines)
+        let lines = text.components(separatedBy: .newlines)
         var processedLines: [String] = []
         var i = 0
         
@@ -207,4 +207,3 @@ final class ContentLoader {
             .replacingOccurrences(of: "&#39;", with: "'")
     }
 }
-

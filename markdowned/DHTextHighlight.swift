@@ -11,6 +11,10 @@ import Combine
 
 // MARK: - Models
 
+enum DHHighlightConstants {
+    static let tagPrefix = "dh-highlight-"
+}
+
 struct DHTextHighlight: Identifiable, Equatable, Codable {
     let id: UUID
     let range: NSRange
@@ -49,6 +53,26 @@ struct DHTextHighlight: Identifiable, Equatable, Codable {
         try container.encode(range.location, forKey: .location)
         try container.encode(range.length, forKey: .length)
         try container.encode(color.hexString, forKey: .colorHex)
+    }
+
+    /// Produce a copy with leading/trailing whitespace & newlines excluded from the range.
+    func trimmed(in text: NSString? = nil) -> DHTextHighlight {
+        guard let text else { return self }
+        let charset = CharacterSet.whitespacesAndNewlines
+        var start = range.location
+        var end = range.location + range.length
+
+        while start < end {
+            let scalar = UnicodeScalar(text.character(at: start))
+            if let scalar, charset.contains(scalar) { start += 1 } else { break }
+        }
+        while end > start {
+            let scalar = UnicodeScalar(text.character(at: end - 1))
+            if let scalar, charset.contains(scalar) { end -= 1 } else { break }
+        }
+        let newLength = end - start
+        guard newLength > 0 else { return self }
+        return DHTextHighlight(id: id, range: NSRange(location: start, length: newLength), color: color)
     }
 }
 
@@ -90,7 +114,7 @@ struct DHConfig {
     var indentationComputer: ((NSString) -> [DHIndentSpan])? = DHConfig.defaultIndentation
 
     // Build "dh://article/<n>" links using .link attribute
-    static func defaultArticleLinks(_ s: NSString) -> [DHLinkSpan] {
+    nonisolated static func defaultArticleLinks(_ s: NSString) -> [DHLinkSpan] {
         let pattern = #"Article\s+(\d+)"#
         guard let re = try? NSRegularExpression(pattern: pattern) else { return [] }
         let full = NSRange(location: 0, length: s.length)
@@ -102,7 +126,7 @@ struct DHConfig {
     }
 
     // Simple multilevel list indentation
-    static func defaultIndentation(_ s: NSString) -> [DHIndentSpan] {
+    nonisolated static func defaultIndentation(_ s: NSString) -> [DHIndentSpan] {
         var spans: [DHIndentSpan] = []
         let base: CGFloat = 20
         let re1 = try? NSRegularExpression(pattern: #"^\s*\d+\."#, options: [.anchorsMatchLines])

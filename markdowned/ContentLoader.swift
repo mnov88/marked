@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-@MainActor
 final class ContentLoader {
     enum LoadError: LocalizedError {
         case invalidURL
@@ -70,30 +69,40 @@ final class ContentLoader {
             throw LoadError.networkError(error)
         }
         
-        // Convert HTML to NSAttributedString using native iOS rendering
+        // Convert HTML to NSAttributedString on background thread
+        // NSAttributedString HTML conversion is thread-safe when done correctly
         let attributedString: NSAttributedString
-        do {
+        let plainText: String
+        let processedText: String
+        let documentTitle: String
+
+        // Perform heavy processing on background thread
+        attributedString = try await Task.detached {
             guard let data = html.data(using: .utf8) else {
                 throw LoadError.conversionFailed(NSError(domain: "ContentLoader", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to encode HTML as UTF-8"]))
             }
-            
+
             let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
                 .documentType: NSAttributedString.DocumentType.html,
                 .characterEncoding: String.Encoding.utf8.rawValue
             ]
-            
-            attributedString = try NSAttributedString(data: data, options: options, documentAttributes: nil)
-        } catch {
-            throw LoadError.conversionFailed(error)
-        }
-        
-        // Extract plain text and post-process to clean up list markers
-        let plainText = attributedString.string
-        let processedText = postProcessText(plainText)
-        
-        // Use provided title or extract from HTML (use host + path as fallback)
-        let documentTitle = title ?? extractTitle(from: html) ?? url.host ?? urlString
-        
+
+            do {
+                let attrString = try NSAttributedString(data: data, options: options, documentAttributes: nil)
+                return attrString
+            } catch {
+                throw LoadError.conversionFailed(error)
+            }
+        }.value
+
+        // Extract and process text on background thread
+        (plainText, processedText, documentTitle) = try await Task.detached {
+            let plain = attributedString.string
+            let processed = self.postProcessText(plain)
+            let docTitle = title ?? self.extractTitle(from: html) ?? url.host ?? urlString
+            return (plain, processed, docTitle)
+        }.value
+
         // Return as plain text with cleaned up formatting
         return Document.plain(processedText, title: documentTitle, sourceURL: url)
     }

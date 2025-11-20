@@ -11,7 +11,7 @@ import Foundation
 struct DocHighlightingView: View {
     private let documentId: UUID
     private let baseContent: NSAttributedString
-    private var config: DHConfig
+    private var baseConfig: DHConfig  // Base config without theme
     private var onLinkTap: (URL) -> Void
 
     // Cache spans computed from baseContent
@@ -21,6 +21,15 @@ struct DocHighlightingView: View {
     @StateObject private var vm: DHViewModel
     @State private var showList = false
     @State private var scrollTarget: NSRange? = nil
+    @EnvironmentObject private var themeManager: ThemeManager
+
+    // Computed config that reacts to theme changes
+    private var config: DHConfig {
+        var cfg = baseConfig
+        cfg.style = themeManager.currentTheme.toDHStyle()
+        cfg.usePageLayout = themeManager.currentTheme.usePageLayout
+        return cfg
+    }
 
     // Plain string init
     init(documentId: UUID,
@@ -31,7 +40,7 @@ struct DocHighlightingView: View {
         let base = NSAttributedString(string: string)
         self.documentId = documentId
         self.baseContent = base
-        self.config = config
+        self.baseConfig = config  // Store base config without theme
         self.onLinkTap = onLinkTap
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(base.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(base.string as NSString) ?? []) : [])
@@ -47,7 +56,7 @@ struct DocHighlightingView: View {
          onLinkTap: @escaping (URL) -> Void = { _ in }) {
         self.documentId = documentId
         self.baseContent = attributedString
-        self.config = config
+        self.baseConfig = config  // Store base config without theme
         self.onLinkTap = onLinkTap
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(attributedString.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(attributedString.string as NSString) ?? []) : [])

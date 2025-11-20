@@ -113,8 +113,9 @@ final class HighlightsManager: ObservableObject {
     /// Add a highlight to a document
     func addHighlight(_ highlight: DHTextHighlight, to documentId: UUID) {
         do {
-            let dbHighlight = DBHighlight(from: highlight, documentId: documentId)
-            try db.write { db in
+            let trimmed = highlight.trimmed()
+            let dbHighlight = DBHighlight(from: trimmed, documentId: documentId)
+            _ = try db.write { db in
                 try dbHighlight.insert(db)
             }
         } catch {
@@ -125,7 +126,7 @@ final class HighlightsManager: ObservableObject {
     /// Remove a specific highlight by ID
     func removeHighlight(id: UUID, from documentId: UUID) {
         do {
-            try db.write { db in
+            _ = try db.write { db in
                 try DBHighlight.deleteOne(db, key: id.uuidString)
             }
         } catch {
@@ -136,7 +137,7 @@ final class HighlightsManager: ObservableObject {
     /// Remove highlights that intersect with a given range
     func removeHighlights(intersecting range: NSRange, from documentId: UUID) {
         do {
-            try db.write { db in
+            _ = try db.write { db in
                 let highlights = try DBHighlight.highlightsForDocument(documentId).fetchAll(db)
 
                 for dbHighlight in highlights {
@@ -154,12 +155,12 @@ final class HighlightsManager: ObservableObject {
     /// Set/replace all highlights for a document
     func setHighlights(_ highlights: [DHTextHighlight], for documentId: UUID) {
         do {
-            try db.write { db in
+            _ = try db.write { db in
                 // Remove existing highlights
                 try DBHighlight.deleteForDocument(documentId, db: db)
 
                 // Insert new highlights
-                for highlight in highlights {
+                for highlight in highlights.map({ $0.trimmed() }) {
                     let dbHighlight = DBHighlight(from: highlight, documentId: documentId)
                     try dbHighlight.insert(db)
                 }
@@ -179,7 +180,7 @@ final class HighlightsManager: ObservableObject {
     /// Clear all highlights from all documents
     func clearAllHighlights() {
         do {
-            try db.write { db in
+            _ = try db.write { db in
                 try DBHighlight.deleteAll(db)
             }
         } catch {
@@ -205,7 +206,7 @@ final class HighlightsManager: ObservableObject {
 
     /// Delete all highlights for a specific document
     func deleteHighlights(for documentId: UUID) throws {
-        try db.write { db in
+        _ = try db.write { db in
             try DBHighlight.deleteForDocument(documentId, db: db)
         }
     }

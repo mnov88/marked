@@ -5,7 +5,7 @@ A native iOS document reader and highlighter with advanced theming, URL import, 
 ## Features
 
 ### 📄 Document Management
-- **In-memory document storage** with mock documents for testing
+- **SQLite-backed documents** via GRDB with default seed content
 - **URL import**: Fetch HTML from any URL, convert to plain text
 - **EU legal case search**: Built-in database of ~4MB CSV with searchable case records
 - **Document list**: View all loaded documents with navigation
@@ -174,9 +174,9 @@ struct Case: Identifiable {
 
 ### Highlight System
 
-Highlights are stored as character ranges (NSRange) with colors:
+Highlights are stored in SQLite as character ranges (NSRange) with colors:
 - **Creation**: Long-press text → Select "Highlight [Color]" from menu
-- **Storage**: In-memory array per document
+- **Storage**: Persisted per-document via GRDB; mirrored in-memory for UI responsiveness
 - **Rendering**: Semi-transparent (0.25 alpha) background color overlay
 - **Navigation**: Tap in highlight list → Smooth scroll to range
 - **Deletion**: Swipe-to-delete in highlight list or "Remove Highlight" menu
@@ -239,12 +239,13 @@ Cleans up HTML conversion artifacts:
 
 Managed via Swift Package Manager (Package.swift):
 
+- **GRDB** - SQLite persistence for documents and highlights
 - **Ink** - Markdown parsing (currently not used, legacy dependency)
 - **SwiftSoup** - HTML parsing (currently not used, legacy dependency)  
 - **Markdown** - Apple's swift-markdown (currently not used, legacy dependency)
 - **ZIPFoundation** - ZIP handling (currently not used, legacy dependency)
 
-**Note**: Current implementation uses native iOS APIs exclusively (NSAttributedString for HTML parsing, URLSession for fetching). Legacy dependencies can be removed.
+**Note**: GRDB is active for persistence; the other listed packages are currently unused placeholders and can be removed when convenient.
 
 ## Project Structure
 
@@ -345,7 +346,7 @@ Dependencies resolve automatically via Swift Package Manager.
 
 ## Known Limitations
 
-- **No persistence**: Documents and highlights stored in memory only
+- **Local-only persistence**: SQLite is sandboxed; no sync/backup yet
 - **No editing**: Read-only document viewer
 - **HTTP only for publications.europa.eu**: App Transport Security exception required
 - **Case search**: Requires allcases.csv in bundle (~4MB)

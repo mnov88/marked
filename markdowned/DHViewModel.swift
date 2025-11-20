@@ -32,7 +32,7 @@ final class DHViewModel: ObservableObject {
 
     func add(range: NSRange, color: UIColor, in text: NSAttributedString) {
         guard range.clamped(toStringLength: text.length) != nil else { return }
-        let highlight = DHTextHighlight(range: range, color: color)
+        let highlight = DHTextHighlight(range: range, color: color).trimmed(in: text.string as NSString)
         highlightsManager.addHighlight(highlight, to: documentId)
     }
 

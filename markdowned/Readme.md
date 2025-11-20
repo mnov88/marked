@@ -24,6 +24,7 @@ iOS 18+, Swift 5.10. TextKit 1 APIs through `UITextView`.
   * [`DHConfig` and rules](#dhconfig-and-rules)
   * [`DHStyle`](#dhstyle)
   * [Models](#models)
+  * [Interaction model](#interaction-model)
 * [Customization examples](#customization-examples)
 
   * [Link detection for multiple locales](#link-detection-for-multiple-locales)
@@ -193,6 +194,14 @@ struct DHIndentSpan: Identifiable, Equatable {
 
 ---
 
+### Interaction model
+
+* Selection menu (`editMenuForTextIn`) only appears for non-empty ranges; the highlight palette merges with system-suggested actions.
+* Highlights carry `.textItemTag` so tap/long-press shows a menu (Remove Highlight, Copy Text) via `primaryActionForTextItem`/`menuConfigurationForTextItem`; no custom gesture recognizers.
+* Links rely on `.link` and are forwarded to `onLinkTap`; the legacy `shouldInteractWith URL` delegate remains as a fallback path.
+
+---
+
 ## Customization examples
 
 ### Link detection for multiple locales
@@ -301,7 +310,7 @@ Emit other link types by customizing `linkDetector` to set different hosts or pa
 
 ### Changing the highlight palette or menu
 
-The component shows a context menu for selected text. To change colors or add actions, edit the palette in `DHTextView.Coordinator.textView(_:editMenuForTextIn:)`.
+The component shows a context menu for selected text. To change colors or add actions, edit the palette in `DHTextView.Coordinator.textView(_:editMenuForTextIn:)` (remember to return `nil` for zero-length ranges).
 
 Example: add an “Export quote” item:
 

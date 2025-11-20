@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0755AA2E2ECF1DD300293259 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 0755AA2D2ECF1DD300293259 /* GRDB */; };
 		076DEF122EC9FE450026D77C /* Demark in Frameworks */ = {isa = PBXBuildFile; productRef = 076DEF132EC9FE450026D77C /* Demark */; };
 		076DEF612ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
 		076DEF622ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
@@ -54,6 +55,9 @@
 		07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BD2EC1EB00002AC733 /* Theme.swift */; };
 		07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */; };
 		07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80C12EC1EB20002AC733 /* SettingsView.swift */; };
+		1C02CA1C374C403EAFC67B43 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */; };
+		E84F7D4BD726416E81B95B4B /* DBHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0441C4DA53F4832B734D388 /* DBHighlight.swift */; };
+		F64D558975AD42A9B7C22215 /* DBDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819F756D6E1440D79D9E5467 /* DBDocument.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,9 @@
 		07EA80BD2EC1EB00002AC733 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		07EA80C12EC1EB20002AC733 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		819F756D6E1440D79D9E5467 /* DBDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDocument.swift; sourceTree = "<group>"; };
+		AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E0441C4DA53F4832B734D388 /* DBHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHighlight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -140,6 +147,7 @@
 				07EA7CE02EBB7DF0002AC733 /* ink-cli in Frameworks */,
 				07EA7CDE2EBB7DF0002AC733 /* Ink in Frameworks */,
 				07EA7D162EBBD957002AC733 /* ZIPFoundation in Frameworks */,
+				0755AA2E2ECF1DD300293259 /* GRDB in Frameworks */,
 				076DEF122EC9FE450026D77C /* Demark in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +230,9 @@
 				07EA80BD2EC1EB00002AC733 /* Theme.swift */,
 				07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */,
 				07EA80C12EC1EB20002AC733 /* SettingsView.swift */,
+				AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */,
+				819F756D6E1440D79D9E5467 /* DBDocument.swift */,
+				E0441C4DA53F4832B734D388 /* DBHighlight.swift */,
 				076DEF602ECB52BF0026D77C /* allcases.csv */,
 			);
 			path = markdowned;
@@ -256,6 +267,7 @@
 				07EA7D112EBBD951002AC733 /* Markdown */,
 				07EA7D132EBBD954002AC733 /* SwiftSoup */,
 				07EA7D152EBBD957002AC733 /* ZIPFoundation */,
+				0755AA2D2ECF1DD300293259 /* GRDB */,
 			);
 			productName = markdowned;
 			productReference = 07EA7C8D2EBB71EC002AC733 /* markdowned.app */;
@@ -345,6 +357,7 @@
 				07EA7D0E2EBBD82A002AC733 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 				07EA7D0F2EBBD851002AC733 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				076DEF112EC9FE450026D77C /* XCRemoteSwiftPackageReference "Demark" */,
+				0755AA2C2ECF1DD300293259 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 07EA7C8E2EBB71EC002AC733 /* Products */;
@@ -428,6 +441,9 @@
 				07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */,
 				07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */,
 				07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */,
+				1C02CA1C374C403EAFC67B43 /* DatabaseManager.swift in Sources */,
+				F64D558975AD42A9B7C22215 /* DBDocument.swift in Sources */,
+				E84F7D4BD726416E81B95B4B /* DBHighlight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +857,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0755AA2C2ECF1DD300293259 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		076DEF112EC9FE450026D77C /* XCRemoteSwiftPackageReference "Demark" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/steipete/Demark";
@@ -884,6 +908,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0755AA2D2ECF1DD300293259 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0755AA2C2ECF1DD300293259 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
 		076DEF132EC9FE450026D77C /* Demark */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 076DEF112EC9FE450026D77C /* XCRemoteSwiftPackageReference "Demark" */;

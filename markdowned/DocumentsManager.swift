@@ -46,7 +46,7 @@ final class DocumentsManager: ObservableObject {
                 dbDocuments.compactMap { try? $0.toDocument() }
             }
             .receive(on: DispatchQueue.main)
-            .assign(to: \.documents, on: self)
+            .assign(to: \DocumentsManager.documents, on: self)
     }
 
     // MARK: - Initialization
@@ -89,7 +89,7 @@ final class DocumentsManager: ObservableObject {
 
     /// Create: Add a new document to the database
     func addDocument(_ document: Document) throws {
-        let dbDocument = try DBDocument(from: document)
+        let dbDocument = try DBDocument(fromDocument: document)
         try db.write { db in
             try dbDocument.insert(db)
         }
@@ -112,7 +112,7 @@ final class DocumentsManager: ObservableObject {
 
     /// Update: Update an existing document
     func updateDocument(_ document: Document) throws {
-        var dbDocument = try DBDocument(from: document)
+        var dbDocument = try DBDocument(fromDocument: document)
         dbDocument.touch() // Update modifiedAt timestamp
 
         try db.write { db in
@@ -122,14 +122,14 @@ final class DocumentsManager: ObservableObject {
 
     /// Delete: Remove a document by ID
     func deleteDocument(id: UUID) throws {
-        try db.write { db in
+        _ = try db.write { db in
             try DBDocument.deleteOne(db, key: id.uuidString)
         }
     }
 
     /// Delete: Remove multiple documents
     func deleteDocuments(ids: [UUID]) throws {
-        try db.write { db in
+        _ = try db.write { db in
             for id in ids {
                 try DBDocument.deleteOne(db, key: id.uuidString)
             }
@@ -138,7 +138,7 @@ final class DocumentsManager: ObservableObject {
 
     /// Delete: Remove all documents
     func deleteAllDocuments() throws {
-        try db.write { db in
+        _ = try db.write { db in
             try DBDocument.deleteAll(db)
         }
     }

@@ -781,7 +781,11 @@ struct MockDocList: View {
             }
             .sheet(isPresented: $showingURLEntry) {
                 URLEntryView { document in
-                    documentsManager.addDocument(document)
+                    do {
+                        try documentsManager.addDocument(document)
+                    } catch {
+                        print("Failed to persist document from URL entry: \(error)")
+                    }
                 }
             }
             .overlay {
@@ -835,7 +839,7 @@ struct MockDocList: View {
             do {
                 // Pass the case title from CSV instead of extracting from HTML
                 let document = try await contentLoader.loadContent(from: url.absoluteString, title: caseItem.displayTitle)
-                documentsManager.addDocument(document)
+                try documentsManager.addDocument(document)
                 isLoadingCase = false
                 searchText = "" // Clear search after loading
             } catch {
@@ -877,4 +881,3 @@ struct MockDocList: View {
 #Preview {
     MockDocList()
 }
-

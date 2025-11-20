@@ -134,7 +134,7 @@ extension NSRange {
 }
 
 extension NSString {
-    func paragraphRanges() -> [NSRange] {
+    nonisolated func paragraphRanges() -> [NSRange] {
         var ranges: [NSRange] = []
         var pos = 0
         while pos < length {

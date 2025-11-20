@@ -221,10 +221,6 @@ private struct HighlightGroup {
     let highlights: [DHTextHighlight]
 }
 
-extension UUID: Identifiable {
-    public var id: UUID { self }
-}
-
 #Preview {
     AllHighlightsView()
         .environmentObject(ThemeManager())

@@ -4,19 +4,22 @@
 //
 //  Database record model for highlights
 //
-
 import Foundation
 import GRDB
 import UIKit
 
-/// Database record for highlights - conforms to GRDB protocols
-struct DBHighlight: Codable, Identifiable {
+/// Database record for highlights using GRDB Codable records
+struct DBHighlight: Identifiable, Codable, FetchableRecord, PersistableRecord {
     var id: String // UUID as string
     var documentId: String // UUID as string (foreign key)
     var location: Int
     var length: Int
     var colorHex: String
     var createdAt: Date
+
+    enum CodingKeys: String, CodingKey {
+        case id, documentId, location, length, colorHex, createdAt
+    }
 
     // Define column names for type-safe queries
     enum Columns {
@@ -27,11 +30,7 @@ struct DBHighlight: Codable, Identifiable {
         static let colorHex = Column(CodingKeys.colorHex)
         static let createdAt = Column(CodingKeys.createdAt)
     }
-}
 
-// MARK: - GRDB Protocols
-
-extension DBHighlight: FetchableRecord, PersistableRecord {
     static var databaseTableName: String { "highlight" }
 }
 
@@ -51,7 +50,7 @@ extension DBHighlight {
     /// Convert database record to app's DHTextHighlight model
     func toHighlight() throws -> DHTextHighlight {
         guard let uuid = UUID(uuidString: id) else {
-            throw DatabaseError.SQLITE_ERROR
+            throw DatabaseError(message: "Invalid UUID string: \(id)")
         }
 
         let range = NSRange(location: location, length: length)

@@ -54,6 +54,9 @@
 		07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BD2EC1EB00002AC733 /* Theme.swift */; };
 		07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */; };
 		07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80C12EC1EB20002AC733 /* SettingsView.swift */; };
+		1C02CA1C374C403EAFC67B43 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */; };
+		F64D558975AD42A9B7C22215 /* DBDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819F756D6E1440D79D9E5467 /* DBDocument.swift */; };
+		E84F7D4BD726416E81B95B4B /* DBHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0441C4DA53F4832B734D388 /* DBHighlight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,9 @@
 		07EA80BD2EC1EB00002AC733 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		07EA80C12EC1EB20002AC733 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		819F756D6E1440D79D9E5467 /* DBDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDocument.swift; sourceTree = "<group>"; };
+		E0441C4DA53F4832B734D388 /* DBHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHighlight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -222,6 +228,9 @@
 				07EA80BD2EC1EB00002AC733 /* Theme.swift */,
 				07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */,
 				07EA80C12EC1EB20002AC733 /* SettingsView.swift */,
+				AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */,
+				819F756D6E1440D79D9E5467 /* DBDocument.swift */,
+				E0441C4DA53F4832B734D388 /* DBHighlight.swift */,
 				076DEF602ECB52BF0026D77C /* allcases.csv */,
 			);
 			path = markdowned;
@@ -428,6 +437,9 @@
 				07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */,
 				07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */,
 				07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */,
+				1C02CA1C374C403EAFC67B43 /* DatabaseManager.swift in Sources */,
+				F64D558975AD42A9B7C22215 /* DBDocument.swift in Sources */,
+				E84F7D4BD726416E81B95B4B /* DBHighlight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

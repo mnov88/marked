@@ -811,16 +811,36 @@ struct MockDocList: View {
     }
     
     private func loadCasesFromCSV() {
-        // Load CSV from file if it exists, or use empty array
-        guard let csvPath = Bundle.main.path(forResource: "allcases", ofType: "csv"),
-              let csvString = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
-            print("Could not load allcases.csv from bundle")
-            cases = []
-            return
+        // Load and parse CSV asynchronously to avoid blocking UI
+        Task {
+            guard let csvPath = Bundle.main.path(forResource: "allcases", ofType: "csv") else {
+                print("Could not find allcases.csv in bundle")
+                await MainActor.run { cases = [] }
+                return
+            }
+
+            // Read file on background thread
+            let csvString = await Task.detached {
+                try? String(contentsOfFile: csvPath, encoding: .utf8)
+            }.value
+
+            guard let csvString = csvString else {
+                print("Could not load allcases.csv from bundle")
+                await MainActor.run { cases = [] }
+                return
+            }
+
+            // Parse on background thread
+            let parsedCases = await Task.detached {
+                CaseDataParser.parse(csvString)
+            }.value
+
+            // Update on main thread
+            await MainActor.run {
+                cases = parsedCases
+                print("Loaded \(cases.count) cases from CSV")
+            }
         }
-        
-        cases = CaseDataParser.parse(csvString)
-        print("Loaded \(cases.count) cases from CSV")
     }
     
     private func loadCase(_ caseItem: Case) {
@@ -847,30 +867,22 @@ struct MockDocList: View {
 
     @ViewBuilder
     private func destination(for doc: Document) -> some View {
-        let config = makeConfig()
-
+        // DocHighlightingView now gets theme from environment, no need to pass config
         switch doc.content {
         case .plain(let s):
-            DocHighlightingView(documentId: doc.id, string: s, config: config) { url in
+            DocHighlightingView(documentId: doc.id, string: s) { url in
                 // Handle "dh://article/<n>"
                 print("Tapped link:", url.absoluteString)
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)
         case .attributed(let a):
-            DocHighlightingView(documentId: doc.id, attributedString: a, config: config) { url in
+            DocHighlightingView(documentId: doc.id, attributedString: a) { url in
                 print("Tapped link:", url.absoluteString)
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-    
-    private func makeConfig() -> DHConfig {
-        var config = DHConfig()
-        config.style = themeManager.currentTheme.toDHStyle()
-        config.usePageLayout = themeManager.currentTheme.usePageLayout
-        return config
     }
 }
 

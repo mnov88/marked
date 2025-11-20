@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct markdownedApp: App {
     @StateObject private var themeManager = ThemeManager()
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some Scene {
         WindowGroup {
@@ -30,6 +31,15 @@ struct markdownedApp: App {
                     }
             }
             .environmentObject(themeManager)
+        }
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            // Save all pending data when app is backgrounded or inactive
+            if newPhase == .background || newPhase == .inactive {
+                Task { @MainActor in
+                    themeManager.saveImmediately()
+                    HighlightsManager.shared.saveImmediately()
+                }
+            }
         }
     }
 }

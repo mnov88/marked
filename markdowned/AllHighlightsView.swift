@@ -163,14 +163,12 @@ struct AllHighlightsView: View {
 
     @ViewBuilder
     private func destinationView(for document: Document, scrollTo range: NSRange?) -> some View {
-        let config = makeConfig()
-
+        // DocHighlightingView now gets theme from environment, no need to pass config
         switch document.content {
         case .plain(let s):
             DocHighlightingView(
                 documentId: document.id,
                 string: s,
-                config: config,
                 initialScrollTarget: range
             ) { url in
                 print("Tapped link:", url.absoluteString)
@@ -181,7 +179,6 @@ struct AllHighlightsView: View {
             DocHighlightingView(
                 documentId: document.id,
                 attributedString: a,
-                config: config,
                 initialScrollTarget: range
             ) { url in
                 print("Tapped link:", url.absoluteString)
@@ -189,13 +186,6 @@ struct AllHighlightsView: View {
             .navigationTitle(document.title)
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-
-    private func makeConfig() -> DHConfig {
-        var config = DHConfig()
-        config.style = themeManager.currentTheme.toDHStyle()
-        config.usePageLayout = themeManager.currentTheme.usePageLayout
-        return config
     }
 }
 

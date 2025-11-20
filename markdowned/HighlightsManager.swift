@@ -19,6 +19,10 @@ final class HighlightsManager: ObservableObject {
     // Dictionary mapping document ID to its highlights
     @Published private(set) var highlightsByDocument: [UUID: [DHTextHighlight]] = [:]
 
+    // Debouncing support to reduce UserDefaults writes
+    private var saveTask: Task<Void, Never>?
+    private let saveDebounceDuration: Duration = .milliseconds(500)
+
     private init() {
         loadHighlights()
     }
@@ -42,15 +46,43 @@ final class HighlightsManager: ObservableObject {
     }
 
     private func saveHighlights() {
+        // Cancel any pending save task
+        saveTask?.cancel()
+
+        // Schedule new save with debounce
+        saveTask = Task { @MainActor in
+            do {
+                try await Task.sleep(for: saveDebounceDuration)
+
+                // Only save if not cancelled
+                guard !Task.isCancelled else { return }
+
+                // Convert UUID keys to String for JSON encoding
+                let stringKeyedDict = highlightsByDocument.reduce(into: [:]) { result, pair in
+                    result[pair.key.uuidString] = pair.value
+                }
+                let encoded = try JSONEncoder().encode(stringKeyedDict)
+                userDefaults.set(encoded, forKey: highlightsKey)
+            } catch {
+                // Task was cancelled or encoding failed
+                if !(error is CancellationError) {
+                    print("Failed to save highlights: \(error)")
+                }
+            }
+        }
+    }
+
+    /// Force immediate save (e.g., on app termination)
+    func saveImmediately() {
+        saveTask?.cancel()
         do {
-            // Convert UUID keys to String for JSON encoding
             let stringKeyedDict = highlightsByDocument.reduce(into: [:]) { result, pair in
                 result[pair.key.uuidString] = pair.value
             }
             let encoded = try JSONEncoder().encode(stringKeyedDict)
             userDefaults.set(encoded, forKey: highlightsKey)
         } catch {
-            print("Failed to save highlights: \(error)")
+            print("Failed to save highlights immediately: \(error)")
         }
     }
 
@@ -96,5 +128,21 @@ final class HighlightsManager: ObservableObject {
     func clearAllHighlights() {
         highlightsByDocument.removeAll()
         saveHighlights()
+    }
+
+    /// Clean up highlights for documents that no longer exist
+    func cleanupOrphanedHighlights(validDocumentIds: Set<UUID>) {
+        let orphanedIds = Set(highlightsByDocument.keys).subtracting(validDocumentIds)
+        guard !orphanedIds.isEmpty else { return }
+
+        for orphanedId in orphanedIds {
+            highlightsByDocument.removeValue(forKey: orphanedId)
+        }
+        saveHighlights()
+    }
+
+    deinit {
+        // Ensure any pending save is executed before deallocation
+        saveTask?.cancel()
     }
 }

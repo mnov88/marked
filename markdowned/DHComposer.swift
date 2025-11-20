@@ -60,13 +60,33 @@ struct DHComposer {
 
         // Highlights: background only to avoid clobbering link underline
         for h in highlights {
-            guard h.range.location >= 0,
-                  NSMaxRange(h.range) <= out.length else { continue }
+            guard let trimmed = trimWhitespaceAndNewlines(h.range, in: out) else { continue }
             out.addAttributes([
-                .backgroundColor: h.color.withAlphaComponent(0.25)
-            ], range: h.range)
+                .backgroundColor: h.color.withAlphaComponent(0.25),
+                .textItemTag: "\(DHHighlightConstants.tagPrefix)\(h.id.uuidString)"
+            ], range: trimmed)
         }
 
         return out
+    }
+
+    private static func trimWhitespaceAndNewlines(_ range: NSRange, in text: NSAttributedString) -> NSRange? {
+        guard let clamped = range.clamped(toStringLength: text.length) else { return nil }
+        let ns = text.string as NSString
+        let charset = CharacterSet.whitespacesAndNewlines
+        var start = clamped.location
+        var end = clamped.location + clamped.length
+
+        while start < end {
+            let scalar = UnicodeScalar(ns.character(at: start))
+            if let scalar, charset.contains(scalar) { start += 1 } else { break }
+        }
+        while end > start {
+            let scalar = UnicodeScalar(ns.character(at: end - 1))
+            if let scalar, charset.contains(scalar) { end -= 1 } else { break }
+        }
+
+        let length = end - start
+        return length > 0 ? NSRange(location: start, length: length) : nil
     }
 }

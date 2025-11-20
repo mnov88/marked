@@ -5,18 +5,19 @@
 //  Created by Milos Novovic on 10/11/2025.
 //
 
+#if canImport(UIKit) && !targetEnvironment(macCatalyst)
 import SwiftUI
 import Foundation
 import UIKit
 
-// MARK: - UITextView bridge
+// MARK: - UITextView bridge for iOS
 
 struct DHTextView: UIViewRepresentable {
     // Inputs
     let attributedText: NSAttributedString
     let style: DHStyle
     let highlightsSnapshot: [DHTextHighlight]
-    let addHighlight: (NSRange, UIColor) -> Void
+    let addHighlight: (NSRange, PlatformColor) -> Void
     let removeHighlightsInRange: (NSRange) -> Void
     let onTapLink: (URL) -> Void
     @Binding var scrollTarget: NSRange?
@@ -224,12 +225,12 @@ struct DHTextView: UIViewRepresentable {
                       editMenuForTextIn range: NSRange,
                       suggestedActions: [UIMenuElement]) -> UIMenu? {
 
-            let palette: [(String, UIColor)] = [
-                ("Yellow", UIColor(hex: "#FFEB3B") ?? .systemYellow),
-                ("Green",  UIColor(hex: "#4CAF50") ?? .systemGreen),
-                ("Blue",   UIColor(hex: "#2196F3") ?? .systemBlue),
-                ("Pink",   UIColor(hex: "#E91E63") ?? .systemPink),
-                ("Purple", UIColor(hex: "#9C27B0") ?? .systemPurple)
+            let palette: [(String, PlatformColor)] = [
+                ("Yellow", PlatformColor(hex: "#FFEB3B") ?? .systemYellow),
+                ("Green",  PlatformColor(hex: "#4CAF50") ?? .systemGreen),
+                ("Blue",   PlatformColor(hex: "#2196F3") ?? .systemBlue),
+                ("Pink",   PlatformColor(hex: "#E91E63") ?? .systemPink),
+                ("Purple", PlatformColor(hex: "#9C27B0") ?? .systemPurple)
             ]
 
             let add = palette.map { name, color in
@@ -260,3 +261,5 @@ struct DHTextView: UIViewRepresentable {
         }
     }
 }
+
+#endif

@@ -7,7 +7,11 @@
 
 
 import SwiftUI
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 import Combine
 
 
@@ -30,7 +34,7 @@ final class DHViewModel: ObservableObject {
             .assign(to: &$highlights)
     }
 
-    func add(range: NSRange, color: UIColor, in text: NSAttributedString) {
+    func add(range: NSRange, color: PlatformColor, in text: NSAttributedString) {
         guard range.clamped(toStringLength: text.length) != nil else { return }
         let highlight = DHTextHighlight(range: range, color: color)
         highlightsManager.addHighlight(highlight, to: documentId)

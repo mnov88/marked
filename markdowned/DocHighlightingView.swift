@@ -70,38 +70,14 @@ struct DocHighlightingView: View {
             if config.usePageLayout {
                 HStack(spacing: 0) {
                     Spacer(minLength: 0)
-                    DHTextView(
-                        attributedText: composed,
-                        style: config.style,
-                        highlightsSnapshot: vm.highlights,
-                        addHighlight: { range, color in
-                            vm.add(range: range, color: color, in: baseContent)
-                        },
-                        removeHighlightsInRange: { range in
-                            vm.remove(intersecting: range)
-                        },
-                        onTapLink: onLinkTap,
-                        scrollTarget: $scrollTarget
-                    )
-                    .frame(maxWidth: 800, maxHeight: .infinity)
+                    textView
+                        .frame(maxWidth: 800, maxHeight: .infinity)
                     Spacer(minLength: 0)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                DHTextView(
-                    attributedText: composed,
-                    style: config.style,
-                    highlightsSnapshot: vm.highlights,
-                    addHighlight: { range, color in
-                        vm.add(range: range, color: color, in: baseContent)
-                    },
-                    removeHighlightsInRange: { range in
-                        vm.remove(intersecting: range)
-                    },
-                    onTapLink: onLinkTap,
-                    scrollTarget: $scrollTarget
-                )
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                textView
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
 
             Divider()
@@ -117,7 +93,7 @@ struct DocHighlightingView: View {
             }
             .padding(.vertical, 8)
         }
-        .background(Color(uiColor: config.style.backgroundColor))
+        .background(Color(platformColor: config.style.backgroundColor))
         .sheet(isPresented: $showList) {
             DHHighlightList(
                 highlights: vm.highlights,
@@ -131,6 +107,39 @@ struct DocHighlightingView: View {
                 }
             )
         }
+    }
+
+    @ViewBuilder
+    private var textView: some View {
+        #if canImport(UIKit) && !targetEnvironment(macCatalyst)
+        DHTextView(
+            attributedText: composed,
+            style: config.style,
+            highlightsSnapshot: vm.highlights,
+            addHighlight: { range, color in
+                vm.add(range: range, color: color, in: baseContent)
+            },
+            removeHighlightsInRange: { range in
+                vm.remove(intersecting: range)
+            },
+            onTapLink: onLinkTap,
+            scrollTarget: $scrollTarget
+        )
+        #elseif canImport(AppKit)
+        DHTextViewMac(
+            attributedText: composed,
+            style: config.style,
+            highlightsSnapshot: vm.highlights,
+            addHighlight: { range, color in
+                vm.add(range: range, color: color, in: baseContent)
+            },
+            removeHighlightsInRange: { range in
+                vm.remove(intersecting: range)
+            },
+            onTapLink: onLinkTap,
+            scrollTarget: $scrollTarget
+        )
+        #endif
     }
 }
 

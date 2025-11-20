@@ -6,7 +6,11 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 struct Theme: Codable, Equatable {
     var fontName: String
@@ -21,34 +25,46 @@ struct Theme: Codable, Equatable {
     // Convert to DHStyle
     func toDHStyle() -> DHStyle {
         var style = DHStyle()
-        
+
         // Set font
-        if let font = UIFont(name: fontName, size: fontSize) {
+        #if canImport(UIKit)
+        if fontName == "System" {
+            style.font = .systemFont(ofSize: fontSize)
+        } else if let font = UIFont(name: fontName, size: fontSize) {
             style.font = font
         } else {
             style.font = .systemFont(ofSize: fontSize)
         }
-        
+        #elseif canImport(AppKit)
+        if fontName == "System" {
+            style.font = .systemFont(ofSize: fontSize)
+        } else if let font = NSFont(name: fontName, size: fontSize) {
+            style.font = font
+        } else {
+            style.font = .systemFont(ofSize: fontSize)
+        }
+        #endif
+
         // Set colors (respect system color overrides)
         if useSystemBackground {
-            style.backgroundColor = .systemBackground
+            style.backgroundColor = .platformSystemBackground
         } else {
-            style.backgroundColor = UIColor(hex: backgroundColorHex) ?? .systemBackground
+            style.backgroundColor = PlatformColor(hex: backgroundColorHex) ?? .platformSystemBackground
         }
-        
+
         if useSystemTextColor {
-            style.textColor = .label
+            style.textColor = .platformLabel
         } else {
-            style.textColor = UIColor(hex: textColorHex) ?? .label
+            style.textColor = PlatformColor(hex: textColorHex) ?? .platformLabel
         }
-        
+
         // Set line height
         style.lineHeightMultiple = lineHeightMultiple
-        
+
         // Set content insets
         // Page layout constrains text container width, so we use standard insets
-        style.contentInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-        
+        style.contentInsets = PlatformEdgeInsets.all(24)
+
         return style
     }
     

@@ -16,6 +16,7 @@ struct Theme: Codable, Equatable {
     var usePageLayout: Bool
     var useSystemBackground: Bool
     var useSystemTextColor: Bool
+    var horizontalMargin: DHStyle.HorizontalMargin = .medium
 
     // Convert to DHStyle
     func toDHStyle() -> DHStyle {
@@ -48,9 +49,12 @@ struct Theme: Codable, Equatable {
         // Set line height
         style.lineHeightMultiple = lineHeightMultiple
 
-        // Set content insets
-        // Page layout constrains text container width, so we use standard insets
-        style.contentInsets = PlatformEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
+        // Set content insets based on margin setting
+        let baseInset = horizontalMargin.baseInset
+        style.contentInsets = PlatformEdgeInsets(top: 24, left: baseInset, bottom: 24, right: baseInset)
+
+        // Set horizontal margin for page layout mode
+        style.horizontalMargin = horizontalMargin
 
         return style
     }

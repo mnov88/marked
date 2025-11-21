@@ -62,10 +62,11 @@ struct DHComposer {
         }
 
         // Highlights: background only to avoid clobbering link underline
+        // Using higher opacity since we now use softer, pastel highlight colors
         for h in highlights {
             guard let trimmed = trimWhitespaceAndNewlines(h.range, in: out) else { continue }
             out.addAttributes([
-                .backgroundColor: h.color.withAlphaComponent(0.25),
+                .backgroundColor: h.color.withAlphaComponent(0.85),
                 .textItemTag: "\(DHHighlightConstants.tagPrefix)\(h.id.uuidString)"
             ], range: trimmed)
         }

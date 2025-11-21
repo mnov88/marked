@@ -100,6 +100,32 @@ struct DHStyle {
     var alignment: NSTextAlignment = .left
     var contentInsets: PlatformEdgeInsets = .init(top: 24, left: 16, bottom: 24, right: 16)
     var lineBreakStrategy: NSParagraphStyle.LineBreakStrategy = [.hangulWordPriority, .pushOut]
+
+    // Page layout settings - horizontal insets calculated from available width
+    var pageLayoutMaxWidth: CGFloat = 700  // Maximum content width in page layout mode
+    var horizontalMargin: HorizontalMargin = .medium
+
+    enum HorizontalMargin: String, Codable, CaseIterable {
+        case narrow = "Narrow"
+        case medium = "Medium"
+        case wide = "Wide"
+
+        var baseInset: CGFloat {
+            switch self {
+            case .narrow: return 16
+            case .medium: return 24
+            case .wide: return 40
+            }
+        }
+
+        var maxContentWidth: CGFloat {
+            switch self {
+            case .narrow: return 760
+            case .medium: return 700
+            case .wide: return 600
+            }
+        }
+    }
 }
 
 struct DHConfig {

@@ -21,6 +21,10 @@ struct DHTextView: UIViewRepresentable {
     let onTapLink: (URL) -> Void
     @Binding var scrollTarget: NSRange?
 
+    // Page layout support - available width for dynamic inset calculation
+    var availableWidth: CGFloat?
+    var usePageLayout: Bool = false
+
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     func makeUIView(context: Context) -> UITextView {
@@ -30,7 +34,7 @@ struct DHTextView: UIViewRepresentable {
         tv.isSelectable = true
         tv.isScrollEnabled = true
         tv.adjustsFontForContentSizeCategory = true
-        tv.textContainerInset = style.contentInsets
+        tv.textContainerInset = calculateInsets()
         tv.textContainer.lineFragmentPadding = 8
         tv.backgroundColor = style.backgroundColor
         tv.linkTextAttributes = [
@@ -39,13 +43,59 @@ struct DHTextView: UIViewRepresentable {
         ]
         tv.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
+        // Position scrollbar at window edge, not content edge
+        if usePageLayout, let width = availableWidth {
+            let insets = calculateInsets()
+            // Keep vertical scroll indicator insets minimal, push horizontal scrollbar to edge
+            tv.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -insets.right + style.horizontalMargin.baseInset)
+        }
+
         return tv
     }
 
+    /// Calculate content insets - for page layout, center content within available width
+    private func calculateInsets() -> UIEdgeInsets {
+        guard usePageLayout, let width = availableWidth else {
+            return style.contentInsets
+        }
+
+        let maxContentWidth = style.horizontalMargin.maxContentWidth
+        let baseInset = style.horizontalMargin.baseInset
+
+        // If available width exceeds max content width, add extra horizontal padding
+        if width > maxContentWidth + (baseInset * 2) {
+            let extraHorizontalInset = (width - maxContentWidth) / 2
+            return UIEdgeInsets(
+                top: style.contentInsets.top,
+                left: extraHorizontalInset,
+                bottom: style.contentInsets.bottom,
+                right: extraHorizontalInset
+            )
+        } else {
+            // Use base margin insets
+            return UIEdgeInsets(
+                top: style.contentInsets.top,
+                left: baseInset,
+                bottom: style.contentInsets.bottom,
+                right: baseInset
+            )
+        }
+    }
+
     func updateUIView(_ uiView: UITextView, context: Context) {
-        // Update insets if changed
-        if uiView.textContainerInset != style.contentInsets {
-            uiView.textContainerInset = style.contentInsets
+        // Update insets if changed (use calculated insets for page layout)
+        let calculatedInsets = calculateInsets()
+        if uiView.textContainerInset != calculatedInsets {
+            uiView.textContainerInset = calculatedInsets
+        }
+
+        // Update scroll indicator insets for page layout
+        if usePageLayout {
+            let rightInset = max(0, -calculatedInsets.right + style.horizontalMargin.baseInset)
+            let newScrollInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightInset)
+            if uiView.verticalScrollIndicatorInsets != newScrollInsets {
+                uiView.verticalScrollIndicatorInsets = newScrollInsets
+            }
         }
         
         // Avoid resetting if identical
@@ -109,12 +159,13 @@ struct DHTextView: UIViewRepresentable {
                 }
             }
 
+            // Soft, warm highlighter colors inspired by physical highlighters and e-readers
             let palette: [(String, UIColor)] = [
-                ("Yellow", UIColor(hex: "#FFEB3B") ?? .systemYellow),
-                ("Green",  UIColor(hex: "#4CAF50") ?? .systemGreen),
-                ("Blue",   UIColor(hex: "#2196F3") ?? .systemBlue),
-                ("Pink",   UIColor(hex: "#E91E63") ?? .systemPink),
-                ("Purple", UIColor(hex: "#9C27B0") ?? .systemPurple)
+                ("Yellow", UIColor(hex: "#FEF3B5") ?? .systemYellow),   // Soft butter yellow
+                ("Green",  UIColor(hex: "#C8E6C9") ?? .systemGreen),    // Soft mint green
+                ("Blue",   UIColor(hex: "#BBDEFB") ?? .systemBlue),     // Soft sky blue
+                ("Pink",   UIColor(hex: "#F8BBD9") ?? .systemPink),     // Soft rose pink
+                ("Orange", UIColor(hex: "#FFE0B2") ?? .systemOrange)    // Soft peach orange
             ]
 
             let add = palette.map { name, color in

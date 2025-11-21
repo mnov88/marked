@@ -13,23 +13,14 @@ struct markdownedApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TabView {
-                MockDocList()
-                    .tabItem {
-                        Label("Documents", systemImage: "doc.text")
-                    }
-
-                AllHighlightsView()
-                    .tabItem {
-                        Label("Highlights", systemImage: "highlighter")
-                    }
-
-                SettingsView()
-                    .tabItem {
-                        Label("Settings", systemImage: "gear")
-                    }
-            }
-            .environmentObject(themeManager)
+            ContentView()
+                .environmentObject(themeManager)
         }
+        #if os(macOS)
+        // iOS 26: Menu bar commands now also work on iPad
+        .commands {
+            AppCommands()
+        }
+        #endif
     }
 }

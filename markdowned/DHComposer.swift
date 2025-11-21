@@ -8,7 +8,6 @@
 
 
 import SwiftUI
-import UIKit
 import Combine
 
 // MARK: - Composer
@@ -55,7 +54,11 @@ struct DHComposer {
                   NSMaxRange(l.range) <= out.length else { continue }
             out.addAttribute(.link, value: l.url, range: l.range)
             out.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: l.range)
-            out.addAttribute(.foregroundColor, value: UIColor.link, range: l.range)
+            #if canImport(UIKit)
+            out.addAttribute(.foregroundColor, value: PlatformColor.link, range: l.range)
+            #elseif canImport(AppKit)
+            out.addAttribute(.foregroundColor, value: PlatformColor.systemBlue, range: l.range)
+            #endif
         }
 
         // Highlights: background only to avoid clobbering link underline

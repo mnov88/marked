@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct SettingsView: View {
     @EnvironmentObject private var themeManager: ThemeManager
@@ -129,10 +128,10 @@ struct SettingsView: View {
                 ColorPicker(
                     "Background Color",
                     selection: Binding(
-                        get: { Color(UIColor(hex: themeManager.customTheme.backgroundColorHex) ?? .systemBackground) },
+                        get: { Color(platformColor: PlatformColor(hex: themeManager.customTheme.backgroundColorHex) ?? .systemBackground) },
                         set: {
                             var updated = themeManager.customTheme
-                            updated.backgroundColorHex = UIColor($0).hexString
+                            updated.backgroundColorHex = $0.platformColor.hexString
                             themeManager.customTheme = updated
                         }
                     )
@@ -153,10 +152,10 @@ struct SettingsView: View {
                 ColorPicker(
                     "Text Color",
                     selection: Binding(
-                        get: { Color(UIColor(hex: themeManager.customTheme.textColorHex) ?? .label) },
+                        get: { Color(platformColor: PlatformColor(hex: themeManager.customTheme.textColorHex) ?? .label) },
                         set: {
                             var updated = themeManager.customTheme
-                            updated.textColorHex = UIColor($0).hexString
+                            updated.textColorHex = $0.platformColor.hexString
                             themeManager.customTheme = updated
                         }
                     )

@@ -6,7 +6,6 @@
 //
 import Foundation
 import GRDB
-import UIKit
 
 /// Database record for highlights using GRDB Codable records
 struct DBHighlight: Identifiable, Codable, FetchableRecord, PersistableRecord {
@@ -54,7 +53,7 @@ extension DBHighlight {
         }
 
         let range = NSRange(location: location, length: length)
-        let color = UIColor(hex: colorHex) ?? .systemYellow
+        let color = PlatformColor(hex: colorHex) ?? .systemYellow
 
         return DHTextHighlight(id: uuid, range: range, color: color)
     }

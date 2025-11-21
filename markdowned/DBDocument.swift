@@ -6,7 +6,6 @@
 //
 import Foundation
 import GRDB
-import UIKit
 
 /// Database record for documents using GRDB Codable records
 struct DBDocument: Identifiable, Codable, FetchableRecord, PersistableRecord {

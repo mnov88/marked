@@ -635,7 +635,6 @@
 //
 
 import SwiftUI
-import UIKit
 import Combine
 
 
@@ -656,7 +655,7 @@ struct DHHighlightList: View {
                     ForEach(highlights) { h in
                         Button { onSelect(h.id) } label: {
                             HStack(alignment: .top, spacing: 12) {
-                                Color(uiColor: h.color)
+                                Color(platformColor: h.color)
                                     .frame(width: 12, height: 12)
                                     .clipShape(RoundedRectangle(cornerRadius: 3))
                                     .padding(.top, 3)

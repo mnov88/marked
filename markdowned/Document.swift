@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 /// Document model supporting both static content and URL-loaded content
 struct Document: Identifiable, Hashable {

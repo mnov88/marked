@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 // MARK: - In-Memory Category Model
 
@@ -14,7 +13,7 @@ import UIKit
 struct Category: Identifiable, Hashable, Codable {
     let id: UUID
     var name: String
-    var color: UIColor
+    var color: PlatformColor
     var icon: String
     var sortOrder: Int
     var createdAt: Date
@@ -22,7 +21,7 @@ struct Category: Identifiable, Hashable, Codable {
     init(
         id: UUID = UUID(),
         name: String,
-        color: UIColor = .systemBlue,
+        color: PlatformColor = .systemBlue,
         icon: String = "folder",
         sortOrder: Int = 0,
         createdAt: Date = Date()
@@ -69,7 +68,7 @@ struct Category: Identifiable, Hashable, Codable {
         id = try container.decode(UUID.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
         let colorHex = try container.decode(String.self, forKey: .colorHex)
-        color = UIColor(hex: colorHex) ?? .systemBlue
+        color = PlatformColor(hex: colorHex) ?? .systemBlue
         icon = try container.decode(String.self, forKey: .icon)
         sortOrder = try container.decode(Int.self, forKey: .sortOrder)
         createdAt = try container.decode(Date.self, forKey: .createdAt)

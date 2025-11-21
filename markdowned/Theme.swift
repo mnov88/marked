@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct Theme: Codable, Equatable {
     var fontName: String
@@ -17,38 +16,42 @@ struct Theme: Codable, Equatable {
     var usePageLayout: Bool
     var useSystemBackground: Bool
     var useSystemTextColor: Bool
-    
+
     // Convert to DHStyle
     func toDHStyle() -> DHStyle {
         var style = DHStyle()
-        
+
         // Set font
-        if let font = UIFont(name: fontName, size: fontSize) {
+        if let font = PlatformFont(name: fontName, size: fontSize) {
             style.font = font
         } else {
+            #if canImport(UIKit)
             style.font = .systemFont(ofSize: fontSize)
+            #elseif canImport(AppKit)
+            style.font = .systemFont(ofSize: fontSize)
+            #endif
         }
-        
+
         // Set colors (respect system color overrides)
         if useSystemBackground {
             style.backgroundColor = .systemBackground
         } else {
-            style.backgroundColor = UIColor(hex: backgroundColorHex) ?? .systemBackground
+            style.backgroundColor = PlatformColor(hex: backgroundColorHex) ?? .systemBackground
         }
-        
+
         if useSystemTextColor {
             style.textColor = .label
         } else {
-            style.textColor = UIColor(hex: textColorHex) ?? .label
+            style.textColor = PlatformColor(hex: textColorHex) ?? .label
         }
-        
+
         // Set line height
         style.lineHeightMultiple = lineHeightMultiple
-        
+
         // Set content insets
         // Page layout constrains text container width, so we use standard insets
-        style.contentInsets = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
-        
+        style.contentInsets = PlatformEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
+
         return style
     }
     

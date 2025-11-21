@@ -84,7 +84,7 @@ struct SidebarView: View {
                             Text(category.name)
                         } icon: {
                             Image(systemName: category.icon)
-                                .foregroundStyle(Color(uiColor: category.color))
+                                .foregroundStyle(Color(platformColor: category.color))
                         }
                         .tag(SidebarItem.category(category))
                     }

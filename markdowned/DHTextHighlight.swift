@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 import Combine
 
 // MARK: - Models
@@ -18,15 +17,15 @@ enum DHHighlightConstants {
 struct DHTextHighlight: Identifiable, Equatable, Codable {
     let id: UUID
     let range: NSRange
-    let color: UIColor
+    let color: PlatformColor
 
-    init(id: UUID = UUID(), range: NSRange, color: UIColor) {
+    init(id: UUID = UUID(), range: NSRange, color: PlatformColor) {
         self.id = id
         self.range = range
         self.color = color
     }
 
-    // Equatable without relying on UIColor conformance
+    // Equatable without relying on PlatformColor conformance
     static func == (lhs: DHTextHighlight, rhs: DHTextHighlight) -> Bool {
         lhs.id == rhs.id && lhs.range == rhs.range && lhs.color.rgba == rhs.color.rgba
     }
@@ -44,7 +43,7 @@ struct DHTextHighlight: Identifiable, Equatable, Codable {
         let length = try container.decode(Int.self, forKey: .length)
         range = NSRange(location: location, length: length)
         let colorHex = try container.decode(String.self, forKey: .colorHex)
-        color = UIColor(hex: colorHex) ?? .systemYellow
+        color = PlatformColor(hex: colorHex) ?? .systemYellow
     }
 
     func encode(to encoder: Encoder) throws {
@@ -93,13 +92,13 @@ struct DHIndentSpan: Identifiable, Equatable {
 // MARK: - Configuration
 
 struct DHStyle {
-    var font: UIFont = .preferredFont(forTextStyle: .body)
-    var textColor: UIColor = .label
-    var backgroundColor: UIColor = .systemBackground
+    var font: PlatformFont = .preferredFont(forTextStyle: .body)
+    var textColor: PlatformColor = .label
+    var backgroundColor: PlatformColor = .systemBackground
     var lineHeightMultiple: CGFloat = 1.2
     var paragraphSpacing: CGFloat = 4
     var alignment: NSTextAlignment = .left
-    var contentInsets: UIEdgeInsets = .init(top: 24, left: 16, bottom: 24, right: 16)
+    var contentInsets: PlatformEdgeInsets = .init(top: 24, left: 16, bottom: 24, right: 16)
     var lineBreakStrategy: NSParagraphStyle.LineBreakStrategy = [.hangulWordPriority, .pushOut]
 }
 

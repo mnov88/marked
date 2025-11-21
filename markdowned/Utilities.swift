@@ -5,7 +5,7 @@
 //  Created by Milos Novovic on 10/11/2025.
 //
 import Foundation
-import UIKit
+
 // MARK: - Helpers (consolidated)
 
 // Lorem generator for demos
@@ -92,36 +92,7 @@ enum LoremGen {
     }
 }
 
-extension UIColor {
-    convenience init?(hex: String) {
-        var s = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        if s.hasPrefix("#") { s.removeFirst() }
-        guard s.count == 6, let rgb = UInt32(s, radix: 16) else { return nil }
-        self.init(red: CGFloat((rgb >> 16) & 0xFF)/255.0,
-                  green: CGFloat((rgb >> 8) & 0xFF)/255.0,
-                  blue: CGFloat(rgb & 0xFF)/255.0,
-                  alpha: 1.0)
-    }
-
-    // For equality comparisons
-    var rgba: (CGFloat, CGFloat, CGFloat, CGFloat) {
-        var r: CGFloat = .zero, g: CGFloat = .zero, b: CGFloat = .zero, a: CGFloat = .zero
-        getRed(&r, green: &g, blue: &b, alpha: &a)
-        return (r, g, b, a)
-    }
-    
-    var hexString: String {
-        var r: CGFloat = 0
-        var g: CGFloat = 0
-        var b: CGFloat = 0
-        var a: CGFloat = 0
-        
-        getRed(&r, green: &g, blue: &b, alpha: &a)
-        
-        let rgb = Int(r * 255) << 16 | Int(g * 255) << 8 | Int(b * 255)
-        return String(format: "#%06X", rgb)
-    }
-}
+// Note: UIColor/NSColor extensions moved to CrossPlatform.swift for cross-platform compatibility
 
 extension NSRange {
     /// Returns self if it fits inside `stringLength`, else nil.

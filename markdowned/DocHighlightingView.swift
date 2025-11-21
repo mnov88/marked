@@ -20,6 +20,7 @@ struct DocHighlightingView: View {
 
     @StateObject private var vm: DHViewModel
     @State private var showList = false
+    @State private var showAppearance = false
     @State private var scrollTarget: NSRange? = nil
 
     // Plain string init
@@ -67,27 +68,7 @@ struct DocHighlightingView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            if config.usePageLayout {
-                HStack(spacing: 0) {
-                    Spacer(minLength: 0)
-                    DHTextView(
-                        attributedText: composed,
-                        style: config.style,
-                        highlightsSnapshot: vm.highlights,
-                        addHighlight: { range, color in
-                            vm.add(range: range, color: color, in: baseContent)
-                        },
-                        removeHighlightsInRange: { range in
-                            vm.remove(intersecting: range)
-                        },
-                        onTapLink: onLinkTap,
-                        scrollTarget: $scrollTarget
-                    )
-                    .frame(maxWidth: 800, maxHeight: .infinity)
-                    Spacer(minLength: 0)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
+            GeometryReader { geometry in
                 DHTextView(
                     attributedText: composed,
                     style: config.style,
@@ -99,13 +80,16 @@ struct DocHighlightingView: View {
                         vm.remove(intersecting: range)
                     },
                     onTapLink: onLinkTap,
-                    scrollTarget: $scrollTarget
+                    scrollTarget: $scrollTarget,
+                    availableWidth: geometry.size.width,
+                    usePageLayout: config.usePageLayout
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
 
             Divider()
 
+            // Bottom toolbar with highlights and appearance buttons
             HStack {
                 Button {
                     showList.toggle()
@@ -113,7 +97,15 @@ struct DocHighlightingView: View {
                     Label("Highlights", systemImage: "highlighter")
                 }
                 .padding(.horizontal)
+
                 Spacer()
+
+                Button {
+                    showAppearance.toggle()
+                } label: {
+                    Label("Appearance", systemImage: "textformat.size")
+                }
+                .padding(.horizontal)
             }
             .padding(.vertical, 8)
         }
@@ -130,6 +122,9 @@ struct DocHighlightingView: View {
                     vm.remove(id: id)
                 }
             )
+        }
+        .sheet(isPresented: $showAppearance) {
+            AppearancePanel()
         }
     }
 }

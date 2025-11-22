@@ -12,6 +12,7 @@ struct AllHighlightsView: View {
     @ObservedObject private var documentsManager = DocumentsManager.shared
     @EnvironmentObject private var themeManager: ThemeManager
     @State private var navigationTarget: NavigationTarget?
+    @State private var compositionPickerHighlightId: UUID?
 
     var body: some View {
         NavigationStack {
@@ -26,6 +27,11 @@ struct AllHighlightsView: View {
             .navigationDestination(item: $navigationTarget) { target in
                 if let document = documentsManager.document(withId: target.documentId) {
                     destinationView(for: document, scrollTo: target.highlightRange)
+                }
+            }
+            .sheet(item: $compositionPickerHighlightId) { highlightId in
+                CompositionPickerSheet(highlightId: highlightId) {
+                    compositionPickerHighlightId = nil
                 }
             }
         }
@@ -93,7 +99,36 @@ struct AllHighlightsView: View {
                 }
             }
         }
-        .swipeActions {
+        .swipeActions(edge: .trailing) {
+            Button(role: .destructive) {
+                highlightsManager.removeHighlight(id: highlight.id, from: documentId)
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
+        .swipeActions(edge: .leading) {
+            Button {
+                compositionPickerHighlightId = highlight.id
+            } label: {
+                Label("Add to Composition", systemImage: "doc.on.doc")
+            }
+            .tint(.blue)
+        }
+        .contextMenu {
+            Button {
+                navigationTarget = NavigationTarget(documentId: documentId, highlightRange: highlight.range)
+            } label: {
+                Label("Go to Source", systemImage: "arrow.right.doc.on.clipboard")
+            }
+
+            Button {
+                compositionPickerHighlightId = highlight.id
+            } label: {
+                Label("Add to Composition", systemImage: "doc.on.doc")
+            }
+
+            Divider()
+
             Button(role: .destructive) {
                 highlightsManager.removeHighlight(id: highlight.id, from: documentId)
             } label: {

@@ -12,6 +12,7 @@ enum SidebarItem: Hashable, Identifiable {
     case category(Category)
     case allDocuments
     case highlights
+    case assembly
     case settings
 
     var id: String {
@@ -22,6 +23,8 @@ enum SidebarItem: Hashable, Identifiable {
             return "all-documents"
         case .highlights:
             return "highlights"
+        case .assembly:
+            return "assembly"
         case .settings:
             return "settings"
         }
@@ -35,6 +38,8 @@ enum SidebarItem: Hashable, Identifiable {
             return "All Documents"
         case .highlights:
             return "Highlights"
+        case .assembly:
+            return "Assembly"
         case .settings:
             return "Settings"
         }
@@ -48,6 +53,8 @@ enum SidebarItem: Hashable, Identifiable {
             return "doc.text"
         case .highlights:
             return "highlighter"
+        case .assembly:
+            return "doc.on.doc"
         case .settings:
             return "gear"
         }
@@ -69,6 +76,12 @@ struct SidebarView: View {
 
                 Label("Highlights", systemImage: "highlighter")
                     .tag(SidebarItem.highlights)
+            }
+
+            // Assembly Section (Document Assembly Feature)
+            Section("Assembly") {
+                Label("Compositions", systemImage: "doc.on.doc")
+                    .tag(SidebarItem.assembly)
             }
 
             // Categories Section (Placeholder for future)

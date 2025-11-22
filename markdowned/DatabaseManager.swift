@@ -101,6 +101,42 @@ final class DatabaseManager {
             print("Migration v2: Ready for UserDefaults highlights migration")
         }
 
+        // Migration v3: Add composition tables for document assembly feature
+        migrator.registerMigration("v3_compositions") { db in
+            // Create compositions table
+            try db.create(table: "composition") { t in
+                t.primaryKey("id", .text)
+                t.column("title", .text).notNull()
+                t.column("sortMode", .text).notNull().defaults(to: "manual")
+                t.column("createdAt", .datetime).notNull()
+                t.column("modifiedAt", .datetime).notNull()
+            }
+
+            // Create composition fragments junction table
+            try db.create(table: "compositionFragment") { t in
+                t.primaryKey("id", .text)
+                t.column("compositionId", .text)
+                    .notNull()
+                    .indexed()
+                    .references("composition", onDelete: .cascade)
+                t.column("highlightId", .text)
+                    .notNull()
+                    .indexed()
+                    .references("highlight", onDelete: .cascade)
+                t.column("sortOrder", .integer).notNull()
+                t.column("createdAt", .datetime).notNull()
+
+                // Prevent duplicate highlight in same composition
+                t.uniqueKey(["compositionId", "highlightId"])
+            }
+
+            // Create indexes for efficient queries
+            try db.create(index: "idx_compositionFragment_compositionId", on: "compositionFragment", columns: ["compositionId"])
+            try db.create(index: "idx_compositionFragment_highlightId", on: "compositionFragment", columns: ["highlightId"])
+
+            print("Migration v3: Created composition and compositionFragment tables")
+        }
+
         return migrator
     }
 

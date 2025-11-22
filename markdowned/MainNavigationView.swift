@@ -210,7 +210,7 @@ struct DocumentsListView: View {
 
     @ViewBuilder
     private func destination(for doc: Document) -> some View {
-        let config = makeConfig()
+        let config = themeManager.makeDocumentConfig()
 
         switch doc.content {
         case .plain(let s):
@@ -228,12 +228,7 @@ struct DocumentsListView: View {
         }
     }
 
-    private func makeConfig() -> DHConfig {
-        var config = DHConfig()
-        config.style = themeManager.currentTheme.toDHStyle()
-        config.usePageLayout = themeManager.currentTheme.usePageLayout
-        return config
-    }
+    // makeConfig() moved to ThemeManager.makeDocumentConfig() (DRY)
 }
 
 #Preview("Mac/iPad Navigation") {

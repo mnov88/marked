@@ -6,6 +6,154 @@
 //
 import Foundation
 
+// MARK: - Snippet Extraction (shared utility for DRY)
+
+/// Shared utility for extracting text snippets from documents
+/// Used by CompositionsManager and AllHighlightsView
+enum SnippetExtractor {
+    /// Extract a snippet of text for a highlight from a document
+    /// - Parameters:
+    ///   - highlight: The highlight to extract text for
+    ///   - document: The document containing the highlighted text
+    ///   - maxLength: Maximum length of the snippet (default 200)
+    /// - Returns: The extracted text snippet, truncated if necessary
+    static func extract(for highlight: DHTextHighlight, in document: Document, maxLength: Int = 200) -> String {
+        let text = document.textContent
+        let nsString = text as NSString
+
+        guard highlight.range.location >= 0,
+              highlight.range.location + highlight.range.length <= nsString.length else {
+            return ""
+        }
+
+        let snippet = nsString.substring(with: highlight.range)
+        if snippet.count > maxLength {
+            return String(snippet.prefix(maxLength)) + "…"
+        }
+        return snippet
+    }
+
+    /// Extract a snippet with surrounding context and markers
+    /// - Parameters:
+    ///   - highlight: The highlight to extract text for
+    ///   - document: The document containing the highlighted text
+    ///   - context: Number of characters of context on each side
+    /// - Returns: The snippet with «» markers around the highlighted portion
+    static func extractWithContext(for highlight: DHTextHighlight, in document: Document, context: Int = 40) -> String {
+        let text = document.textContent
+        let nsString = text as NSString
+
+        guard highlight.range.location >= 0,
+              highlight.range.location + highlight.range.length <= nsString.length else {
+            return ""
+        }
+
+        guard let textRange = Range(highlight.range, in: text) else { return "" }
+
+        let startUTF16 = text.utf16.index(
+            text.utf16.startIndex,
+            offsetBy: max(highlight.range.location - context, 0),
+            limitedBy: text.utf16.endIndex
+        ) ?? text.utf16.startIndex
+
+        let endUTF16 = text.utf16.index(
+            text.utf16.startIndex,
+            offsetBy: min(highlight.range.location + highlight.range.length + context, text.utf16.count),
+            limitedBy: text.utf16.endIndex
+        ) ?? text.utf16.endIndex
+
+        let start = String.Index(startUTF16, within: text) ?? text.startIndex
+        let end = String.Index(endUTF16, within: text) ?? text.endIndex
+        var window = String(text[start..<end])
+
+        // Mark the highlighted segment within the window
+        if let local = window.range(of: String(text[textRange])) {
+            window.replaceSubrange(local.upperBound..<local.upperBound, with: "»")
+            window.replaceSubrange(local.lowerBound..<local.lowerBound, with: "«")
+        }
+        return window
+    }
+}
+
+// MARK: - Document Extension for Text Content
+
+extension Document {
+    /// Get the plain text content of the document
+    var textContent: String {
+        switch content {
+        case .plain(let s):
+            return s
+        case .attributed(let a):
+            return a.string
+        }
+    }
+}
+
+// MARK: - Shared Configuration Builder (DRY)
+
+/// Extension on ThemeManager to create DHConfig
+/// Used by DocumentsListView, AllHighlightsView, and other document viewing contexts
+extension ThemeManager {
+    /// Build a DHConfig from the current theme settings
+    func makeDocumentConfig() -> DHConfig {
+        var config = DHConfig()
+        config.style = currentTheme.toDHStyle()
+        config.usePageLayout = currentTheme.usePageLayout
+        return config
+    }
+}
+
+// MARK: - Safe UUID Parsing (DRY - avoiding force unwraps)
+
+extension String {
+    /// Safely parse as UUID, returning nil if invalid
+    var uuid: UUID? {
+        UUID(uuidString: self)
+    }
+}
+
+/// Custom error for database operations
+struct DatabaseError: LocalizedError {
+    let message: String
+    var errorDescription: String? { message }
+}
+
+// MARK: - App Error Types (consolidated error handling)
+
+/// Unified error type for app operations
+enum AppError: LocalizedError {
+    case database(String)
+    case network(String)
+    case invalidData(String)
+    case unknown(Error)
+
+    var errorDescription: String? {
+        switch self {
+        case .database(let message):
+            return "Database Error: \(message)"
+        case .network(let message):
+            return "Network Error: \(message)"
+        case .invalidData(let message):
+            return "Invalid Data: \(message)"
+        case .unknown(let error):
+            return "Error: \(error.localizedDescription)"
+        }
+    }
+
+    var recoverySuggestion: String? {
+        switch self {
+        case .database:
+            return "Try restarting the app. If the problem persists, contact support."
+        case .network:
+            return "Check your internet connection and try again."
+        case .invalidData:
+            return "The data may be corrupted. Try removing and re-adding the item."
+        case .unknown:
+            return "Please try again."
+        }
+    }
+}
+
 // MARK: - Helpers (consolidated)
 
 // Lorem generator for demos
@@ -117,13 +265,4 @@ extension NSString {
     }
 }
 
-extension UIColor {
-    /// Convert this Color to a hexadecimal string (#RRGGBB)
-    func toHex() -> String? {
-        let uiColor = UIColor()
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        guard uiColor.getRed(&r, green: &g, blue: &b, alpha: &a) else { return nil }
-        return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
-    }
-
-}
+// Note: UIColor.toHex() is defined in CrossPlatform.swift to avoid duplication

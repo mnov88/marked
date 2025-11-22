@@ -17,6 +17,9 @@ final class HighlightsManager: ObservableObject {
     // Dictionary mapping document ID to its highlights
     @Published private(set) var highlightsByDocument: [UUID: [DHTextHighlight]] = [:]
 
+    // Error state for UI feedback
+    @Published var lastError: AppError?
+
     private var observationCancellable: AnyCancellable?
     private let db = DatabaseManager.shared
     private let userDefaults = UserDefaults.standard
@@ -118,8 +121,9 @@ final class HighlightsManager: ObservableObject {
             _ = try db.write { db in
                 try dbHighlight.insert(db)
             }
+            lastError = nil
         } catch {
-            print("Failed to add highlight: \(error)")
+            lastError = .database("Failed to add highlight: \(error.localizedDescription)")
         }
     }
 
@@ -129,8 +133,9 @@ final class HighlightsManager: ObservableObject {
             _ = try db.write { db in
                 try DBHighlight.deleteOne(db, key: id.uuidString)
             }
+            lastError = nil
         } catch {
-            print("Failed to remove highlight: \(error)")
+            lastError = .database("Failed to remove highlight: \(error.localizedDescription)")
         }
     }
 
@@ -147,8 +152,9 @@ final class HighlightsManager: ObservableObject {
                     }
                 }
             }
+            lastError = nil
         } catch {
-            print("Failed to remove intersecting highlights: \(error)")
+            lastError = .database("Failed to remove highlights: \(error.localizedDescription)")
         }
     }
 
@@ -165,8 +171,9 @@ final class HighlightsManager: ObservableObject {
                     try dbHighlight.insert(db)
                 }
             }
+            lastError = nil
         } catch {
-            print("Failed to set highlights: \(error)")
+            lastError = .database("Failed to set highlights: \(error.localizedDescription)")
         }
     }
 
@@ -183,9 +190,15 @@ final class HighlightsManager: ObservableObject {
             _ = try db.write { db in
                 try DBHighlight.deleteAll(db)
             }
+            lastError = nil
         } catch {
-            print("Failed to clear all highlights: \(error)")
+            lastError = .database("Failed to clear all highlights: \(error.localizedDescription)")
         }
+    }
+
+    /// Clear the current error state
+    func clearError() {
+        lastError = nil
     }
 
     // MARK: - Additional CRUD Operations

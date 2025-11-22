@@ -15,6 +15,10 @@ struct AllHighlightsView: View {
     @State private var showCompositionPicker = false
     @State private var selectedHighlightIdForComposition: UUID?
 
+    // Pagination state for performance with large datasets
+    @State private var displayedHighlightsPerGroup: Int = 20
+    private let pageSize: Int = 20
+
     var body: some View {
         NavigationStack {
             Group {
@@ -58,16 +62,42 @@ struct AllHighlightsView: View {
         List {
             ForEach(groupedHighlights, id: \.documentId) { group in
                 Section {
-                    ForEach(group.highlights) { highlight in
+                    // Show only paginated highlights for performance
+                    let displayedHighlights = Array(group.highlights.prefix(displayedHighlightsPerGroup))
+                    ForEach(displayedHighlights) { highlight in
                         highlightRow(
                             highlight: highlight,
                             documentId: group.documentId,
                             documentTitle: group.documentTitle
                         )
                     }
+
+                    // "Load More" button when there are more highlights in this group
+                    if group.highlights.count > displayedHighlightsPerGroup {
+                        Button {
+                            withAnimation {
+                                displayedHighlightsPerGroup += pageSize
+                            }
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Load More (\(group.highlights.count - displayedHighlightsPerGroup) remaining)")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                Spacer()
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
                 } header: {
-                    Text(group.documentTitle)
-                        .font(.headline)
+                    HStack {
+                        Text(group.documentTitle)
+                            .font(.headline)
+                        Spacer()
+                        Text("\(group.highlights.count)")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
         }
@@ -89,7 +119,7 @@ struct AllHighlightsView: View {
 
                 VStack(alignment: .leading, spacing: 4) {
                     if let document = documentsManager.document(withId: documentId) {
-                        Text(snippet(for: highlight, in: document))
+                        Text(SnippetExtractor.extractWithContext(for: highlight, in: document))
                             .font(.body)
                             .lineLimit(3)
                             .foregroundStyle(.primary)
@@ -157,51 +187,11 @@ struct AllHighlightsView: View {
         .sorted { $0.documentTitle < $1.documentTitle }
     }
 
-    private func snippet(for highlight: DHTextHighlight, in document: Document, context: Int = 40) -> String {
-        let text: String
-        switch document.content {
-        case .plain(let s):
-            text = s
-        case .attributed(let a):
-            text = a.string
-        }
-
-        let backingString = text as NSString
-        guard highlight.range.location >= 0,
-              highlight.range.location + highlight.range.length <= backingString.length else {
-            return ""
-        }
-
-        let full = text
-        guard let textRange = Range(highlight.range, in: full) else { return "" }
-
-        let startUTF16 = full.utf16.index(
-            full.utf16.startIndex,
-            offsetBy: max(highlight.range.location - context, 0),
-            limitedBy: full.utf16.endIndex
-        ) ?? full.utf16.startIndex
-
-        let endUTF16 = full.utf16.index(
-            full.utf16.startIndex,
-            offsetBy: min(highlight.range.location + highlight.range.length + context, full.utf16.count),
-            limitedBy: full.utf16.endIndex
-        ) ?? full.utf16.endIndex
-
-        let start = String.Index(startUTF16, within: full) ?? full.startIndex
-        let end = String.Index(endUTF16, within: full) ?? full.endIndex
-        var window = String(full[start..<end])
-
-        // Mark the highlighted segment within the window
-        if let local = window.range(of: String(full[textRange])) {
-            window.replaceSubrange(local.upperBound..<local.upperBound, with: "»")
-            window.replaceSubrange(local.lowerBound..<local.lowerBound, with: "«")
-        }
-        return window
-    }
+    // Snippet extraction moved to SnippetExtractor utility (DRY)
 
     @ViewBuilder
     private func destinationView(for document: Document, scrollTo range: NSRange?) -> some View {
-        let config = makeConfig()
+        let config = themeManager.makeDocumentConfig()
 
         switch document.content {
         case .plain(let s):
@@ -229,12 +219,7 @@ struct AllHighlightsView: View {
         }
     }
 
-    private func makeConfig() -> DHConfig {
-        var config = DHConfig()
-        config.style = themeManager.currentTheme.toDHStyle()
-        config.usePageLayout = themeManager.currentTheme.usePageLayout
-        return config
-    }
+    // makeConfig() moved to ThemeManager.makeDocumentConfig() (DRY)
 }
 
 // MARK: - Supporting Types

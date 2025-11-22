@@ -16,6 +16,9 @@ final class DocumentsManager: ObservableObject {
 
     @Published var documents: [Document] = []
 
+    // Error state for UI feedback
+    @Published var lastError: AppError?
+
     private var observationCancellable: AnyCancellable?
     private let db = DatabaseManager.shared
 

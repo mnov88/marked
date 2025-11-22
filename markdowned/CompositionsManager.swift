@@ -31,10 +31,10 @@ final class CompositionsManager: ObservableObject {
         // Create ValueObservation for reactive updates
         let observation = ValueObservation.tracking { db -> [(DBComposition, [DBCompositionFragment])] in
             let compositions = try DBComposition.allOrdered().fetchAll(db)
-            return try compositions.map { composition in
-                let fragments = try DBCompositionFragment.fragmentsForComposition(
-                    UUID(uuidString: composition.id)!
-                ).fetchAll(db)
+            return try compositions.compactMap { composition in
+                // Use safe UUID parsing instead of force unwrap
+                guard let compositionId = composition.id.uuid else { return nil }
+                let fragments = try DBCompositionFragment.fragmentsForComposition(compositionId).fetchAll(db)
                 return (composition, fragments)
             }
         }
@@ -53,14 +53,39 @@ final class CompositionsManager: ObservableObject {
     }
 
     private func updateCompositions(from data: [(DBComposition, [DBCompositionFragment])]) {
+        // Build lookup tables ONCE instead of for each fragment (O(n) instead of O(n*m))
+        let highlightLookup = buildHighlightLookup()
+        let documentLookup = buildDocumentLookup()
+
         compositions = data.compactMap { dbComposition, dbFragments in
-            resolveComposition(dbComposition, fragments: dbFragments)
+            resolveComposition(
+                dbComposition,
+                fragments: dbFragments,
+                highlightLookup: highlightLookup,
+                documentLookup: documentLookup
+            )
         }
+    }
+
+    /// Build a lookup dictionary: highlightId -> (documentId, highlight)
+    private func buildHighlightLookup() -> [UUID: (documentId: UUID, highlight: DHTextHighlight)] {
+        var lookup: [UUID: (documentId: UUID, highlight: DHTextHighlight)] = [:]
+        for (documentId, highlight) in highlightsManager.allHighlights() {
+            lookup[highlight.id] = (documentId: documentId, highlight: highlight)
+        }
+        return lookup
+    }
+
+    /// Build a lookup dictionary: documentId -> document
+    private func buildDocumentLookup() -> [UUID: Document] {
+        Dictionary(uniqueKeysWithValues: documentsManager.documents.map { ($0.id, $0) })
     }
 
     private func resolveComposition(
         _ dbComposition: DBComposition,
-        fragments dbFragments: [DBCompositionFragment]
+        fragments dbFragments: [DBCompositionFragment],
+        highlightLookup: [UUID: (documentId: UUID, highlight: DHTextHighlight)],
+        documentLookup: [UUID: Document]
     ) -> Composition? {
         // Resolve each fragment with its highlight and document data
         let resolvedFragments: [CompositionFragment] = dbFragments.compactMap { dbFragment in
@@ -69,21 +94,20 @@ final class CompositionsManager: ObservableObject {
                 return nil
             }
 
-            // Find the highlight and its document
-            let allHighlights = highlightsManager.allHighlights()
-            guard let highlightData = allHighlights.first(where: { $0.highlight.id == highlightId }) else {
+            // Use lookup tables instead of searching every time
+            guard let highlightData = highlightLookup[highlightId] else {
                 return nil
             }
 
             let documentId = highlightData.documentId
             let highlight = highlightData.highlight
 
-            guard let document = documentsManager.document(withId: documentId) else {
+            guard let document = documentLookup[documentId] else {
                 return nil
             }
 
             // Extract text snippet from document
-            let snippet = extractSnippet(for: highlight, in: document)
+            let snippet = SnippetExtractor.extract(for: highlight, in: document)
 
             return CompositionFragment(
                 id: fragmentId,
@@ -106,27 +130,7 @@ final class CompositionsManager: ObservableObject {
         }
     }
 
-    private func extractSnippet(for highlight: DHTextHighlight, in document: Document, maxLength: Int = 200) -> String {
-        let text: String
-        switch document.content {
-        case .plain(let s):
-            text = s
-        case .attributed(let a):
-            text = a.string
-        }
-
-        let nsString = text as NSString
-        guard highlight.range.location >= 0,
-              highlight.range.location + highlight.range.length <= nsString.length else {
-            return ""
-        }
-
-        let snippet = nsString.substring(with: highlight.range)
-        if snippet.count > maxLength {
-            return String(snippet.prefix(maxLength)) + "…"
-        }
-        return snippet
-    }
+    // Snippet extraction moved to SnippetExtractor utility (DRY)
 
     // MARK: - CRUD Operations
 
@@ -136,7 +140,11 @@ final class CompositionsManager: ObservableObject {
         try db.write { db in
             try dbComposition.insert(db)
         }
-        return UUID(uuidString: dbComposition.id)!
+        // Safe UUID parsing - should never fail since we just created it
+        guard let uuid = dbComposition.id.uuid else {
+            throw DatabaseError(message: "Failed to parse UUID for newly created composition")
+        }
+        return uuid
     }
 
     /// Update a composition's title

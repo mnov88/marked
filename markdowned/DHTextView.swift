@@ -19,6 +19,7 @@ struct DHTextView: UIViewRepresentable {
     let addHighlight: (NSRange, UIColor) -> Void
     let removeHighlightsInRange: (NSRange) -> Void
     let onTapLink: (URL) -> Void
+    var onAddToComposition: ((UUID) -> Void)? = nil
     @Binding var scrollTarget: NSRange?
 
     // Page layout support - available width for dynamic inset calculation
@@ -233,7 +234,23 @@ struct DHTextView: UIViewRepresentable {
                 return nil // fall back to system menu
             }
 
-            let copy = UIAction(title: "Copy Text", image: UIImage(systemName: "doc.on.doc")) { _ in
+            var menuItems: [UIAction] = []
+
+            // Add to Composition action (if callback is provided)
+            if let onAddToComposition = parent.onAddToComposition {
+                let addToComposition = UIAction(
+                    title: "Add to Composition",
+                    image: UIImage(systemName: "doc.on.doc")
+                ) { _ in
+                    onAddToComposition(highlight.id)
+                    DispatchQueue.main.async {
+                        textView.selectedTextRange = nil
+                    }
+                }
+                menuItems.append(addToComposition)
+            }
+
+            let copy = UIAction(title: "Copy Text", image: UIImage(systemName: "doc.on.clipboard")) { _ in
                 if let text = self.text(from: highlight.range, in: textView) {
                     UIPasteboard.general.string = text
                 }
@@ -241,6 +258,7 @@ struct DHTextView: UIViewRepresentable {
                     textView.selectedTextRange = nil
                 }
             }
+            menuItems.append(copy)
 
             let remove = UIAction(title: "Remove Highlight", image: UIImage(systemName: "trash"), attributes: .destructive) { [weak self] _ in
                 self?.parent.removeHighlightsInRange(highlight.range)
@@ -248,8 +266,9 @@ struct DHTextView: UIViewRepresentable {
                     textView.selectedTextRange = nil
                 }
             }
+            menuItems.append(remove)
 
-            let menu = UIMenu(children: [remove, copy])
+            let menu = UIMenu(children: menuItems)
             return UITextItem.MenuConfiguration(menu: menu)
         }
 

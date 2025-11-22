@@ -56,6 +56,9 @@ struct MainNavigationView: View {
             AllHighlightsView()
                 .navigationTitle("Highlights")
 
+        case .assembly:
+            CompositionsListView()
+
         case .settings:
             SettingsView()
                 .navigationTitle("Settings")

@@ -22,6 +22,7 @@ struct DocHighlightingView: View {
     @State private var showList = false
     @State private var showAppearance = false
     @State private var scrollTarget: NSRange? = nil
+    @State private var compositionPickerHighlightId: UUID? = nil
 
     // Plain string init
     init(documentId: UUID,
@@ -80,6 +81,9 @@ struct DocHighlightingView: View {
                         vm.remove(intersecting: range)
                     },
                     onTapLink: onLinkTap,
+                    onAddToComposition: { highlightId in
+                        compositionPickerHighlightId = highlightId
+                    },
                     scrollTarget: $scrollTarget,
                     availableWidth: geometry.size.width,
                     usePageLayout: config.usePageLayout
@@ -125,6 +129,11 @@ struct DocHighlightingView: View {
         }
         .sheet(isPresented: $showAppearance) {
             AppearancePanel()
+        }
+        .sheet(item: $compositionPickerHighlightId) { highlightId in
+            CompositionPickerSheet(highlightId: highlightId) {
+                compositionPickerHighlightId = nil
+            }
         }
     }
 }

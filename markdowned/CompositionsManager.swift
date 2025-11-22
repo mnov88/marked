@@ -43,7 +43,7 @@ final class CompositionsManager: ObservableObject {
         observationCancellable = observation
             .publisher(in: db.queue, scheduling: .immediate)
             .catch { error -> Just<[(DBComposition, [DBCompositionFragment])]> in
-                print("Compositions observation error: \(error)")
+                Logger.error("Compositions observation error", error: error)
                 return Just([])
             }
             .receive(on: DispatchQueue.main)
@@ -125,7 +125,7 @@ final class CompositionsManager: ObservableObject {
         do {
             return try Composition(from: dbComposition, fragments: resolvedFragments)
         } catch {
-            print("Failed to resolve composition: \(error)")
+            Logger.error("Failed to resolve composition", error: error)
             return nil
         }
     }

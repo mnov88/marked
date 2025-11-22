@@ -35,14 +35,21 @@ struct CompactTabView: View {
 
     var body: some View {
         TabView {
-            MockDocList()
-                .tabItem {
-                    Label("Documents", systemImage: "doc.text")
-                }
+            NavigationStack {
+                DocumentsListView()
+            }
+            .tabItem {
+                Label("Documents", systemImage: "doc.text")
+            }
 
             AllHighlightsView()
                 .tabItem {
                     Label("Highlights", systemImage: "highlighter")
+                }
+
+            CompositionsListView()
+                .tabItem {
+                    Label("Assembly", systemImage: "doc.on.doc")
                 }
 
             SettingsView()

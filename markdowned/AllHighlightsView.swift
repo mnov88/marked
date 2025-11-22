@@ -12,6 +12,8 @@ struct AllHighlightsView: View {
     @ObservedObject private var documentsManager = DocumentsManager.shared
     @EnvironmentObject private var themeManager: ThemeManager
     @State private var navigationTarget: NavigationTarget?
+    @State private var showCompositionPicker = false
+    @State private var selectedHighlightIdForComposition: UUID?
 
     var body: some View {
         NavigationStack {
@@ -26,6 +28,11 @@ struct AllHighlightsView: View {
             .navigationDestination(item: $navigationTarget) { target in
                 if let document = documentsManager.document(withId: target.documentId) {
                     destinationView(for: document, scrollTo: target.highlightRange)
+                }
+            }
+            .sheet(isPresented: $showCompositionPicker) {
+                if let highlightId = selectedHighlightIdForComposition {
+                    CompositionPickerSheet(highlightId: highlightId)
                 }
             }
         }
@@ -93,7 +100,38 @@ struct AllHighlightsView: View {
                 }
             }
         }
-        .swipeActions {
+        .swipeActions(edge: .trailing) {
+            Button(role: .destructive) {
+                highlightsManager.removeHighlight(id: highlight.id, from: documentId)
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
+        .swipeActions(edge: .leading) {
+            Button {
+                selectedHighlightIdForComposition = highlight.id
+                showCompositionPicker = true
+            } label: {
+                Label("Add to Composition", systemImage: "doc.on.doc")
+            }
+            .tint(.blue)
+        }
+        .contextMenu {
+            Button {
+                navigationTarget = NavigationTarget(documentId: documentId, highlightRange: highlight.range)
+            } label: {
+                Label("Go to Source", systemImage: "arrow.right.doc.on.clipboard")
+            }
+
+            Button {
+                selectedHighlightIdForComposition = highlight.id
+                showCompositionPicker = true
+            } label: {
+                Label("Add to Composition", systemImage: "doc.on.doc")
+            }
+
+            Divider()
+
             Button(role: .destructive) {
                 highlightsManager.removeHighlight(id: highlight.id, from: documentId)
             } label: {

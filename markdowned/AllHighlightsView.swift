@@ -12,7 +12,8 @@ struct AllHighlightsView: View {
     @ObservedObject private var documentsManager = DocumentsManager.shared
     @EnvironmentObject private var themeManager: ThemeManager
     @State private var navigationTarget: NavigationTarget?
-    @State private var compositionPickerHighlightId: UUID?
+    @State private var showCompositionPicker = false
+    @State private var selectedHighlightIdForComposition: UUID?
 
     var body: some View {
         NavigationStack {
@@ -29,9 +30,9 @@ struct AllHighlightsView: View {
                     destinationView(for: document, scrollTo: target.highlightRange)
                 }
             }
-            .sheet(item: $compositionPickerHighlightId) { highlightId in
-                CompositionPickerSheet(highlightId: highlightId) {
-                    compositionPickerHighlightId = nil
+            .sheet(isPresented: $showCompositionPicker) {
+                if let highlightId = selectedHighlightIdForComposition {
+                    CompositionPickerSheet(highlightId: highlightId)
                 }
             }
         }
@@ -108,7 +109,8 @@ struct AllHighlightsView: View {
         }
         .swipeActions(edge: .leading) {
             Button {
-                compositionPickerHighlightId = highlight.id
+                selectedHighlightIdForComposition = highlight.id
+                showCompositionPicker = true
             } label: {
                 Label("Add to Composition", systemImage: "doc.on.doc")
             }
@@ -122,7 +124,8 @@ struct AllHighlightsView: View {
             }
 
             Button {
-                compositionPickerHighlightId = highlight.id
+                selectedHighlightIdForComposition = highlight.id
+                showCompositionPicker = true
             } label: {
                 Label("Add to Composition", systemImage: "doc.on.doc")
             }

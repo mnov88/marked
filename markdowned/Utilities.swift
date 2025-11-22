@@ -127,9 +127,3 @@ extension UIColor {
     }
 
 }
-
-// MARK: - UUID Identifiable Extension
-
-extension UUID: @retroactive Identifiable {
-    public var id: UUID { self }
-}

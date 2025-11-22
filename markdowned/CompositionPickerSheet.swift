@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CompositionPickerSheet: View {
     let highlightId: UUID
-    let onDismiss: () -> Void
 
     @ObservedObject private var compositionsManager = CompositionsManager.shared
     @Environment(\.dismiss) private var dismiss
@@ -32,7 +31,6 @@ struct CompositionPickerSheet: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {
                         dismiss()
-                        onDismiss()
                     }
                 }
 
@@ -113,7 +111,6 @@ struct CompositionPickerSheet: View {
         do {
             try compositionsManager.addHighlight(highlightId, to: compositionId)
             dismiss()
-            onDismiss()
         } catch {
             print("Failed to add highlight to composition: \(error)")
         }
@@ -131,7 +128,6 @@ struct CompositionPickerSheet: View {
             try compositionsManager.addHighlight(highlightId, to: compositionId)
             newCompositionTitle = ""
             dismiss()
-            onDismiss()
         } catch {
             print("Failed to create composition: \(error)")
         }
@@ -139,5 +135,5 @@ struct CompositionPickerSheet: View {
 }
 
 #Preview {
-    CompositionPickerSheet(highlightId: UUID()) {}
+    CompositionPickerSheet(highlightId: UUID())
 }

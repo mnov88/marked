@@ -85,21 +85,85 @@ struct Category: Identifiable, Hashable, Codable {
     }
 }
 
-// MARK: - Database Category Model (PLACEHOLDER)
+// MARK: - Database Category Model
 
-// TODO: Add GRDB persistence
-// struct DBCategory: Codable, FetchableRecord, PersistableRecord {
-//     var id: String
-//     var name: String
-//     var colorHex: String
-//     var icon: String
-//     var sortOrder: Int
-//     var createdAt: Date
-// }
+import GRDB
 
-// TODO: Add DocumentCategory junction table
-// struct DBDocumentCategory: Codable, FetchableRecord, PersistableRecord {
-//     var documentId: String
-//     var categoryId: String
-//     var addedAt: Date
-// }
+struct DBCategory: Codable, FetchableRecord, PersistableRecord {
+    static let databaseTableName = "category"
+
+    var id: String
+    var name: String
+    var colorHex: String
+    var icon: String
+    var sortOrder: Int
+    var createdAt: Date
+
+    // MARK: - Convenience Initializers
+
+    static func create(name: String, color: PlatformColor = .systemBlue, icon: String = "folder") -> DBCategory {
+        DBCategory(
+            id: UUID().uuidString,
+            name: name,
+            colorHex: color.hexString,
+            icon: icon,
+            sortOrder: 0,
+            createdAt: Date()
+        )
+    }
+
+    init(from category: Category) {
+        self.id = category.id.uuidString
+        self.name = category.name
+        self.colorHex = category.color.hexString
+        self.icon = category.icon
+        self.sortOrder = category.sortOrder
+        self.createdAt = category.createdAt
+    }
+
+    func toCategory() throws -> Category {
+        guard let uuid = id.uuid else {
+            throw DatabaseError(message: "Invalid UUID string: \(id)")
+        }
+        return Category(
+            id: uuid,
+            name: name,
+            color: PlatformColor(hex: colorHex) ?? .systemBlue,
+            icon: icon,
+            sortOrder: sortOrder,
+            createdAt: createdAt
+        )
+    }
+
+    // MARK: - Queries
+
+    static func allOrdered() -> QueryInterfaceRequest<DBCategory> {
+        DBCategory.order(Column("sortOrder").asc, Column("name").asc)
+    }
+}
+
+// MARK: - Document-Category Junction Table
+
+struct DBDocumentCategory: Codable, FetchableRecord, PersistableRecord {
+    static let databaseTableName = "documentCategory"
+
+    var documentId: String
+    var categoryId: String
+    var addedAt: Date
+
+    static func create(documentId: UUID, categoryId: UUID) -> DBDocumentCategory {
+        DBDocumentCategory(
+            documentId: documentId.uuidString,
+            categoryId: categoryId.uuidString,
+            addedAt: Date()
+        )
+    }
+
+    static func categories(forDocument documentId: UUID) -> QueryInterfaceRequest<DBDocumentCategory> {
+        DBDocumentCategory.filter(Column("documentId") == documentId.uuidString)
+    }
+
+    static func documents(inCategory categoryId: UUID) -> QueryInterfaceRequest<DBDocumentCategory> {
+        DBDocumentCategory.filter(Column("categoryId") == categoryId.uuidString)
+    }
+}

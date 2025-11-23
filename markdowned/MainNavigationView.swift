@@ -25,6 +25,27 @@ struct MainNavigationView: View {
         }
         // iOS 26: Liquid glass sidebar is automatic with Xcode 26
         // No additional modifiers needed for the new design
+        .onReceive(NotificationCenter.default.publisher(for: .navigateToSection)) { notification in
+            if let section = notification.userInfo?["section"] as? NavigationSection {
+                withAnimation {
+                    selectedItem = sidebarItem(for: section)
+                }
+            }
+        }
+    }
+
+    /// Convert NavigationSection to SidebarItem
+    private func sidebarItem(for section: NavigationSection) -> SidebarItem {
+        switch section {
+        case .documents:
+            return .allDocuments
+        case .highlights:
+            return .highlights
+        case .compositions:
+            return .assembly
+        case .settings:
+            return .settings
+        }
     }
 
     @ViewBuilder

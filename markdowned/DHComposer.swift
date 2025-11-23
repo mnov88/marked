@@ -41,7 +41,16 @@ struct DHComposer {
         for ind in indents {
             guard ind.range.location >= 0,
                   NSMaxRange(ind.range) <= out.length else { continue }
-            let ps = (out.attribute(.paragraphStyle, at: ind.range.location, effectiveRange: nil) as? NSParagraphStyle)?.mutableCopy() as? NSMutableParagraphStyle ?? p.mutableCopy() as! NSMutableParagraphStyle
+            // Safe mutable copy - avoid force cast
+            let existingStyle = out.attribute(.paragraphStyle, at: ind.range.location, effectiveRange: nil) as? NSParagraphStyle
+            let ps: NSMutableParagraphStyle
+            if let existing = existingStyle?.mutableCopy() as? NSMutableParagraphStyle {
+                ps = existing
+            } else if let baseCopy = p.mutableCopy() as? NSMutableParagraphStyle {
+                ps = baseCopy
+            } else {
+                ps = NSMutableParagraphStyle()
+            }
             ps.headIndent = ind.headIndent
             ps.tailIndent = ind.tailIndent
             ps.firstLineHeadIndent = ind.firstLineHeadIndent

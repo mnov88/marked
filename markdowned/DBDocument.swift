@@ -13,13 +13,14 @@ struct DBDocument: Identifiable, Codable, FetchableRecord, PersistableRecord {
     var title: String
     var contentType: String // "plain" or "attributed"
     var contentData: Data
+    var contentText: String? // Plain text for FTS indexing
     var sourceURL: String?
     var createdAt: Date
     var modifiedAt: Date
 
     // Define coding keys for Codable synthesis
     enum CodingKeys: String, CodingKey {
-        case id, title, contentType, contentData, sourceURL, createdAt, modifiedAt
+        case id, title, contentType, contentData, contentText, sourceURL, createdAt, modifiedAt
     }
 
     // Define column names for type-safe queries (aligned with CodingKeys)
@@ -28,6 +29,7 @@ struct DBDocument: Identifiable, Codable, FetchableRecord, PersistableRecord {
         static let title = Column(CodingKeys.title)
         static let contentType = Column(CodingKeys.contentType)
         static let contentData = Column(CodingKeys.contentData)
+        static let contentText = Column(CodingKeys.contentText)
         static let sourceURL = Column(CodingKeys.sourceURL)
         static let createdAt = Column(CodingKeys.createdAt)
         static let modifiedAt = Column(CodingKeys.modifiedAt)
@@ -45,7 +47,7 @@ extension DBDocument {
         self.title = document.title
         self.sourceURL = document.sourceURL?.absoluteString
 
-        // Convert content to data
+        // Convert content to data and extract plain text for FTS
         switch document.content {
         case .plain(let text):
             self.contentType = "plain"
@@ -53,6 +55,7 @@ extension DBDocument {
                 throw DatabaseError(message: "Failed to encode plain text to UTF-8")
             }
             self.contentData = data
+            self.contentText = text // Store plain text for FTS
 
         case .attributed(let attributedString):
             self.contentType = "attributed"
@@ -65,6 +68,7 @@ extension DBDocument {
             } catch {
                 throw DatabaseError(message: "Failed to archive attributed string: \(error.localizedDescription)")
             }
+            self.contentText = attributedString.string // Extract plain text for FTS
         }
 
         let now = Date()

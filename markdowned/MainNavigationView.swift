@@ -103,32 +103,57 @@ struct DocumentsListView: View {
     @State private var cases: [Case] = []
     @State private var isLoadingCase = false
     @State private var hasLoadedCSV = false
+    @State private var documentSearchResults: [(Document, String)] = []
 
     private let contentLoader = ContentLoader()
 
     var body: some View {
         List {
-            // Documents section
-            ForEach(documentsManager.documents) { doc in
-                NavigationLink {
-                    destination(for: doc)
-                } label: {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(doc.title)
-                            .font(.headline)
-                        if let url = doc.sourceURL {
-                            Text(url.absoluteString)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
+            // Document search results (FTS5)
+            if !searchText.isEmpty && !documentSearchResults.isEmpty {
+                Section("Documents") {
+                    ForEach(documentSearchResults, id: \.0.id) { (doc, snippet) in
+                        NavigationLink {
+                            destination(for: doc)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(doc.title)
+                                    .font(.headline)
+                                if !snippet.isEmpty {
+                                    Text(cleanSnippet(snippet))
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(2)
+                                }
+                            }
                         }
                     }
                 }
             }
 
-            // Case search results
+            // All documents section (when not searching)
+            if searchText.isEmpty {
+                ForEach(documentsManager.documents) { doc in
+                    NavigationLink {
+                        destination(for: doc)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(doc.title)
+                                .font(.headline)
+                            if let url = doc.sourceURL {
+                                Text(url.absoluteString)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                    .lineLimit(1)
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Case search results (from CSV)
             if !searchText.isEmpty && !filteredCases.isEmpty {
-                Section("Case Search Results") {
+                Section("Case Database") {
                     ForEach(filteredCases.prefix(20)) { caseItem in
                         Button {
                             loadCase(caseItem)
@@ -152,7 +177,10 @@ struct DocumentsListView: View {
                 }
             }
         }
-        .searchable(text: $searchText, prompt: "Search by case number or title")
+        .searchable(text: $searchText, prompt: "Search documents and cases")
+        .onChange(of: searchText) { _, newValue in
+            performDocumentSearch(query: newValue)
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
@@ -167,18 +195,18 @@ struct DocumentsListView: View {
                 do {
                     try documentsManager.addDocument(document)
                 } catch {
-                    print("Failed to persist document from URL entry: \(error)")
+                    Logger.error("Failed to persist document from URL entry", error: error)
                 }
             }
         }
         .overlay {
             if isLoadingCase {
                 ZStack {
-                    Color.black.opacity(0.3)
+                    Color.black.opacity(UIConstants.Overlay.backgroundOpacity)
                     ProgressView("Loading case...")
                         .padding()
                         .background(Color(uiColor: .systemBackground))
-                        .cornerRadius(10)
+                        .cornerRadius(UIConstants.Overlay.cornerRadius)
                 }
                 .ignoresSafeArea()
             }
@@ -191,6 +219,29 @@ struct DocumentsListView: View {
         }
     }
 
+    // MARK: - Search
+
+    private func performDocumentSearch(query: String) {
+        guard !query.isEmpty else {
+            documentSearchResults = []
+            return
+        }
+
+        do {
+            documentSearchResults = try documentsManager.fullTextSearchWithSnippets(query: query)
+        } catch {
+            Logger.error("Full-text search failed", error: error)
+            documentSearchResults = []
+        }
+    }
+
+    /// Remove HTML tags from snippet (mark tags from FTS5)
+    private func cleanSnippet(_ snippet: String) -> String {
+        snippet
+            .replacingOccurrences(of: "<mark>", with: "")
+            .replacingOccurrences(of: "</mark>", with: "")
+    }
+
     private var filteredCases: [Case] {
         guard !searchText.isEmpty else { return [] }
         return cases.filter { $0.matches(searchText: searchText) }
@@ -199,18 +250,18 @@ struct DocumentsListView: View {
     private func loadCasesFromCSV() {
         guard let csvPath = Bundle.main.path(forResource: "allcases", ofType: "csv"),
               let csvString = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
-            print("Could not load allcases.csv from bundle")
+            Logger.debug("Could not load allcases.csv from bundle")
             cases = []
             return
         }
 
         cases = CaseDataParser.parse(csvString)
-        print("Loaded \(cases.count) cases from CSV")
+        Logger.debug("Loaded \(cases.count) cases from CSV")
     }
 
     private func loadCase(_ caseItem: Case) {
         guard let url = caseItem.celexURL else {
-            print("No valid URL for case")
+            Logger.debug("No valid URL for case")
             return
         }
 
@@ -223,7 +274,7 @@ struct DocumentsListView: View {
                 isLoadingCase = false
                 searchText = ""
             } catch {
-                print("Failed to load case: \(error)")
+                Logger.error("Failed to load case", error: error)
                 isLoadingCase = false
             }
         }
@@ -236,13 +287,13 @@ struct DocumentsListView: View {
         switch doc.content {
         case .plain(let s):
             DocHighlightingView(documentId: doc.id, string: s, config: config) { url in
-                print("Tapped link:", url.absoluteString)
+                Logger.debug("Tapped link: \(url.absoluteString)")
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)
         case .attributed(let a):
             DocHighlightingView(documentId: doc.id, attributedString: a, config: config) { url in
-                print("Tapped link:", url.absoluteString)
+                Logger.debug("Tapped link: \(url.absoluteString)")
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)

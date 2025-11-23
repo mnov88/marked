@@ -152,6 +152,62 @@ final class DatabaseManager {
 
             Logger.debug("Migration v4: Created category tables")
         }
+
+        // Migration v5: Full-text search with FTS5
+        migrator.registerMigration("v5_fts") { db in
+            // Add contentText column to store searchable plain text
+            try db.alter(table: "document") { t in
+                t.add(column: "contentText", .text)
+            }
+
+            // Populate contentText for existing documents
+            // For plain type, contentData is UTF-8 text; for attributed, we extract during app runtime
+            try db.execute(sql: """
+                UPDATE document SET contentText = CAST(contentData AS TEXT)
+                WHERE contentType = 'plain'
+            """)
+
+            // Create FTS5 virtual table for full-text search
+            try db.execute(sql: """
+                CREATE VIRTUAL TABLE document_fts USING fts5(
+                    title,
+                    contentText,
+                    content='document',
+                    content_rowid='rowid'
+                )
+            """)
+
+            // Populate FTS index with existing documents
+            try db.execute(sql: """
+                INSERT INTO document_fts(document_fts) VALUES('rebuild')
+            """)
+
+            // Create triggers to keep FTS in sync
+            try db.execute(sql: """
+                CREATE TRIGGER document_ai AFTER INSERT ON document BEGIN
+                    INSERT INTO document_fts(rowid, title, contentText)
+                    VALUES (NEW.rowid, NEW.title, NEW.contentText);
+                END
+            """)
+
+            try db.execute(sql: """
+                CREATE TRIGGER document_ad AFTER DELETE ON document BEGIN
+                    INSERT INTO document_fts(document_fts, rowid, title, contentText)
+                    VALUES ('delete', OLD.rowid, OLD.title, OLD.contentText);
+                END
+            """)
+
+            try db.execute(sql: """
+                CREATE TRIGGER document_au AFTER UPDATE ON document BEGIN
+                    INSERT INTO document_fts(document_fts, rowid, title, contentText)
+                    VALUES ('delete', OLD.rowid, OLD.title, OLD.contentText);
+                    INSERT INTO document_fts(rowid, title, contentText)
+                    VALUES (NEW.rowid, NEW.title, NEW.contentText);
+                END
+            """)
+
+            Logger.debug("Migration v5: Created FTS5 full-text search")
+        }
     }
 
     // MARK: - Database Access

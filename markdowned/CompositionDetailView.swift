@@ -167,7 +167,7 @@ struct CompositionDetailView: View {
                 editMode = .inactive
             }
         } catch {
-            print("Failed to update sort mode: \(error)")
+            Logger.error("Failed to update sort mode", error: error)
         }
     }
 
@@ -179,7 +179,7 @@ struct CompositionDetailView: View {
                 toOffset: destination
             )
         } catch {
-            print("Failed to reorder fragments: \(error)")
+            Logger.error("Failed to reorder fragments", error: error)
         }
     }
 
@@ -194,7 +194,7 @@ struct CompositionDetailView: View {
         do {
             try compositionsManager.removeFragment(fragment.id, from: liveComposition.id)
         } catch {
-            print("Failed to remove fragment: \(error)")
+            Logger.error("Failed to remove fragment", error: error)
         }
     }
 
@@ -218,7 +218,7 @@ struct CompositionDetailView: View {
                     config: config,
                     initialScrollTarget: target.highlightRange
                 ) { url in
-                    print("Tapped link:", url.absoluteString)
+                    Logger.debug("Tapped link: \(url.absoluteString)")
                 }
                 .navigationTitle(document.title)
                 .navigationBarTitleDisplayMode(.inline)
@@ -229,7 +229,7 @@ struct CompositionDetailView: View {
                     config: config,
                     initialScrollTarget: target.highlightRange
                 ) { url in
-                    print("Tapped link:", url.absoluteString)
+                    Logger.debug("Tapped link: \(url.absoluteString)")
                 }
                 .navigationTitle(document.title)
                 .navigationBarTitleDisplayMode(.inline)

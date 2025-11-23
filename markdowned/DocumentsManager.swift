@@ -148,7 +148,7 @@ final class DocumentsManager: ObservableObject {
 
     // MARK: - Query Operations
 
-    /// Search documents by title
+    /// Search documents by title (legacy)
     func searchDocuments(title: String) throws -> [Document] {
         try db.read { db in
             let dbDocuments = try DBDocument
@@ -164,5 +164,85 @@ final class DocumentsManager: ObservableObject {
         try db.read { db in
             try DBDocument.fetchCount(db)
         }
+    }
+
+    // MARK: - Full-Text Search
+
+    /// Full-text search across document titles and content using FTS5
+    /// - Parameters:
+    ///   - query: Search query (supports FTS5 syntax: AND, OR, NOT, phrases "like this")
+    ///   - limit: Maximum results to return
+    /// - Returns: Array of matching documents with relevance-ranked results
+    func fullTextSearch(query: String, limit: Int = PaginationConstants.searchResultsLimit) throws -> [Document] {
+        guard !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return []
+        }
+
+        // Escape special FTS5 characters and prepare query
+        let sanitizedQuery = sanitizeFTSQuery(query)
+
+        return try db.read { db in
+            // Use FTS5 MATCH with ranking by relevance (bm25)
+            let sql = """
+                SELECT document.*
+                FROM document
+                JOIN document_fts ON document.rowid = document_fts.rowid
+                WHERE document_fts MATCH ?
+                ORDER BY bm25(document_fts) ASC
+                LIMIT ?
+            """
+
+            let dbDocuments = try DBDocument.fetchAll(db, sql: sql, arguments: [sanitizedQuery, limit])
+            return dbDocuments.compactMap { try? $0.toDocument() }
+        }
+    }
+
+    /// Search with snippet highlighting
+    /// Returns tuples of (document, highlighted snippet)
+    func fullTextSearchWithSnippets(query: String, limit: Int = PaginationConstants.searchResultsLimit) throws -> [(Document, String)] {
+        guard !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+            return []
+        }
+
+        let sanitizedQuery = sanitizeFTSQuery(query)
+
+        return try db.read { db in
+            let sql = """
+                SELECT document.*,
+                       snippet(document_fts, 1, '<mark>', '</mark>', '...', 32) as matchSnippet
+                FROM document
+                JOIN document_fts ON document.rowid = document_fts.rowid
+                WHERE document_fts MATCH ?
+                ORDER BY bm25(document_fts) ASC
+                LIMIT ?
+            """
+
+            let rows = try Row.fetchAll(db, sql: sql, arguments: [sanitizedQuery, limit])
+            return rows.compactMap { row -> (Document, String)? in
+                guard let dbDoc = try? DBDocument(row: row),
+                      let doc = try? dbDoc.toDocument() else {
+                    return nil
+                }
+                let snippet = row["matchSnippet"] as? String ?? ""
+                return (doc, snippet)
+            }
+        }
+    }
+
+    /// Sanitize query for FTS5 - convert natural language to FTS5 syntax
+    private func sanitizeFTSQuery(_ query: String) -> String {
+        let trimmed = query.trimmingCharacters(in: .whitespaces)
+
+        // If query contains FTS5 operators, use as-is
+        let ftsOperators = ["AND", "OR", "NOT", "\"", "*"]
+        let hasOperators = ftsOperators.contains { trimmed.contains($0) }
+
+        if hasOperators {
+            return trimmed
+        }
+
+        // Convert space-separated words to prefix search (word*)
+        let words = trimmed.components(separatedBy: .whitespaces).filter { !$0.isEmpty }
+        return words.map { "\($0)*" }.joined(separator: " ")
     }
 }

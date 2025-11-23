@@ -124,6 +124,34 @@ final class DatabaseManager {
 
             Logger.debug("Migration v3: Created composition tables")
         }
+
+        // Migration v4: Categories
+        migrator.registerMigration("v4_categories") { db in
+            try db.create(table: "category") { t in
+                t.primaryKey("id", .text)
+                t.column("name", .text).notNull()
+                t.column("colorHex", .text).notNull()
+                t.column("icon", .text).notNull()
+                t.column("sortOrder", .integer).notNull().defaults(to: 0)
+                t.column("createdAt", .datetime).notNull()
+            }
+
+            try db.create(table: "documentCategory") { t in
+                t.column("documentId", .text)
+                    .notNull()
+                    .references("document", onDelete: .cascade)
+                t.column("categoryId", .text)
+                    .notNull()
+                    .references("category", onDelete: .cascade)
+                t.column("addedAt", .datetime).notNull()
+                t.primaryKey(["documentId", "categoryId"])
+            }
+
+            try db.create(index: "idx_documentCategory_documentId", on: "documentCategory", columns: ["documentId"])
+            try db.create(index: "idx_documentCategory_categoryId", on: "documentCategory", columns: ["categoryId"])
+
+            Logger.debug("Migration v4: Created category tables")
+        }
     }
 
     // MARK: - Database Access

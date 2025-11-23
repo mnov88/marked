@@ -71,9 +71,42 @@ final class ThemeManager: ObservableObject {
         customTheme = .system
         usePageLayout = false
     }
-    
+
     var availableThemes: [String] {
         Theme.allPresets.map { $0.0 } + ["Custom"]
+    }
+
+    // MARK: - Font Size Adjustments (for keyboard shortcuts)
+
+    private let fontSizeStep: CGFloat = 2
+    private let minFontSize: CGFloat = UIConstants.Font.minSize
+    private let maxFontSize: CGFloat = UIConstants.Font.maxSize
+
+    /// Increase font size by step
+    func increaseFontSize() {
+        var theme = customTheme
+        theme.fontSize = min(theme.fontSize + fontSizeStep, maxFontSize)
+        customTheme = theme
+        if selectedThemeType != "Custom" {
+            selectedThemeType = "Custom"
+        }
+    }
+
+    /// Decrease font size by step
+    func decreaseFontSize() {
+        var theme = customTheme
+        theme.fontSize = max(theme.fontSize - fontSizeStep, minFontSize)
+        customTheme = theme
+        if selectedThemeType != "Custom" {
+            selectedThemeType = "Custom"
+        }
+    }
+
+    /// Reset font size to default
+    func resetFontSize() {
+        var theme = customTheme
+        theme.fontSize = UIConstants.Font.defaultSize
+        customTheme = theme
     }
 }
 

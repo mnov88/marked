@@ -64,8 +64,10 @@ enum SidebarItem: Hashable, Identifiable {
 /// Sidebar view for Mac and iPad navigation
 struct SidebarView: View {
     @EnvironmentObject private var themeManager: ThemeManager
+    @ObservedObject private var categoriesManager = CategoriesManager.shared
     @Binding var selection: SidebarItem?
-    @State private var userCategories: [Category] = [] // TODO: Load from database
+    @State private var showNewCategoryAlert = false
+    @State private var newCategoryName = ""
 
     var body: some View {
         List(selection: $selection) {
@@ -84,15 +86,15 @@ struct SidebarView: View {
                     .tag(SidebarItem.assembly)
             }
 
-            // Categories Section (Placeholder for future)
+            // Categories Section
             Section("Categories") {
-                if userCategories.isEmpty {
+                if categoriesManager.categories.isEmpty {
                     Text("No categories yet")
                         .foregroundStyle(.secondary)
                         .font(.subheadline)
                         .italic()
                 } else {
-                    ForEach(userCategories) { category in
+                    ForEach(categoriesManager.categories) { category in
                         Label {
                             Text(category.name)
                         } icon: {
@@ -100,15 +102,26 @@ struct SidebarView: View {
                                 .foregroundStyle(Color(platformColor: category.color))
                         }
                         .tag(SidebarItem.category(category))
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                try? categoriesManager.deleteCategory(category.id)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                    }
+                    .onMove { source, destination in
+                        categoriesManager.reorderCategories(fromOffsets: source, toOffset: destination)
                     }
                 }
 
-                // TODO: Add category management
-                // Button {
-                //     // Add new category
-                // } label: {
-                //     Label("Add Category", systemImage: "plus")
-                // }
+                Button {
+                    showNewCategoryAlert = true
+                } label: {
+                    Label("Add Category", systemImage: "plus")
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(.secondary)
             }
 
             // Settings Section
@@ -121,6 +134,18 @@ struct SidebarView: View {
         #if os(macOS)
         .navigationSplitViewColumnWidth(min: 200, ideal: 250, max: 300)
         #endif
+        .alert("New Category", isPresented: $showNewCategoryAlert) {
+            TextField("Category name", text: $newCategoryName)
+            Button("Cancel", role: .cancel) {
+                newCategoryName = ""
+            }
+            Button("Create") {
+                if !newCategoryName.isEmpty {
+                    try? categoriesManager.createCategory(name: newCategoryName)
+                    newCategoryName = ""
+                }
+            }
+        }
     }
 }
 

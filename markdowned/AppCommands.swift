@@ -41,34 +41,54 @@ struct AppCommands: Commands {
         CommandGroup(after: .pasteboard) {
             Menu("Highlight") {
                 Button("Yellow") {
-                    // TODO: Apply yellow highlight to selection
+                    NotificationCenter.default.post(
+                        name: .applyHighlight,
+                        object: nil,
+                        userInfo: ["color": HighlightShortcutColor.yellow]
+                    )
                 }
                 .keyboardShortcut("1", modifiers: [.command])
 
                 Button("Green") {
-                    // TODO: Apply green highlight to selection
+                    NotificationCenter.default.post(
+                        name: .applyHighlight,
+                        object: nil,
+                        userInfo: ["color": HighlightShortcutColor.green]
+                    )
                 }
                 .keyboardShortcut("2", modifiers: [.command])
 
                 Button("Blue") {
-                    // TODO: Apply blue highlight to selection
+                    NotificationCenter.default.post(
+                        name: .applyHighlight,
+                        object: nil,
+                        userInfo: ["color": HighlightShortcutColor.blue]
+                    )
                 }
                 .keyboardShortcut("3", modifiers: [.command])
 
                 Button("Pink") {
-                    // TODO: Apply pink highlight to selection
+                    NotificationCenter.default.post(
+                        name: .applyHighlight,
+                        object: nil,
+                        userInfo: ["color": HighlightShortcutColor.pink]
+                    )
                 }
                 .keyboardShortcut("4", modifiers: [.command])
 
                 Button("Purple") {
-                    // TODO: Apply purple highlight to selection
+                    NotificationCenter.default.post(
+                        name: .applyHighlight,
+                        object: nil,
+                        userInfo: ["color": HighlightShortcutColor.purple]
+                    )
                 }
                 .keyboardShortcut("5", modifiers: [.command])
 
                 Divider()
 
                 Button("Remove Highlight") {
-                    // TODO: Remove highlight from selection
+                    NotificationCenter.default.post(name: .removeHighlight, object: nil)
                 }
                 .keyboardShortcut(.delete, modifiers: [.command])
             }
@@ -91,17 +111,17 @@ struct AppCommands: Commands {
 
             Menu("Appearance") {
                 Button("Increase Font Size") {
-                    // TODO: Increase theme font size
+                    NotificationCenter.default.post(name: .increaseFontSize, object: nil)
                 }
                 .keyboardShortcut("+", modifiers: [.command])
 
                 Button("Decrease Font Size") {
-                    // TODO: Decrease theme font size
+                    NotificationCenter.default.post(name: .decreaseFontSize, object: nil)
                 }
                 .keyboardShortcut("-", modifiers: [.command])
 
                 Button("Reset Font Size") {
-                    // TODO: Reset theme font size to default
+                    NotificationCenter.default.post(name: .resetFontSize, object: nil)
                 }
                 .keyboardShortcut("0", modifiers: [.command])
             }
@@ -145,33 +165,40 @@ struct AppCommands: Commands {
 
         CommandMenu("Go") {
             Button("All Documents") {
-                // TODO: Navigate to all documents
+                NotificationCenter.default.post(
+                    name: .navigateToSection,
+                    object: nil,
+                    userInfo: ["section": NavigationSection.documents]
+                )
             }
             .keyboardShortcut("1", modifiers: [.command, .shift])
 
             Button("Highlights") {
-                // TODO: Navigate to highlights view
+                NotificationCenter.default.post(
+                    name: .navigateToSection,
+                    object: nil,
+                    userInfo: ["section": NavigationSection.highlights]
+                )
             }
             .keyboardShortcut("2", modifiers: [.command, .shift])
 
+            Button("Compositions") {
+                NotificationCenter.default.post(
+                    name: .navigateToSection,
+                    object: nil,
+                    userInfo: ["section": NavigationSection.compositions]
+                )
+            }
+            .keyboardShortcut("3", modifiers: [.command, .shift])
+
             Button("Settings") {
-                // TODO: Navigate to settings
+                NotificationCenter.default.post(
+                    name: .navigateToSection,
+                    object: nil,
+                    userInfo: ["section": NavigationSection.settings]
+                )
             }
             .keyboardShortcut(",", modifiers: [.command])
-
-            Divider()
-
-            Button("Next Document") {
-                // TODO: Navigate to next document in list
-            }
-            .keyboardShortcut(.downArrow, modifiers: [.command, .option])
-            .disabled(true) // Placeholder
-
-            Button("Previous Document") {
-                // TODO: Navigate to previous document in list
-            }
-            .keyboardShortcut(.upArrow, modifiers: [.command, .option])
-            .disabled(true) // Placeholder
         }
     }
 }
@@ -179,8 +206,37 @@ struct AppCommands: Commands {
 // MARK: - Notification Names
 
 extension Notification.Name {
+    // Document actions
     static let showURLEntry = Notification.Name("showURLEntry")
+
+    // Highlight actions (userInfo: ["color": PlatformColor])
     static let applyHighlight = Notification.Name("applyHighlight")
     static let removeHighlight = Notification.Name("removeHighlight")
+
+    // Navigation (userInfo: ["section": NavigationSection])
     static let navigateToSection = Notification.Name("navigateToSection")
+
+    // Font size
+    static let increaseFontSize = Notification.Name("increaseFontSize")
+    static let decreaseFontSize = Notification.Name("decreaseFontSize")
+    static let resetFontSize = Notification.Name("resetFontSize")
+}
+
+// MARK: - Navigation Sections
+
+enum NavigationSection: String {
+    case documents
+    case highlights
+    case compositions
+    case settings
+}
+
+// MARK: - Highlight Colors for Shortcuts
+
+enum HighlightShortcutColor {
+    static let yellow = PlatformColor.systemYellow
+    static let green = PlatformColor.systemGreen
+    static let blue = PlatformColor.systemBlue
+    static let pink = PlatformColor.systemPink
+    static let purple = PlatformColor.systemPurple
 }

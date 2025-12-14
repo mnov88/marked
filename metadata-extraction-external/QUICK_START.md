@@ -1,5 +1,9 @@
 # 🚀 Quick Start: CELLAR Tools (Updated)
 
+> **📖 For comprehensive documentation:** See [EURLEX_METADATA_EXTRACTION_GUIDE.md](EURLEX_METADATA_EXTRACTION_GUIDE.md) for the complete guide covering both legislation and case law extraction.
+
+---
+
 ## What's New
 
 ✅ **All extraction issues fixed!**

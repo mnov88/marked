@@ -2,11 +2,16 @@
 
 ## Quick Start
 
+> ### 📖 **NEW: Comprehensive Guide**
+> **[EURLEX_METADATA_EXTRACTION_GUIDE.md](EURLEX_METADATA_EXTRACTION_GUIDE.md)** - Centralized, AI-friendly documentation covering both legislation AND case law extraction, complete JSON schemas, all available fields, and examples.
+
+---
+
 **Want to use the metadata?** Start here:
 👉 **[METADATA_QUICK_REFERENCE.md](METADATA_QUICK_REFERENCE.md)** - Quick lookup tables & Python examples
 
 **Want the full picture?** Read this:
-👉 **[EXTRACTION_SUMMARY.md](EXTRACTION_SUMMARY.md)** - Complete project overview & detailed JSON structure
+👉 **[EURLEX_METADATA_EXTRACTION_GUIDE.md](EURLEX_METADATA_EXTRACTION_GUIDE.md)** - Complete guide for legislation and case law
 
 **Want to download more data?** See:
 👉 **[CLI_DOWNLOADER_GUIDE.md](CLI_DOWNLOADER_GUIDE.md)** - Complete CLI downloader guide

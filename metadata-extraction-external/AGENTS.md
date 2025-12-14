@@ -1,5 +1,7 @@
 # Repository Guidelines
 
+> **📖 Primary Documentation:** [EURLEX_METADATA_EXTRACTION_GUIDE.md](EURLEX_METADATA_EXTRACTION_GUIDE.md) - Comprehensive guide for EUR-Lex metadata extraction (legislation + case law)
+
 ## Project Structure & Module Organization
 - This folder houses Python tools for CELLAR/EUR-Lex download and metadata extraction; the Swift app lives in `../markdowned/` (separate).
 - Downloaders: `cellar_downloader_ui.py` (standard Streamlit), `cellar_downloader_fast.py` (10–15x faster UI), and `cellar_downloader_cli.py` (ThreadPool CLI, see `CLI_DOWNLOADER_GUIDE.md`/`CLI_QUICK_REFERENCE.md`). Case-law downloader: `case_downloader.py` (pulls case notices from CELEX lists or scanned legislation metadata).

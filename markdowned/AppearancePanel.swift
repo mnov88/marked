@@ -6,37 +6,49 @@
 //
 
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 /// A Kindle/Apple Books-style appearance panel for quick theme and typography adjustments
 struct AppearancePanel: View {
     @EnvironmentObject private var themeManager: ThemeManager
     @Environment(\.dismiss) private var dismiss
+    @State private var showingFontPicker = false
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 24) {
-                // Theme picker circles
-                themePickerSection
+            ScrollView {
+                VStack(spacing: 24) {
+                    // Theme picker circles
+                    themePickerSection
 
-                Divider()
+                    Divider()
 
-                // Font size control
-                fontSizeSection
+                    typographySection
 
-                Divider()
+                    Divider()
 
-                // Line spacing control
-                lineSpacingSection
+                    // Line spacing control
+                    lineSpacingSection
 
-                Divider()
+                    Divider()
 
-                // Margins control
-                marginsSection
+                    colorSection
 
-                Spacer()
+                    Divider()
+
+                    layoutSection
+
+                    Divider()
+
+                    previewSection
+                }
             }
             .padding(.horizontal, 20)
-            .padding(.top, 20)
+            .padding(.vertical, 20)
             .navigationTitle("Appearance")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -49,6 +61,12 @@ struct AppearancePanel: View {
         }
         .presentationDetents([.medium])
         .presentationDragIndicator(.visible)
+        .sheet(isPresented: $showingFontPicker) {
+            FontPickerView(selectedFont: Binding(
+                get: { activeTheme.fontName },
+                set: { setFontName($0) }
+            ))
+        }
     }
 
     // MARK: - Theme Picker
@@ -91,13 +109,42 @@ struct AppearancePanel: View {
         }
     }
 
+    // MARK: - Typography
+
+    private var typographySection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            header("Typography")
+
+            VStack(alignment: .leading, spacing: 10) {
+                Button {
+                    showingFontPicker = true
+                } label: {
+                    HStack {
+                        Text("Font")
+                        Spacer()
+                        Text(displayFontName(activeTheme.fontName))
+                            .foregroundStyle(.secondary)
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 10)
+                    .background(Color(.secondarySystemBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+
+                fontSizeSection
+            }
+        }
+    }
+
     // MARK: - Font Size
 
     private var fontSizeSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 8) {
             Text("Text Size")
-                .font(.subheadline)
-                .fontWeight(.medium)
+                .font(.footnote)
                 .foregroundStyle(.secondary)
 
             HStack(spacing: 20) {
@@ -145,10 +192,7 @@ struct AppearancePanel: View {
 
     private var lineSpacingSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Line Spacing")
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundStyle(.secondary)
+            header("Line Spacing")
 
             HStack(spacing: 12) {
                 ForEach(LineSpacingOption.allCases) { option in
@@ -162,13 +206,52 @@ struct AppearancePanel: View {
         }
     }
 
-    // MARK: - Margins
+    // MARK: - Colors
+
+    private var colorSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            header("Colors")
+
+            VStack(alignment: .leading, spacing: 12) {
+                Toggle("Use System Background", isOn: Binding(
+                    get: { activeTheme.useSystemBackground },
+                    set: { setUseSystemBackground($0) }
+                ))
+
+                if !activeTheme.useSystemBackground {
+                    ColorPicker(
+                        "Background",
+                        selection: Binding(
+                            get: { Color(platformColor: PlatformColor(hex: activeTheme.backgroundColorHex) ?? .systemBackground) },
+                            set: { setBackgroundColor($0) }
+                        )
+                    )
+                }
+
+                Toggle("Use System Text Color", isOn: Binding(
+                    get: { activeTheme.useSystemTextColor },
+                    set: { setUseSystemTextColor($0) }
+                ))
+
+                if !activeTheme.useSystemTextColor {
+                    ColorPicker(
+                        "Text",
+                        selection: Binding(
+                            get: { Color(platformColor: PlatformColor(hex: activeTheme.textColorHex) ?? .label) },
+                            set: { setTextColor($0) }
+                        )
+                    )
+                }
+            }
+        }
+    }
+
+    // MARK: - Layout
 
     private var marginsSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Margins")
-                .font(.subheadline)
-                .fontWeight(.medium)
+                .font(.footnote)
                 .foregroundStyle(.secondary)
 
             HStack(spacing: 12) {
@@ -183,7 +266,49 @@ struct AppearancePanel: View {
         }
     }
 
+    private var layoutSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            header("Layout")
+
+            Toggle(isOn: Binding(
+                get: { themeManager.usePageLayout },
+                set: { themeManager.usePageLayout = $0 }
+            )) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Page-like Appearance")
+                    Text("Constrains text width on large screens")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            marginsSection
+        }
+    }
+
+    // MARK: - Preview
+
+    private var previewSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            header("Preview")
+            ThemePreviewView(theme: themeManager.currentTheme)
+                .frame(height: 200)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color(.separator), lineWidth: 1)
+                )
+        }
+    }
+
     // MARK: - Helpers
+
+    private var activeTheme: Theme {
+        if themeManager.selectedThemeType == "Custom" {
+            return themeManager.customTheme
+        }
+        return themeManager.currentTheme
+    }
 
     private var currentFontSize: CGFloat {
         if themeManager.selectedThemeType == "Custom" {
@@ -197,6 +322,30 @@ struct AppearancePanel: View {
             return themeManager.customTheme.horizontalMargin
         }
         return themeManager.currentTheme.horizontalMargin
+    }
+
+    private func header(_ title: String) -> some View {
+        Text(title)
+            .font(.subheadline)
+            .fontWeight(.medium)
+            .foregroundStyle(.secondary)
+    }
+
+    private func modifyTheme(_ update: (inout Theme) -> Void) {
+        if themeManager.selectedThemeType == "Custom" {
+            var updated = themeManager.customTheme
+            update(&updated)
+            themeManager.customTheme = updated
+        } else {
+            var custom = themeManager.currentTheme
+            update(&custom)
+            themeManager.customTheme = custom
+            themeManager.selectedThemeType = "Custom"
+        }
+    }
+
+    private func setFontName(_ name: String) {
+        modifyTheme { $0.fontName = name }
     }
 
     private func adjustFontSize(by delta: CGFloat) {
@@ -252,6 +401,38 @@ struct AppearancePanel: View {
             themeManager.customTheme = custom
             themeManager.selectedThemeType = "Custom"
         }
+    }
+
+    private func setUseSystemBackground(_ useSystem: Bool) {
+        modifyTheme { $0.useSystemBackground = useSystem }
+    }
+
+    private func setBackgroundColor(_ color: Color) {
+        modifyTheme { $0.backgroundColorHex = color.platformColor.hexString }
+    }
+
+    private func setUseSystemTextColor(_ useSystem: Bool) {
+        modifyTheme { $0.useSystemTextColor = useSystem }
+    }
+
+    private func setTextColor(_ color: Color) {
+        modifyTheme { $0.textColorHex = color.platformColor.hexString }
+    }
+
+    private func displayFontName(_ fontName: String) -> String {
+        if fontName == "System" {
+            return "System"
+        }
+        #if canImport(UIKit)
+        if let font = UIFont(name: fontName, size: 17) {
+            return font.familyName
+        }
+        #elseif canImport(AppKit)
+        if let font = NSFont(name: fontName, size: 17) {
+            return font.familyName
+        }
+        #endif
+        return fontName
     }
 }
 
@@ -438,9 +619,11 @@ struct MarginButton: View {
 
     private var marginWidth: CGFloat {
         switch margin {
-        case .narrow: return 3
+        case .extraNarrow: return 2
+        case .narrow: return 4
         case .medium: return 6
-        case .wide: return 10
+        case .wide: return 9
+        case .extraWide: return 12
         }
     }
 }

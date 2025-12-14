@@ -88,6 +88,12 @@ struct AddHighlightsSheet: View {
                 }
             }
         }
+        .onAppear {
+            print("🔍 AddHighlightsSheet appeared")
+            print("📊 Available highlights count: \(availableHighlights.count)")
+            print("📚 Total highlights: \(highlightsManager.allHighlights().count)")
+            print("✅ Existing highlight IDs: \(existingHighlightIds.count)")
+        }
     }
 
     private var emptyState: some View {
@@ -103,19 +109,34 @@ struct AddHighlightsSheet: View {
     }
 
     private var highlightsList: some View {
-        List(selection: $selectedHighlightIds) {
+        List {
             ForEach(availableHighlights, id: \.documentId) { group in
                 Section {
                     ForEach(group.highlights) { highlight in
-                        highlightRow(highlight: highlight, documentId: group.documentId)
-                            .tag(highlight.id)
+                        Button {
+                            toggleSelection(for: highlight.id)
+                        } label: {
+                            HStack {
+                                Image(systemName: selectedHighlightIds.contains(highlight.id) ? "checkmark.circle.fill" : "circle")
+                                    .foregroundStyle(selectedHighlightIds.contains(highlight.id) ? .blue : .secondary)
+                                highlightRow(highlight: highlight, documentId: group.documentId)
+                            }
+                        }
+                        .buttonStyle(.plain)
                     }
                 } header: {
                     Text(group.documentTitle)
                 }
             }
         }
-        .environment(\.editMode, .constant(.active))
+    }
+    
+    private func toggleSelection(for id: UUID) {
+        if selectedHighlightIds.contains(id) {
+            selectedHighlightIds.remove(id)
+        } else {
+            selectedHighlightIds.insert(id)
+        }
     }
 
     private func highlightRow(highlight: DHTextHighlight, documentId: UUID) -> some View {

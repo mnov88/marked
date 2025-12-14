@@ -224,9 +224,16 @@ Constrains text width to 800pt, centers with spacers. Scrollbar appears next to 
 ### Post-Processing
 
 Cleans up HTML conversion artifacts:
-- Merges orphaned list markers (numbers, letters, bullets on separate lines)
+- Merges orphaned list markers (numbers, letters, bullets, dashes on separate lines and short marker variants)
 - Standardizes paragraph spacing (double newline between paragraphs)
-- ~30 regex patterns for comprehensive cleanup
+- ~30 regex patterns for comprehensive cleanup (see `ContentLoader.postProcessText` and extra ideas in `future-features/regex-cleanup/`)
+
+### Heading Styling
+
+- URL imports now promote known heading CSS classes in the raw HTML to `<h2>/<h3>/<h4>` before parsing (classes like `coj-title-grseq-1/2/3`, `C05Titre1/2`, `C06Titre3`, `C75Debutdesmotifs`, `C04Titre1`, `C41DispositifIntroduction`, conditional `coj-sum-title-1`).
+- `DHConfig` includes a heading detector (mirrors regex patterns from `future-features/regex-cleanup/legal-md-formatter.js` / `html-to-md-new.js`: all-caps sections, “hereby rules:”, question headings including ordinal spellings, special section titles).
+- Detected heading spans flow into `DocHighlightingView` → `DHComposer`, which adds larger/bolder fonts and extra spacing while preserving links/highlights/indents.
+- Override `headingDetector` if you want custom rules; defaults are applied to all loaded documents.
 
 ## Requirements
 

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 struct Theme: Codable, Equatable {
     var fontName: String
     var fontSize: CGFloat

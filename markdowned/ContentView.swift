@@ -49,7 +49,7 @@ struct CompactTabView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack {
-                DocumentsListView()
+                DocumentsListView(filterCategory: nil)
             }
             .tabItem {
                 Label("Documents", systemImage: "doc.text")

@@ -7,6 +7,12 @@
 import Foundation
 import GRDB
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
 /// Database record for highlights using GRDB Codable records
 struct DBHighlight: Identifiable, Codable, FetchableRecord, PersistableRecord {
     var id: String // UUID as string

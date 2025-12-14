@@ -9,6 +9,7 @@ import Foundation
 // MARK: - Composite SwiftUI view
 
 struct DocHighlightingView: View {
+    @EnvironmentObject private var themeManager: ThemeManager
     private let documentId: UUID
     private let baseContent: NSAttributedString
     private var config: DHConfig
@@ -17,10 +18,12 @@ struct DocHighlightingView: View {
     // Cache spans computed from baseContent
     private let cachedLinkSpans: [DHLinkSpan]
     private let cachedIndentSpans: [DHIndentSpan]
+    private let cachedHeadingSpans: [DHHeadingSpan]
 
     @StateObject private var vm: DHViewModel
     @State private var showList = false
     @State private var showAppearance = false
+    @State private var showTOC = false
     @State private var scrollTarget: NSRange? = nil
     @State private var showCompositionPicker = false
     @State private var selectedHighlightIdForComposition: UUID?
@@ -38,6 +41,7 @@ struct DocHighlightingView: View {
         self.onLinkTap = onLinkTap
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(base.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(base.string as NSString) ?? []) : [])
+        self.cachedHeadingSpans = config.headingDetector?(base.string as NSString) ?? []
         self._vm = StateObject(wrappedValue: DHViewModel(documentId: documentId))
         self._scrollTarget = State(initialValue: initialScrollTarget)
     }
@@ -54,6 +58,7 @@ struct DocHighlightingView: View {
         self.onLinkTap = onLinkTap
         self.cachedLinkSpans = (config.enableLinks ? (config.linkDetector?(attributedString.string as NSString) ?? []) : [])
         self.cachedIndentSpans = (config.enableIndentation ? (config.indentationComputer?(attributedString.string as NSString) ?? []) : [])
+        self.cachedHeadingSpans = config.headingDetector?(attributedString.string as NSString) ?? []
         self._vm = StateObject(wrappedValue: DHViewModel(documentId: documentId))
         self._scrollTarget = State(initialValue: initialScrollTarget)
     }
@@ -64,6 +69,7 @@ struct DocHighlightingView: View {
             config: config,
             links: cachedLinkSpans,
             indents: cachedIndentSpans,
+            headings: cachedHeadingSpans,
             highlights: vm.highlights
         )
     }
@@ -101,7 +107,19 @@ struct DocHighlightingView: View {
                     showList.toggle()
                 } label: {
                     Label("Highlights", systemImage: "highlighter")
+                        .labelStyle(.iconOnly)
                 }
+                .padding(.horizontal)
+
+                Spacer()
+
+                Button {
+                    showTOC.toggle()
+                } label: {
+                    Label("Headings", systemImage: "list.bullet.indent")
+                        .labelStyle(.iconOnly)
+                }
+                .disabled(cachedHeadingSpans.isEmpty)
                 .padding(.horizontal)
 
                 Spacer()
@@ -110,6 +128,7 @@ struct DocHighlightingView: View {
                     showAppearance.toggle()
                 } label: {
                     Label("Appearance", systemImage: "textformat.size")
+                        .labelStyle(.iconOnly)
                 }
                 .padding(.horizontal)
             }
@@ -131,12 +150,74 @@ struct DocHighlightingView: View {
         }
         .sheet(isPresented: $showAppearance) {
             AppearancePanel()
+                .environmentObject(themeManager)
         }
         .sheet(isPresented: $showCompositionPicker) {
             if let highlightId = selectedHighlightIdForComposition {
                 CompositionPickerSheet(highlightId: highlightId)
             }
         }
+        .sheet(isPresented: $showTOC) {
+            HeadingListSheet(
+                headings: cachedHeadingSpans,
+                backingString: baseContent.string as NSString
+            ) { span in
+                scrollTarget = span.range
+                showTOC = false
+            }
+        }
     }
 }
 
+private struct HeadingListSheet: View {
+    let headings: [DHHeadingSpan]
+    let backingString: NSString
+    var onSelect: (DHHeadingSpan) -> Void
+
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            List {
+                ForEach(headings) { heading in
+                    Button {
+                        onSelect(heading)
+                        dismiss()
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(text(for: heading))
+                                    .font(heading.level == .h2 ? .headline : .subheadline)
+                                    .lineLimit(2)
+                                if heading.level == .h2 {
+                                    Text("Section")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                } else {
+                                    Text("Subsection")
+                                        .font(.caption)
+                                        .foregroundStyle(.tertiary)
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .padding(.leading, heading.level == .h3 ? 12 : 0)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .navigationTitle("Headings")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") { dismiss() }
+                }
+            }
+        }
+    }
+
+    private func text(for heading: DHHeadingSpan) -> String {
+        guard NSMaxRange(heading.range) <= backingString.length else { return "" }
+        return backingString.substring(with: heading.range)
+    }
+}

@@ -187,7 +187,7 @@ markdowned/
 └── Utilities
     ├── DHComposer.swift               # Attributed string composition
     ├── DHViewModel.swift              # Highlight view model
-    ├── ContentLoader.swift            # URL content fetching
+    ├── ContentLoader.swift            # URL content fetching + HTML-to-text cleanup (list merge, heading promotion)
     ├── Utilities.swift                # Helpers
 ```
 

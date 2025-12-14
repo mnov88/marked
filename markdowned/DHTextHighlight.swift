@@ -89,6 +89,17 @@ struct DHIndentSpan: Identifiable, Equatable {
     let firstLineHeadIndent: CGFloat
 }
 
+struct DHHeadingSpan: Identifiable, Equatable {
+    enum Level {
+        case h2
+        case h3
+    }
+
+    let id: UUID
+    let range: NSRange
+    let level: Level
+}
+
 // MARK: - Configuration
 
 struct DHStyle {
@@ -106,23 +117,29 @@ struct DHStyle {
     var horizontalMargin: HorizontalMargin = .medium
 
     enum HorizontalMargin: String, Codable, CaseIterable {
+        case extraNarrow = "Extra Narrow"
         case narrow = "Narrow"
         case medium = "Medium"
         case wide = "Wide"
+        case extraWide = "Extra Wide"
 
         var baseInset: CGFloat {
             switch self {
+            case .extraNarrow: return 12
             case .narrow: return 16
             case .medium: return 24
             case .wide: return 40
+            case .extraWide: return 52
             }
         }
 
         var maxContentWidth: CGFloat {
             switch self {
-            case .narrow: return 760
+            case .extraNarrow: return 840
+            case .narrow: return 780
             case .medium: return 700
-            case .wide: return 600
+            case .wide: return 620
+            case .extraWide: return 560
             }
         }
     }
@@ -137,6 +154,7 @@ struct DHConfig {
     // Rule providers
     var linkDetector: ((NSString) -> [DHLinkSpan])? = DHConfig.defaultArticleLinks
     var indentationComputer: ((NSString) -> [DHIndentSpan])? = DHConfig.defaultIndentation
+    var headingDetector: ((NSString) -> [DHHeadingSpan])? = DHConfig.defaultHeadings
 
     // Build "dh://article/<n>" links using .link attribute
     nonisolated static func defaultArticleLinks(_ s: NSString) -> [DHLinkSpan] {
@@ -183,5 +201,125 @@ struct DHConfig {
             ))
         }
         return spans
+    }
+
+    // Heading detection inspired by future-features/regex-cleanup/legal-md-formatter.js
+    nonisolated static func defaultHeadings(_ s: NSString) -> [DHHeadingSpan] {
+        var spans: [DHHeadingSpan] = []
+        let full = NSRange(location: 0, length: s.length)
+
+        let specialSections: [String: DHHeadingSpan.Level] = [
+            "JUDGMENT OF THE COURT": .h2,
+            "ORDER OF THE COURT": .h2,
+            "OPINION OF ADVOCATE GENERAL": .h2,
+            "Costs": .h3,
+            "Procedure": .h3,
+            "Legal context": .h3,
+            "Background to the dispute": .h3,
+            "Forms of order sought": .h3,
+            "The dispute": .h3,
+            "Admissibility": .h3,
+            "The main proceedings": .h3,
+            "The questions referred": .h3,
+            "Consideration of the questions referred": .h3
+        ]
+
+        let ordinal = "(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)"
+
+        let generalHeadingPatterns: [NSRegularExpression] = [
+            try? NSRegularExpression(pattern: #"^\[[^\]]+\]$"#, options: []), // [Text rectified ...]
+            try? NSRegularExpression(pattern: #"^ORDER OF THE COURT(?: \([^)]+\))?$"#, options: [.caseInsensitive]),
+            try? NSRegularExpression(pattern: #"^(Judgment|Order)$"#, options: [.caseInsensitive]),
+            try? NSRegularExpression(pattern: #"^On those grounds,? the Court.*$"#, options: [.caseInsensitive])
+        ].compactMap { $0 }
+
+        let questionPatterns: [NSRegularExpression] = [
+            try? NSRegularExpression(pattern: #"^Questions?\s+\d+(?:\s+to\s+\d+)?$"#, options: [.caseInsensitive]),
+            try? NSRegularExpression(pattern: #"^The\s+\d+[a-z]{2}\s+question$"#, options: [.caseInsensitive]),
+            try? NSRegularExpression(pattern: #"^The questions? referred(?: for a preliminary ruling)?$"#, options: [.caseInsensitive]),
+            try? NSRegularExpression(pattern: #"^Question referred for a preliminary ruling$"#, options: [.caseInsensitive]),
+            try? NSRegularExpression(pattern: #"^(?:On the\s+|The\s+)?(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)(?:\s+(?:and|to)\s+(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth))*\s+questions?$"#, options: [.caseInsensitive]),
+            try? NSRegularExpression(pattern: #"^The\s+(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+part of the\s+(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+question$"#, options: [.caseInsensitive])
+        ].compactMap { $0 }
+
+        s.enumerateSubstrings(in: full, options: [.byParagraphs]) { substring, subRange, _, _ in
+            guard let substring else { return }
+            let trimmed = substring.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !trimmed.isEmpty else { return }
+
+            if let level = specialSections[trimmed] {
+                if let r = trimmedRange(in: subRange, substring: substring) {
+                    spans.append(DHHeadingSpan(id: UUID(), range: r, level: level))
+                }
+                return
+            }
+
+            if generalHeadingPatterns.contains(where: { regex in
+                let range = NSRange(location: 0, length: (trimmed as NSString).length)
+                return regex.firstMatch(in: trimmed, options: [], range: range) != nil
+            }) {
+                if let r = trimmedRange(in: subRange, substring: substring) {
+                    spans.append(DHHeadingSpan(id: UUID(), range: r, level: .h2))
+                }
+                return
+            }
+
+            if questionPatterns.contains(where: { regex in
+                let range = NSRange(location: 0, length: (trimmed as NSString).length)
+                return regex.firstMatch(in: trimmed, options: [], range: range) != nil
+            }) {
+                if let r = trimmedRange(in: subRange, substring: substring) {
+                    spans.append(DHHeadingSpan(id: UUID(), range: r, level: .h3))
+                }
+                return
+            }
+
+            if trimmed.lowercased().hasSuffix("hereby rules:") {
+                if let r = trimmedRange(in: subRange, substring: substring) {
+                    spans.append(DHHeadingSpan(id: UUID(), range: r, level: .h3))
+                }
+                return
+            }
+
+            if trimmed == trimmed.uppercased(), trimmed.count > 5 {
+                if let r = trimmedRange(in: subRange, substring: substring) {
+                    spans.append(DHHeadingSpan(id: UUID(), range: r, level: .h2))
+                }
+            }
+        }
+
+        return spans
+    }
+
+    /// Trim leading/trailing whitespace inside a paragraph range to align styling to visible text
+    private nonisolated static func trimmedRange(in paragraphRange: NSRange, substring: String) -> NSRange? {
+        let paragraphNSString = substring as NSString
+        let charset = CharacterSet.whitespacesAndNewlines
+
+        var start = 0
+        var end = paragraphNSString.length
+
+        while start < end {
+            let scalar = UnicodeScalar(paragraphNSString.character(at: start))
+            if let scalar, charset.contains(scalar) {
+                start += 1
+            } else {
+                break
+            }
+        }
+
+        while end > start {
+            let scalar = UnicodeScalar(paragraphNSString.character(at: end - 1))
+            if let scalar, charset.contains(scalar) {
+                end -= 1
+            } else {
+                break
+            }
+        }
+
+        let length = end - start
+        guard length > 0 else { return nil }
+
+        return NSRange(location: paragraphRange.location + start, length: length)
     }
 }

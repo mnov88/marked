@@ -43,6 +43,80 @@
 		07A602D62ED0F60600F9B054 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A602C52ED0F60600F9B054 /* SettingsView.swift */; };
 		07A602D72ED0F60600F9B054 /* DHTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A602C22ED0F60600F9B054 /* DHTextView.swift */; };
 		07A602D92ED0F6AB00F9B054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A602D82ED0F6AB00F9B054 /* ContentView.swift */; };
+		07A604C82ED2FE2C00F9B054 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604AD2ED2FE2C00F9B054 /* CategoriesManager.swift */; };
+		07A604C92ED2FE2C00F9B054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B42ED2FE2C00F9B054 /* ContentView.swift */; };
+		07A604CA2ED2FE2C00F9B054 /* FolderImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604BE2ED2FE2C00F9B054 /* FolderImportView.swift */; };
+		07A604CB2ED2FE2C00F9B054 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C02ED2FE2C00F9B054 /* MainNavigationView.swift */; };
+		07A604CC2ED2FE2C00F9B054 /* CrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B52ED2FE2C00F9B054 /* CrossPlatform.swift */; };
+		07A604CD2ED2FE2C00F9B054 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C22ED2FE2C00F9B054 /* SidebarView.swift */; };
+		07A604CE2ED2FE2C00F9B054 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C72ED2FE2C00F9B054 /* Utilities.swift */; };
+		07A604CF2ED2FE2C00F9B054 /* DBHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B82ED2FE2C00F9B054 /* DBHighlight.swift */; };
+		07A604D02ED2FE2C00F9B054 /* DBDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B72ED2FE2C00F9B054 /* DBDocument.swift */; };
+		07A604D12ED2FE2C00F9B054 /* TextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C32ED2FE2C00F9B054 /* TextHighlight.swift */; };
+		07A604D22ED2FE2C00F9B054 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604AF2ED2FE2C00F9B054 /* Composition.swift */; };
+		07A604D32ED2FE2C00F9B054 /* HighlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604BF2ED2FE2C00F9B054 /* HighlightsManager.swift */; };
+		07A604D42ED2FE2C00F9B054 /* DHTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604BB2ED2FE2C00F9B054 /* DHTextView.swift */; };
+		07A604D52ED2FE2C00F9B054 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B62ED2FE2C00F9B054 /* DatabaseManager.swift */; };
+		07A604D62ED2FE2C00F9B054 /* DocHighlightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604BC2ED2FE2C00F9B054 /* DocHighlightingView.swift */; };
+		07A604D72ED2FE2C00F9B054 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604AC2ED2FE2C00F9B054 /* AppCommands.swift */; };
+		07A604D82ED2FE2C00F9B054 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604AE2ED2FE2C00F9B054 /* Category.swift */; };
+		07A604D92ED2FE2C00F9B054 /* CompositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B02ED2FE2C00F9B054 /* CompositionDetailView.swift */; };
+		07A604DA2ED2FE2C00F9B054 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B22ED2FE2C00F9B054 /* Constants.swift */; };
+		07A604DB2ED2FE2C00F9B054 /* DHTextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604BA2ED2FE2C00F9B054 /* DHTextHighlight.swift */; };
+		07A604DC2ED2FE2C00F9B054 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C52ED2FE2C00F9B054 /* ThemeManager.swift */; };
+		07A604DD2ED2FE2C00F9B054 /* URLEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C62ED2FE2C00F9B054 /* URLEntryView.swift */; };
+		07A604DE2ED2FE2C00F9B054 /* AllHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604AB2ED2FE2C00F9B054 /* AllHighlightsView.swift */; };
+		07A604DF2ED2FE2C00F9B054 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B32ED2FE2C00F9B054 /* ContentLoader.swift */; };
+		07A604E02ED2FE2C00F9B054 /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604BD2ED2FE2C00F9B054 /* DocumentsManager.swift */; };
+		07A604E12ED2FE2C00F9B054 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C12ED2FE2C00F9B054 /* SettingsView.swift */; };
+		07A604E22ED2FE2C00F9B054 /* CompositionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B12ED2FE2C00F9B054 /* CompositionsManager.swift */; };
+		07A604E32ED2FE2C00F9B054 /* DHComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604B92ED2FE2C00F9B054 /* DHComposer.swift */; };
+		07A604E42ED2FE2C00F9B054 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604C42ED2FE2C00F9B054 /* Theme.swift */; };
+		07A605122ED2FE4800F9B054 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 07A605092ED2FE4800F9B054 /* Readme.md */; };
+		07A605142ED2FE4800F9B054 /* DocHighlightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605002ED2FE4800F9B054 /* DocHighlightingView.swift */; };
+		07A605152ED2FE4800F9B054 /* DHTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FE2ED2FE4800F9B054 /* DHTextView.swift */; };
+		07A605162ED2FE4800F9B054 /* AddHighlightsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604E52ED2FE4800F9B054 /* AddHighlightsSheet.swift */; };
+		07A605172ED2FE4800F9B054 /* CompositionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F12ED2FE4800F9B054 /* CompositionsListView.swift */; };
+		07A605182ED2FE4800F9B054 /* HighlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605052ED2FE4800F9B054 /* HighlightsManager.swift */; };
+		07A605192ED2FE4800F9B054 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605072ED2FE4800F9B054 /* MainNavigationView.swift */; };
+		07A6051A2ED2FE4800F9B054 /* DBCompositionFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F92ED2FE4800F9B054 /* DBCompositionFragment.swift */; };
+		07A6051B2ED2FE4800F9B054 /* CategoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EB2ED2FE4800F9B054 /* CategoriesManager.swift */; };
+		07A6051C2ED2FE4800F9B054 /* FolderImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605032ED2FE4800F9B054 /* FolderImportView.swift */; };
+		07A6051D2ED2FE4800F9B054 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6050B2ED2FE4800F9B054 /* SidebarView.swift */; };
+		07A6051E2ED2FE4800F9B054 /* TextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6050D2ED2FE4800F9B054 /* TextHighlight.swift */; };
+		07A6051F2ED2FE4800F9B054 /* TestStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6050C2ED2FE4800F9B054 /* TestStrings.swift */; };
+		07A605202ED2FE4800F9B054 /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605022ED2FE4800F9B054 /* DocumentsManager.swift */; };
+		07A605212ED2FE4800F9B054 /* CrossPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F62ED2FE4800F9B054 /* CrossPlatform.swift */; };
+		07A605222ED2FE4800F9B054 /* DHTextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FD2ED2FE4800F9B054 /* DHTextHighlight.swift */; };
+		07A605232ED2FE4800F9B054 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F72ED2FE4800F9B054 /* DatabaseManager.swift */; };
+		07A605242ED2FE4800F9B054 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6050E2ED2FE4800F9B054 /* Theme.swift */; };
+		07A605252ED2FE4800F9B054 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605012ED2FE4800F9B054 /* Document.swift */; };
+		07A605262ED2FE4800F9B054 /* URLEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605102ED2FE4800F9B054 /* URLEntryView.swift */; };
+		07A605272ED2FE4800F9B054 /* DBDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FA2ED2FE4800F9B054 /* DBDocument.swift */; };
+		07A605282ED2FE4800F9B054 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605112ED2FE4800F9B054 /* Utilities.swift */; };
+		07A605292ED2FE4800F9B054 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6050A2ED2FE4800F9B054 /* SettingsView.swift */; };
+		07A6052A2ED2FE4800F9B054 /* DBHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FB2ED2FE4800F9B054 /* DBHighlight.swift */; };
+		07A6052B2ED2FE4800F9B054 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F32ED2FE4800F9B054 /* Constants.swift */; };
+		07A6052C2ED2FE4800F9B054 /* FragmentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605042ED2FE4800F9B054 /* FragmentCardView.swift */; };
+		07A6052D2ED2FE4800F9B054 /* markdownedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605082ED2FE4800F9B054 /* markdownedApp.swift */; };
+		07A6052E2ED2FE4800F9B054 /* AppearancePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604E82ED2FE4800F9B054 /* AppearancePanel.swift */; };
+		07A6052F2ED2FE4800F9B054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F52ED2FE4800F9B054 /* ContentView.swift */; };
+		07A605302ED2FE4800F9B054 /* DHViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FF2ED2FE4800F9B054 /* DHViewModel.swift */; };
+		07A605312ED2FE4800F9B054 /* CaseDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EA2ED2FE4800F9B054 /* CaseDataParser.swift */; };
+		07A605322ED2FE4800F9B054 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604E92ED2FE4800F9B054 /* Case.swift */; };
+		07A605332ED2FE4800F9B054 /* CompositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EE2ED2FE4800F9B054 /* CompositionDetailView.swift */; };
+		07A605342ED2FE4800F9B054 /* CompositionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F22ED2FE4800F9B054 /* CompositionsManager.swift */; };
+		07A605352ED2FE4800F9B054 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F42ED2FE4800F9B054 /* ContentLoader.swift */; };
+		07A605362ED2FE4800F9B054 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604E72ED2FE4800F9B054 /* AppCommands.swift */; };
+		07A605372ED2FE4800F9B054 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EC2ED2FE4800F9B054 /* Category.swift */; };
+		07A605382ED2FE4800F9B054 /* AllHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604E62ED2FE4800F9B054 /* AllHighlightsView.swift */; };
+		07A605392ED2FE4800F9B054 /* DBComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F82ED2FE4800F9B054 /* DBComposition.swift */; };
+		07A6053A2ED2FE4800F9B054 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A6050F2ED2FE4800F9B054 /* ThemeManager.swift */; };
+		07A6053B2ED2FE4800F9B054 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604ED2ED2FE4800F9B054 /* Composition.swift */; };
+		07A6053C2ED2FE4800F9B054 /* CompositionExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EF2ED2FE4800F9B054 /* CompositionExportView.swift */; };
+		07A6053D2ED2FE4800F9B054 /* CompositionPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F02ED2FE4800F9B054 /* CompositionPickerSheet.swift */; };
+		07A6053E2ED2FE4800F9B054 /* DHComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FC2ED2FE4800F9B054 /* DHComposer.swift */; };
+		07A605C92ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605C82ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift */; };
 		07EA7CBB2EBB71F5002AC733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07EA7CB72EBB71F5002AC733 /* Assets.xcassets */; };
 		07EA7CBD2EBB71F5002AC733 /* markdownedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA7CB92EBB71F5002AC733 /* markdownedApp.swift */; };
 		07EA7CDE2EBB7DF0002AC733 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 07EA7CDD2EBB7DF0002AC733 /* Ink */; };
@@ -94,7 +168,6 @@
 
 /* Begin PBXFileReference section */
 		076DEF602ECB52BF0026D77C /* allcases.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = allcases.csv; sourceTree = "<group>"; };
-		076DEF642ECB5BB90026D77C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		076DEF892ECE6FF80026D77C /* AllHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHighlightsView.swift; sourceTree = "<group>"; };
 		076DEF8A2ECE6FF80026D77C /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 		076DEF8B2ECE6FF80026D77C /* CaseDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataParser.swift; sourceTree = "<group>"; };
@@ -126,6 +199,80 @@
 		07A602C82ED0F60600F9B054 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		07A602C92ED0F60600F9B054 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		07A602D82ED0F6AB00F9B054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		07A604AB2ED2FE2C00F9B054 /* AllHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHighlightsView.swift; sourceTree = "<group>"; };
+		07A604AC2ED2FE2C00F9B054 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
+		07A604AD2ED2FE2C00F9B054 /* CategoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesManager.swift; sourceTree = "<group>"; };
+		07A604AE2ED2FE2C00F9B054 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		07A604AF2ED2FE2C00F9B054 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
+		07A604B02ED2FE2C00F9B054 /* CompositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionDetailView.swift; sourceTree = "<group>"; };
+		07A604B12ED2FE2C00F9B054 /* CompositionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionsManager.swift; sourceTree = "<group>"; };
+		07A604B22ED2FE2C00F9B054 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07A604B32ED2FE2C00F9B054 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
+		07A604B42ED2FE2C00F9B054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		07A604B52ED2FE2C00F9B054 /* CrossPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossPlatform.swift; sourceTree = "<group>"; };
+		07A604B62ED2FE2C00F9B054 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		07A604B72ED2FE2C00F9B054 /* DBDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDocument.swift; sourceTree = "<group>"; };
+		07A604B82ED2FE2C00F9B054 /* DBHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHighlight.swift; sourceTree = "<group>"; };
+		07A604B92ED2FE2C00F9B054 /* DHComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHComposer.swift; sourceTree = "<group>"; };
+		07A604BA2ED2FE2C00F9B054 /* DHTextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextHighlight.swift; sourceTree = "<group>"; };
+		07A604BB2ED2FE2C00F9B054 /* DHTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextView.swift; sourceTree = "<group>"; };
+		07A604BC2ED2FE2C00F9B054 /* DocHighlightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocHighlightingView.swift; sourceTree = "<group>"; };
+		07A604BD2ED2FE2C00F9B054 /* DocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsManager.swift; sourceTree = "<group>"; };
+		07A604BE2ED2FE2C00F9B054 /* FolderImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderImportView.swift; sourceTree = "<group>"; };
+		07A604BF2ED2FE2C00F9B054 /* HighlightsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsManager.swift; sourceTree = "<group>"; };
+		07A604C02ED2FE2C00F9B054 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
+		07A604C12ED2FE2C00F9B054 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		07A604C22ED2FE2C00F9B054 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		07A604C32ED2FE2C00F9B054 /* TextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHighlight.swift; sourceTree = "<group>"; };
+		07A604C42ED2FE2C00F9B054 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		07A604C52ED2FE2C00F9B054 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		07A604C62ED2FE2C00F9B054 /* URLEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEntryView.swift; sourceTree = "<group>"; };
+		07A604C72ED2FE2C00F9B054 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		07A604E52ED2FE4800F9B054 /* AddHighlightsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHighlightsSheet.swift; sourceTree = "<group>"; };
+		07A604E62ED2FE4800F9B054 /* AllHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHighlightsView.swift; sourceTree = "<group>"; };
+		07A604E72ED2FE4800F9B054 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
+		07A604E82ED2FE4800F9B054 /* AppearancePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePanel.swift; sourceTree = "<group>"; };
+		07A604E92ED2FE4800F9B054 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
+		07A604EA2ED2FE4800F9B054 /* CaseDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataParser.swift; sourceTree = "<group>"; };
+		07A604EB2ED2FE4800F9B054 /* CategoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesManager.swift; sourceTree = "<group>"; };
+		07A604EC2ED2FE4800F9B054 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		07A604ED2ED2FE4800F9B054 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
+		07A604EE2ED2FE4800F9B054 /* CompositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionDetailView.swift; sourceTree = "<group>"; };
+		07A604EF2ED2FE4800F9B054 /* CompositionExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionExportView.swift; sourceTree = "<group>"; };
+		07A604F02ED2FE4800F9B054 /* CompositionPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionPickerSheet.swift; sourceTree = "<group>"; };
+		07A604F12ED2FE4800F9B054 /* CompositionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionsListView.swift; sourceTree = "<group>"; };
+		07A604F22ED2FE4800F9B054 /* CompositionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionsManager.swift; sourceTree = "<group>"; };
+		07A604F32ED2FE4800F9B054 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07A604F42ED2FE4800F9B054 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
+		07A604F52ED2FE4800F9B054 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		07A604F62ED2FE4800F9B054 /* CrossPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossPlatform.swift; sourceTree = "<group>"; };
+		07A604F72ED2FE4800F9B054 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		07A604F82ED2FE4800F9B054 /* DBComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBComposition.swift; sourceTree = "<group>"; };
+		07A604F92ED2FE4800F9B054 /* DBCompositionFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBCompositionFragment.swift; sourceTree = "<group>"; };
+		07A604FA2ED2FE4800F9B054 /* DBDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDocument.swift; sourceTree = "<group>"; };
+		07A604FB2ED2FE4800F9B054 /* DBHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHighlight.swift; sourceTree = "<group>"; };
+		07A604FC2ED2FE4800F9B054 /* DHComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHComposer.swift; sourceTree = "<group>"; };
+		07A604FD2ED2FE4800F9B054 /* DHTextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextHighlight.swift; sourceTree = "<group>"; };
+		07A604FE2ED2FE4800F9B054 /* DHTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextView.swift; sourceTree = "<group>"; };
+		07A604FF2ED2FE4800F9B054 /* DHViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHViewModel.swift; sourceTree = "<group>"; };
+		07A605002ED2FE4800F9B054 /* DocHighlightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocHighlightingView.swift; sourceTree = "<group>"; };
+		07A605012ED2FE4800F9B054 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		07A605022ED2FE4800F9B054 /* DocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsManager.swift; sourceTree = "<group>"; };
+		07A605032ED2FE4800F9B054 /* FolderImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderImportView.swift; sourceTree = "<group>"; };
+		07A605042ED2FE4800F9B054 /* FragmentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentCardView.swift; sourceTree = "<group>"; };
+		07A605052ED2FE4800F9B054 /* HighlightsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsManager.swift; sourceTree = "<group>"; };
+		07A605072ED2FE4800F9B054 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
+		07A605082ED2FE4800F9B054 /* markdownedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = markdownedApp.swift; sourceTree = "<group>"; };
+		07A605092ED2FE4800F9B054 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		07A6050A2ED2FE4800F9B054 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		07A6050B2ED2FE4800F9B054 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		07A6050C2ED2FE4800F9B054 /* TestStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStrings.swift; sourceTree = "<group>"; };
+		07A6050D2ED2FE4800F9B054 /* TextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHighlight.swift; sourceTree = "<group>"; };
+		07A6050E2ED2FE4800F9B054 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		07A6050F2ED2FE4800F9B054 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		07A605102ED2FE4800F9B054 /* URLEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEntryView.swift; sourceTree = "<group>"; };
+		07A605112ED2FE4800F9B054 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		07A605C82ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolsBrowserApp.swift; sourceTree = "<group>"; };
 		07EA7C8D2EBB71EC002AC733 /* markdowned.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = markdowned.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07EA7C9A2EBB71EE002AC733 /* markdownedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markdownedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07EA7CA42EBB71EE002AC733 /* markdownedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markdownedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +371,6 @@
 		07EA7CBA2EBB71F5002AC733 /* markdowned */ = {
 			isa = PBXGroup;
 			children = (
-				076DEF642ECB5BB90026D77C /* Info.plist */,
 				07EA7CB72EBB71F5002AC733 /* Assets.xcassets */,
 				07EA7CB92EBB71F5002AC733 /* markdownedApp.swift */,
 				07EA809F2EBFA38D002AC733 /* TextHighlight.swift */,
@@ -233,12 +379,86 @@
 				07EA80AD2EC1E58F002AC733 /* DHTextHighlight.swift */,
 				07EA80AB2EC1E554002AC733 /* DHTextView.swift */,
 				07EA80A92EC1E4B1002AC733 /* DocHighlightingView.swift */,
+				07A604E52ED2FE4800F9B054 /* AddHighlightsSheet.swift */,
+				07A604E62ED2FE4800F9B054 /* AllHighlightsView.swift */,
+				07A604E72ED2FE4800F9B054 /* AppCommands.swift */,
+				07A604E82ED2FE4800F9B054 /* AppearancePanel.swift */,
+				07A604E92ED2FE4800F9B054 /* Case.swift */,
+				07A604EA2ED2FE4800F9B054 /* CaseDataParser.swift */,
+				07A604EB2ED2FE4800F9B054 /* CategoriesManager.swift */,
+				07A604EC2ED2FE4800F9B054 /* Category.swift */,
+				07A604ED2ED2FE4800F9B054 /* Composition.swift */,
+				07A604EE2ED2FE4800F9B054 /* CompositionDetailView.swift */,
+				07A604EF2ED2FE4800F9B054 /* CompositionExportView.swift */,
+				07A604F02ED2FE4800F9B054 /* CompositionPickerSheet.swift */,
+				07A604F12ED2FE4800F9B054 /* CompositionsListView.swift */,
+				07A604F22ED2FE4800F9B054 /* CompositionsManager.swift */,
+				07A604F32ED2FE4800F9B054 /* Constants.swift */,
+				07A604F42ED2FE4800F9B054 /* ContentLoader.swift */,
+				07A604F52ED2FE4800F9B054 /* ContentView.swift */,
+				07A604F62ED2FE4800F9B054 /* CrossPlatform.swift */,
+				07A604F72ED2FE4800F9B054 /* DatabaseManager.swift */,
+				07A605C82ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift */,
+				07A604F82ED2FE4800F9B054 /* DBComposition.swift */,
+				07A604F92ED2FE4800F9B054 /* DBCompositionFragment.swift */,
+				07A604FA2ED2FE4800F9B054 /* DBDocument.swift */,
+				07A604FB2ED2FE4800F9B054 /* DBHighlight.swift */,
+				07A604FC2ED2FE4800F9B054 /* DHComposer.swift */,
+				07A604FD2ED2FE4800F9B054 /* DHTextHighlight.swift */,
+				07A604FE2ED2FE4800F9B054 /* DHTextView.swift */,
+				07A604FF2ED2FE4800F9B054 /* DHViewModel.swift */,
+				07A605002ED2FE4800F9B054 /* DocHighlightingView.swift */,
+				07A605012ED2FE4800F9B054 /* Document.swift */,
+				07A605022ED2FE4800F9B054 /* DocumentsManager.swift */,
+				07A605032ED2FE4800F9B054 /* FolderImportView.swift */,
+				07A605042ED2FE4800F9B054 /* FragmentCardView.swift */,
+				07A605052ED2FE4800F9B054 /* HighlightsManager.swift */,
+				07A605072ED2FE4800F9B054 /* MainNavigationView.swift */,
+				07A605082ED2FE4800F9B054 /* markdownedApp.swift */,
+				07A605092ED2FE4800F9B054 /* Readme.md */,
+				07A6050A2ED2FE4800F9B054 /* SettingsView.swift */,
+				07A6050B2ED2FE4800F9B054 /* SidebarView.swift */,
+				07A6050C2ED2FE4800F9B054 /* TestStrings.swift */,
+				07A6050D2ED2FE4800F9B054 /* TextHighlight.swift */,
+				07A6050E2ED2FE4800F9B054 /* Theme.swift */,
+				07A6050F2ED2FE4800F9B054 /* ThemeManager.swift */,
+				07A605102ED2FE4800F9B054 /* URLEntryView.swift */,
+				07A605112ED2FE4800F9B054 /* Utilities.swift */,
 				07EA80A72EC1E48B002AC733 /* Utilities.swift */,
 				076DEF892ECE6FF80026D77C /* AllHighlightsView.swift */,
 				076DEF8A2ECE6FF80026D77C /* Case.swift */,
 				076DEF8B2ECE6FF80026D77C /* CaseDataParser.swift */,
 				076DEF8C2ECE6FF80026D77C /* ContentLoader.swift */,
 				07A602D82ED0F6AB00F9B054 /* ContentView.swift */,
+				07A604AB2ED2FE2C00F9B054 /* AllHighlightsView.swift */,
+				07A604AC2ED2FE2C00F9B054 /* AppCommands.swift */,
+				07A604AD2ED2FE2C00F9B054 /* CategoriesManager.swift */,
+				07A604AE2ED2FE2C00F9B054 /* Category.swift */,
+				07A604AF2ED2FE2C00F9B054 /* Composition.swift */,
+				07A604B02ED2FE2C00F9B054 /* CompositionDetailView.swift */,
+				07A604B12ED2FE2C00F9B054 /* CompositionsManager.swift */,
+				07A604B22ED2FE2C00F9B054 /* Constants.swift */,
+				07A604B32ED2FE2C00F9B054 /* ContentLoader.swift */,
+				07A604B42ED2FE2C00F9B054 /* ContentView.swift */,
+				07A604B52ED2FE2C00F9B054 /* CrossPlatform.swift */,
+				07A604B62ED2FE2C00F9B054 /* DatabaseManager.swift */,
+				07A604B72ED2FE2C00F9B054 /* DBDocument.swift */,
+				07A604B82ED2FE2C00F9B054 /* DBHighlight.swift */,
+				07A604B92ED2FE2C00F9B054 /* DHComposer.swift */,
+				07A604BA2ED2FE2C00F9B054 /* DHTextHighlight.swift */,
+				07A604BB2ED2FE2C00F9B054 /* DHTextView.swift */,
+				07A604BC2ED2FE2C00F9B054 /* DocHighlightingView.swift */,
+				07A604BD2ED2FE2C00F9B054 /* DocumentsManager.swift */,
+				07A604BE2ED2FE2C00F9B054 /* FolderImportView.swift */,
+				07A604BF2ED2FE2C00F9B054 /* HighlightsManager.swift */,
+				07A604C02ED2FE2C00F9B054 /* MainNavigationView.swift */,
+				07A604C12ED2FE2C00F9B054 /* SettingsView.swift */,
+				07A604C22ED2FE2C00F9B054 /* SidebarView.swift */,
+				07A604C32ED2FE2C00F9B054 /* TextHighlight.swift */,
+				07A604C42ED2FE2C00F9B054 /* Theme.swift */,
+				07A604C52ED2FE2C00F9B054 /* ThemeManager.swift */,
+				07A604C62ED2FE2C00F9B054 /* URLEntryView.swift */,
+				07A604C72ED2FE2C00F9B054 /* Utilities.swift */,
 				07A602BC2ED0F60600F9B054 /* Category.swift */,
 				07A602BD2ED0F60600F9B054 /* ContentLoader.swift */,
 				07A602BE2ED0F60600F9B054 /* DBDocument.swift */,
@@ -423,6 +643,7 @@
 			files = (
 				07EA80A22EC1E2C9002AC733 /* Readme.md in Resources */,
 				07EA7CBB2EBB71F5002AC733 /* Assets.xcassets in Resources */,
+				07A605122ED2FE4800F9B054 /* Readme.md in Resources */,
 				076DEF622ECB52BF0026D77C /* allcases.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +691,49 @@
 				076DEF9A2ECE6FF80026D77C /* HighlightsManager.swift in Sources */,
 				076DEF9B2ECE6FF80026D77C /* DHTextView.swift in Sources */,
 				076DEF9C2ECE6FF80026D77C /* AllHighlightsView.swift in Sources */,
+				07A605142ED2FE4800F9B054 /* DocHighlightingView.swift in Sources */,
+				07A605152ED2FE4800F9B054 /* DHTextView.swift in Sources */,
+				07A605162ED2FE4800F9B054 /* AddHighlightsSheet.swift in Sources */,
+				07A605172ED2FE4800F9B054 /* CompositionsListView.swift in Sources */,
+				07A605182ED2FE4800F9B054 /* HighlightsManager.swift in Sources */,
+				07A605192ED2FE4800F9B054 /* MainNavigationView.swift in Sources */,
+				07A6051A2ED2FE4800F9B054 /* DBCompositionFragment.swift in Sources */,
+				07A6051B2ED2FE4800F9B054 /* CategoriesManager.swift in Sources */,
+				07A6051C2ED2FE4800F9B054 /* FolderImportView.swift in Sources */,
+				07A6051D2ED2FE4800F9B054 /* SidebarView.swift in Sources */,
+				07A6051E2ED2FE4800F9B054 /* TextHighlight.swift in Sources */,
+				07A6051F2ED2FE4800F9B054 /* TestStrings.swift in Sources */,
+				07A605202ED2FE4800F9B054 /* DocumentsManager.swift in Sources */,
+				07A605212ED2FE4800F9B054 /* CrossPlatform.swift in Sources */,
+				07A605222ED2FE4800F9B054 /* DHTextHighlight.swift in Sources */,
+				07A605232ED2FE4800F9B054 /* DatabaseManager.swift in Sources */,
+				07A605242ED2FE4800F9B054 /* Theme.swift in Sources */,
+				07A605252ED2FE4800F9B054 /* Document.swift in Sources */,
+				07A605262ED2FE4800F9B054 /* URLEntryView.swift in Sources */,
+				07A605272ED2FE4800F9B054 /* DBDocument.swift in Sources */,
+				07A605282ED2FE4800F9B054 /* Utilities.swift in Sources */,
+				07A605292ED2FE4800F9B054 /* SettingsView.swift in Sources */,
+				07A6052A2ED2FE4800F9B054 /* DBHighlight.swift in Sources */,
+				07A6052B2ED2FE4800F9B054 /* Constants.swift in Sources */,
+				07A6052C2ED2FE4800F9B054 /* FragmentCardView.swift in Sources */,
+				07A6052D2ED2FE4800F9B054 /* markdownedApp.swift in Sources */,
+				07A6052E2ED2FE4800F9B054 /* AppearancePanel.swift in Sources */,
+				07A6052F2ED2FE4800F9B054 /* ContentView.swift in Sources */,
+				07A605302ED2FE4800F9B054 /* DHViewModel.swift in Sources */,
+				07A605312ED2FE4800F9B054 /* CaseDataParser.swift in Sources */,
+				07A605322ED2FE4800F9B054 /* Case.swift in Sources */,
+				07A605332ED2FE4800F9B054 /* CompositionDetailView.swift in Sources */,
+				07A605342ED2FE4800F9B054 /* CompositionsManager.swift in Sources */,
+				07A605352ED2FE4800F9B054 /* ContentLoader.swift in Sources */,
+				07A605362ED2FE4800F9B054 /* AppCommands.swift in Sources */,
+				07A605372ED2FE4800F9B054 /* Category.swift in Sources */,
+				07A605382ED2FE4800F9B054 /* AllHighlightsView.swift in Sources */,
+				07A605392ED2FE4800F9B054 /* DBComposition.swift in Sources */,
+				07A6053A2ED2FE4800F9B054 /* ThemeManager.swift in Sources */,
+				07A6053B2ED2FE4800F9B054 /* Composition.swift in Sources */,
+				07A6053C2ED2FE4800F9B054 /* CompositionExportView.swift in Sources */,
+				07A6053D2ED2FE4800F9B054 /* CompositionPickerSheet.swift in Sources */,
+				07A6053E2ED2FE4800F9B054 /* DHComposer.swift in Sources */,
 				076DEF9D2ECE6FF80026D77C /* DHTextHighlight.swift in Sources */,
 				076DEF9E2ECE6FF80026D77C /* DHViewModel.swift in Sources */,
 				076DEF9F2ECE6FF80026D77C /* DocHighlightingView.swift in Sources */,
@@ -487,6 +751,35 @@
 				07A602D22ED0F60600F9B054 /* DBHighlight.swift in Sources */,
 				07A602D32ED0F60600F9B054 /* Utilities.swift in Sources */,
 				07A602D42ED0F60600F9B054 /* Category.swift in Sources */,
+				07A604C82ED2FE2C00F9B054 /* CategoriesManager.swift in Sources */,
+				07A604C92ED2FE2C00F9B054 /* ContentView.swift in Sources */,
+				07A604CA2ED2FE2C00F9B054 /* FolderImportView.swift in Sources */,
+				07A604CB2ED2FE2C00F9B054 /* MainNavigationView.swift in Sources */,
+				07A604CC2ED2FE2C00F9B054 /* CrossPlatform.swift in Sources */,
+				07A604CD2ED2FE2C00F9B054 /* SidebarView.swift in Sources */,
+				07A604CE2ED2FE2C00F9B054 /* Utilities.swift in Sources */,
+				07A604CF2ED2FE2C00F9B054 /* DBHighlight.swift in Sources */,
+				07A604D02ED2FE2C00F9B054 /* DBDocument.swift in Sources */,
+				07A604D12ED2FE2C00F9B054 /* TextHighlight.swift in Sources */,
+				07A604D22ED2FE2C00F9B054 /* Composition.swift in Sources */,
+				07A604D32ED2FE2C00F9B054 /* HighlightsManager.swift in Sources */,
+				07A604D42ED2FE2C00F9B054 /* DHTextView.swift in Sources */,
+				07A604D52ED2FE2C00F9B054 /* DatabaseManager.swift in Sources */,
+				07A604D62ED2FE2C00F9B054 /* DocHighlightingView.swift in Sources */,
+				07A604D72ED2FE2C00F9B054 /* AppCommands.swift in Sources */,
+				07A604D82ED2FE2C00F9B054 /* Category.swift in Sources */,
+				07A604D92ED2FE2C00F9B054 /* CompositionDetailView.swift in Sources */,
+				07A604DA2ED2FE2C00F9B054 /* Constants.swift in Sources */,
+				07A604DB2ED2FE2C00F9B054 /* DHTextHighlight.swift in Sources */,
+				07A604DC2ED2FE2C00F9B054 /* ThemeManager.swift in Sources */,
+				07A604DD2ED2FE2C00F9B054 /* URLEntryView.swift in Sources */,
+				07A604DE2ED2FE2C00F9B054 /* AllHighlightsView.swift in Sources */,
+				07A604DF2ED2FE2C00F9B054 /* ContentLoader.swift in Sources */,
+				07A604E02ED2FE2C00F9B054 /* DocumentsManager.swift in Sources */,
+				07A604E12ED2FE2C00F9B054 /* SettingsView.swift in Sources */,
+				07A604E22ED2FE2C00F9B054 /* CompositionsManager.swift in Sources */,
+				07A604E32ED2FE2C00F9B054 /* DHComposer.swift in Sources */,
+				07A604E42ED2FE2C00F9B054 /* Theme.swift in Sources */,
 				07A602D52ED0F60600F9B054 /* DBDocument.swift in Sources */,
 				07A602D62ED0F60600F9B054 /* SettingsView.swift in Sources */,
 				07A602D72ED0F60600F9B054 /* DHTextView.swift in Sources */,
@@ -496,6 +789,7 @@
 				076DEFA62ECE6FF80026D77C /* Utilities.swift in Sources */,
 				07A602D92ED0F6AB00F9B054 /* ContentView.swift in Sources */,
 				076DEFA72ECE6FF80026D77C /* DocumentsManager.swift in Sources */,
+				07A605C92ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift in Sources */,
 				076DEFA82ECE6FF80026D77C /* URLEntryView.swift in Sources */,
 				07EA80BC2EC1EA10002AC733 /* CaseDataParser.swift in Sources */,
 				07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */,

@@ -7,6 +7,12 @@
 
 import Foundation
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
 /// Sort mode for composition fragments
 enum CompositionSortMode: String, Codable, CaseIterable, Identifiable {
     case manual = "manual"

@@ -7,6 +7,12 @@
 
 import Foundation
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
 @MainActor
 final class ContentLoader {
     enum LoadError: LocalizedError {
@@ -69,10 +75,11 @@ final class ContentLoader {
             throw LoadError.networkError(error)
         }
         
-        // Convert HTML to NSAttributedString using native iOS rendering
+        // Preprocess HTML (promote heading classes) and convert to NSAttributedString using native iOS rendering
         let attributedString: NSAttributedString
         do {
-            guard let data = html.data(using: .utf8) else {
+            let promotedHTML = promoteHeadingClasses(in: html)
+            guard let data = promotedHTML.data(using: .utf8) else {
                 throw LoadError.conversionFailed(NSError(domain: "ContentLoader", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to encode HTML as UTF-8"]))
             }
             
@@ -107,12 +114,13 @@ final class ContentLoader {
             "^\\([a-zA-Z]\\)$",             // (a) (b) (c)
             "^[ivxIVX]+\\.$",               // i. ii. iii.
             "^\\([ivxIVX]+\\)$",            // (i) (ii) (iii)
-            "^[a-zA-Z]\\.$",                // a. b. c.
+            "^[a-zA-Z]\\.?$",               // a / a. / b / b.
             "^\\([a-zA-Z]{1,2}\\)$",        // (a) (b) (aa)
             "^\\*$",                        // *
             "^•$",                          // •
             "^–$",                          // –
             "^—$",                          // —
+            "^–\\s*\\w?$",                  // – or short dash markers with a stray character
             "^[:;.,!?\"'()]+$",             // Lines with only punctuation
             "^[:;.,!?\"'()\\d]+$",          // Punctuation and numbers
             "^\\d+-[a-zA-Z]$",              // 1-a, 2-b
@@ -177,6 +185,80 @@ final class ContentLoader {
             .filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
         
         return paragraphs.joined(separator: "\n\n")
+    }
+
+    /// Promote known heading CSS classes to semantic <h2>/<h3>/<h4> tags before HTML parsing
+    private func promoteHeadingClasses(in html: String) -> String {
+        var updated = html
+
+        // H2 classes: coj-title-grseq-1, C05Titre1, C75Debutdesmotifs, C04Titre1, C41DispositifIntroduction, conditional coj-sum-title-1
+        if let re = try? NSRegularExpression(pattern: #"<([a-zA-Z][\w\-]*)([^>]*\bclass="[^"]*(?:coj-title-grseq-1|C05Titre1|C75Debutdesmotifs|C04Titre1|C41DispositifIntroduction)[^"]*"[^>]*)>([\s\S]*?)</\1>"#, options: [.caseInsensitive]) {
+            updated = replaceMatches(in: updated, regex: re) { match, original in
+                guard match.numberOfRanges == 4 else { return "" }
+                let attrs = original.substring(with: match.range(at: 2))
+                let inner = original.substring(with: match.range(at: 3))
+                return "<h2\(attrs)>\(inner)</h2>"
+            }
+        }
+
+        // H3 classes: coj-title-grseq-2, C05Titre2
+        if let re = try? NSRegularExpression(pattern: #"<([a-zA-Z][\w\-]*)([^>]*\bclass="[^"]*(?:coj-title-grseq-2|C05Titre2)[^"]*"[^>]*)>([\s\S]*?)</\1>"#, options: [.caseInsensitive]) {
+            updated = replaceMatches(in: updated, regex: re) { match, original in
+                guard match.numberOfRanges == 4 else { return "" }
+                let attrs = original.substring(with: match.range(at: 2))
+                let inner = original.substring(with: match.range(at: 3))
+                return "<h3\(attrs)>\(inner)</h3>"
+            }
+        }
+
+        // H4 classes: C06Titre3, coj-title-grseq-3
+        if let re = try? NSRegularExpression(pattern: #"<([a-zA-Z][\w\-]*)([^>]*\bclass="[^"]*(?:C06Titre3|coj-title-grseq-3)[^"]*"[^>]*)>([\s\S]*?)</\1>"#, options: [.caseInsensitive]) {
+            updated = replaceMatches(in: updated, regex: re) { match, original in
+                guard match.numberOfRanges == 4 else { return "" }
+                let attrs = original.substring(with: match.range(at: 2))
+                let inner = original.substring(with: match.range(at: 3))
+                return "<h4\(attrs)>\(inner)</h4>"
+            }
+        }
+
+        // Conditional promotion for coj-sum-title-1 -> h2 unless rubric/date
+        if let re = try? NSRegularExpression(pattern: #"<([a-zA-Z][\w\-]*)([^>]*\bclass="[^"]*coj-sum-title-1[^"]*"[^>]*)>([\s\S]*?)</\1>"#, options: [.caseInsensitive]) {
+            updated = replaceMatches(in: updated, regex: re) { match, original in
+                guard match.numberOfRanges == 4 else { return "" }
+                let attrs = original.substring(with: match.range(at: 2))
+                let inner = original.substring(with: match.range(at: 3))
+
+                // Strip tags and collapse whitespace to test text content
+                let textOnly = inner.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+                    .replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+
+                // Skip rubric lines (ALL CAPS ... OF THE COURT) and standalone dates
+                let rubric = textOnly.range(of: #"^[A-Z]+ OF THE COURT"#, options: [.regularExpression]) != nil
+                let dateLike = textOnly.range(of: #"^\d{1,2}\s+\w+\s+\d{4}$"#, options: [.regularExpression]) != nil
+                if rubric || dateLike {
+                    return original.substring(with: match.range)
+                }
+
+                return "<h2\(attrs)>\(inner)</h2>"
+            }
+        }
+
+        return updated
+    }
+
+    /// Replace regex matches with a custom transformer (processed from end to start to keep ranges valid)
+    private func replaceMatches(in source: String,
+                                regex: NSRegularExpression,
+                                transform: (NSTextCheckingResult, NSString) -> String) -> String {
+        let original = source as NSString
+        let mutable = NSMutableString(string: source)
+        let matches = regex.matches(in: source, options: [], range: NSRange(location: 0, length: original.length))
+        for match in matches.reversed() {
+            let replacement = transform(match, original)
+            mutable.replaceCharacters(in: match.range, with: replacement)
+        }
+        return mutable as String
     }
     
     /// Simple title extraction from HTML <title> tag

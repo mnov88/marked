@@ -53,7 +53,11 @@ struct FragmentCardView: View {
                 }
             }
             .padding(12)
+            #if canImport(UIKit)
             .background(Color(uiColor: .secondarySystemGroupedBackground))
+            #elseif canImport(AppKit)
+            .background(Color(nsColor: .controlBackgroundColor))
+            #endif
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .contentShape(RoundedRectangle(cornerRadius: 12))
         }
@@ -171,5 +175,9 @@ struct DraggableFragmentCard: View {
         )
     }
     .padding()
+    #if canImport(UIKit)
     .background(Color(uiColor: .systemGroupedBackground))
+    #elseif canImport(AppKit)
+    .background(Color(nsColor: .windowBackgroundColor))
+    #endif
 }

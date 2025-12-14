@@ -86,38 +86,16 @@ extension PlatformColor {
 
     // MARK: - System Colors (cross-platform)
 
-    #if canImport(AppKit)
-    static var systemBackground: NSColor {
-        .controlBackgroundColor
-    }
-
-    static var secondarySystemBackground: NSColor {
-        .controlColor
-    }
-
-    static var label: NSColor {
-        .labelColor
-    }
-
-    static var secondaryLabel: NSColor {
-        .secondaryLabelColor
-    }
-
-    static var systemGray: NSColor {
-        .systemGray
-    }
-
-    static var systemGray2: NSColor {
-        .systemGray.blended(withFraction: 0.2, of: .white) ?? .systemGray
-    }
-
-    static var systemYellow: NSColor {
-        .systemYellow
-    }
-
-    static var systemBlue: NSColor {
-        .systemBlue
-    }
+    // Only expose AppKit shims when running pure AppKit; Catalyst should use UIKit colors.
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
+    static var systemBackground: NSColor { .controlBackgroundColor }
+    static var secondarySystemBackground: NSColor { .controlColor }
+    static var label: NSColor { .labelColor }
+    static var secondaryLabel: NSColor { .secondaryLabelColor }
+    static var systemGray: NSColor { .systemGray }
+    static var systemGray2: NSColor { .systemGray.blended(withFraction: 0.2, of: .white) ?? .systemGray }
+    static var systemYellow: NSColor { .systemYellow }
+    static var systemBlue: NSColor { .systemBlue }
     #endif
 }
 
@@ -143,20 +121,18 @@ extension Color {
     }
 }
 
-// MARK: - PlatformFont Extensions
+// MARK: - PlatformFont Extensions (AppKit only; Catalyst uses UIKit)
 
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 extension PlatformFont {
-    #if canImport(AppKit)
     /// Preferred font for text style (AppKit version)
     static func preferredFont(forTextStyle style: NSFont.TextStyle) -> NSFont {
         return .preferredFont(forTextStyle: style)
     }
-    #endif
 }
 
 // MARK: - PlatformEdgeInsets Extensions
 
-#if canImport(AppKit)
 extension NSEdgeInsets {
     /// Initialize with uniform insets
     init(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {

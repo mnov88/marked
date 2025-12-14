@@ -19,6 +19,7 @@ struct DHComposer {
         config: DHConfig,
         links: [DHLinkSpan],
         indents: [DHIndentSpan],
+        headings: [DHHeadingSpan] = [],
         highlights: [DHTextHighlight]
     ) -> NSAttributedString {
         let out = NSMutableAttributedString(attributedString: base)
@@ -55,6 +56,38 @@ struct DHComposer {
             ps.tailIndent = ind.tailIndent
             ps.firstLineHeadIndent = ind.firstLineHeadIndent
             out.addAttribute(.paragraphStyle, value: ps, range: ind.range)
+        }
+
+        // Headings (font + spacing) layered atop existing paragraph styles
+        for h in headings {
+            guard h.range.location >= 0,
+                  NSMaxRange(h.range) <= out.length else { continue }
+
+            let existingStyle = out.attribute(.paragraphStyle, at: h.range.location, effectiveRange: nil) as? NSParagraphStyle
+            let ps: NSMutableParagraphStyle
+            if let existing = existingStyle?.mutableCopy() as? NSMutableParagraphStyle {
+                ps = existing
+            } else if let baseCopy = p.mutableCopy() as? NSMutableParagraphStyle {
+                ps = baseCopy
+            } else {
+                ps = NSMutableParagraphStyle()
+            }
+
+            let spacing: (before: CGFloat, after: CGFloat)
+            switch h.level {
+            case .h2:
+                spacing = (before: 8, after: 6)
+            case .h3:
+                spacing = (before: 6, after: 4)
+            }
+
+            ps.paragraphSpacingBefore = max(ps.paragraphSpacingBefore, config.style.paragraphSpacing + spacing.before)
+            ps.paragraphSpacing = max(ps.paragraphSpacing, config.style.paragraphSpacing + spacing.after)
+
+            out.addAttributes([
+                .font: headingFont(base: config.style.font, level: h.level),
+                .paragraphStyle: ps
+            ], range: h.range)
         }
 
         // Links via .link attribute
@@ -101,5 +134,28 @@ struct DHComposer {
 
         let length = end - start
         return length > 0 ? NSRange(location: start, length: length) : nil
+    }
+
+    private static func headingFont(base: PlatformFont, level: DHHeadingSpan.Level) -> PlatformFont {
+        let delta: CGFloat
+        switch level {
+        case .h2: delta = 4
+        case .h3: delta = 2
+        }
+
+        #if canImport(UIKit)
+        let desiredSize = base.pointSize + delta
+        if let descriptor = base.fontDescriptor.withSymbolicTraits(.traitBold) {
+            return PlatformFont(descriptor: descriptor, size: desiredSize)
+        }
+        return PlatformFont.systemFont(ofSize: desiredSize, weight: .semibold)
+        #elseif canImport(AppKit)
+        let desiredSize = base.pointSize + delta
+        let descriptor = base.fontDescriptor.withSymbolicTraits(.bold)
+        if let descriptor {
+            return PlatformFont(descriptor: descriptor, size: desiredSize)
+        }
+        return PlatformFont.systemFont(ofSize: desiredSize, weight: .semibold)
+        #endif
     }
 }

@@ -7,6 +7,12 @@
 
 import Foundation
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
 // MARK: - In-Memory Category Model
 
 /// Represents a document category for organization
@@ -100,7 +106,16 @@ struct DBCategory: Codable, FetchableRecord, PersistableRecord {
     var createdAt: Date
 
     // MARK: - Convenience Initializers
-
+    
+    init(id: String, name: String, colorHex: String, icon: String, sortOrder: Int, createdAt: Date) {
+        self.id = id
+        self.name = name
+        self.colorHex = colorHex
+        self.icon = icon
+        self.sortOrder = sortOrder
+        self.createdAt = createdAt
+    }
+    
     static func create(name: String, color: PlatformColor = .systemBlue, icon: String = "folder") -> DBCategory {
         DBCategory(
             id: UUID().uuidString,

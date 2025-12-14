@@ -110,49 +110,82 @@ struct CompositionDetailView: View {
 
     private var fragmentsList: some View {
         List {
-            // Sort mode indicator (when not manual)
-            if liveComposition.sortMode != .manual {
-                Section {
-                    HStack {
-                        Image(systemName: liveComposition.sortMode.icon)
-                        Text("Sorted by \(liveComposition.sortMode.displayName.lowercased())")
-                        Spacer()
-                        Text("Drag to reorder disabled")
-                            .font(.caption)
-                            .foregroundStyle(.tertiary)
+            sortModeSection
+            fragmentsSection
+            addMoreSection
+        }
+    }
+    
+    @ViewBuilder
+    private var sortModeSection: some View {
+        if liveComposition.sortMode != .manual {
+            Section {
+                HStack {
+                    Image(systemName: liveComposition.sortMode.icon)
+                    Text("Sorted by \(liveComposition.sortMode.displayName.lowercased())")
+                    Spacer()
+                    Text("Drag to reorder disabled")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                }
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var fragmentsSection: some View {
+        Section {
+            fragmentsForEach
+        } header: {
+            Text("\(liveComposition.fragmentCount) fragments")
+        }
+    }
+    
+    @ViewBuilder
+    private var fragmentsForEach: some View {
+        let fragments = liveComposition.sortedFragments()
+        let canMove = liveComposition.sortMode == .manual
+        
+        if canMove {
+            ForEach(fragments, id: \.id) { fragment in
+                FragmentRowView(fragment: fragment) {
+                    navigateToSource(fragment)
+                }
+                .swipeActions(edge: .trailing) {
+                    Button(role: .destructive) {
+                        removeFragment(fragment)
+                    } label: {
+                        Label("Remove", systemImage: "minus.circle")
                     }
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
                 }
             }
-
-            // Fragments
-            Section {
-                ForEach(liveComposition.sortedFragments()) { fragment in
-                    FragmentRowView(fragment: fragment) {
-                        navigateToSource(fragment)
-                    }
-                    .swipeActions(edge: .trailing) {
-                        Button(role: .destructive) {
-                            removeFragment(fragment)
-                        } label: {
-                            Label("Remove", systemImage: "minus.circle")
-                        }
+            .onMove(perform: moveFragments)
+            .onDelete(perform: deleteFragments)
+        } else {
+            ForEach(fragments, id: \.id) { fragment in
+                FragmentRowView(fragment: fragment) {
+                    navigateToSource(fragment)
+                }
+                .swipeActions(edge: .trailing) {
+                    Button(role: .destructive) {
+                        removeFragment(fragment)
+                    } label: {
+                        Label("Remove", systemImage: "minus.circle")
                     }
                 }
-                .onMove(perform: liveComposition.sortMode == .manual ? moveFragments : nil)
-                .onDelete(perform: deleteFragments)
-            } header: {
-                Text("\(liveComposition.fragmentCount) fragments")
             }
-
-            // Add more button
-            Section {
-                Button {
-                    showingAddHighlights = true
-                } label: {
-                    Label("Add More Highlights", systemImage: "plus")
-                }
+            .onDelete(perform: deleteFragments)
+        }
+    }
+    
+    private var addMoreSection: some View {
+        Section {
+            Button {
+                showingAddHighlights = true
+            } label: {
+                Label("Add More Highlights", systemImage: "plus")
             }
         }
     }

@@ -1,5 +1,11 @@
 # Data Flow Overview
 
+> **For comprehensive documentation, see: [EURLEX_METADATA_EXTRACTION_GUIDE.md](EURLEX_METADATA_EXTRACTION_GUIDE.md)**
+
+This document provides a quick reference for the data flow. The comprehensive guide contains complete schemas, all available fields, and detailed examples.
+
+---
+
 ## 1) Seed List Creation (Enhanced CSV)
 - Script: `eurlex_metadata_extractor_enhanced.py`.
 - Inputs: FMX doc XML tree (`.../LEG_EN_FMX_*/<uuid>/fmx4/*.doc.xml`) and RDF metadata (`.../LEG_MTD_*/<uuid>/tree_non_inferred.rdf`).

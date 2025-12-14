@@ -585,10 +585,70 @@ let gdprArticle5Cases = try dbQueue.read { db in
 
 ## Data Import Strategy
 
-### From JSON to Database
+### Import Script: `eurlex_db_import.py`
+
+A complete import script is available that reads JSON metadata and exports to **three formats**:
+
+```bash
+# Export all formats (SQLite + CSV + JSON)
+python3 eurlex_db_import.py \
+  --metadata-root /path/to/eurlex-organized \
+  --output-dir ./output \
+  --format all \
+  --verbose
+
+# SQLite only (for app bundling)
+python3 eurlex_db_import.py \
+  --metadata-root /path/to/eurlex-organized \
+  --output-dir ./output \
+  --format sqlite
+
+# CSV only (for pandas, R, external tools)
+python3 eurlex_db_import.py \
+  --metadata-root /path/to/eurlex-organized \
+  --output-dir ./output \
+  --format csv
+
+# Include case law metadata
+python3 eurlex_db_import.py \
+  --metadata-root /path/to/eurlex-organized \
+  --case-root /path/to/case-cache \
+  --output-dir ./output
+```
+
+### Output Files
+
+```
+output/
+├── eurlex.db              # SQLite database (Standard schema)
+├── eurlex_export.json     # Single JSON with all tables
+└── csv/
+    ├── legislation.csv
+    ├── case_law.csv
+    ├── article.csv
+    ├── case_article_interpretation.csv
+    ├── legal_relation.csv
+    ├── eurovoc_concept.csv
+    ├── legislation_eurovoc.csv
+    ├── legislation_title.csv
+    └── case_citation.csv
+```
+
+### Script Options
+
+| Option | Description |
+|--------|-------------|
+| `--metadata-root` | Root directory with `*_metadata.json` files |
+| `--case-root` | Optional: directory with `*_case_metadata.json` |
+| `--output-dir` | Where to write output files |
+| `--format` | `all`, `sqlite`, `csv`, or `json` |
+| `--limit` | Process only N files (for testing) |
+| `--verbose` | Show detailed progress |
+
+### Import Logic (How It Works)
 
 ```python
-# Pseudo-code for import
+# Simplified logic from eurlex_db_import.py
 def import_legislation(json_path):
     data = json.load(json_path)
     doc = data['document']

@@ -9,43 +9,42 @@ import SwiftUI
 
 /// Main navigation container that adapts to platform (Mac/iPad/iPhone)
 struct MainNavigationView: View {
+    @Environment(NavigationCoordinator.self) private var coordinator
     @EnvironmentObject private var themeManager: ThemeManager
-    @State private var selectedItem: SidebarItem? = .allDocuments
-    @State private var columnVisibility: NavigationSplitViewVisibility = .automatic
+
+    /// Computed binding that maps NavigationSection ↔ SidebarItem
+    private var selectedItem: Binding<SidebarItem?> {
+        Binding(
+            get: { coordinator.selectedSection.sidebarItem },
+            set: { item in
+                if let section = item?.navigationSection {
+                    coordinator.navigate(to: section)
+                }
+            }
+        )
+    }
+
+    /// Binding to coordinator's sidebar visibility
+    private var columnVisibility: Binding<NavigationSplitViewVisibility> {
+        Binding(
+            get: { coordinator.sidebarVisibility },
+            set: { coordinator.sidebarVisibility = $0 }
+        )
+    }
 
     var body: some View {
-        NavigationSplitView(columnVisibility: $columnVisibility) {
+        NavigationSplitView(columnVisibility: columnVisibility) {
             // Sidebar column
-            SidebarView(selection: $selectedItem)
+            SidebarView(selection: selectedItem)
                 // iOS 26: Searchable on NavigationSplitView creates unified search
                 .searchable(text: .constant(""), prompt: "Search documents")
         } detail: {
             // Detail column
-            detailView(for: selectedItem)
+            detailView(for: selectedItem.wrappedValue)
         }
         // iOS 26: Liquid glass sidebar is automatic with Xcode 26
         // No additional modifiers needed for the new design
-        .onReceive(NotificationCenter.default.publisher(for: .navigateToSection)) { notification in
-            if let section = notification.userInfo?["section"] as? NavigationSection {
-                withAnimation {
-                    selectedItem = sidebarItem(for: section)
-                }
-            }
-        }
-    }
-
-    /// Convert NavigationSection to SidebarItem
-    private func sidebarItem(for section: NavigationSection) -> SidebarItem {
-        switch section {
-        case .documents:
-            return .allDocuments
-        case .highlights:
-            return .highlights
-        case .compositions:
-            return .assembly
-        case .settings:
-            return .settings
-        }
+        // Navigation via NotificationCenter is now handled by NavigationCoordinator
     }
 
     @ViewBuilder
@@ -84,6 +83,7 @@ struct MainNavigationView: View {
 struct DocumentsListView: View {
     let filterCategory: Category?
 
+    @Environment(NavigationCoordinator.self) private var coordinator
     @EnvironmentObject private var themeManager: ThemeManager
     @ObservedObject private var documentsManager = DocumentsManager.shared
     @ObservedObject private var categoriesManager = CategoriesManager.shared
@@ -415,13 +415,17 @@ struct DocumentsListView: View {
         switch doc.content {
         case .plain(let s):
             DocHighlightingView(documentId: doc.id, string: s, config: config) { url in
-                Logger.debug("Tapped link: \(url.absoluteString)")
+                if !coordinator.handleInternalLink(url) {
+                    Logger.debug("Unhandled link: \(url.absoluteString)")
+                }
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)
         case .attributed(let a):
             DocHighlightingView(documentId: doc.id, attributedString: a, config: config) { url in
-                Logger.debug("Tapped link: \(url.absoluteString)")
+                if !coordinator.handleInternalLink(url) {
+                    Logger.debug("Unhandled link: \(url.absoluteString)")
+                }
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)
@@ -559,12 +563,14 @@ struct CategoryAssignmentSheet: View {
 
 #Preview("Mac/iPad Navigation") {
     MainNavigationView()
+        .environment(NavigationCoordinator.shared)
         .environmentObject(ThemeManager())
 }
 
 #Preview("Documents List") {
     NavigationStack {
         DocumentsListView(filterCategory: nil)
+            .environment(NavigationCoordinator.shared)
             .environmentObject(ThemeManager())
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A605A22ED3100000F9B054 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605A12ED3100000F9B054 /* NavigationCoordinator.swift */; };
 		0755AA2E2ECF1DD300293259 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 0755AA2D2ECF1DD300293259 /* GRDB */; };
 		076DEF122EC9FE450026D77C /* Demark in Frameworks */ = {isa = PBXBuildFile; productRef = 076DEF132EC9FE450026D77C /* Demark */; };
 		076DEF612ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
@@ -299,6 +300,7 @@
 		819F756D6E1440D79D9E5467 /* DBDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDocument.swift; sourceTree = "<group>"; };
 		AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E0441C4DA53F4832B734D388 /* DBHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHighlight.swift; sourceTree = "<group>"; };
+		07A605A12ED3100000F9B054 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -415,6 +417,7 @@
 				07A605052ED2FE4800F9B054 /* HighlightsManager.swift */,
 				07A605072ED2FE4800F9B054 /* MainNavigationView.swift */,
 				07A605082ED2FE4800F9B054 /* markdownedApp.swift */,
+				07A605A12ED3100000F9B054 /* NavigationCoordinator.swift */,
 				07A605092ED2FE4800F9B054 /* Readme.md */,
 				07A6050A2ED2FE4800F9B054 /* SettingsView.swift */,
 				07A6050B2ED2FE4800F9B054 /* SidebarView.swift */,
@@ -674,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A605A22ED3100000F9B054 /* NavigationCoordinator.swift in Sources */,
 				07EA80AA2EC1E4B1002AC733 /* DocHighlightingView.swift in Sources */,
 				07EA80B02EC1E642002AC733 /* DHViewModel.swift in Sources */,
 				07EA80AE2EC1E58F002AC733 /* DHTextHighlight.swift in Sources */,

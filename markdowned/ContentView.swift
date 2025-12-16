@@ -43,11 +43,13 @@ struct ContentView: View {
 
 /// Compact TabView for iPhone
 struct CompactTabView: View {
+    @Environment(NavigationCoordinator.self) private var coordinator
     @EnvironmentObject private var themeManager: ThemeManager
-    @State private var selectedTab: NavigationSection = .documents
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        @Bindable var coordinator = coordinator
+
+        TabView(selection: $coordinator.selectedSection) {
             NavigationStack {
                 DocumentsListView(filterCategory: nil)
             }
@@ -74,24 +76,20 @@ struct CompactTabView: View {
                 }
                 .tag(NavigationSection.settings)
         }
-        .onReceive(NotificationCenter.default.publisher(for: .navigateToSection)) { notification in
-            if let section = notification.userInfo?["section"] as? NavigationSection {
-                withAnimation {
-                    selectedTab = section
-                }
-            }
-        }
+        // Navigation via NotificationCenter is now handled by NavigationCoordinator
     }
 }
 
 #Preview("Mac/iPad") {
     ContentView()
+        .environment(NavigationCoordinator.shared)
         .environmentObject(ThemeManager())
         .previewInterfaceOrientation(.landscapeLeft)
 }
 
 #Preview("iPhone") {
     ContentView()
+        .environment(NavigationCoordinator.shared)
         .environmentObject(ThemeManager())
         .environment(\.horizontalSizeClass, .compact)
 }

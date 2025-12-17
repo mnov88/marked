@@ -75,3 +75,5 @@ iOSInjectionProject/
 .DS_Store
 
 __pycache__/
+
+metadata-extraction-external/output

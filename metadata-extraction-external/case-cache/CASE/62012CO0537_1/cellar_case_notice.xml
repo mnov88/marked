@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NOTICE decoding="eng" type="tree">
+   <WORK>
+      <URI>
+         <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e</VALUE>
+         <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e</IDENTIFIER>
+         <TYPE>cellar</TYPE>
+      </URI>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1</VALUE>
+            <IDENTIFIER>62012CO0537_1</IDENTIFIER>
+            <TYPE>celex</TYPE>
+         </URI>
+      </SAMEAS>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1</VALUE>
+            <IDENTIFIER>ECLI:EU:C:2013:759_1</IDENTIFIER>
+            <TYPE>ecli</TYPE>
+         </URI>
+      </SAMEAS>
+      <RESOURCE_LEGAL_TYPE type="data">
+         <VALUE>CO</VALUE>
+      </RESOURCE_LEGAL_TYPE>
+      <RESOURCE_LEGAL_ID_CELEX type="data">
+         <VALUE>62012CO0537</VALUE>
+      </RESOURCE_LEGAL_ID_CELEX>
+      <WORK_CITES_WORK type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/954c3cd9-b2fa-47ae-a1f6-b6e62a488ad3</VALUE>
+            <IDENTIFIER>954c3cd9-b2fa-47ae-a1f6-b6e62a488ad3</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/oj/JOL_1993_095_R_0029_030</VALUE>
+               <IDENTIFIER>JOL_1993_095_R_0029_030</IDENTIFIER>
+               <TYPE>oj</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/31993L0013</VALUE>
+               <IDENTIFIER>31993L0013</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/eli/dir/1993/13/oj</VALUE>
+               <IDENTIFIER>dir:1993:13:oj</IDENTIFIER>
+               <TYPE>eli</TYPE>
+            </URI>
+         </SAMEAS>
+         <ANNOTATION>
+            <FRAGMENT_CITED_TARGET>NPT1LG</FRAGMENT_CITED_TARGET>
+            <FRAGMENT_CITING_SOURCE>N 1 8 34 61 68 71</FRAGMENT_CITING_SOURCE>
+         </ANNOTATION>
+         <ANNOTATION>
+            <FRAGMENT_CITED_TARGET>A03P3</FRAGMENT_CITED_TARGET>
+            <FRAGMENT_CITING_SOURCE>N 1 4 34 61 67 71</FRAGMENT_CITING_SOURCE>
+            <ELI_TARGET>http://publications.europa.eu/resource/eli/dir/1993/13/art_3/par_3/oj</ELI_TARGET>
+         </ANNOTATION>
+         <ANNOTATION>
+            <FRAGMENT_CITED_TARGET>A06</FRAGMENT_CITED_TARGET>
+            <FRAGMENT_CITING_SOURCE>N 1 6 40 47</FRAGMENT_CITING_SOURCE>
+            <ELI_TARGET>http://publications.europa.eu/resource/eli/dir/1993/13/art_6/oj</ELI_TARGET>
+         </ANNOTATION>
+         <ANNOTATION>
+            <FRAGMENT_CITED_TARGET>A07</FRAGMENT_CITED_TARGET>
+            <FRAGMENT_CITING_SOURCE>N 1 7 34 56</FRAGMENT_CITING_SOURCE>
+            <ELI_TARGET>http://publications.europa.eu/resource/eli/dir/1993/13/art_7/oj</ELI_TARGET>
+         </ANNOTATION>
+         <ANNOTATION>
+            <FRAGMENT_CITED_TARGET>NPT1LE</FRAGMENT_CITED_TARGET>
+            <FRAGMENT_CITING_SOURCE>N 1 8 34 61 71</FRAGMENT_CITING_SOURCE>
+         </ANNOTATION>
+         <ANNOTATION>
+            <FRAGMENT_CITED_TARGET>A03P1</FRAGMENT_CITED_TARGET>
+            <FRAGMENT_CITING_SOURCE>N 1 4 34 61 63 64 71</FRAGMENT_CITING_SOURCE>
+            <ELI_TARGET>http://publications.europa.eu/resource/eli/dir/1993/13/art_3/par_1/oj</ELI_TARGET>
+         </ANNOTATION>
+         <ANNOTATION>
+            <FRAGMENT_CITED_TARGET>NPT2LA</FRAGMENT_CITED_TARGET>
+            <FRAGMENT_CITING_SOURCE>N 1 8 34 61 68 71</FRAGMENT_CITING_SOURCE>
+         </ANNOTATION>
+      </WORK_CITES_WORK>
+      <VERSION type="data">
+         <VALUE>definitive</VALUE>
+      </VERSION>
+      <ECLI type="data">
+         <VALUE>ECLI:EU:C:2013:759</VALUE>
+      </ECLI>
+      <LASTMODIFICATIONDATE type="date">
+         <VALUE>2023-03-15T23:24:10.177+01:00</VALUE>
+         <YEAR>2023</YEAR>
+         <MONTH>03</MONTH>
+         <DAY>15</DAY>
+      </LASTMODIFICATIONDATE>
+      <DATE_CREATION_LEGACY type="date">
+         <VALUE>2016-11-21+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>21</DAY>
+      </DATE_CREATION_LEGACY>
+      <DATE type="date">
+         <VALUE>2016-11-21+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>21</DAY>
+      </DATE>
+      <WORK_HAS_EXPRESSION type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA</VALUE>
+               <IDENTIFIER>62012CO0537_1.SPA</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA</VALUE>
+               <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA</IDENTIFIER>
+               <TYPE>ecli</TYPE>
+            </URI>
+         </SAMEAS>
+      </WORK_HAS_EXPRESSION>
+      <WORK_HAS_RESOURCE-TYPE type="concept">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/authority/resource-type/ORDER</VALUE>
+            <IDENTIFIER>ORDER</IDENTIFIER>
+            <TYPE>resource-type</TYPE>
+         </URI>
+         <OP-CODE>ORDER</OP-CODE>
+         <IDENTIFIER>ORDER</IDENTIFIER>
+         <PREFLABEL>Order</PREFLABEL>
+      </WORK_HAS_RESOURCE-TYPE>
+      <WORK_ID_DOCUMENT type="data">
+         <VALUE>ecli:ECLI:EU:C:2013:759</VALUE>
+      </WORK_ID_DOCUMENT>
+      <WORK_ID_DOCUMENT type="data">
+         <VALUE>celex:62012CO0537</VALUE>
+      </WORK_ID_DOCUMENT>
+      <RESOURCE_LEGAL_NUMBER_NATURAL_CELEX type="data">
+         <VALUE>0537</VALUE>
+      </RESOURCE_LEGAL_NUMBER_NATURAL_CELEX>
+      <RESOURCE_LEGAL_USES_ORIGINALLY_LANGUAGE type="concept">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/authority/language/SPA</VALUE>
+            <IDENTIFIER>SPA</IDENTIFIER>
+            <TYPE>language</TYPE>
+         </URI>
+         <OP-CODE>SPA</OP-CODE>
+         <IDENTIFIER>SPA</IDENTIFIER>
+         <PREFLABEL>Spanish</PREFLABEL>
+      </RESOURCE_LEGAL_USES_ORIGINALLY_LANGUAGE>
+      <DATE type="date">
+         <VALUE>2013-11-14</VALUE>
+         <YEAR>2013</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>14</DAY>
+      </DATE>
+      <WORK_DATE_DOCUMENT type="date">
+         <VALUE>2013-11-14</VALUE>
+         <YEAR>2013</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>14</DAY>
+      </WORK_DATE_DOCUMENT>
+      <WORK_CREATED_BY_AGENT type="link">
+         <EMBEDDED_NOTICE>
+            <AGENT>
+               <AGENT_NAME type="data">
+                  <VALUE>Kokott</VALUE>
+               </AGENT_NAME>
+               <TYPE>cdm:agent</TYPE>
+               <TYPE>cdm:person</TYPE>
+               <TYPE>cdm:agent-textual</TYPE>
+            </AGENT>
+         </EMBEDDED_NOTICE>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/15fdff65-be9f-498f-b1aa-755246e40f6e</VALUE>
+            <IDENTIFIER>15fdff65-be9f-498f-b1aa-755246e40f6e</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/agent/Kokott</VALUE>
+               <IDENTIFIER>Kokott</IDENTIFIER>
+               <TYPE>agent</TYPE>
+            </URI>
+         </SAMEAS>
+      </WORK_CREATED_BY_AGENT>
+      <YEAR type="data">
+         <VALUE>2012</VALUE>
+      </YEAR>
+      <DATE_DOCUMENT type="date">
+         <VALUE>2013-11-14</VALUE>
+         <YEAR>2013</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>14</DAY>
+      </DATE_DOCUMENT>
+      <RESOURCE_LEGAL_YEAR type="data">
+         <VALUE>2012</VALUE>
+      </RESOURCE_LEGAL_YEAR>
+      <CREATED_BY type="link">
+         <EMBEDDED_NOTICE>
+            <AGENT>
+               <AGENT_NAME type="data">
+                  <VALUE>Kokott</VALUE>
+               </AGENT_NAME>
+               <TYPE>cdm:agent</TYPE>
+               <TYPE>cdm:person</TYPE>
+               <TYPE>cdm:agent-textual</TYPE>
+            </AGENT>
+         </EMBEDDED_NOTICE>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/15fdff65-be9f-498f-b1aa-755246e40f6e</VALUE>
+            <IDENTIFIER>15fdff65-be9f-498f-b1aa-755246e40f6e</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/agent/Kokott</VALUE>
+               <IDENTIFIER>Kokott</IDENTIFIER>
+               <TYPE>agent</TYPE>
+            </URI>
+         </SAMEAS>
+      </CREATED_BY>
+      <CREATIONDATE type="date">
+         <VALUE>2016-11-30T13:26:40.018+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>30</DAY>
+      </CREATIONDATE>
+      <CASE-LAW_INTERPRETES_RESOURCE_LEGAL type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/954c3cd9-b2fa-47ae-a1f6-b6e62a488ad3</VALUE>
+            <IDENTIFIER>954c3cd9-b2fa-47ae-a1f6-b6e62a488ad3</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/oj/JOL_1993_095_R_0029_030</VALUE>
+               <IDENTIFIER>JOL_1993_095_R_0029_030</IDENTIFIER>
+               <TYPE>oj</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/31993L0013</VALUE>
+               <IDENTIFIER>31993L0013</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/eli/dir/1993/13/oj</VALUE>
+               <IDENTIFIER>dir:1993:13:oj</IDENTIFIER>
+               <TYPE>eli</TYPE>
+            </URI>
+         </SAMEAS>
+         <ANNOTATION>
+            <REFERENCE_TO_MODIFIED_LOCATION>NPT1LE</REFERENCE_TO_MODIFIED_LOCATION>
+         </ANNOTATION>
+         <ANNOTATION>
+            <REFERENCE_TO_MODIFIED_LOCATION>NPT2LA</REFERENCE_TO_MODIFIED_LOCATION>
+         </ANNOTATION>
+         <ANNOTATION>
+            <REFERENCE_TO_MODIFIED_LOCATION>A03P1</REFERENCE_TO_MODIFIED_LOCATION>
+            <ELI_TARGET>http://publications.europa.eu/resource/eli/dir/1993/13/art_3/par_1/oj</ELI_TARGET>
+         </ANNOTATION>
+         <ANNOTATION>
+            <REFERENCE_TO_MODIFIED_LOCATION>A03P3</REFERENCE_TO_MODIFIED_LOCATION>
+            <ELI_TARGET>http://publications.europa.eu/resource/eli/dir/1993/13/art_3/par_3/oj</ELI_TARGET>
+         </ANNOTATION>
+         <ANNOTATION>
+            <REFERENCE_TO_MODIFIED_LOCATION>NPT1LG</REFERENCE_TO_MODIFIED_LOCATION>
+         </ANNOTATION>
+      </CASE-LAW_INTERPRETES_RESOURCE_LEGAL>
+      <IDENTIFIER type="data">
+         <VALUE>ecli:ECLI:EU:C:2013:759</VALUE>
+      </IDENTIFIER>
+      <ID_SECTOR type="data">
+         <VALUE>6</VALUE>
+      </ID_SECTOR>
+      <IDENTIFIER type="data">
+         <VALUE>celex:62012CO0537</VALUE>
+      </IDENTIFIER>
+      <CASE-LAW_USES_PROCEDURE_LANGUAGE type="concept">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/authority/language/SPA</VALUE>
+            <IDENTIFIER>SPA</IDENTIFIER>
+            <TYPE>language</TYPE>
+         </URI>
+         <OP-CODE>SPA</OP-CODE>
+         <IDENTIFIER>SPA</IDENTIFIER>
+         <PREFLABEL>Spanish</PREFLABEL>
+      </CASE-LAW_USES_PROCEDURE_LANGUAGE>
+      <CREATED_BY type="concept">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/authority/corporate-body/CJ</VALUE>
+            <IDENTIFIER>CJ</IDENTIFIER>
+            <TYPE>corporate-body</TYPE>
+         </URI>
+         <OP-CODE>CJ</OP-CODE>
+         <IDENTIFIER>CJ</IDENTIFIER>
+         <PREFLABEL>Court of Justice</PREFLABEL>
+      </CREATED_BY>
+      <CASE-LAW_PUBLISHED_IN_ERECUEIL type="data">
+         <VALUE>true</VALUE>
+      </CASE-LAW_PUBLISHED_IN_ERECUEIL>
+      <IDENTIFIER type="data">
+         <VALUE>62012CO0537</VALUE>
+      </IDENTIFIER>
+      <ID_CELEX type="data">
+         <VALUE>62012CO0537</VALUE>
+      </ID_CELEX>
+      <WORK_CREATED_BY_AGENT type="concept">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/authority/corporate-body/CJ</VALUE>
+            <IDENTIFIER>CJ</IDENTIFIER>
+            <TYPE>corporate-body</TYPE>
+         </URI>
+         <OP-CODE>CJ</OP-CODE>
+         <IDENTIFIER>CJ</IDENTIFIER>
+         <PREFLABEL>Court of Justice</PREFLABEL>
+      </WORK_CREATED_BY_AGENT>
+      <TYPE>cdm:work</TYPE>
+      <TYPE>CO</TYPE>
+      <TYPE>cdm:resource_legal</TYPE>
+      <TYPE>cdm:order_cjeu</TYPE>
+      <TYPE>cdm:document_cjeu</TYPE>
+      <TYPE>cdm:case-law</TYPE>
+   </WORK>
+   <EXPRESSION>
+      <URI>
+         <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</VALUE>
+         <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</IDENTIFIER>
+         <TYPE>cellar</TYPE>
+      </URI>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA</VALUE>
+            <IDENTIFIER>62012CO0537_1.SPA</IDENTIFIER>
+            <TYPE>celex</TYPE>
+         </URI>
+      </SAMEAS>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA</VALUE>
+            <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA</IDENTIFIER>
+            <TYPE>ecli</TYPE>
+         </URI>
+      </SAMEAS>
+      <EXPRESSION_BELONGS_TO_WORK type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1</VALUE>
+               <IDENTIFIER>62012CO0537_1</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1</VALUE>
+               <IDENTIFIER>ECLI:EU:C:2013:759_1</IDENTIFIER>
+               <TYPE>ecli</TYPE>
+            </URI>
+         </SAMEAS>
+      </EXPRESSION_BELONGS_TO_WORK>
+      <LASTMODIFICATIONDATE type="date">
+         <VALUE>2016-11-30T13:26:39.404+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>30</DAY>
+      </LASTMODIFICATIONDATE>
+      <CREATIONDATE type="date">
+         <VALUE>2016-11-30T13:26:40.018+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>30</DAY>
+      </CREATIONDATE>
+      <LANG type="data">
+         <VALUE>spa</VALUE>
+      </LANG>
+      <EXPRESSION_USES_LANGUAGE type="concept">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/authority/language/SPA</VALUE>
+            <IDENTIFIER>SPA</IDENTIFIER>
+            <TYPE>language</TYPE>
+         </URI>
+         <OP-CODE>SPA</OP-CODE>
+         <IDENTIFIER>SPA</IDENTIFIER>
+         <PREFLABEL>Spanish</PREFLABEL>
+      </EXPRESSION_USES_LANGUAGE>
+      <EXPRESSION_TITLE type="data">
+         <VALUE>Auto del Tribunal de Justicia (Sala Primera) de 14 de noviembre de 2013. # Banco Popular Español SA contra Maria Teodolinda Rivas Quichimbo y Wilmar Edgar Cun Pérez (C-537/12) y Banco de Valencia SA contra Joaquín Valldeperas Tortosa y María Ángeles Miret Jaume (C-116/13). # Peticiones de decisión prejudicial: Juzgado de Primera Instancia e Instrucciόn nº 1 de Catarroja y Juzgado de Primera Instancia nº 17 de Palma de Mallorca - España. # Directiva 93/13/CEE - Artículo 99 del Reglamento de Procedimiento del Tribunal de Justicia - Contratos celebrados con consumidores - Contrato de préstamo hipotecario - Procedimiento de ejecución hipotecaria - Facultades del juez nacional que conozca del procedimiento de ejecución - Cláusulas abusivas - Criterios de apreciación. # Asuntos acumulados C-537/12 y C-116/13.</VALUE>
+      </EXPRESSION_TITLE>
+      <EXPRESSION_MANIFESTED_BY_MANIFESTATION type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.pdfa1a</VALUE>
+               <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.pdfa1a</IDENTIFIER>
+               <TYPE>ecli</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.pdfa1a</VALUE>
+               <IDENTIFIER>62012CO0537_1.SPA.pdfa1a</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+      </EXPRESSION_MANIFESTED_BY_MANIFESTATION>
+      <TITLE type="data">
+         <VALUE>Auto del Tribunal de Justicia (Sala Primera) de 14 de noviembre de 2013. # Banco Popular Español SA contra Maria Teodolinda Rivas Quichimbo y Wilmar Edgar Cun Pérez (C-537/12) y Banco de Valencia SA contra Joaquín Valldeperas Tortosa y María Ángeles Miret Jaume (C-116/13). # Peticiones de decisión prejudicial: Juzgado de Primera Instancia e Instrucciόn nº 1 de Catarroja y Juzgado de Primera Instancia nº 17 de Palma de Mallorca - España. # Directiva 93/13/CEE - Artículo 99 del Reglamento de Procedimiento del Tribunal de Justicia - Contratos celebrados con consumidores - Contrato de préstamo hipotecario - Procedimiento de ejecución hipotecaria - Facultades del juez nacional que conozca del procedimiento de ejecución - Cláusulas abusivas - Criterios de apreciación. # Asuntos acumulados C-537/12 y C-116/13.</VALUE>
+      </TITLE>
+      <TITLE type="data">
+         <VALUE>TITJUR</VALUE>
+      </TITLE>
+      <LANG type="data">
+         <VALUE>es</VALUE>
+      </LANG>
+      <EXPRESSION_MANIFESTED_BY_MANIFESTATION type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.xhtml</VALUE>
+               <IDENTIFIER>62012CO0537_1.SPA.xhtml</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.xhtml</VALUE>
+               <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.xhtml</IDENTIFIER>
+               <TYPE>ecli</TYPE>
+            </URI>
+         </SAMEAS>
+      </EXPRESSION_MANIFESTED_BY_MANIFESTATION>
+   </EXPRESSION>
+   <MANIFESTATION manifestation-type="pdfa1a">
+      <URI>
+         <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</VALUE>
+         <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</IDENTIFIER>
+         <TYPE>cellar</TYPE>
+      </URI>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.pdfa1a</VALUE>
+            <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.pdfa1a</IDENTIFIER>
+            <TYPE>ecli</TYPE>
+         </URI>
+      </SAMEAS>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.pdfa1a</VALUE>
+            <IDENTIFIER>62012CO0537_1.SPA.pdfa1a</IDENTIFIER>
+            <TYPE>celex</TYPE>
+         </URI>
+      </SAMEAS>
+      <LASTMODIFICATIONDATE type="date">
+         <VALUE>2016-11-30T13:26:39.404+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>30</DAY>
+      </LASTMODIFICATIONDATE>
+      <CREATIONDATE type="date">
+         <VALUE>2016-11-30T13:26:40.018+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>30</DAY>
+      </CREATIONDATE>
+      <MANIFESTATION_MANIFESTS_EXPRESSION type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA</VALUE>
+               <IDENTIFIER>62012CO0537_1.SPA</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA</VALUE>
+               <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA</IDENTIFIER>
+               <TYPE>ecli</TYPE>
+            </URI>
+         </SAMEAS>
+      </MANIFESTATION_MANIFESTS_EXPRESSION>
+      <MANIFESTATION_TYPE type="data">
+         <VALUE>pdfa1a</VALUE>
+      </MANIFESTATION_TYPE>
+      <MANIFESTATION_HAS_ITEM>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02/DOC_1</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02:DOC_1</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.pdfa1a.ECR_62012CO0537_ES_01.pdf</VALUE>
+               <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.pdfa1a.ECR_62012CO0537_ES_01.pdf</IDENTIFIER>
+               <TYPE>ecli</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.pdfa1a.ECR_62012CO0537_ES_01.pdf</VALUE>
+               <IDENTIFIER>62012CO0537_1.SPA.pdfa1a.ECR_62012CO0537_ES_01.pdf</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <TECHMD>
+            <STREAM_NAME type="data">
+               <VALUE>ECR_62012CO0537_ES_01.pdf</VALUE>
+            </STREAM_NAME>
+            <STREAM_LABEL type="data">
+               <VALUE>celex-62012CO0537.SPA.pdfa1a.techmd.rdf</VALUE>
+            </STREAM_LABEL>
+            <STREAM_SIZE type="data">
+               <VALUE>790472</VALUE>
+            </STREAM_SIZE>
+            <STREAM_COMPOSITION_LEVEL type="data">
+               <VALUE>0</VALUE>
+            </STREAM_COMPOSITION_LEVEL>
+            <STREAM_ORDER type="data">
+               <VALUE>1</VALUE>
+            </STREAM_ORDER>
+         </TECHMD>
+         <ITEM_IDENTIFIER type="data">
+            <VALUE>DOC_1</VALUE>
+         </ITEM_IDENTIFIER>
+         <IDENTIFIER type="data">
+            <VALUE>DOC_1</VALUE>
+         </IDENTIFIER>
+         <BELONGS_TO type="link">
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</VALUE>
+               <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</IDENTIFIER>
+               <TYPE>cellar</TYPE>
+            </URI>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.pdfa1a</VALUE>
+                  <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.pdfa1a</IDENTIFIER>
+                  <TYPE>ecli</TYPE>
+               </URI>
+            </SAMEAS>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.pdfa1a</VALUE>
+                  <IDENTIFIER>62012CO0537_1.SPA.pdfa1a</IDENTIFIER>
+                  <TYPE>celex</TYPE>
+               </URI>
+            </SAMEAS>
+         </BELONGS_TO>
+         <ITEM_BELONGS_TO_MANIFESTATION type="link">
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</VALUE>
+               <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.02</IDENTIFIER>
+               <TYPE>cellar</TYPE>
+            </URI>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.pdfa1a</VALUE>
+                  <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.pdfa1a</IDENTIFIER>
+                  <TYPE>ecli</TYPE>
+               </URI>
+            </SAMEAS>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.pdfa1a</VALUE>
+                  <IDENTIFIER>62012CO0537_1.SPA.pdfa1a</IDENTIFIER>
+                  <TYPE>celex</TYPE>
+               </URI>
+            </SAMEAS>
+         </ITEM_BELONGS_TO_MANIFESTATION>
+      </MANIFESTATION_HAS_ITEM>
+      <TYPE>pdfa1a</TYPE>
+   </MANIFESTATION>
+   <MANIFESTATION manifestation-type="xhtml">
+      <URI>
+         <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</VALUE>
+         <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</IDENTIFIER>
+         <TYPE>cellar</TYPE>
+      </URI>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.xhtml</VALUE>
+            <IDENTIFIER>62012CO0537_1.SPA.xhtml</IDENTIFIER>
+            <TYPE>celex</TYPE>
+         </URI>
+      </SAMEAS>
+      <SAMEAS>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.xhtml</VALUE>
+            <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.xhtml</IDENTIFIER>
+            <TYPE>ecli</TYPE>
+         </URI>
+      </SAMEAS>
+      <LASTMODIFICATIONDATE type="date">
+         <VALUE>2016-11-30T13:26:39.404+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>30</DAY>
+      </LASTMODIFICATIONDATE>
+      <CREATIONDATE type="date">
+         <VALUE>2016-11-30T13:26:40.018+01:00</VALUE>
+         <YEAR>2016</YEAR>
+         <MONTH>11</MONTH>
+         <DAY>30</DAY>
+      </CREATIONDATE>
+      <MANIFESTATION_HAS_ITEM>
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01/DOC_1</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01:DOC_1</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.xhtml.2014_texte_es_62012CO0537_DEC.html</VALUE>
+               <IDENTIFIER>62012CO0537_1.SPA.xhtml.2014_texte_es_62012CO0537_DEC.html</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <TECHMD>
+            <STREAM_ORDER type="data">
+               <VALUE>1</VALUE>
+            </STREAM_ORDER>
+            <STREAM_NAME type="data">
+               <VALUE>2014_texte_es_62012CO0537_DEC.html</VALUE>
+            </STREAM_NAME>
+            <STREAM_COMPOSITION_LEVEL type="data">
+               <VALUE>0</VALUE>
+            </STREAM_COMPOSITION_LEVEL>
+            <STREAM_SIZE type="data">
+               <VALUE>53692</VALUE>
+            </STREAM_SIZE>
+            <STREAM_LABEL type="data">
+               <VALUE>celex-62012CO0537.SPA.xhtml.techmd.rdf</VALUE>
+            </STREAM_LABEL>
+         </TECHMD>
+         <ITEM_IDENTIFIER type="data">
+            <VALUE>DOC_1</VALUE>
+         </ITEM_IDENTIFIER>
+         <ITEM_BELONGS_TO_MANIFESTATION type="link">
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</VALUE>
+               <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</IDENTIFIER>
+               <TYPE>cellar</TYPE>
+            </URI>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.xhtml</VALUE>
+                  <IDENTIFIER>62012CO0537_1.SPA.xhtml</IDENTIFIER>
+                  <TYPE>celex</TYPE>
+               </URI>
+            </SAMEAS>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.xhtml</VALUE>
+                  <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.xhtml</IDENTIFIER>
+                  <TYPE>ecli</TYPE>
+               </URI>
+            </SAMEAS>
+         </ITEM_BELONGS_TO_MANIFESTATION>
+         <IDENTIFIER type="data">
+            <VALUE>DOC_1</VALUE>
+         </IDENTIFIER>
+         <BELONGS_TO type="link">
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</VALUE>
+               <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001.01</IDENTIFIER>
+               <TYPE>cellar</TYPE>
+            </URI>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA.xhtml</VALUE>
+                  <IDENTIFIER>62012CO0537_1.SPA.xhtml</IDENTIFIER>
+                  <TYPE>celex</TYPE>
+               </URI>
+            </SAMEAS>
+            <SAMEAS>
+               <URI>
+                  <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA.xhtml</VALUE>
+                  <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA.xhtml</IDENTIFIER>
+                  <TYPE>ecli</TYPE>
+               </URI>
+            </SAMEAS>
+         </BELONGS_TO>
+      </MANIFESTATION_HAS_ITEM>
+      <MANIFESTATION_MANIFESTS_EXPRESSION type="link">
+         <URI>
+            <VALUE>http://publications.europa.eu/resource/cellar/12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</VALUE>
+            <IDENTIFIER>12a8e120-f5eb-40ec-a48e-4b8fe68c994e.0001</IDENTIFIER>
+            <TYPE>cellar</TYPE>
+         </URI>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/celex/62012CO0537_1.SPA</VALUE>
+               <IDENTIFIER>62012CO0537_1.SPA</IDENTIFIER>
+               <TYPE>celex</TYPE>
+            </URI>
+         </SAMEAS>
+         <SAMEAS>
+            <URI>
+               <VALUE>http://publications.europa.eu/resource/ecli/ECLI%3AEU%3AC%3A2013%3A759_1.SPA</VALUE>
+               <IDENTIFIER>ECLI:EU:C:2013:759_1.SPA</IDENTIFIER>
+               <TYPE>ecli</TYPE>
+            </URI>
+         </SAMEAS>
+      </MANIFESTATION_MANIFESTS_EXPRESSION>
+      <MANIFESTATION_TYPE type="data">
+         <VALUE>xhtml</VALUE>
+      </MANIFESTATION_TYPE>
+      <TYPE>xhtml</TYPE>
+   </MANIFESTATION>
+</NOTICE>

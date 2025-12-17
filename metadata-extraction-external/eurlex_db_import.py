@@ -189,6 +189,12 @@ class DataStore:
         self._interpretation_keys: Set[Tuple] = set()
         # Track relation uniqueness
         self._relation_keys: Set[Tuple] = set()
+        # Track eurovoc link uniqueness
+        self._eurovoc_link_keys: Set[Tuple] = set()
+        # Track legislation title uniqueness
+        self._title_keys: Set[Tuple] = set()
+        # Track case citation uniqueness
+        self._citation_keys: Set[Tuple] = set()
 
     def add_legislation(self, data: Dict) -> Optional[str]:
         """Add legislation record, return ID if new."""
@@ -342,6 +348,11 @@ class DataStore:
 
     def link_legislation_eurovoc(self, legislation_id: str, eurovoc_id: str):
         """Link legislation to Eurovoc concept."""
+        key = (legislation_id, eurovoc_id)
+        if key in self._eurovoc_link_keys:
+            return
+        self._eurovoc_link_keys.add(key)
+        
         self.legislation_eurovoc.append({
             'legislation_id': legislation_id,
             'eurovoc_id': eurovoc_id,
@@ -349,11 +360,31 @@ class DataStore:
 
     def add_legislation_title(self, legislation_id: str, language: str, title: str):
         """Add multilingual title."""
+        key = (legislation_id, language)
+        if key in self._title_keys:
+            return
+        self._title_keys.add(key)
+        
         self.legislation_titles.append({
             'id': str(uuid.uuid4()),
             'legislation_id': legislation_id,
             'language': language,
             'title': title,
+        })
+
+    def add_case_citation(self, citing_case_id: str, cited_celex: str, cited_case_id: str = None, cited_ecli: str = None):
+        """Add case citation."""
+        key = (citing_case_id, cited_celex)
+        if key in self._citation_keys:
+            return
+        self._citation_keys.add(key)
+        
+        self.case_citations.append({
+            'id': str(uuid.uuid4()),
+            'citing_case_id': citing_case_id,
+            'cited_celex': cited_celex,
+            'cited_case_id': cited_case_id,
+            'cited_ecli': cited_ecli,
         })
 
 
@@ -618,13 +649,8 @@ def process_case_json(json_path: Path, store: DataStore, verbose: bool = False) 
     citations = case.get('citations', {})
     for cited_celex in citations.get('celex', []):
         if cited_celex and cited_celex != celex:
-            store.case_citations.append({
-                'id': str(uuid.uuid4()),
-                'citing_case_id': case_id,
-                'cited_celex': cited_celex,
-                'cited_case_id': store.case_law.get(cited_celex, {}).get('id'),
-                'cited_ecli': None,
-            })
+            cited_case_id = store.case_law.get(cited_celex, {}).get('id')
+            store.add_case_citation(case_id, cited_celex, cited_case_id)
 
     return True
 

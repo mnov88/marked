@@ -464,8 +464,19 @@ def process_legislation_json(json_path: Path, store: DataStore, verbose: bool = 
             print(f"  ⚠️  No CELEX in {json_path}")
         return False
 
-    # Parse CELEX for type/year/number
-    celex_info = parse_celex(celex)
+    # Use extracted resourceType if available, fallback to CELEX parsing
+    doc_type = identifiers.get('resourceType', '').strip()
+    if not doc_type or doc_type == 'Not found':
+        # Fallback: parse CELEX for type/year/number
+        celex_info = parse_celex(celex)
+        doc_type = celex_info['doc_type']
+        doc_year = celex_info['doc_year']
+        doc_number = celex_info['doc_number']
+    else:
+        # Use extracted resourceType, still parse CELEX for year/number
+        celex_info = parse_celex(celex)
+        doc_year = celex_info['doc_year']
+        doc_number = celex_info['doc_number']
 
     # Determine short title
     short_titles = title_data.get('short', [])
@@ -475,9 +486,9 @@ def process_legislation_json(json_path: Path, store: DataStore, verbose: bool = 
     leg_id = store.add_legislation({
         'celex': celex,
         'eli': identifiers.get('eli'),
-        'doc_type': celex_info['doc_type'],
-        'doc_year': celex_info['doc_year'],
-        'doc_number': celex_info['doc_number'],
+        'doc_type': doc_type,
+        'doc_year': doc_year,
+        'doc_number': doc_number,
         'title': title_data.get('primary', ''),
         'short_title': short_title,
         'date_document': dates.get('document'),

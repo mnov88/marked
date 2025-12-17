@@ -9,6 +9,8 @@
 | Unique ID | `document.identifiers.celex` | `"32021R0479"` |
 | Permanent URI | `document.identifiers.eli` | `"http://data.europa.eu/eli/reg/2021/479/oj"` |
 | Official Journal ref | `document.identifiers.ojReference` | `"JOL_2021_099_I_0002"` |
+| Resource type code | `document.identifiers.resourceType` | `"REG"`, `"DIR"`, `"DEC"` |
+| Resource type label | `document.identifiers.resourceTypeLabel` | `"Regulation"`, `"Directive"`, `"Decision"` |
 
 ### 📅 Temporal Information
 

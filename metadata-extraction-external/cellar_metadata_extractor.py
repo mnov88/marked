@@ -399,7 +399,9 @@ class CellarXMLParser:
                 'naturalNumber': self.extract_text_from_element(main_work, './/RESOURCE_LEGAL_NUMBER_NATURAL_CELEX/VALUE') or 'Not found',
                 'type': self.extract_text_from_element(main_work, './/RESOURCE_LEGAL_TYPE/VALUE') or 'Not found',
                 'year': self.extract_text_from_element(main_work, './/RESOURCE_LEGAL_YEAR/VALUE') or 'Not found',
-                'sector': self.extract_text_from_element(main_work, './/ID_SECTOR/VALUE') or 'Not found'
+                'sector': self.extract_text_from_element(main_work, './/ID_SECTOR/VALUE') or 'Not found',
+                'resourceType': self.extract_text_from_element(main_work, './/WORK_HAS_RESOURCE-TYPE/IDENTIFIER') or 'Not found',
+                'resourceTypeLabel': self.extract_text_from_element(main_work, './/WORK_HAS_RESOURCE-TYPE/PREFLABEL') or 'Not found'
             }
         else:
             # Fallback to tree-level extraction
@@ -419,7 +421,9 @@ class CellarXMLParser:
                 'naturalNumber': self.extract_text(tree, cfg['natural_number']) or 'Not found',
                 'type': self.extract_text(tree, cfg['type']) or 'Not found',
                 'year': self.extract_text(tree, cfg['year']) or 'Not found',
-                'sector': self.extract_text(tree, cfg['sector']) or 'Not found'
+                'sector': self.extract_text(tree, cfg['sector']) or 'Not found',
+                'resourceType': self.extract_text(tree, cfg['resource_type']) or 'Not found',
+                'resourceTypeLabel': self.extract_text(tree, cfg['resource_type_label']) or 'Not found'
             }
     
     def extract_eurovoc(self, tree, main_work):
@@ -847,8 +851,8 @@ def main():
     parser.add_argument('--folder', type=str, help='Single folder to process')
     parser.add_argument('--root', type=str, help='Root directory to scan recursively')
     parser.add_argument('--limit', type=int, help='Max number of documents to process')
-    parser.add_argument('--skip-existing', action='store_true', default=True,
-                       help='Skip if JSON already exists')
+    parser.add_argument('--no-skip-existing', action='store_true', default=False,
+                       help='Re-extract and overwrite existing JSON files (default: skip existing)')
     parser.add_argument('--verbose', '-v', action='store_true',
                        help='Print detailed progress')
     parser.add_argument('--config', type=str, default='cellar_xpath_config.json',
@@ -902,7 +906,7 @@ def main():
         results = extractor.process_batch(
             args.root,
             limit=args.limit,
-            skip_existing=args.skip_existing,
+            skip_existing=not args.no_skip_existing,
             verbose=args.verbose
         )
         

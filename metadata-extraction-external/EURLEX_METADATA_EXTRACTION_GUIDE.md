@@ -34,7 +34,7 @@ This extraction pipeline retrieves and structures metadata from the **EU Publica
 
 | Data Type | Output Format | Key Fields |
 |-----------|---------------|------------|
-| **Legislation** | `{CELEX}_metadata.json` | Titles (24 languages), dates, identifiers, Eurovoc topics, legal relations, case law references |
+| **Legislation** | `{CELEX}_metadata.json` | Titles (24 languages), dates, identifiers, resource types, Eurovoc topics, legal relations, case law references |
 | **Case Law** | `{CELEX}_case_metadata.json` | ECLI, parties, judges, interpreted legislation, article references, citations |
 
 ### Data Flow Diagram
@@ -417,7 +417,9 @@ python3 case_metadata_extractor.py \
       "sector": "3",
       "eli": "http://data.europa.eu/eli/reg/2016/679/oj",
       "ojReference": "JOL_2016_119_R_0001",
-      "immc": ""
+      "immc": "",
+      "resourceType": "REG",
+      "resourceTypeLabel": "Regulation"
     },
 
     "eurovoc": {
@@ -625,6 +627,8 @@ python3 case_metadata_extractor.py \
 | Sector | `//ID_SECTOR/VALUE` | `3` | CELEX sector code |
 | Type | `//RESOURCE_LEGAL_TYPE/VALUE` | `R` | R=Reg, L=Dir, D=Dec |
 | Year | `//RESOURCE_LEGAL_YEAR/VALUE` | `2016` | Document year |
+| Resource Type | `//WORK_HAS_RESOURCE-TYPE/IDENTIFIER` | `REG`, `DIR`, `DEC` | Resource type code |
+| Resource Type Label | `//WORK_HAS_RESOURCE-TYPE/PREFLABEL` | `Regulation`, `Directive`, `Decision` | Human-readable type |
 
 #### CELEX Format Explained
 
@@ -764,7 +768,9 @@ The system parses article references from case law into structured components:
   "document": {
     "identifiers": {
       "celex": "32016R0679",
-      "eli": "http://data.europa.eu/eli/reg/2016/679/oj"
+      "eli": "http://data.europa.eu/eli/reg/2016/679/oj",
+      "resourceType": "REG",
+      "resourceTypeLabel": "Regulation"
     },
     "title": {
       "primary": "Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data...",

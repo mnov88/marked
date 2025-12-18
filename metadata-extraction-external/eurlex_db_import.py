@@ -504,7 +504,7 @@ def process_legislation_json(json_path: Path, store: DataStore, verbose: bool = 
 
     # Process case law references
     for case_ref in doc.get('caselaw', []):
-        case_celex = case_ref.get('celex')
+        case_celex = case_ref.get('celexId')  # Note: JSON uses 'celexId' not 'celex'
         if not case_celex:
             continue
 
@@ -865,6 +865,9 @@ Examples:
 
   # With case law metadata
   python3 eurlex_db_import.py --metadata-root /path/to/eurlex-organized --case-root /path/to/case-cache --output-dir ./output
+  
+  # Filter by document types (only Regulations and Directives)
+  python3 eurlex_db_import.py --metadata-root /path/to/eurlex-organized --output-dir ./output --types REG DIR
         """
     )
 
@@ -876,6 +879,8 @@ Examples:
                         help='Output directory for database and exports')
     parser.add_argument('--format', choices=['all', 'sqlite', 'csv', 'json'], default='all',
                         help='Export format(s) (default: all)')
+    parser.add_argument('--types', nargs='+', type=str,
+                        help='Filter by document types (e.g., REG DIR DEC)')
     parser.add_argument('--limit', type=int,
                         help='Limit number of files to process (for testing)')
     parser.add_argument('--verbose', '-v', action='store_true',
@@ -910,6 +915,22 @@ Examples:
         legislation_files = legislation_files[:args.limit]
         case_files = case_files[:args.limit]
         print(f"  ⚠️  Limited to {args.limit} files each")
+
+    # Filter by types if specified
+    if args.types:
+        print(f"  🔍 Filtering by types: {', '.join(args.types)}")
+        filtered_leg = []
+        for json_file in legislation_files:
+            try:
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                doc_type = data.get('document', {}).get('identifiers', {}).get('resourceType', '')
+                if doc_type in args.types:
+                    filtered_leg.append(json_file)
+            except:
+                pass  # Skip files that can't be read
+        legislation_files = filtered_leg
+        print(f"  ✓ Filtered to {len(legislation_files)} legislation files")
 
     # Process legislation first (cases reference legislation)
     print(f"\n📚 Processing legislation metadata...")

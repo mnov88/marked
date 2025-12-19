@@ -143,6 +143,9 @@ final class EurlexDatabaseManager: ObservableObject {
         }
     }
 
+    /// @Published search results for reactive UI binding
+    @Published private(set) var searchResults: [CaseLawSearchResult] = []
+
     /// Search and update published results (for reactive UI)
     func searchAndPublish(query: String, limit: Int = 50) {
         do {

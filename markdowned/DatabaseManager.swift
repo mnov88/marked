@@ -208,6 +208,73 @@ final class DatabaseManager {
 
             Logger.debug("Migration v5: Created FTS5 full-text search")
         }
+
+        // Migration v6: Case law database with FTS5 for fast search
+        migrator.registerMigration("v6_case_law") { db in
+            // Create case_law table for EU legal cases
+            try db.create(table: "case_law") { t in
+                t.primaryKey("id", .text)
+                t.column("caseNumber", .text).notNull()
+                t.column("caseTitle", .text).notNull()
+                t.column("requestingCourt", .text).notNull()
+                t.column("topics", .text).notNull()
+                t.column("judgmentECLI", .text).notNull()
+                t.column("judgmentCELEX", .text).notNull()
+                t.column("hasAGOpinion", .boolean).notNull().defaults(to: false)
+                t.column("agOpinionTitle", .text).notNull()
+                t.column("agOpinionECLI", .text).notNull()
+                t.column("hasSummary", .boolean).notNull().defaults(to: false)
+                t.column("summaryCELEX", .text).notNull()
+
+                // Pre-computed lowercase fields for fast filtering
+                t.column("caseNumberLower", .text).notNull()
+                t.column("caseTitleLower", .text).notNull()
+                t.column("judgmentCELEXLower", .text).notNull()
+            }
+
+            // Create indexes for common queries
+            try db.create(index: "idx_case_law_caseNumber", on: "case_law", columns: ["caseNumber"])
+            try db.create(index: "idx_case_law_judgmentCELEX", on: "case_law", columns: ["judgmentCELEX"])
+
+            // Create FTS5 virtual table for full-text search
+            try db.execute(sql: """
+                CREATE VIRTUAL TABLE case_law_fts USING fts5(
+                    caseNumber,
+                    caseTitle,
+                    judgmentCELEX,
+                    topics,
+                    content='case_law',
+                    content_rowid='rowid',
+                    tokenize='unicode61 remove_diacritics 1'
+                )
+            """)
+
+            // Create triggers to keep FTS in sync
+            try db.execute(sql: """
+                CREATE TRIGGER case_law_ai AFTER INSERT ON case_law BEGIN
+                    INSERT INTO case_law_fts(rowid, caseNumber, caseTitle, judgmentCELEX, topics)
+                    VALUES (NEW.rowid, NEW.caseNumber, NEW.caseTitle, NEW.judgmentCELEX, NEW.topics);
+                END
+            """)
+
+            try db.execute(sql: """
+                CREATE TRIGGER case_law_ad AFTER DELETE ON case_law BEGIN
+                    INSERT INTO case_law_fts(case_law_fts, rowid, caseNumber, caseTitle, judgmentCELEX, topics)
+                    VALUES ('delete', OLD.rowid, OLD.caseNumber, OLD.caseTitle, OLD.judgmentCELEX, OLD.topics);
+                END
+            """)
+
+            try db.execute(sql: """
+                CREATE TRIGGER case_law_au AFTER UPDATE ON case_law BEGIN
+                    INSERT INTO case_law_fts(case_law_fts, rowid, caseNumber, caseTitle, judgmentCELEX, topics)
+                    VALUES ('delete', OLD.rowid, OLD.caseNumber, OLD.caseTitle, OLD.judgmentCELEX, OLD.topics);
+                    INSERT INTO case_law_fts(rowid, caseNumber, caseTitle, judgmentCELEX, topics)
+                    VALUES (NEW.rowid, NEW.caseNumber, NEW.caseTitle, NEW.judgmentCELEX, NEW.topics);
+                END
+            """)
+
+            Logger.debug("Migration v6: Created case_law table with FTS5")
+        }
     }
 
     // MARK: - Database Access

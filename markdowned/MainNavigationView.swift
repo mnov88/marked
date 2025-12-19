@@ -87,16 +87,18 @@ struct DocumentsListView: View {
     @EnvironmentObject private var themeManager: ThemeManager
     @ObservedObject private var documentsManager = DocumentsManager.shared
     @ObservedObject private var categoriesManager = CategoriesManager.shared
+    @ObservedObject private var caseLawManager = CaseLawManager.shared
     @State private var showingURLEntry = false
     @State private var showingFolderImport = false
     @State private var searchText = ""
-    @State private var cases: [Case] = []
+    @State private var caseSearchResults: [Case] = []
     @State private var isLoadingCase = false
-    @State private var hasLoadedCSV = false
+    @State private var isSearchingCases = false
     @State private var documentSearchResults: [(Document, String)] = []
     @State private var documentToRename: Document?
     @State private var newDocumentTitle = ""
     @State private var documentForCategory: Document?
+    @State private var searchTask: Task<Void, Never>?
 
     private let contentLoader = ContentLoader()
 
@@ -138,10 +140,10 @@ struct DocumentsListView: View {
                 }
             }
 
-            // Case search results (from CSV)
-            if !searchText.isEmpty && !filteredCases.isEmpty {
-                Section("Case Database") {
-                    ForEach(filteredCases.prefix(20)) { caseItem in
+            // Case search results (from database with FTS5)
+            if !searchText.isEmpty && !caseSearchResults.isEmpty {
+                Section("Case Database (\(caseLawManager.caseCount) cases)") {
+                    ForEach(caseSearchResults) { caseItem in
                         Button {
                             loadCase(caseItem)
                         } label: {
@@ -167,6 +169,7 @@ struct DocumentsListView: View {
         .searchable(text: $searchText, prompt: "Search documents and cases")
         .onChange(of: searchText) { _, newValue in
             performDocumentSearch(query: newValue)
+            performCaseSearch(query: newValue)
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -231,12 +234,6 @@ struct DocumentsListView: View {
                 .ignoresSafeArea()
             }
         }
-        .onAppear {
-            if !hasLoadedCSV {
-                loadCasesFromCSV()
-                hasLoadedCSV = true
-            }
-        }
     }
 
     // MARK: - Search
@@ -262,21 +259,32 @@ struct DocumentsListView: View {
             .replacingOccurrences(of: "</mark>", with: "")
     }
 
-    private var filteredCases: [Case] {
-        guard !searchText.isEmpty else { return [] }
-        return cases.filter { $0.matches(searchText: searchText) }
-    }
+    /// Perform case search with debouncing (database FTS5)
+    private func performCaseSearch(query: String) {
+        // Cancel any pending search
+        searchTask?.cancel()
 
-    private func loadCasesFromCSV() {
-        guard let csvPath = Bundle.main.path(forResource: "allcases", ofType: "csv"),
-              let csvString = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
-            Logger.debug("Could not load allcases.csv from bundle")
-            cases = []
+        guard !query.isEmpty else {
+            caseSearchResults = []
             return
         }
 
-        cases = CaseDataParser.parse(csvString)
-        Logger.debug("Loaded \(cases.count) cases from CSV")
+        // Debounce: wait 150ms before searching
+        searchTask = Task {
+            try? await Task.sleep(nanoseconds: 150_000_000) // 150ms
+
+            guard !Task.isCancelled else { return }
+
+            // Perform search on background thread
+            let results = caseLawManager.searchCases(query: query, limit: 30)
+
+            guard !Task.isCancelled else { return }
+
+            // Update UI on main thread
+            await MainActor.run {
+                caseSearchResults = results
+            }
+        }
     }
 
     private func loadCase(_ caseItem: Case) {

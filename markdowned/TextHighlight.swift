@@ -91,11 +91,12 @@ private let mockDocs: [Document] = {
 struct MockDocList: View {
     @EnvironmentObject private var themeManager: ThemeManager
     @ObservedObject private var documentsManager = DocumentsManager.shared
+    @ObservedObject private var caseLawManager = CaseLawManager.shared
     @State private var showingURLEntry = false
     @State private var searchText = ""
-    @State private var cases: [Case] = []
+    @State private var caseSearchResults: [Case] = []
     @State private var isLoadingCase = false
-    @State private var hasLoadedCSV = false
+    @State private var searchTask: Task<Void, Never>?
 
     private let contentLoader = ContentLoader()
 
@@ -109,10 +110,10 @@ struct MockDocList: View {
                     }
                 }
 
-                // Search results section
-                if !searchText.isEmpty && !filteredCases.isEmpty {
+                // Search results section (from database with FTS5)
+                if !searchText.isEmpty && !caseSearchResults.isEmpty {
                     Section("Case Search Results") {
-                        ForEach(filteredCases.prefix(20)) { caseItem in
+                        ForEach(caseSearchResults) { caseItem in
                             Button {
                                 loadCase(caseItem)
                             } label: {
@@ -137,6 +138,9 @@ struct MockDocList: View {
             }
             .navigationTitle("Documents")
             .searchable(text: $searchText, prompt: "Search by case number or title")
+            .onChange(of: searchText) { _, newValue in
+                performCaseSearch(query: newValue)
+            }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -167,30 +171,29 @@ struct MockDocList: View {
                     .ignoresSafeArea()
                 }
             }
-            .onAppear {
-                if !hasLoadedCSV {
-                    loadCasesFromCSV()
-                    hasLoadedCSV = true
-                }
-            }
         }
     }
 
-    private var filteredCases: [Case] {
-        guard !searchText.isEmpty else { return [] }
-        return cases.filter { $0.matches(searchText: searchText) }
-    }
+    /// Perform case search with debouncing (database FTS5)
+    private func performCaseSearch(query: String) {
+        searchTask?.cancel()
 
-    private func loadCasesFromCSV() {
-        guard let csvPath = Bundle.main.path(forResource: "allcases", ofType: "csv"),
-              let csvString = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
-            print("Could not load allcases.csv from bundle")
-            cases = []
+        guard !query.isEmpty else {
+            caseSearchResults = []
             return
         }
 
-        cases = CaseDataParser.parse(csvString)
-        print("Loaded \(cases.count) cases from CSV")
+        searchTask = Task {
+            try? await Task.sleep(nanoseconds: 150_000_000) // 150ms debounce
+            guard !Task.isCancelled else { return }
+
+            let results = caseLawManager.searchCases(query: query, limit: 30)
+            guard !Task.isCancelled else { return }
+
+            await MainActor.run {
+                caseSearchResults = results
+            }
+        }
     }
 
     private func loadCase(_ caseItem: Case) {

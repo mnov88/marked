@@ -179,11 +179,14 @@ struct MockDocList: View {
             return
         }
 
-        do {
-            caseSearchResults = try eurlexManager.search(query: query, limit: 30)
-        } catch {
-            Logger.error("Case search failed", error: error)
-            caseSearchResults = []
+        Task {
+            do {
+                let results = try await eurlexManager.search(query: query, limit: 30)
+                caseSearchResults = results
+            } catch {
+                Logger.error("Case search failed", error: error)
+                caseSearchResults = []
+            }
         }
     }
 

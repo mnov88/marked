@@ -162,6 +162,30 @@ CREATE TABLE IF NOT EXISTS case_citation (
 
 CREATE INDEX IF NOT EXISTS idx_case_citation_citing ON case_citation(citing_case_id);
 CREATE INDEX IF NOT EXISTS idx_case_citation_cited ON case_citation(cited_case_id);
+
+-- FTS5 virtual tables for full-text search
+-- Case law FTS (search case number, title, parties)
+CREATE VIRTUAL TABLE IF NOT EXISTS case_law_fts USING fts5(
+    case_number,
+    title,
+    parties,
+    celex,
+    ecli,
+    content='case_law',
+    content_rowid='rowid',
+    tokenize='unicode61 remove_diacritics 2'
+);
+
+-- Legislation FTS (search title, celex, short_title)
+CREATE VIRTUAL TABLE IF NOT EXISTS legislation_fts USING fts5(
+    title,
+    celex,
+    short_title,
+    subject_matter,
+    content='legislation',
+    content_rowid='rowid',
+    tokenize='unicode61 remove_diacritics 2'
+);
 """
 
 
@@ -756,6 +780,76 @@ def export_sqlite(store: DataStore, output_path: Path, verbose: bool = False):
     )
 
     conn.commit()
+
+    # Populate FTS5 indexes
+    if verbose:
+        print(f"  📝 Building FTS5 indexes...")
+
+    # Populate case_law_fts
+    conn.execute("""
+        INSERT INTO case_law_fts(rowid, case_number, title, parties, celex, ecli)
+        SELECT rowid, case_number, title, parties, celex, ecli FROM case_law
+    """)
+
+    # Populate legislation_fts
+    conn.execute("""
+        INSERT INTO legislation_fts(rowid, title, celex, short_title, subject_matter)
+        SELECT rowid, title, celex, short_title, subject_matter FROM legislation
+    """)
+
+    conn.commit()
+
+    # Create triggers to keep FTS in sync for future updates
+    conn.executescript("""
+        -- Case law FTS triggers
+        CREATE TRIGGER IF NOT EXISTS case_law_fts_ai AFTER INSERT ON case_law BEGIN
+            INSERT INTO case_law_fts(rowid, case_number, title, parties, celex, ecli)
+            VALUES (NEW.rowid, NEW.case_number, NEW.title, NEW.parties, NEW.celex, NEW.ecli);
+        END;
+
+        CREATE TRIGGER IF NOT EXISTS case_law_fts_ad AFTER DELETE ON case_law BEGIN
+            INSERT INTO case_law_fts(case_law_fts, rowid, case_number, title, parties, celex, ecli)
+            VALUES ('delete', OLD.rowid, OLD.case_number, OLD.title, OLD.parties, OLD.celex, OLD.ecli);
+        END;
+
+        CREATE TRIGGER IF NOT EXISTS case_law_fts_au AFTER UPDATE ON case_law BEGIN
+            INSERT INTO case_law_fts(case_law_fts, rowid, case_number, title, parties, celex, ecli)
+            VALUES ('delete', OLD.rowid, OLD.case_number, OLD.title, OLD.parties, OLD.celex, OLD.ecli);
+            INSERT INTO case_law_fts(rowid, case_number, title, parties, celex, ecli)
+            VALUES (NEW.rowid, NEW.case_number, NEW.title, NEW.parties, NEW.celex, NEW.ecli);
+        END;
+
+        -- Legislation FTS triggers
+        CREATE TRIGGER IF NOT EXISTS legislation_fts_ai AFTER INSERT ON legislation BEGIN
+            INSERT INTO legislation_fts(rowid, title, celex, short_title, subject_matter)
+            VALUES (NEW.rowid, NEW.title, NEW.celex, NEW.short_title, NEW.subject_matter);
+        END;
+
+        CREATE TRIGGER IF NOT EXISTS legislation_fts_ad AFTER DELETE ON legislation BEGIN
+            INSERT INTO legislation_fts(legislation_fts, rowid, title, celex, short_title, subject_matter)
+            VALUES ('delete', OLD.rowid, OLD.title, OLD.celex, OLD.short_title, OLD.subject_matter);
+        END;
+
+        CREATE TRIGGER IF NOT EXISTS legislation_fts_au AFTER UPDATE ON legislation BEGIN
+            INSERT INTO legislation_fts(legislation_fts, rowid, title, celex, short_title, subject_matter)
+            VALUES ('delete', OLD.rowid, OLD.title, OLD.celex, OLD.short_title, OLD.subject_matter);
+            INSERT INTO legislation_fts(rowid, title, celex, short_title, subject_matter)
+            VALUES (NEW.rowid, NEW.title, NEW.celex, NEW.short_title, NEW.subject_matter);
+        END;
+    """)
+
+    conn.commit()
+
+    # Verify FTS indexes
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM case_law_fts")
+    case_fts_count = cursor.fetchone()[0]
+    cursor.execute("SELECT COUNT(*) FROM legislation_fts")
+    leg_fts_count = cursor.fetchone()[0]
+
+    if verbose:
+        print(f"  📊 FTS indexes: {case_fts_count} cases, {leg_fts_count} legislation")
+
     conn.close()
 
     if verbose:

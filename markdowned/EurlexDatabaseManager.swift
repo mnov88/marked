@@ -101,11 +101,12 @@ final class EurlexDatabaseManager: ObservableObject {
     // MARK: - Case Law Search
 
     /// Search case law using FTS5 full-text search with BM25 ranking
+    /// Runs on background thread to avoid blocking UI
     /// - Parameters:
     ///   - query: Search query string
     ///   - limit: Maximum number of results (default 50)
     /// - Returns: Array of search results sorted by relevance
-    func search(query: String, limit: Int = 50) throws -> [CaseLawSearchResult] {
+    func search(query: String, limit: Int = 50) async throws -> [CaseLawSearchResult] {
         guard let dbQueue = dbQueue else {
             throw EurlexError.databaseNotInitialized
         }
@@ -114,32 +115,118 @@ final class EurlexDatabaseManager: ObservableObject {
             return []
         }
 
-        // Prepare FTS5 query - escape special characters and add prefix matching
-        let ftsQuery = prepareFTSQuery(query)
+        // Run database query on background thread
+        return try await Task.detached(priority: .userInitiated) {
+            try dbQueue.read { db in
+                // Check if FTS table exists
+                let hasFTS = try Bool.fetchOne(db, sql: """
+                    SELECT COUNT(*) > 0 FROM sqlite_master
+                    WHERE type='table' AND name='case_law_fts'
+                """) ?? false
+
+                if hasFTS {
+                    // Prepare FTS5 query - escape special characters and add prefix matching
+                    let ftsQuery = self.prepareFTSQuery(query)
+
+                    // Query using FTS5 with BM25 ranking
+                    // bm25() returns negative values where more negative = better match
+                    let sql = """
+                        SELECT
+                            c.*,
+                            bm25(case_law_fts) as rank,
+                            snippet(case_law_fts, 0, '<mark>', '</mark>', '...', 32) as snippet
+                        FROM case_law c
+                        JOIN case_law_fts fts ON c.rowid = fts.rowid
+                        WHERE case_law_fts MATCH ?
+                        ORDER BY rank ASC
+                        LIMIT ?
+                    """
+
+                    let rows = try Row.fetchAll(db, sql: sql, arguments: [ftsQuery, limit])
+
+                    return rows.compactMap { row -> CaseLawSearchResult? in
+                        guard let caseLaw = try? DBCaseLaw(row: row) else { return nil }
+                        let rank = row["rank"] as? Double ?? 0
+                        let snippet = row["snippet"] as? String
+                        return CaseLawSearchResult(caseLaw: caseLaw, rank: rank, snippet: snippet)
+                    }
+                } else {
+                    // Fallback to indexed LIKE search if no FTS (slower but functional)
+                    // Uses ESCAPE for safe pattern matching
+                    let escapedQuery = query
+                        .replacingOccurrences(of: "%", with: "\\%")
+                        .replacingOccurrences(of: "_", with: "\\_")
+                    let pattern = "%\(escapedQuery)%"
+
+                    let sql = """
+                        SELECT * FROM case_law
+                        WHERE celex LIKE ? ESCAPE '\\'
+                           OR case_number LIKE ? ESCAPE '\\'
+                           OR title LIKE ? ESCAPE '\\'
+                        ORDER BY date_judgment DESC NULLS LAST
+                        LIMIT ?
+                    """
+                    return try DBCaseLaw
+                        .fetchAll(db, sql: sql, arguments: [pattern, pattern, pattern, limit])
+                        .map { CaseLawSearchResult(caseLaw: $0, rank: 0, snippet: nil) }
+                }
+            }
+        }.value
+    }
+
+    /// Synchronous search (for backward compatibility) - prefer async version
+    func searchSync(query: String, limit: Int = 50) throws -> [CaseLawSearchResult] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+
+        guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return []
+        }
 
         return try dbQueue.read { db in
-            // Query using FTS5 with BM25 ranking
-            // bm25() returns negative values where more negative = better match
-            // Using default weights for FTS column compatibility
-            let sql = """
-                SELECT
-                    c.*,
-                    bm25(case_law_fts) as rank,
-                    snippet(case_law_fts, 0, '<mark>', '</mark>', '...', 32) as snippet
-                FROM case_law c
-                JOIN case_law_fts fts ON c.rowid = fts.rowid
-                WHERE case_law_fts MATCH ?
-                ORDER BY rank ASC
-                LIMIT ?
-            """
+            // Check if FTS table exists
+            let hasFTS = try Bool.fetchOne(db, sql: """
+                SELECT COUNT(*) > 0 FROM sqlite_master
+                WHERE type='table' AND name='case_law_fts'
+            """) ?? false
 
-            let rows = try Row.fetchAll(db, sql: sql, arguments: [ftsQuery, limit])
-
-            return rows.compactMap { row -> CaseLawSearchResult? in
-                guard let caseLaw = try? DBCaseLaw(row: row) else { return nil }
-                let rank = row["rank"] as? Double ?? 0
-                let snippet = row["snippet"] as? String
-                return CaseLawSearchResult(caseLaw: caseLaw, rank: rank, snippet: snippet)
+            if hasFTS {
+                let ftsQuery = prepareFTSQuery(query)
+                let sql = """
+                    SELECT
+                        c.*,
+                        bm25(case_law_fts) as rank,
+                        snippet(case_law_fts, 0, '<mark>', '</mark>', '...', 32) as snippet
+                    FROM case_law c
+                    JOIN case_law_fts fts ON c.rowid = fts.rowid
+                    WHERE case_law_fts MATCH ?
+                    ORDER BY rank ASC
+                    LIMIT ?
+                """
+                let rows = try Row.fetchAll(db, sql: sql, arguments: [ftsQuery, limit])
+                return rows.compactMap { row -> CaseLawSearchResult? in
+                    guard let caseLaw = try? DBCaseLaw(row: row) else { return nil }
+                    let rank = row["rank"] as? Double ?? 0
+                    let snippet = row["snippet"] as? String
+                    return CaseLawSearchResult(caseLaw: caseLaw, rank: rank, snippet: snippet)
+                }
+            } else {
+                // Fallback
+                let escapedQuery = query
+                    .replacingOccurrences(of: "%", with: "\\%")
+                    .replacingOccurrences(of: "_", with: "\\_")
+                let pattern = "%\(escapedQuery)%"
+                let sql = """
+                    SELECT * FROM case_law
+                    WHERE celex LIKE ? ESCAPE '\\'
+                       OR case_number LIKE ? ESCAPE '\\'
+                    ORDER BY date_judgment DESC NULLS LAST
+                    LIMIT ?
+                """
+                return try DBCaseLaw
+                    .fetchAll(db, sql: sql, arguments: [pattern, pattern, limit])
+                    .map { CaseLawSearchResult(caseLaw: $0, rank: 0, snippet: nil) }
             }
         }
     }
@@ -148,9 +235,9 @@ final class EurlexDatabaseManager: ObservableObject {
     @Published private(set) var searchResults: [CaseLawSearchResult] = []
 
     /// Search and update published results (for reactive UI)
-    func searchAndPublish(query: String, limit: Int = 50) {
+    func searchAndPublish(query: String, limit: Int = 50) async {
         do {
-            searchResults = try search(query: query, limit: limit)
+            searchResults = try await search(query: query, limit: limit)
         } catch {
             Logger.error("Case law search failed", error: error)
             searchResults = []
@@ -243,7 +330,8 @@ final class EurlexDatabaseManager: ObservableObject {
     // MARK: - Legislation Search
 
     /// Search legislation using FTS5 full-text search with BM25 ranking
-    func searchLegislation(query: String, limit: Int = 50) throws -> [LegislationSearchResult] {
+    /// Runs on background thread to avoid blocking UI
+    func searchLegislation(query: String, limit: Int = 50) async throws -> [LegislationSearchResult] {
         guard let dbQueue = dbQueue else {
             throw EurlexError.databaseNotInitialized
         }
@@ -252,17 +340,77 @@ final class EurlexDatabaseManager: ObservableObject {
             return []
         }
 
-        let ftsQuery = prepareFTSQuery(query)
+        // Run database query on background thread
+        return try await Task.detached(priority: .userInitiated) {
+            try dbQueue.read { db in
+                // Check if FTS table exists
+                let hasFTS = try Bool.fetchOne(db, sql: """
+                    SELECT COUNT(*) > 0 FROM sqlite_master
+                    WHERE type='table' AND name='legislation_fts'
+                """) ?? false
+
+                if hasFTS {
+                    let ftsQuery = self.prepareFTSQuery(query)
+                    // Using default BM25 weights for FTS column compatibility
+                    let sql = """
+                        SELECT
+                            l.*,
+                            bm25(legislation_fts) as rank,
+                            snippet(legislation_fts, 0, '<mark>', '</mark>', '...', 32) as snippet
+                        FROM legislation l
+                        JOIN legislation_fts fts ON l.rowid = fts.rowid
+                        WHERE legislation_fts MATCH ?
+                        ORDER BY rank ASC
+                        LIMIT ?
+                    """
+                    let rows = try Row.fetchAll(db, sql: sql, arguments: [ftsQuery, limit])
+
+                    return rows.compactMap { row -> LegislationSearchResult? in
+                        guard let legislation = try? DBLegislation(row: row) else { return nil }
+                        let rank = row["rank"] as? Double ?? 0
+                        let snippet = row["snippet"] as? String
+                        return LegislationSearchResult(legislation: legislation, rank: rank, snippet: snippet)
+                    }
+                } else {
+                    // Fallback to LIKE search if no FTS (slower but functional)
+                    // Search only celex and short_title for better performance
+                    let escapedQuery = query
+                        .replacingOccurrences(of: "%", with: "\\%")
+                        .replacingOccurrences(of: "_", with: "\\_")
+                    let pattern = "%\(escapedQuery)%"
+                    let sql = """
+                        SELECT * FROM legislation
+                        WHERE celex LIKE ? ESCAPE '\\'
+                           OR short_title LIKE ? ESCAPE '\\'
+                        ORDER BY doc_year DESC
+                        LIMIT ?
+                    """
+                    return try DBLegislation
+                        .fetchAll(db, sql: sql, arguments: [pattern, pattern, limit])
+                        .map { LegislationSearchResult(legislation: $0, rank: 0, snippet: nil) }
+                }
+            }
+        }.value
+    }
+
+    /// Synchronous search (for backward compatibility) - prefer async version
+    func searchLegislationSync(query: String, limit: Int = 50) throws -> [LegislationSearchResult] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+
+        guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return []
+        }
 
         return try dbQueue.read { db in
-            // Check if FTS table exists
             let hasFTS = try Bool.fetchOne(db, sql: """
                 SELECT COUNT(*) > 0 FROM sqlite_master
                 WHERE type='table' AND name='legislation_fts'
             """) ?? false
 
             if hasFTS {
-                // Using default BM25 weights for FTS column compatibility
+                let ftsQuery = prepareFTSQuery(query)
                 let sql = """
                     SELECT
                         l.*,
@@ -275,7 +423,6 @@ final class EurlexDatabaseManager: ObservableObject {
                     LIMIT ?
                 """
                 let rows = try Row.fetchAll(db, sql: sql, arguments: [ftsQuery, limit])
-
                 return rows.compactMap { row -> LegislationSearchResult? in
                     guard let legislation = try? DBLegislation(row: row) else { return nil }
                     let rank = row["rank"] as? Double ?? 0
@@ -283,16 +430,19 @@ final class EurlexDatabaseManager: ObservableObject {
                     return LegislationSearchResult(legislation: legislation, rank: rank, snippet: snippet)
                 }
             } else {
-                // Fallback to LIKE search if no FTS
+                let escapedQuery = query
+                    .replacingOccurrences(of: "%", with: "\\%")
+                    .replacingOccurrences(of: "_", with: "\\_")
+                let pattern = "%\(escapedQuery)%"
                 let sql = """
                     SELECT * FROM legislation
-                    WHERE title LIKE ? OR celex LIKE ? OR short_title LIKE ?
+                    WHERE celex LIKE ? ESCAPE '\\'
+                       OR short_title LIKE ? ESCAPE '\\'
                     ORDER BY doc_year DESC
                     LIMIT ?
                 """
-                let pattern = "%\(query)%"
                 return try DBLegislation
-                    .fetchAll(db, sql: sql, arguments: [pattern, pattern, pattern, limit])
+                    .fetchAll(db, sql: sql, arguments: [pattern, pattern, limit])
                     .map { LegislationSearchResult(legislation: $0, rank: 0, snippet: nil) }
             }
         }

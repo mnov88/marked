@@ -299,7 +299,7 @@ struct DocumentsListView: View {
             return
         }
 
-        // Document search (immediate)
+        // Document search (immediate, local database)
         do {
             documentSearchResults = try documentsManager.fullTextSearchWithSnippets(query: query)
         } catch {
@@ -307,39 +307,33 @@ struct DocumentsListView: View {
             documentSearchResults = []
         }
 
-        // EUR-Lex search (case law + legislation, debounced for performance)
+        // EUR-Lex search (case law + legislation, debounced and async for performance)
         searchDebounceTask = Task {
             // Small delay to debounce rapid typing
             try? await Task.sleep(nanoseconds: 150_000_000) // 150ms
 
             guard !Task.isCancelled else { return }
 
-            // Search case law
+            // Search case law (async - runs on background thread)
             do {
-                let caseResults = try eurlexManager.search(query: query, limit: 50)
-                await MainActor.run {
-                    self.caseSearchResults = caseResults
-                }
+                let caseResults = try await eurlexManager.search(query: query, limit: 50)
+                guard !Task.isCancelled else { return }
+                self.caseSearchResults = caseResults
             } catch {
                 Logger.error("Case law search failed", error: error)
-                await MainActor.run {
-                    self.caseSearchResults = []
-                }
+                self.caseSearchResults = []
             }
 
             guard !Task.isCancelled else { return }
 
-            // Search legislation
+            // Search legislation (async - runs on background thread)
             do {
-                let legResults = try eurlexManager.searchLegislation(query: query, limit: 50)
-                await MainActor.run {
-                    self.legislationSearchResults = legResults
-                }
+                let legResults = try await eurlexManager.searchLegislation(query: query, limit: 50)
+                guard !Task.isCancelled else { return }
+                self.legislationSearchResults = legResults
             } catch {
                 Logger.error("Legislation search failed", error: error)
-                await MainActor.run {
-                    self.legislationSearchResults = []
-                }
+                self.legislationSearchResults = []
             }
         }
     }

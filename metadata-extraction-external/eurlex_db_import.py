@@ -466,7 +466,7 @@ def extract_celex_from_reference(ref: str) -> Optional[str]:
 # JSON PROCESSING
 # =============================================================================
 
-def process_legislation_json(json_path: Path, store: DataStore, verbose: bool = False) -> bool:
+def process_legislation_json(json_path: Path, store: DataStore, verbose: bool = False, skip_relations: bool = False) -> bool:
     """Process a single legislation metadata JSON file."""
     try:
         with open(json_path, 'r', encoding='utf-8') as f:
@@ -555,25 +555,26 @@ def process_legislation_json(json_path: Path, store: DataStore, verbose: bool = 
                 interp_type = case_ref.get('type', 'interprets').lower().replace(' ', '_')
                 store.add_interpretation(case_id, art_id, interp_type)
 
-    # Process legal relations
-    legal_relations = doc.get('legalRelations', {})
-    relation_map = {
-        'basedOn': 'based_on',
-        'cites': 'cites',
-        'amends': 'amends',
-        'repeals': 'repeals',
-        'consolidatedBy': 'consolidated_by',
-        'correctedBy': 'corrected_by',
-        'treatyBasis': 'treaty_basis',
-    }
+    # Process legal relations (skip if --skip-relations flag is set)
+    if not skip_relations:
+        legal_relations = doc.get('legalRelations', {})
+        relation_map = {
+            'basedOn': 'based_on',
+            'cites': 'cites',
+            'amends': 'amends',
+            'repeals': 'repeals',
+            'consolidatedBy': 'consolidated_by',
+            'correctedBy': 'corrected_by',
+            'treatyBasis': 'treaty_basis',
+        }
 
-    for rel_key, rel_type in relation_map.items():
-        targets = legal_relations.get(rel_key, [])
-        for target in targets:
-            if isinstance(target, str) and target:
-                # Try to extract CELEX from various formats
-                target_celex = extract_celex_from_reference(target)
-                store.add_legal_relation(leg_id, target_celex or target, rel_type)
+        for rel_key, rel_type in relation_map.items():
+            targets = legal_relations.get(rel_key, [])
+            for target in targets:
+                if isinstance(target, str) and target:
+                    # Try to extract CELEX from various formats
+                    target_celex = extract_celex_from_reference(target)
+                    store.add_legal_relation(leg_id, target_celex or target, rel_type)
 
     # Process Eurovoc concepts
     eurovoc = doc.get('eurovoc', {})
@@ -959,9 +960,12 @@ Examples:
 
   # With case law metadata
   python3 eurlex_db_import.py --metadata-root /path/to/eurlex-organized --case-root /path/to/case-cache --output-dir ./output
-  
+
   # Filter by document types (only Regulations and Directives)
   python3 eurlex_db_import.py --metadata-root /path/to/eurlex-organized --output-dir ./output --types REG DIR
+
+  # Skip legal relations table (smaller DB, faster import)
+  python3 eurlex_db_import.py --metadata-root /path/to/eurlex-organized --output-dir ./output --skip-relations
         """
     )
 
@@ -977,6 +981,8 @@ Examples:
                         help='Filter by document types (e.g., REG DIR DEC)')
     parser.add_argument('--limit', type=int,
                         help='Limit number of files to process (for testing)')
+    parser.add_argument('--skip-relations', action='store_true',
+                        help='Skip importing legal_relation table (reduces DB size)')
     parser.add_argument('--verbose', '-v', action='store_true',
                         help='Verbose output')
 
@@ -1028,9 +1034,11 @@ Examples:
 
     # Process legislation first (cases reference legislation)
     print(f"\n📚 Processing legislation metadata...")
+    if args.skip_relations:
+        print("  ⏭️  Skipping legal relations (--skip-relations)")
     success_leg = 0
     for i, json_file in enumerate(legislation_files):
-        if process_legislation_json(json_file, store, args.verbose):
+        if process_legislation_json(json_file, store, args.verbose, skip_relations=args.skip_relations):
             success_leg += 1
         if (i + 1) % 100 == 0:
             print(f"  Processed {i + 1}/{len(legislation_files)}...")
@@ -1055,7 +1063,8 @@ Examples:
     print(f"  • Case Law: {len(store.case_law)}")
     print(f"  • Articles: {len(store.articles)}")
     print(f"  • Interpretations: {len(store.case_article_interpretations)}")
-    print(f"  • Legal Relations: {len(store.legal_relations)}")
+    relations_status = "(skipped)" if args.skip_relations else ""
+    print(f"  • Legal Relations: {len(store.legal_relations)} {relations_status}")
     print(f"  • Eurovoc Concepts: {len(store.eurovoc_concepts)}")
 
     # Export

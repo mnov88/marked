@@ -77,3 +77,4 @@ iOSInjectionProject/
 __pycache__/
 
 metadata-extraction-external/output
+metadata-extraction-external/case-cache/

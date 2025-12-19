@@ -91,11 +91,11 @@ private let mockDocs: [Document] = {
 struct MockDocList: View {
     @EnvironmentObject private var themeManager: ThemeManager
     @ObservedObject private var documentsManager = DocumentsManager.shared
+    @ObservedObject private var eurlexManager = EurlexDatabaseManager.shared
     @State private var showingURLEntry = false
     @State private var searchText = ""
-    @State private var cases: [Case] = []
+    @State private var caseSearchResults: [CaseLawSearchResult] = []
     @State private var isLoadingCase = false
-    @State private var hasLoadedCSV = false
 
     private let contentLoader = ContentLoader()
 
@@ -109,23 +109,23 @@ struct MockDocList: View {
                     }
                 }
 
-                // Search results section
-                if !searchText.isEmpty && !filteredCases.isEmpty {
+                // Search results section (from EUR-Lex database)
+                if !searchText.isEmpty && !caseSearchResults.isEmpty {
                     Section("Case Search Results") {
-                        ForEach(filteredCases.prefix(20)) { caseItem in
+                        ForEach(caseSearchResults.prefix(20)) { result in
                             Button {
-                                loadCase(caseItem)
+                                loadCaseFromResult(result)
                             } label: {
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(caseItem.caseNumber)
+                                    Text(result.caseLaw.caseNumber ?? "Unknown")
                                         .font(.headline)
-                                    if !caseItem.caseTitle.isEmpty {
-                                        Text(caseItem.caseTitle)
+                                    if let title = result.caseLaw.title, !title.isEmpty {
+                                        Text(title)
                                             .font(.subheadline)
                                             .foregroundStyle(.secondary)
                                             .lineLimit(2)
                                     }
-                                    Text("CELEX: \(caseItem.judgmentCELEX)")
+                                    Text("CELEX: \(result.caseLaw.celex)")
                                         .font(.caption)
                                         .foregroundStyle(.tertiary)
                                 }
@@ -137,6 +137,9 @@ struct MockDocList: View {
             }
             .navigationTitle("Documents")
             .searchable(text: $searchText, prompt: "Search by case number or title")
+            .onChange(of: searchText) { _, newValue in
+                performSearch(query: newValue)
+            }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -151,7 +154,7 @@ struct MockDocList: View {
                     do {
                         try documentsManager.addDocument(document)
                     } catch {
-                        print("Failed to persist document from URL entry: \(error)")
+                        Logger.error("Failed to persist document from URL entry", error: error)
                     }
                 }
             }
@@ -167,35 +170,27 @@ struct MockDocList: View {
                     .ignoresSafeArea()
                 }
             }
-            .onAppear {
-                if !hasLoadedCSV {
-                    loadCasesFromCSV()
-                    hasLoadedCSV = true
-                }
-            }
         }
     }
 
-    private var filteredCases: [Case] {
-        guard !searchText.isEmpty else { return [] }
-        return cases.filter { $0.matches(searchText: searchText) }
-    }
-
-    private func loadCasesFromCSV() {
-        guard let csvPath = Bundle.main.path(forResource: "allcases", ofType: "csv"),
-              let csvString = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
-            print("Could not load allcases.csv from bundle")
-            cases = []
+    private func performSearch(query: String) {
+        guard !query.isEmpty else {
+            caseSearchResults = []
             return
         }
 
-        cases = CaseDataParser.parse(csvString)
-        print("Loaded \(cases.count) cases from CSV")
+        do {
+            caseSearchResults = try eurlexManager.search(query: query, limit: 30)
+        } catch {
+            Logger.error("Case search failed", error: error)
+            caseSearchResults = []
+        }
     }
 
-    private func loadCase(_ caseItem: Case) {
+    private func loadCaseFromResult(_ result: CaseLawSearchResult) {
+        let caseItem = result.toCase()
         guard let url = caseItem.celexURL else {
-            print("No valid URL for case")
+            Logger.debug("No valid URL for case")
             return
         }
 
@@ -208,7 +203,7 @@ struct MockDocList: View {
                 isLoadingCase = false
                 searchText = ""
             } catch {
-                print("Failed to load case: \(error)")
+                Logger.error("Failed to load case", error: error)
                 isLoadingCase = false
             }
         }
@@ -221,13 +216,13 @@ struct MockDocList: View {
         switch doc.content {
         case .plain(let s):
             DocHighlightingView(documentId: doc.id, string: s, config: config) { url in
-                print("Tapped link:", url.absoluteString)
+                Logger.debug("Tapped link: \(url.absoluteString)")
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)
         case .attributed(let a):
             DocHighlightingView(documentId: doc.id, attributedString: a, config: config) { url in
-                print("Tapped link:", url.absoluteString)
+                Logger.debug("Tapped link: \(url.absoluteString)")
             }
             .navigationTitle(doc.title)
             .navigationBarTitleDisplayMode(.inline)

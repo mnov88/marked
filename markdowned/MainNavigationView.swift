@@ -87,16 +87,17 @@ struct DocumentsListView: View {
     @EnvironmentObject private var themeManager: ThemeManager
     @ObservedObject private var documentsManager = DocumentsManager.shared
     @ObservedObject private var categoriesManager = CategoriesManager.shared
+    @ObservedObject private var eurlexManager = EurlexDatabaseManager.shared
     @State private var showingURLEntry = false
     @State private var showingFolderImport = false
     @State private var searchText = ""
-    @State private var cases: [Case] = []
+    @State private var caseSearchResults: [CaseLawSearchResult] = []
     @State private var isLoadingCase = false
-    @State private var hasLoadedCSV = false
     @State private var documentSearchResults: [(Document, String)] = []
     @State private var documentToRename: Document?
     @State private var newDocumentTitle = ""
     @State private var documentForCategory: Document?
+    @State private var searchDebounceTask: Task<Void, Never>?
 
     private let contentLoader = ContentLoader()
 
@@ -138,35 +139,55 @@ struct DocumentsListView: View {
                 }
             }
 
-            // Case search results (from CSV)
-            if !searchText.isEmpty && !filteredCases.isEmpty {
-                Section("Case Database") {
-                    ForEach(filteredCases.prefix(20)) { caseItem in
-                        Button {
-                            loadCase(caseItem)
-                        } label: {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(caseItem.caseNumber)
-                                    .font(.headline)
-                                if !caseItem.caseTitle.isEmpty {
-                                    Text(caseItem.caseTitle)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                        .lineLimit(2)
-                                }
-                                Text("CELEX: \(caseItem.judgmentCELEX)")
-                                    .font(.caption)
-                                    .foregroundStyle(.tertiary)
-                            }
-                        }
-                        .disabled(isLoadingCase)
+            // Case search results (from EUR-Lex database)
+            if !searchText.isEmpty && !caseSearchResults.isEmpty {
+                Section {
+                    ForEach(caseSearchResults.prefix(30)) { result in
+                        CaseSearchResultRow(
+                            result: result,
+                            isLoading: isLoadingCase,
+                            onSelect: { loadCaseFromResult(result) }
+                        )
                     }
+                } header: {
+                    HStack {
+                        Text("EU Case Law")
+                        Spacer()
+                        if eurlexManager.isReady {
+                            Text("\(caseSearchResults.count) results")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+            }
+
+            // Show database status when not searching
+            if searchText.isEmpty && eurlexManager.isReady {
+                Section {
+                    HStack {
+                        Image(systemName: "building.columns")
+                            .foregroundStyle(.blue)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("EUR-Lex Case Database")
+                                .font(.subheadline)
+                            Text("\(eurlexManager.totalCaseCount) cases available")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                    }
+                    .padding(.vertical, 4)
+                } header: {
+                    Text("Search")
+                } footer: {
+                    Text("Search by case number, party names, or keywords")
                 }
             }
         }
         .searchable(text: $searchText, prompt: "Search documents and cases")
         .onChange(of: searchText) { _, newValue in
-            performDocumentSearch(query: newValue)
+            performSearch(query: newValue)
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -223,35 +244,61 @@ struct DocumentsListView: View {
             if isLoadingCase {
                 ZStack {
                     Color.black.opacity(UIConstants.Overlay.backgroundOpacity)
-                    ProgressView("Loading case...")
-                        .padding()
-                        .background(Color(uiColor: .systemBackground))
-                        .cornerRadius(UIConstants.Overlay.cornerRadius)
+                    VStack(spacing: 12) {
+                        ProgressView()
+                            .scaleEffect(1.2)
+                        Text("Loading case...")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(24)
+                    .background(.regularMaterial)
+                    .cornerRadius(UIConstants.Overlay.cornerRadius)
                 }
                 .ignoresSafeArea()
-            }
-        }
-        .onAppear {
-            if !hasLoadedCSV {
-                loadCasesFromCSV()
-                hasLoadedCSV = true
             }
         }
     }
 
     // MARK: - Search
 
-    private func performDocumentSearch(query: String) {
+    /// Perform combined search with debouncing for case law
+    private func performSearch(query: String) {
+        // Cancel previous search task
+        searchDebounceTask?.cancel()
+
         guard !query.isEmpty else {
             documentSearchResults = []
+            caseSearchResults = []
             return
         }
 
+        // Document search (immediate)
         do {
             documentSearchResults = try documentsManager.fullTextSearchWithSnippets(query: query)
         } catch {
-            Logger.error("Full-text search failed", error: error)
+            Logger.error("Document search failed", error: error)
             documentSearchResults = []
+        }
+
+        // Case law search (debounced for performance)
+        searchDebounceTask = Task {
+            // Small delay to debounce rapid typing
+            try? await Task.sleep(nanoseconds: 150_000_000) // 150ms
+
+            guard !Task.isCancelled else { return }
+
+            do {
+                let results = try eurlexManager.search(query: query, limit: 50)
+                await MainActor.run {
+                    self.caseSearchResults = results
+                }
+            } catch {
+                Logger.error("Case law search failed", error: error)
+                await MainActor.run {
+                    self.caseSearchResults = []
+                }
+            }
         }
     }
 
@@ -262,26 +309,11 @@ struct DocumentsListView: View {
             .replacingOccurrences(of: "</mark>", with: "")
     }
 
-    private var filteredCases: [Case] {
-        guard !searchText.isEmpty else { return [] }
-        return cases.filter { $0.matches(searchText: searchText) }
-    }
-
-    private func loadCasesFromCSV() {
-        guard let csvPath = Bundle.main.path(forResource: "allcases", ofType: "csv"),
-              let csvString = try? String(contentsOfFile: csvPath, encoding: .utf8) else {
-            Logger.debug("Could not load allcases.csv from bundle")
-            cases = []
-            return
-        }
-
-        cases = CaseDataParser.parse(csvString)
-        Logger.debug("Loaded \(cases.count) cases from CSV")
-    }
-
-    private func loadCase(_ caseItem: Case) {
+    /// Load case from search result
+    private func loadCaseFromResult(_ result: CaseLawSearchResult) {
+        let caseItem = result.toCase()
         guard let url = caseItem.celexURL else {
-            Logger.debug("No valid URL for case")
+            Logger.debug("No valid URL for case: \(result.caseLaw.celex)")
             return
         }
 
@@ -558,6 +590,133 @@ struct CategoryAssignmentSheet: View {
         for categoryId in selectedCategories.subtracting(currentCategories) {
             try? categoriesManager.addDocument(document.id, toCategory: categoryId)
         }
+    }
+}
+
+// MARK: - Case Search Result Row
+
+/// Enhanced row view for case law search results
+struct CaseSearchResultRow: View {
+    let result: CaseLawSearchResult
+    let isLoading: Bool
+    let onSelect: () -> Void
+
+    /// Format relevance score for display
+    private var relevanceLabel: String {
+        // BM25 returns negative scores, more negative = better match
+        let score = abs(result.rank)
+        if score > 8 { return "Excellent" }
+        if score > 5 { return "Good" }
+        if score > 3 { return "Fair" }
+        return "Partial"
+    }
+
+    private var relevanceColor: Color {
+        let score = abs(result.rank)
+        if score > 8 { return .green }
+        if score > 5 { return .blue }
+        if score > 3 { return .orange }
+        return .secondary
+    }
+
+    var body: some View {
+        Button(action: onSelect) {
+            VStack(alignment: .leading, spacing: 6) {
+                // Case number with year badge
+                HStack(alignment: .center, spacing: 8) {
+                    Text(result.caseLaw.caseNumber ?? "Unknown")
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+
+                    if let year = result.caseLaw.docYear {
+                        Text(String(year))
+                            .font(.caption2)
+                            .fontWeight(.medium)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.blue.opacity(0.15))
+                            .foregroundStyle(.blue)
+                            .clipShape(Capsule())
+                    }
+
+                    Spacer()
+
+                    // Relevance indicator
+                    HStack(spacing: 3) {
+                        Circle()
+                            .fill(relevanceColor)
+                            .frame(width: 6, height: 6)
+                        Text(relevanceLabel)
+                            .font(.caption2)
+                            .foregroundStyle(relevanceColor)
+                    }
+                }
+
+                // Title or parties
+                if let title = result.caseLaw.title, !title.isEmpty {
+                    // Extract parties from title (format: "Case C-xxx/xx. PartyA v PartyB")
+                    let displayTitle = extractDisplayTitle(from: title)
+                    Text(displayTitle)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(2)
+                }
+
+                // Snippet from FTS match (if available)
+                if let snippet = result.snippet, !snippet.isEmpty {
+                    Text(formatSnippet(snippet))
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                        .lineLimit(2)
+                        .padding(.top, 2)
+                }
+
+                // Metadata row
+                HStack(spacing: 12) {
+                    // CELEX badge
+                    Label(result.caseLaw.celex, systemImage: "number")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+
+                    // AG Opinion indicator
+                    if result.caseLaw.hasAgOpinion {
+                        Label("AG Opinion", systemImage: "person.text.rectangle")
+                            .font(.caption2)
+                            .foregroundStyle(.purple)
+                    }
+
+                    // Summary indicator
+                    if result.caseLaw.hasSummary {
+                        Label("Summary", systemImage: "doc.text")
+                            .font(.caption2)
+                            .foregroundStyle(.green)
+                    }
+                }
+                .padding(.top, 2)
+            }
+            .padding(.vertical, 4)
+        }
+        .buttonStyle(.plain)
+        .disabled(isLoading)
+        .opacity(isLoading ? 0.6 : 1.0)
+    }
+
+    /// Extract display title from case title
+    private func extractDisplayTitle(from title: String) -> String {
+        // Format: "Case C-xxx/xx. PartyA v PartyB"
+        if let dotIndex = title.firstIndex(of: ".") {
+            let afterDot = title[title.index(after: dotIndex)...]
+            return afterDot.trimmingCharacters(in: .whitespaces)
+        }
+        return title
+    }
+
+    /// Format FTS snippet for display
+    private func formatSnippet(_ snippet: String) -> String {
+        snippet
+            .replacingOccurrences(of: "<mark>", with: "")
+            .replacingOccurrences(of: "</mark>", with: "")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 

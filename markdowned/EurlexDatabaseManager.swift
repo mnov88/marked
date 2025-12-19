@@ -2,7 +2,8 @@
 //  EurlexDatabaseManager.swift
 //  markdowned
 //
-//  Manages the bundled EUR-Lex case law database with FTS5 full-text search.
+//  Manages the bundled EUR-Lex database with FTS5 full-text search.
+//  Supports legislation, case law, articles, relationships, and Eurovoc concepts.
 //  The database is copied from the app bundle to Documents on first launch.
 //
 
@@ -10,16 +11,17 @@ import Foundation
 import GRDB
 import Combine
 
-/// Manager for the bundled EUR-Lex case law database
-/// Provides full-text search with relevance ranking
+/// Manager for the bundled EUR-Lex database
+/// Provides full-text search with relevance ranking for both legislation and case law
 @MainActor
 final class EurlexDatabaseManager: ObservableObject {
     static let shared = EurlexDatabaseManager()
 
-    /// Published search results for reactive UI updates
-    @Published private(set) var searchResults: [CaseLawSearchResult] = []
+    // MARK: - Published Properties
+
     @Published private(set) var isReady: Bool = false
     @Published private(set) var totalCaseCount: Int = 0
+    @Published private(set) var totalLegislationCount: Int = 0
 
     /// Database connection (read-only)
     private var dbQueue: DatabaseQueue?
@@ -37,9 +39,10 @@ final class EurlexDatabaseManager: ObservableObject {
         do {
             let dbPath = try await ensureDatabase()
             dbQueue = try openDatabase(at: dbPath)
-            totalCaseCount = try countCases()
+            totalCaseCount = try countTable("case_law")
+            totalLegislationCount = try countTable("legislation")
             isReady = true
-            Logger.info("EUR-Lex database ready with \(totalCaseCount) cases")
+            Logger.info("EUR-Lex database ready: \(totalCaseCount) cases, \(totalLegislationCount) legislation")
         } catch {
             Logger.error("Failed to initialize EUR-Lex database", error: error)
             isReady = false
@@ -87,15 +90,15 @@ final class EurlexDatabaseManager: ObservableObject {
         return try DatabaseQueue(path: path, configuration: config)
     }
 
-    /// Count total cases in database
-    private func countCases() throws -> Int {
+    /// Count rows in a table
+    private func countTable(_ table: String) throws -> Int {
         guard let dbQueue = dbQueue else { return 0 }
         return try dbQueue.read { db in
-            try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM case_law") ?? 0
+            try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM \(table)") ?? 0
         }
     }
 
-    // MARK: - Search
+    // MARK: - Case Law Search
 
     /// Search case law using FTS5 full-text search with BM25 ranking
     /// - Parameters:
@@ -225,24 +228,269 @@ final class EurlexDatabaseManager: ObservableObject {
         }
     }
 
-    // MARK: - Statistics
+    // MARK: - Legislation Search
 
-    /// Get search statistics for a query
-    func searchStatistics(query: String) throws -> SearchStatistics {
-        let results = try search(query: query, limit: 1000)
-
-        var yearDistribution: [Int: Int] = [:]
-        for result in results {
-            if let year = result.caseLaw.docYear {
-                yearDistribution[year, default: 0] += 1
-            }
+    /// Search legislation using FTS5 full-text search with BM25 ranking
+    func searchLegislation(query: String, limit: Int = 50) throws -> [LegislationSearchResult] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
         }
 
-        return SearchStatistics(
-            totalResults: results.count,
-            yearDistribution: yearDistribution,
-            hasAGOpinionCount: results.filter { $0.caseLaw.hasAgOpinion }.count
-        )
+        guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return []
+        }
+
+        let ftsQuery = prepareFTSQuery(query)
+
+        return try dbQueue.read { db in
+            // Check if FTS table exists
+            let hasFTS = try Bool.fetchOne(db, sql: """
+                SELECT COUNT(*) > 0 FROM sqlite_master
+                WHERE type='table' AND name='legislation_fts'
+            """) ?? false
+
+            if hasFTS {
+                let sql = """
+                    SELECT
+                        l.*,
+                        bm25(legislation_fts, 10.0, 5.0, 2.0) as rank,
+                        snippet(legislation_fts, 1, '<mark>', '</mark>', '...', 32) as snippet
+                    FROM legislation l
+                    JOIN legislation_fts fts ON l.rowid = fts.rowid
+                    WHERE legislation_fts MATCH ?
+                    ORDER BY rank ASC
+                    LIMIT ?
+                """
+                let rows = try Row.fetchAll(db, sql: sql, arguments: [ftsQuery, limit])
+
+                return rows.compactMap { row -> LegislationSearchResult? in
+                    guard let legislation = try? DBLegislation(row: row) else { return nil }
+                    let rank = row["rank"] as? Double ?? 0
+                    let snippet = row["snippet"] as? String
+                    return LegislationSearchResult(legislation: legislation, rank: rank, snippet: snippet)
+                }
+            } else {
+                // Fallback to LIKE search if no FTS
+                let sql = """
+                    SELECT * FROM legislation
+                    WHERE title LIKE ? OR celex LIKE ? OR short_title LIKE ?
+                    ORDER BY doc_year DESC
+                    LIMIT ?
+                """
+                let pattern = "%\(query)%"
+                return try DBLegislation
+                    .fetchAll(db, sql: sql, arguments: [pattern, pattern, pattern, limit])
+                    .map { LegislationSearchResult(legislation: $0, rank: 0, snippet: nil) }
+            }
+        }
+    }
+
+    /// Fetch legislation by CELEX
+    func fetchLegislation(byCelex celex: String) throws -> DBLegislation? {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            try DBLegislation.filter(DBLegislation.Columns.celex == celex).fetchOne(db)
+        }
+    }
+
+    /// Fetch legislation by document type
+    func fetchLegislation(byType type: String, limit: Int = 100) throws -> [DBLegislation] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            try DBLegislation
+                .filter(DBLegislation.Columns.docType == type)
+                .order(DBLegislation.Columns.docYear.desc)
+                .limit(limit)
+                .fetchAll(db)
+        }
+    }
+
+    /// Fetch legislation by year
+    func fetchLegislation(byYear year: Int, limit: Int = 100) throws -> [DBLegislation] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            try DBLegislation
+                .filter(DBLegislation.Columns.docYear == year)
+                .order(DBLegislation.Columns.docNumber)
+                .limit(limit)
+                .fetchAll(db)
+        }
+    }
+
+    /// Get available document types
+    func fetchAvailableDocTypes() throws -> [String] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            try String.fetchAll(db, sql: "SELECT DISTINCT doc_type FROM legislation ORDER BY doc_type")
+        }
+    }
+
+    // MARK: - Relationship Queries
+
+    /// Get legislation that amends a specific document
+    func fetchAmendments(for celex: String) throws -> [DBLegislation] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let sql = """
+                SELECT l.* FROM legislation l
+                JOIN legal_relation lr ON l.id = lr.source_id
+                WHERE lr.target_celex = ? AND lr.relation_type = 'amends'
+                ORDER BY l.date_document DESC
+            """
+            return try DBLegislation.fetchAll(db, sql: sql, arguments: [celex])
+        }
+    }
+
+    /// Get all related legislation for a document
+    func fetchRelatedLegislation(for celex: String) throws -> [(DBLegislation, String)] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let sql = """
+                SELECT l.*, lr.relation_type FROM legislation l
+                JOIN legal_relation lr ON l.id = lr.source_id
+                WHERE lr.target_celex = ?
+                ORDER BY lr.relation_type, l.date_document DESC
+            """
+            let rows = try Row.fetchAll(db, sql: sql, arguments: [celex])
+            return rows.compactMap { row -> (DBLegislation, String)? in
+                guard let leg = try? DBLegislation(row: row) else { return nil }
+                let relType = row["relation_type"] as? String ?? "unknown"
+                return (leg, relType)
+            }
+        }
+    }
+
+    /// Get Eurovoc concepts for legislation
+    func fetchEurovocConcepts(for legislationId: String) throws -> [DBEurovocConcept] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let sql = """
+                SELECT ec.* FROM eurovoc_concept ec
+                JOIN legislation_eurovoc le ON ec.id = le.eurovoc_id
+                WHERE le.legislation_id = ?
+                ORDER BY ec.label
+            """
+            return try DBEurovocConcept.fetchAll(db, sql: sql, arguments: [legislationId])
+        }
+    }
+
+    /// Get cases interpreting a specific article
+    func fetchCasesInterpreting(articleNum: Int, legislationCelex: String) throws -> [DBCaseLaw] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let sql = """
+                SELECT c.* FROM case_law c
+                JOIN case_article_interpretation cai ON c.id = cai.case_id
+                JOIN article a ON cai.article_id = a.id
+                JOIN legislation l ON a.legislation_id = l.id
+                WHERE l.celex = ? AND a.article_num = ?
+                ORDER BY c.date_judgment DESC
+            """
+            return try DBCaseLaw.fetchAll(db, sql: sql, arguments: [legislationCelex, articleNum])
+        }
+    }
+
+    /// Get articles interpreted by a case
+    func fetchInterpretedArticles(forCase caseId: String) throws -> [(DBArticle, DBLegislation)] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let sql = """
+                SELECT a.*, l.* FROM article a
+                JOIN case_article_interpretation cai ON a.id = cai.article_id
+                JOIN legislation l ON a.legislation_id = l.id
+                WHERE cai.case_id = ?
+                ORDER BY l.celex, a.article_num
+            """
+            let rows = try Row.fetchAll(db, sql: sql, arguments: [caseId])
+            return rows.compactMap { row -> (DBArticle, DBLegislation)? in
+                guard let article = try? DBArticle(row: row),
+                      let leg = try? DBLegislation(row: row) else { return nil }
+                return (article, leg)
+            }
+        }
+    }
+
+    /// Get cases citing a specific case
+    func fetchCitingCases(for celex: String) throws -> [DBCaseLaw] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let sql = """
+                SELECT c.* FROM case_law c
+                JOIN case_citation cc ON c.id = cc.citing_case_id
+                WHERE cc.cited_celex = ?
+                ORDER BY c.date_judgment DESC
+            """
+            return try DBCaseLaw.fetchAll(db, sql: sql, arguments: [celex])
+        }
+    }
+
+    /// Get most cited cases
+    func fetchMostCitedCases(limit: Int = 20) throws -> [(DBCaseLaw, Int)] {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let sql = """
+                SELECT c.*, COUNT(cc.id) as citation_count
+                FROM case_law c
+                JOIN case_citation cc ON c.id = cc.cited_case_id
+                GROUP BY c.id
+                ORDER BY citation_count DESC
+                LIMIT ?
+            """
+            let rows = try Row.fetchAll(db, sql: sql, arguments: [limit])
+            return rows.compactMap { row -> (DBCaseLaw, Int)? in
+                guard let caseLaw = try? DBCaseLaw(row: row) else { return nil }
+                let count = row["citation_count"] as? Int ?? 0
+                return (caseLaw, count)
+            }
+        }
+    }
+
+    // MARK: - Statistics
+
+    /// Get database statistics
+    func fetchStatistics() throws -> EurlexStatistics {
+        guard let dbQueue = dbQueue else {
+            throw EurlexError.databaseNotInitialized
+        }
+        return try dbQueue.read { db in
+            let caseCount = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM case_law") ?? 0
+            let legCount = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM legislation") ?? 0
+            let articleCount = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM article") ?? 0
+            let relationCount = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM legal_relation") ?? 0
+            let eurovocCount = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM eurovoc_concept") ?? 0
+            let citationCount = try Int.fetchOne(db, sql: "SELECT COUNT(*) FROM case_citation") ?? 0
+
+            return EurlexStatistics(
+                caseCount: caseCount,
+                legislationCount: legCount,
+                articleCount: articleCount,
+                relationCount: relationCount,
+                eurovocCount: eurovocCount,
+                citationCount: citationCount
+            )
+        }
     }
 }
 
@@ -265,7 +513,16 @@ enum EurlexError: LocalizedError {
     }
 }
 
-// MARK: - Search Statistics
+// MARK: - Statistics Types
+
+struct EurlexStatistics {
+    let caseCount: Int
+    let legislationCount: Int
+    let articleCount: Int
+    let relationCount: Int
+    let eurovocCount: Int
+    let citationCount: Int
+}
 
 struct SearchStatistics {
     let totalResults: Int

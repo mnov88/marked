@@ -120,11 +120,12 @@ final class EurlexDatabaseManager: ObservableObject {
         return try dbQueue.read { db in
             // Query using FTS5 with BM25 ranking
             // bm25() returns negative values where more negative = better match
+            // Using default weights for FTS column compatibility
             let sql = """
                 SELECT
                     c.*,
-                    bm25(case_law_fts, 10.0, 5.0, 2.0, 1.0, 1.0, 0.5) as rank,
-                    snippet(case_law_fts, 1, '<mark>', '</mark>', '...', 32) as snippet
+                    bm25(case_law_fts) as rank,
+                    snippet(case_law_fts, 0, '<mark>', '</mark>', '...', 32) as snippet
                 FROM case_law c
                 JOIN case_law_fts fts ON c.rowid = fts.rowid
                 WHERE case_law_fts MATCH ?
@@ -190,22 +191,25 @@ final class EurlexDatabaseManager: ObservableObject {
         }
     }
 
-    /// Fetch cases by year
+    /// Fetch cases by year (extracted from CELEX: 6YYYYXX...)
     func fetchCases(byYear year: Int, limit: Int = 100) throws -> [DBCaseLaw] {
         guard let dbQueue = dbQueue else {
             throw EurlexError.databaseNotInitialized
         }
 
         return try dbQueue.read { db in
-            try DBCaseLaw
-                .filter(DBCaseLaw.Columns.docYear == year)
-                .order(DBCaseLaw.Columns.caseNumber)
-                .limit(limit)
-                .fetchAll(db)
+            // Extract year from CELEX (format: 6YYYYXX where YYYY is the year)
+            let sql = """
+                SELECT * FROM case_law
+                WHERE CAST(SUBSTR(celex, 2, 4) AS INTEGER) = ?
+                ORDER BY case_number
+                LIMIT ?
+            """
+            return try DBCaseLaw.fetchAll(db, sql: sql, arguments: [year, limit])
         }
     }
 
-    /// Fetch recent cases (by year descending)
+    /// Fetch recent cases (by judgment date descending)
     func fetchRecentCases(limit: Int = 20) throws -> [DBCaseLaw] {
         guard let dbQueue = dbQueue else {
             throw EurlexError.databaseNotInitialized
@@ -213,20 +217,25 @@ final class EurlexDatabaseManager: ObservableObject {
 
         return try dbQueue.read { db in
             try DBCaseLaw
-                .order(DBCaseLaw.Columns.docYear.desc)
+                .order(DBCaseLaw.Columns.dateJudgment.desc)
                 .limit(limit)
                 .fetchAll(db)
         }
     }
 
-    /// Get available years for filtering
-    func fetchAvailableYears() throws -> [Int] {
+    /// Get available years for filtering (from CELEX numbers)
+    func fetchAvailableCaseYears() throws -> [Int] {
         guard let dbQueue = dbQueue else {
             throw EurlexError.databaseNotInitialized
         }
 
         return try dbQueue.read { db in
-            let sql = "SELECT DISTINCT doc_year FROM case_law WHERE doc_year IS NOT NULL ORDER BY doc_year DESC"
+            let sql = """
+                SELECT DISTINCT CAST(SUBSTR(celex, 2, 4) AS INTEGER) as year
+                FROM case_law
+                WHERE LENGTH(celex) >= 5
+                ORDER BY year DESC
+            """
             return try Int.fetchAll(db, sql: sql)
         }
     }
@@ -253,11 +262,12 @@ final class EurlexDatabaseManager: ObservableObject {
             """) ?? false
 
             if hasFTS {
+                // Using default BM25 weights for FTS column compatibility
                 let sql = """
                     SELECT
                         l.*,
-                        bm25(legislation_fts, 10.0, 5.0, 2.0) as rank,
-                        snippet(legislation_fts, 1, '<mark>', '</mark>', '...', 32) as snippet
+                        bm25(legislation_fts) as rank,
+                        snippet(legislation_fts, 0, '<mark>', '</mark>', '...', 32) as snippet
                     FROM legislation l
                     JOIN legislation_fts fts ON l.rowid = fts.rowid
                     WHERE legislation_fts MATCH ?

@@ -692,7 +692,7 @@ struct CaseSearchResultRow: View {
                         .font(.headline)
                         .foregroundStyle(.primary)
 
-                    if let year = result.caseLaw.docYear {
+                    if let year = result.caseLaw.year {
                         Text(String(year))
                             .font(.caption2)
                             .fontWeight(.medium)
@@ -749,11 +749,11 @@ struct CaseSearchResultRow: View {
                             .foregroundStyle(.purple)
                     }
 
-                    // Summary indicator
-                    if result.caseLaw.hasSummary {
-                        Label("Summary", systemImage: "doc.text")
+                    // Court indicator
+                    if let court = result.caseLaw.court, !court.isEmpty {
+                        Text(court)
                             .font(.caption2)
-                            .foregroundStyle(.green)
+                            .foregroundStyle(.secondary)
                     }
                 }
                 .padding(.top, 2)

@@ -71,6 +71,17 @@ struct DBCaseLaw: Identifiable, Codable, FetchableRecord, PersistableRecord {
 
     static var databaseTableName: String { "case_law" }
 
+    // MARK: - Associations
+
+    /// Article interpretations by this case
+    static let interpretations = hasMany(DBCaseArticleInterpretation.self, using: ForeignKey(["case_id"]))
+
+    /// Citations made by this case
+    static let citationsMade = hasMany(DBCaseCitation.self, key: "citationsMade", using: ForeignKey(["citing_case_id"]))
+
+    /// Citations received by this case (where this case is cited)
+    static let citationsReceived = hasMany(DBCaseCitation.self, key: "citationsReceived", using: ForeignKey(["cited_case_id"]))
+
     /// Custom decoder for SQLite INTEGER -> Bool conversion
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

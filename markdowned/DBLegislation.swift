@@ -68,6 +68,23 @@ struct DBLegislation: Identifiable, Codable, FetchableRecord, PersistableRecord 
 
     static var databaseTableName: String { "legislation" }
 
+    // MARK: - Associations
+
+    /// Articles within this legislation
+    static let articles = hasMany(DBArticle.self, using: ForeignKey(["legislation_id"]))
+
+    /// Multilingual titles
+    static let titles = hasMany(DBLegislationTitle.self, using: ForeignKey(["legislation_id"]))
+
+    /// Eurovoc concept links (via join table)
+    static let eurovocLinks = hasMany(DBLegislationEurovoc.self, using: ForeignKey(["legislation_id"]))
+
+    /// Legal relations where this is the source
+    static let outgoingRelations = hasMany(DBLegalRelation.self, key: "outgoing", using: ForeignKey(["source_id"]))
+
+    /// Legal relations where this is the target
+    static let incomingRelations = hasMany(DBLegalRelation.self, key: "incoming", using: ForeignKey(["target_id"]))
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey: .id)

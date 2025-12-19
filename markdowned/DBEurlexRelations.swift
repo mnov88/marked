@@ -31,7 +31,26 @@ struct DBArticle: Identifiable, Codable, FetchableRecord, PersistableRecord {
         case rawReference = "raw_reference"
     }
 
+    /// Column accessors for type-safe queries
+    enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let legislationId = Column(CodingKeys.legislationId)
+        static let articleNum = Column(CodingKeys.articleNum)
+        static let paragraphNum = Column(CodingKeys.paragraphNum)
+        static let point = Column(CodingKeys.point)
+        static let displayText = Column(CodingKeys.displayText)
+        static let rawReference = Column(CodingKeys.rawReference)
+    }
+
     static var databaseTableName: String { "article" }
+
+    // MARK: - Associations
+
+    /// The legislation this article belongs to
+    static let legislation = belongsTo(DBLegislation.self, using: ForeignKey(["legislation_id"]))
+
+    /// Cases that interpret this article
+    static let interpretations = hasMany(DBCaseArticleInterpretation.self, using: ForeignKey(["article_id"]))
 }
 
 // MARK: - Case Article Interpretation
@@ -50,7 +69,23 @@ struct DBCaseArticleInterpretation: Identifiable, Codable, FetchableRecord, Pers
         case interpretationType = "interpretation_type"
     }
 
+    /// Column accessors for type-safe queries
+    enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let caseId = Column(CodingKeys.caseId)
+        static let articleId = Column(CodingKeys.articleId)
+        static let interpretationType = Column(CodingKeys.interpretationType)
+    }
+
     static var databaseTableName: String { "case_article_interpretation" }
+
+    // MARK: - Associations
+
+    /// The case that interprets
+    static let caseLaw = belongsTo(DBCaseLaw.self, using: ForeignKey(["case_id"]))
+
+    /// The article being interpreted
+    static let article = belongsTo(DBArticle.self, using: ForeignKey(["article_id"]))
 }
 
 // MARK: - Legal Relation
@@ -71,7 +106,24 @@ struct DBLegalRelation: Identifiable, Codable, FetchableRecord, PersistableRecor
         case relationType = "relation_type"
     }
 
+    /// Column accessors for type-safe queries
+    enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let sourceId = Column(CodingKeys.sourceId)
+        static let targetCelex = Column(CodingKeys.targetCelex)
+        static let targetId = Column(CodingKeys.targetId)
+        static let relationType = Column(CodingKeys.relationType)
+    }
+
     static var databaseTableName: String { "legal_relation" }
+
+    // MARK: - Associations
+
+    /// The source legislation
+    static let source = belongsTo(DBLegislation.self, key: "source", using: ForeignKey(["source_id"]))
+
+    /// The target legislation (if imported)
+    static let target = belongsTo(DBLegislation.self, key: "target", using: ForeignKey(["target_id"]))
 }
 
 enum LegalRelationType: String, CaseIterable {
@@ -124,7 +176,20 @@ struct DBEurovocConcept: Identifiable, Codable, FetchableRecord, PersistableReco
         case domainLabel = "domain_label"
     }
 
+    /// Column accessors for type-safe queries
+    enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let label = Column(CodingKeys.label)
+        static let domainId = Column(CodingKeys.domainId)
+        static let domainLabel = Column(CodingKeys.domainLabel)
+    }
+
     static var databaseTableName: String { "eurovoc_concept" }
+
+    // MARK: - Associations
+
+    /// Legislation tagged with this concept (via join table)
+    static let legislationLinks = hasMany(DBLegislationEurovoc.self, using: ForeignKey(["eurovoc_id"]))
 }
 
 /// Junction table for legislation-Eurovoc many-to-many
@@ -137,7 +202,21 @@ struct DBLegislationEurovoc: Codable, FetchableRecord, PersistableRecord {
         case eurovocId = "eurovoc_id"
     }
 
+    /// Column accessors for type-safe queries
+    enum Columns {
+        static let legislationId = Column(CodingKeys.legislationId)
+        static let eurovocId = Column(CodingKeys.eurovocId)
+    }
+
     static var databaseTableName: String { "legislation_eurovoc" }
+
+    // MARK: - Associations
+
+    /// The legislation
+    static let legislation = belongsTo(DBLegislation.self, using: ForeignKey(["legislation_id"]))
+
+    /// The Eurovoc concept
+    static let eurovoc = belongsTo(DBEurovocConcept.self, using: ForeignKey(["eurovoc_id"]))
 }
 
 // MARK: - Legislation Title (Multilingual)
@@ -156,7 +235,20 @@ struct DBLegislationTitle: Identifiable, Codable, FetchableRecord, PersistableRe
         case title
     }
 
+    /// Column accessors for type-safe queries
+    enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let legislationId = Column(CodingKeys.legislationId)
+        static let language = Column(CodingKeys.language)
+        static let title = Column(CodingKeys.title)
+    }
+
     static var databaseTableName: String { "legislation_title" }
+
+    // MARK: - Associations
+
+    /// The legislation this title belongs to
+    static let legislation = belongsTo(DBLegislation.self, using: ForeignKey(["legislation_id"]))
 }
 
 // MARK: - Case Citation
@@ -177,5 +269,22 @@ struct DBCaseCitation: Identifiable, Codable, FetchableRecord, PersistableRecord
         case citedEcli = "cited_ecli"
     }
 
+    /// Column accessors for type-safe queries
+    enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let citingCaseId = Column(CodingKeys.citingCaseId)
+        static let citedCelex = Column(CodingKeys.citedCelex)
+        static let citedCaseId = Column(CodingKeys.citedCaseId)
+        static let citedEcli = Column(CodingKeys.citedEcli)
+    }
+
     static var databaseTableName: String { "case_citation" }
+
+    // MARK: - Associations
+
+    /// The case that cites
+    static let citingCase = belongsTo(DBCaseLaw.self, key: "citingCase", using: ForeignKey(["citing_case_id"]))
+
+    /// The cited case (if imported)
+    static let citedCase = belongsTo(DBCaseLaw.self, key: "citedCase", using: ForeignKey(["cited_case_id"]))
 }

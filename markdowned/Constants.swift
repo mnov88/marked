@@ -95,6 +95,9 @@ enum StorageKeys {
 
     /// Database file name
     static let databaseFileName = "marked.sqlite"
+
+    /// EUR-Lex case law database (bundled, read-only)
+    static let eurlexDatabaseFileName = "eurlex.db"
 }
 
 // MARK: - Snippet Constants

@@ -26,10 +26,20 @@ struct DHTextView: UIViewRepresentable {
     var availableWidth: CGFloat?
     var usePageLayout: Bool = false
 
+    // Use TextKit 2 for highlight rendering when available (iOS 16+)
+    var useTextKit2Highlights: Bool = true
+
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     func makeUIView(context: Context) -> UITextView {
-        let tv = UITextView()
+        // Create UITextView with TextKit 2 if available and enabled
+        let tv: UITextView
+        if #available(iOS 16.0, *), useTextKit2Highlights {
+            tv = UITextView(usingTextLayoutManager: true)
+        } else {
+            tv = UITextView()
+        }
+
         tv.delegate = context.coordinator
         tv.isEditable = false
         tv.isSelectable = true
@@ -49,6 +59,11 @@ struct DHTextView: UIViewRepresentable {
             let insets = calculateInsets()
             // Keep vertical scroll indicator insets minimal, push horizontal scrollbar to edge
             tv.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -insets.right + style.horizontalMargin.baseInset)
+        }
+
+        // Initialize TextKit 2 highlight layer manager
+        if tv.isUsingTextKit2 {
+            context.coordinator.highlightLayerManager = DHHighlightLayerManager(textView: tv)
         }
 
         return tv
@@ -98,11 +113,23 @@ struct DHTextView: UIViewRepresentable {
                 uiView.verticalScrollIndicatorInsets = newScrollInsets
             }
         }
-        
-        // Avoid resetting if identical
+
+        // Avoid resetting attributed text if identical
         if uiView.attributedText?.isEqual(to: attributedText) != true {
             uiView.attributedText = attributedText
         }
+
+        // Apply highlights using TextKit 2 layer manager (rendering attributes)
+        // or fall back to coordinator's highlight tracking for TextKit 1
+        if let highlightManager = context.coordinator.highlightLayerManager,
+           highlightManager.isTextKit2Enabled {
+            // TextKit 2: Apply highlights as rendering decorations (no text storage mutation)
+            highlightManager.setHighlights(highlightsSnapshot)
+        }
+
+        // Always keep coordinator's highlight reference in sync for context menu handling
+        context.coordinator.currentHighlights = highlightsSnapshot
+
         // Always clear any lingering selection to avoid extended line-fragment highlights
         if uiView.selectedTextRange != nil {
             DispatchQueue.main.async {
@@ -117,14 +144,14 @@ struct DHTextView: UIViewRepresentable {
         if let target = scrollTarget, target.clamped(toStringLength: uiView.attributedText?.length ?? 0) != nil {
             DispatchQueue.main.async {
                 uiView.layoutIfNeeded()
-                
+
                 // Calculate rect for the target range
                 if let textRange = uiView.textRange(from: uiView.beginningOfDocument, to: uiView.beginningOfDocument),
                    let start = uiView.position(from: textRange.start, offset: target.location),
                    let end = uiView.position(from: start, offset: target.length),
                    let range = uiView.textRange(from: start, to: end) {
                     let rect = uiView.firstRect(for: range)
-                    
+
                     // Animate scroll
                     UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                         uiView.scrollRectToVisible(rect, animated: false)
@@ -136,14 +163,15 @@ struct DHTextView: UIViewRepresentable {
             }
             DispatchQueue.main.async { self.scrollTarget = nil }
         }
-
-        context.coordinator.currentHighlights = highlightsSnapshot
     }
 
     final class Coordinator: NSObject, UITextViewDelegate {
         var parent: DHTextView
         var currentHighlights: [DHTextHighlight] = []
         private let highlightTagPrefix = DHHighlightConstants.tagPrefix
+
+        /// TextKit 2 highlight layer manager (iOS 16+)
+        var highlightLayerManager: DHHighlightLayerManager?
 
         init(_ parent: DHTextView) { self.parent = parent }
 

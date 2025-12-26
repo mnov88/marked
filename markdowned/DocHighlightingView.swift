@@ -63,6 +63,14 @@ struct DocHighlightingView: View {
         self._scrollTarget = State(initialValue: initialScrollTarget)
     }
 
+    /// Whether to use TextKit 2 for highlight rendering (iOS 16+)
+    private var useTextKit2Highlights: Bool {
+        if #available(iOS 16.0, *) {
+            return true
+        }
+        return false
+    }
+
     private var composed: NSAttributedString {
         DHComposer.compose(
             base: baseContent,
@@ -70,7 +78,8 @@ struct DocHighlightingView: View {
             links: cachedLinkSpans,
             indents: cachedIndentSpans,
             headings: cachedHeadingSpans,
-            highlights: vm.highlights
+            highlights: vm.highlights,
+            skipHighlights: useTextKit2Highlights // Skip when TextKit 2 handles rendering
         )
     }
 
@@ -94,7 +103,8 @@ struct DocHighlightingView: View {
                     },
                     scrollTarget: $scrollTarget,
                     availableWidth: geometry.size.width,
-                    usePageLayout: config.usePageLayout
+                    usePageLayout: config.usePageLayout,
+                    useTextKit2Highlights: useTextKit2Highlights
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }

@@ -14,13 +14,18 @@ import Combine
 
 struct DHComposer {
     // Compose once per render. Callers should cache link/indent spans.
+    /// - Parameters:
+    ///   - skipHighlights: When true, highlights are not applied to the attributed string.
+    ///                    Use this when TextKit 2 is handling highlight rendering via
+    ///                    NSTextLayoutManager rendering attributes.
     static func compose(
         base: NSAttributedString,
         config: DHConfig,
         links: [DHLinkSpan],
         indents: [DHIndentSpan],
         headings: [DHHeadingSpan] = [],
-        highlights: [DHTextHighlight]
+        highlights: [DHTextHighlight],
+        skipHighlights: Bool = false
     ) -> NSAttributedString {
         let out = NSMutableAttributedString(attributedString: base)
         let full = NSRange(location: 0, length: out.length)
@@ -105,12 +110,15 @@ struct DHComposer {
 
         // Highlights: background only to avoid clobbering link underline
         // Using higher opacity since we now use softer, pastel highlight colors
-        for h in highlights {
-            guard let trimmed = trimWhitespaceAndNewlines(h.range, in: out) else { continue }
-            out.addAttributes([
-                .backgroundColor: h.color.withAlphaComponent(0.85),
-                .textItemTag: "\(DHHighlightConstants.tagPrefix)\(h.id.uuidString)"
-            ], range: trimmed)
+        // Skip when TextKit 2 is handling highlight rendering via NSTextLayoutManager
+        if !skipHighlights {
+            for h in highlights {
+                guard let trimmed = trimWhitespaceAndNewlines(h.range, in: out) else { continue }
+                out.addAttributes([
+                    .backgroundColor: h.color.withAlphaComponent(0.85),
+                    .textItemTag: "\(DHHighlightConstants.tagPrefix)\(h.id.uuidString)"
+                ], range: trimmed)
+            }
         }
 
         return out

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07A605A22ED3100000F9B054 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605A12ED3100000F9B054 /* NavigationCoordinator.swift */; };
 		0755AA2E2ECF1DD300293259 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 0755AA2D2ECF1DD300293259 /* GRDB */; };
+		075B71B82F0173CD0050AC1D /* eurlex.db in Resources */ = {isa = PBXBuildFile; fileRef = 075B71B72F0173CD0050AC1D /* eurlex.db */; };
 		076DEF122EC9FE450026D77C /* Demark in Frameworks */ = {isa = PBXBuildFile; productRef = 076DEF132EC9FE450026D77C /* Demark */; };
 		076DEF612ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
 		076DEF622ECB52BF0026D77C /* allcases.csv in Resources */ = {isa = PBXBuildFile; fileRef = 076DEF602ECB52BF0026D77C /* allcases.csv */; };
@@ -22,8 +22,6 @@
 		076DEF9F2ECE6FF80026D77C /* DocHighlightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF902ECE6FF80026D77C /* DocHighlightingView.swift */; };
 		076DEFA02ECE6FF80026D77C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF962ECE6FF80026D77C /* Theme.swift */; };
 		076DEFA12ECE6FF80026D77C /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF8C2ECE6FF80026D77C /* ContentLoader.swift */; };
-		076DEFA22ECE6FF80026D77C /* CaseDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF8B2ECE6FF80026D77C /* CaseDataParser.swift */; };
-		076DEFA32ECE6FF80026D77C /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF8A2ECE6FF80026D77C /* Case.swift */; };
 		076DEFA42ECE6FF80026D77C /* TextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF952ECE6FF80026D77C /* TextHighlight.swift */; };
 		076DEFA52ECE6FF80026D77C /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF912ECE6FF80026D77C /* Document.swift */; };
 		076DEFA62ECE6FF80026D77C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DEF982ECE6FF80026D77C /* Utilities.swift */; };
@@ -103,8 +101,6 @@
 		07A6052E2ED2FE4800F9B054 /* AppearancePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604E82ED2FE4800F9B054 /* AppearancePanel.swift */; };
 		07A6052F2ED2FE4800F9B054 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F52ED2FE4800F9B054 /* ContentView.swift */; };
 		07A605302ED2FE4800F9B054 /* DHViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FF2ED2FE4800F9B054 /* DHViewModel.swift */; };
-		07A605312ED2FE4800F9B054 /* CaseDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EA2ED2FE4800F9B054 /* CaseDataParser.swift */; };
-		07A605322ED2FE4800F9B054 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604E92ED2FE4800F9B054 /* Case.swift */; };
 		07A605332ED2FE4800F9B054 /* CompositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EE2ED2FE4800F9B054 /* CompositionDetailView.swift */; };
 		07A605342ED2FE4800F9B054 /* CompositionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F22ED2FE4800F9B054 /* CompositionsManager.swift */; };
 		07A605352ED2FE4800F9B054 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F42ED2FE4800F9B054 /* ContentLoader.swift */; };
@@ -117,6 +113,7 @@
 		07A6053C2ED2FE4800F9B054 /* CompositionExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604EF2ED2FE4800F9B054 /* CompositionExportView.swift */; };
 		07A6053D2ED2FE4800F9B054 /* CompositionPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604F02ED2FE4800F9B054 /* CompositionPickerSheet.swift */; };
 		07A6053E2ED2FE4800F9B054 /* DHComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A604FC2ED2FE4800F9B054 /* DHComposer.swift */; };
+		07A605A22ED3100000F9B054 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605A12ED3100000F9B054 /* NavigationCoordinator.swift */; };
 		07A605C92ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A605C82ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift */; };
 		07EA7CBB2EBB71F5002AC733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07EA7CB72EBB71F5002AC733 /* Assets.xcassets */; };
 		07EA7CBD2EBB71F5002AC733 /* markdownedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA7CB92EBB71F5002AC733 /* markdownedApp.swift */; };
@@ -140,11 +137,30 @@
 		07EA80B42EC1E800002AC733 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B32EC1E800002AC733 /* Document.swift */; };
 		07EA80B62EC1E810002AC733 /* ContentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B52EC1E810002AC733 /* ContentLoader.swift */; };
 		07EA80B82EC1E820002AC733 /* URLEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B72EC1E820002AC733 /* URLEntryView.swift */; };
-		07EA80BA2EC1EA00002AC733 /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80B92EC1EA00002AC733 /* Case.swift */; };
-		07EA80BC2EC1EA10002AC733 /* CaseDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BB2EC1EA10002AC733 /* CaseDataParser.swift */; };
 		07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BD2EC1EB00002AC733 /* Theme.swift */; };
 		07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */; };
 		07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EA80C12EC1EB20002AC733 /* SettingsView.swift */; };
+		07EED3642EF5C4F20014E5E5 /* DBCaseLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35E2EF5C4F20014E5E5 /* DBCaseLaw.swift */; };
+		07EED3652EF5C4F20014E5E5 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3622EF5C4F20014E5E5 /* MainNavigationView.swift */; };
+		07EED3662EF5C4F20014E5E5 /* TextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3632EF5C4F20014E5E5 /* TextHighlight.swift */; };
+		07EED3672EF5C4F20014E5E5 /* DBLegislation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3602EF5C4F20014E5E5 /* DBLegislation.swift */; };
+		07EED3682EF5C4F20014E5E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35D2EF5C4F20014E5E5 /* Constants.swift */; };
+		07EED3692EF5C4F20014E5E5 /* DBEurlexRelations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35F2EF5C4F20014E5E5 /* DBEurlexRelations.swift */; };
+		07EED36A2EF5C4F20014E5E5 /* EurlexDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3612EF5C4F20014E5E5 /* EurlexDatabaseManager.swift */; };
+		07EED36B2EF5C4F20014E5E5 /* DBCaseLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35E2EF5C4F20014E5E5 /* DBCaseLaw.swift */; };
+		07EED36C2EF5C4F20014E5E5 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3622EF5C4F20014E5E5 /* MainNavigationView.swift */; };
+		07EED36D2EF5C4F20014E5E5 /* TextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3632EF5C4F20014E5E5 /* TextHighlight.swift */; };
+		07EED36E2EF5C4F20014E5E5 /* DBLegislation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3602EF5C4F20014E5E5 /* DBLegislation.swift */; };
+		07EED36F2EF5C4F20014E5E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35D2EF5C4F20014E5E5 /* Constants.swift */; };
+		07EED3702EF5C4F20014E5E5 /* DBEurlexRelations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35F2EF5C4F20014E5E5 /* DBEurlexRelations.swift */; };
+		07EED3712EF5C4F20014E5E5 /* EurlexDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3612EF5C4F20014E5E5 /* EurlexDatabaseManager.swift */; };
+		07EED3722EF5C4F20014E5E5 /* DBCaseLaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35E2EF5C4F20014E5E5 /* DBCaseLaw.swift */; };
+		07EED3732EF5C4F20014E5E5 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3622EF5C4F20014E5E5 /* MainNavigationView.swift */; };
+		07EED3742EF5C4F20014E5E5 /* TextHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3632EF5C4F20014E5E5 /* TextHighlight.swift */; };
+		07EED3752EF5C4F20014E5E5 /* DBLegislation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3602EF5C4F20014E5E5 /* DBLegislation.swift */; };
+		07EED3762EF5C4F20014E5E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35D2EF5C4F20014E5E5 /* Constants.swift */; };
+		07EED3772EF5C4F20014E5E5 /* DBEurlexRelations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED35F2EF5C4F20014E5E5 /* DBEurlexRelations.swift */; };
+		07EED3782EF5C4F20014E5E5 /* EurlexDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EED3612EF5C4F20014E5E5 /* EurlexDatabaseManager.swift */; };
 		1C02CA1C374C403EAFC67B43 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */; };
 		E84F7D4BD726416E81B95B4B /* DBHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0441C4DA53F4832B734D388 /* DBHighlight.swift */; };
 		F64D558975AD42A9B7C22215 /* DBDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819F756D6E1440D79D9E5467 /* DBDocument.swift */; };
@@ -168,10 +184,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		075B71B72F0173CD0050AC1D /* eurlex.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = eurlex.db; path = "metadata-extraction-external/output/eurlex.db"; sourceTree = SOURCE_ROOT; };
 		076DEF602ECB52BF0026D77C /* allcases.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = allcases.csv; sourceTree = "<group>"; };
 		076DEF892ECE6FF80026D77C /* AllHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHighlightsView.swift; sourceTree = "<group>"; };
-		076DEF8A2ECE6FF80026D77C /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
-		076DEF8B2ECE6FF80026D77C /* CaseDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataParser.swift; sourceTree = "<group>"; };
 		076DEF8C2ECE6FF80026D77C /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
 		076DEF8D2ECE6FF80026D77C /* DHTextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextHighlight.swift; sourceTree = "<group>"; };
 		076DEF8E2ECE6FF80026D77C /* DHTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTextView.swift; sourceTree = "<group>"; };
@@ -233,8 +248,6 @@
 		07A604E62ED2FE4800F9B054 /* AllHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHighlightsView.swift; sourceTree = "<group>"; };
 		07A604E72ED2FE4800F9B054 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommands.swift; sourceTree = "<group>"; };
 		07A604E82ED2FE4800F9B054 /* AppearancePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePanel.swift; sourceTree = "<group>"; };
-		07A604E92ED2FE4800F9B054 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
-		07A604EA2ED2FE4800F9B054 /* CaseDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataParser.swift; sourceTree = "<group>"; };
 		07A604EB2ED2FE4800F9B054 /* CategoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesManager.swift; sourceTree = "<group>"; };
 		07A604EC2ED2FE4800F9B054 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		07A604ED2ED2FE4800F9B054 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
@@ -273,6 +286,7 @@
 		07A6050F2ED2FE4800F9B054 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		07A605102ED2FE4800F9B054 /* URLEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEntryView.swift; sourceTree = "<group>"; };
 		07A605112ED2FE4800F9B054 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		07A605A12ED3100000F9B054 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		07A605C82ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolsBrowserApp.swift; sourceTree = "<group>"; };
 		07EA7C8D2EBB71EC002AC733 /* markdowned.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = markdowned.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07EA7C9A2EBB71EE002AC733 /* markdownedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = markdownedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,15 +306,19 @@
 		07EA80B32EC1E800002AC733 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		07EA80B52EC1E810002AC733 /* ContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoader.swift; sourceTree = "<group>"; };
 		07EA80B72EC1E820002AC733 /* URLEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEntryView.swift; sourceTree = "<group>"; };
-		07EA80B92EC1EA00002AC733 /* Case.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
-		07EA80BB2EC1EA10002AC733 /* CaseDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseDataParser.swift; sourceTree = "<group>"; };
 		07EA80BD2EC1EB00002AC733 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		07EA80C12EC1EB20002AC733 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		07EED35D2EF5C4F20014E5E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07EED35E2EF5C4F20014E5E5 /* DBCaseLaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBCaseLaw.swift; sourceTree = "<group>"; };
+		07EED35F2EF5C4F20014E5E5 /* DBEurlexRelations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBEurlexRelations.swift; sourceTree = "<group>"; };
+		07EED3602EF5C4F20014E5E5 /* DBLegislation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLegislation.swift; sourceTree = "<group>"; };
+		07EED3612EF5C4F20014E5E5 /* EurlexDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurlexDatabaseManager.swift; sourceTree = "<group>"; };
+		07EED3622EF5C4F20014E5E5 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
+		07EED3632EF5C4F20014E5E5 /* TextHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHighlight.swift; sourceTree = "<group>"; };
 		819F756D6E1440D79D9E5467 /* DBDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDocument.swift; sourceTree = "<group>"; };
 		AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E0441C4DA53F4832B734D388 /* DBHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHighlight.swift; sourceTree = "<group>"; };
-		07A605A12ED3100000F9B054 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -385,8 +403,13 @@
 				07A604E62ED2FE4800F9B054 /* AllHighlightsView.swift */,
 				07A604E72ED2FE4800F9B054 /* AppCommands.swift */,
 				07A604E82ED2FE4800F9B054 /* AppearancePanel.swift */,
-				07A604E92ED2FE4800F9B054 /* Case.swift */,
-				07A604EA2ED2FE4800F9B054 /* CaseDataParser.swift */,
+				07EED35D2EF5C4F20014E5E5 /* Constants.swift */,
+				07EED35E2EF5C4F20014E5E5 /* DBCaseLaw.swift */,
+				07EED35F2EF5C4F20014E5E5 /* DBEurlexRelations.swift */,
+				07EED3602EF5C4F20014E5E5 /* DBLegislation.swift */,
+				07EED3612EF5C4F20014E5E5 /* EurlexDatabaseManager.swift */,
+				07EED3622EF5C4F20014E5E5 /* MainNavigationView.swift */,
+				07EED3632EF5C4F20014E5E5 /* TextHighlight.swift */,
 				07A604EB2ED2FE4800F9B054 /* CategoriesManager.swift */,
 				07A604EC2ED2FE4800F9B054 /* Category.swift */,
 				07A604ED2ED2FE4800F9B054 /* Composition.swift */,
@@ -429,8 +452,6 @@
 				07A605112ED2FE4800F9B054 /* Utilities.swift */,
 				07EA80A72EC1E48B002AC733 /* Utilities.swift */,
 				076DEF892ECE6FF80026D77C /* AllHighlightsView.swift */,
-				076DEF8A2ECE6FF80026D77C /* Case.swift */,
-				076DEF8B2ECE6FF80026D77C /* CaseDataParser.swift */,
 				076DEF8C2ECE6FF80026D77C /* ContentLoader.swift */,
 				07A602D82ED0F6AB00F9B054 /* ContentView.swift */,
 				07A604AB2ED2FE2C00F9B054 /* AllHighlightsView.swift */,
@@ -493,13 +514,12 @@
 				07EA80B32EC1E800002AC733 /* Document.swift */,
 				07EA80B52EC1E810002AC733 /* ContentLoader.swift */,
 				07EA80B72EC1E820002AC733 /* URLEntryView.swift */,
-				07EA80B92EC1EA00002AC733 /* Case.swift */,
-				07EA80BB2EC1EA10002AC733 /* CaseDataParser.swift */,
 				07EA80BD2EC1EB00002AC733 /* Theme.swift */,
 				07EA80BF2EC1EB10002AC733 /* ThemeManager.swift */,
 				07EA80C12EC1EB20002AC733 /* SettingsView.swift */,
 				AF1C8F61536744D1A0B6D6D4 /* DatabaseManager.swift */,
 				819F756D6E1440D79D9E5467 /* DBDocument.swift */,
+				075B71B72F0173CD0050AC1D /* eurlex.db */,
 				E0441C4DA53F4832B734D388 /* DBHighlight.swift */,
 				076DEF602ECB52BF0026D77C /* allcases.csv */,
 			);
@@ -645,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07EA80A22EC1E2C9002AC733 /* Readme.md in Resources */,
+				075B71B82F0173CD0050AC1D /* eurlex.db in Resources */,
 				07EA7CBB2EBB71F5002AC733 /* Assets.xcassets in Resources */,
 				07A605122ED2FE4800F9B054 /* Readme.md in Resources */,
 				076DEF622ECB52BF0026D77C /* allcases.csv in Resources */,
@@ -690,7 +711,6 @@
 				07EA80B42EC1E800002AC733 /* Document.swift in Sources */,
 				07EA80B62EC1E810002AC733 /* ContentLoader.swift in Sources */,
 				07EA80B82EC1E820002AC733 /* URLEntryView.swift in Sources */,
-				07EA80BA2EC1EA00002AC733 /* Case.swift in Sources */,
 				076DEF992ECE6FF80026D77C /* SettingsView.swift in Sources */,
 				076DEF9A2ECE6FF80026D77C /* HighlightsManager.swift in Sources */,
 				076DEF9B2ECE6FF80026D77C /* DHTextView.swift in Sources */,
@@ -724,8 +744,13 @@
 				07A6052E2ED2FE4800F9B054 /* AppearancePanel.swift in Sources */,
 				07A6052F2ED2FE4800F9B054 /* ContentView.swift in Sources */,
 				07A605302ED2FE4800F9B054 /* DHViewModel.swift in Sources */,
-				07A605312ED2FE4800F9B054 /* CaseDataParser.swift in Sources */,
-				07A605322ED2FE4800F9B054 /* Case.swift in Sources */,
+				07EED36B2EF5C4F20014E5E5 /* DBCaseLaw.swift in Sources */,
+				07EED36C2EF5C4F20014E5E5 /* MainNavigationView.swift in Sources */,
+				07EED36D2EF5C4F20014E5E5 /* TextHighlight.swift in Sources */,
+				07EED36E2EF5C4F20014E5E5 /* DBLegislation.swift in Sources */,
+				07EED36F2EF5C4F20014E5E5 /* Constants.swift in Sources */,
+				07EED3702EF5C4F20014E5E5 /* DBEurlexRelations.swift in Sources */,
+				07EED3712EF5C4F20014E5E5 /* EurlexDatabaseManager.swift in Sources */,
 				07A605332ED2FE4800F9B054 /* CompositionDetailView.swift in Sources */,
 				07A605342ED2FE4800F9B054 /* CompositionsManager.swift in Sources */,
 				07A605352ED2FE4800F9B054 /* ContentLoader.swift in Sources */,
@@ -743,7 +768,6 @@
 				076DEF9F2ECE6FF80026D77C /* DocHighlightingView.swift in Sources */,
 				076DEFA02ECE6FF80026D77C /* Theme.swift in Sources */,
 				076DEFA12ECE6FF80026D77C /* ContentLoader.swift in Sources */,
-				076DEFA22ECE6FF80026D77C /* CaseDataParser.swift in Sources */,
 				07A602CA2ED0F60600F9B054 /* DHViewModel.swift in Sources */,
 				07A602CB2ED0F60600F9B054 /* Document.swift in Sources */,
 				07A602CC2ED0F60600F9B054 /* Theme.swift in Sources */,
@@ -787,7 +811,6 @@
 				07A602D52ED0F60600F9B054 /* DBDocument.swift in Sources */,
 				07A602D62ED0F60600F9B054 /* SettingsView.swift in Sources */,
 				07A602D72ED0F60600F9B054 /* DHTextView.swift in Sources */,
-				076DEFA32ECE6FF80026D77C /* Case.swift in Sources */,
 				076DEFA42ECE6FF80026D77C /* TextHighlight.swift in Sources */,
 				076DEFA52ECE6FF80026D77C /* Document.swift in Sources */,
 				076DEFA62ECE6FF80026D77C /* Utilities.swift in Sources */,
@@ -795,7 +818,6 @@
 				076DEFA72ECE6FF80026D77C /* DocumentsManager.swift in Sources */,
 				07A605C92ED3BB2700F9B054 /* SFSymbolsBrowserApp.swift in Sources */,
 				076DEFA82ECE6FF80026D77C /* URLEntryView.swift in Sources */,
-				07EA80BC2EC1EA10002AC733 /* CaseDataParser.swift in Sources */,
 				07EA80BE2EC1EB00002AC733 /* Theme.swift in Sources */,
 				07EA80C02EC1EB10002AC733 /* ThemeManager.swift in Sources */,
 				07EA80C22EC1EB20002AC733 /* SettingsView.swift in Sources */,
@@ -809,6 +831,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EED3722EF5C4F20014E5E5 /* DBCaseLaw.swift in Sources */,
+				07EED3732EF5C4F20014E5E5 /* MainNavigationView.swift in Sources */,
+				07EED3742EF5C4F20014E5E5 /* TextHighlight.swift in Sources */,
+				07EED3752EF5C4F20014E5E5 /* DBLegislation.swift in Sources */,
+				07EED3762EF5C4F20014E5E5 /* Constants.swift in Sources */,
+				07EED3772EF5C4F20014E5E5 /* DBEurlexRelations.swift in Sources */,
+				07EED3782EF5C4F20014E5E5 /* EurlexDatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,6 +845,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EED3642EF5C4F20014E5E5 /* DBCaseLaw.swift in Sources */,
+				07EED3652EF5C4F20014E5E5 /* MainNavigationView.swift in Sources */,
+				07EED3662EF5C4F20014E5E5 /* TextHighlight.swift in Sources */,
+				07EED3672EF5C4F20014E5E5 /* DBLegislation.swift in Sources */,
+				07EED3682EF5C4F20014E5E5 /* Constants.swift in Sources */,
+				07EED3692EF5C4F20014E5E5 /* DBEurlexRelations.swift in Sources */,
+				07EED36A2EF5C4F20014E5E5 /* EurlexDatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

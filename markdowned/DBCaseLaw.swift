@@ -118,27 +118,6 @@ struct DBCaseLaw: Identifiable, Codable, FetchableRecord, PersistableRecord {
     }
 }
 
-// MARK: - Conversion to Case model
-
-extension DBCaseLaw {
-    /// Convert to the app's Case model for UI compatibility
-    func toCase() -> Case {
-        Case(
-            caseNumber: caseNumber ?? "",
-            caseTitle: title ?? "",
-            requestingCourt: originCountry ?? "",
-            topics: "",
-            judgmentECLI: ecli ?? "",
-            judgmentCELEX: celex,
-            hasAGOpinion: hasAgOpinion,
-            agOpinionTitle: "",
-            agOpinionECLI: agOpinionEcli ?? "",
-            hasSummary: false,
-            summaryCELEX: ""
-        )
-    }
-}
-
 // MARK: - FTS Search Result
 
 /// Result from FTS5 full-text search with relevance ranking
@@ -148,9 +127,4 @@ struct CaseLawSearchResult: Identifiable {
     let snippet: String?
 
     var id: String { caseLaw.id }
-
-    /// Convert to Case model
-    func toCase() -> Case {
-        caseLaw.toCase()
-    }
 }

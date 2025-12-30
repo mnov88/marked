@@ -19,6 +19,9 @@ final class NavigationCoordinator {
     var selectedDocumentId: UUID? = nil
     var sidebarVisibility: NavigationSplitViewVisibility = .automatic
 
+    /// Navigation path for document detail navigation (used by NavigationStack in detail column)
+    var documentNavigationPath = NavigationPath()
+
     // MARK: - Persistence Keys
 
     private let sectionKey = "nav.selectedSection"
@@ -38,7 +41,23 @@ final class NavigationCoordinator {
     func navigate(to documentId: UUID) {
         selectedSection = .documents
         selectedDocumentId = documentId
+        // Push document onto navigation path for NavigationStack navigation
+        documentNavigationPath.append(documentId)
         saveState()
+    }
+
+    /// Navigate to document within current section (used by document list)
+    func openDocument(_ documentId: UUID) {
+        selectedDocumentId = documentId
+        documentNavigationPath.append(documentId)
+    }
+
+    /// Clear document navigation (pop back to list)
+    func closeDocument() {
+        if !documentNavigationPath.isEmpty {
+            documentNavigationPath.removeLast()
+        }
+        selectedDocumentId = nil
     }
 
     /// Handle external deep links (markdowned:// scheme)

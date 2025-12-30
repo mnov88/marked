@@ -33,18 +33,55 @@ struct MainNavigationView: View {
     }
 
     var body: some View {
+        @Bindable var coord = coordinator
+
         NavigationSplitView(columnVisibility: columnVisibility) {
             // Sidebar column
             SidebarView(selection: selectedItem)
                 // iOS 26: Searchable on NavigationSplitView creates unified search
                 .searchable(text: .constant(""), prompt: "Search documents")
         } detail: {
-            // Detail column
-            detailView(for: selectedItem.wrappedValue)
+            // Detail column wrapped in NavigationStack for document navigation
+            NavigationStack(path: $coord.documentNavigationPath) {
+                detailView(for: selectedItem.wrappedValue)
+                    .navigationDestination(for: UUID.self) { documentId in
+                        documentDestination(for: documentId)
+                    }
+            }
         }
-        // iOS 26: Liquid glass sidebar is automatic with Xcode 26
-        // No additional modifiers needed for the new design
-        // Navigation via NotificationCenter is now handled by NavigationCoordinator
+    }
+
+    /// Create the document view for navigation destination
+    @ViewBuilder
+    private func documentDestination(for documentId: UUID) -> some View {
+        if let doc = DocumentsManager.shared.documents.first(where: { $0.id == documentId }) {
+            let config = themeManager.makeDocumentConfig()
+
+            switch doc.content {
+            case .plain(let s):
+                DocHighlightingView(documentId: doc.id, string: s, config: config) { url in
+                    if !coordinator.handleInternalLink(url) {
+                        Logger.debug("Unhandled link: \(url.absoluteString)")
+                    }
+                }
+                .navigationTitle(doc.title)
+                .navigationBarTitleDisplayMode(.inline)
+            case .attributed(let a):
+                DocHighlightingView(documentId: doc.id, attributedString: a, config: config) { url in
+                    if !coordinator.handleInternalLink(url) {
+                        Logger.debug("Unhandled link: \(url.absoluteString)")
+                    }
+                }
+                .navigationTitle(doc.title)
+                .navigationBarTitleDisplayMode(.inline)
+            }
+        } else {
+            ContentUnavailableView(
+                "Document Not Found",
+                systemImage: "doc.questionmark",
+                description: Text("The document may have been deleted")
+            )
+        }
     }
 
     @ViewBuilder
@@ -110,6 +147,26 @@ struct DocumentsListView: View {
         }
         let documentIds = Set(categoriesManager.documentIds(in: category.id))
         return documentsManager.documents.filter { documentIds.contains($0.id) }
+    }
+
+    /// Precomputed category lookup for visible documents (avoids per-row queries)
+    private var categoriesByDocumentId: [UUID: [Category]] {
+        var result: [UUID: [Category]] = [:]
+
+        // Collect all document IDs that need category lookup
+        let documentIds: [UUID]
+        if searchText.isEmpty {
+            documentIds = filteredDocuments.map(\.id)
+        } else {
+            documentIds = documentSearchResults.map(\.0.id)
+        }
+
+        // Batch lookup categories for all visible documents
+        for docId in documentIds {
+            result[docId] = categoriesManager.categories(for: docId)
+        }
+
+        return result
     }
 
     var body: some View {
@@ -353,8 +410,7 @@ struct DocumentsListView: View {
 
     /// Load case from search result
     private func loadCaseFromResult(_ result: CaseLawSearchResult) {
-        let caseItem = result.toCase()
-        guard let url = caseItem.celexURL else {
+        guard let url = result.caseLaw.cellarURL else {
             Logger.debug("No valid URL for case: \(result.caseLaw.celex)")
             return
         }
@@ -363,7 +419,7 @@ struct DocumentsListView: View {
 
         Task {
             do {
-                let document = try await contentLoader.loadContent(from: url.absoluteString, title: caseItem.displayTitle)
+                let document = try await contentLoader.loadContent(from: url.absoluteString, title: result.caseLaw.displayTitle)
                 try documentsManager.addDocument(document)
                 isLoadingCase = false
                 searchText = ""
@@ -376,7 +432,7 @@ struct DocumentsListView: View {
 
     /// Load legislation from search result
     private func loadLegislationFromResult(_ result: LegislationSearchResult) {
-        guard let url = result.legislation.eurlexURL else {
+        guard let url = result.legislation.cellarURL else {
             Logger.debug("No valid URL for legislation: \(result.legislation.celex)")
             return
         }
@@ -400,48 +456,58 @@ struct DocumentsListView: View {
 
     @ViewBuilder
     private func documentRow(for doc: Document, snippet: String? = nil) -> some View {
-        NavigationLink {
-            destination(for: doc)
+        Button {
+            // Use programmatic navigation via NavigationCoordinator
+            coordinator.openDocument(doc.id)
         } label: {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(doc.title)
-                    .font(.headline)
-                if let snippet = snippet, !snippet.isEmpty {
-                    Text(cleanSnippet(snippet))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(2)
-                } else if let url = doc.sourceURL {
-                    Text(url.absoluteString)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                }
-                // Show assigned categories
-                let docCategories = categoriesManager.categories(for: doc.id)
-                if !docCategories.isEmpty {
-                    HStack(spacing: 4) {
-                        ForEach(docCategories.prefix(3)) { category in
-                            HStack(spacing: 2) {
-                                Image(systemName: category.icon)
-                                    .font(.caption2)
-                                Text(category.name)
-                                    .font(.caption2)
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(doc.title)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                    if let snippet = snippet, !snippet.isEmpty {
+                        Text(cleanSnippet(snippet))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(2)
+                    } else if let url = doc.sourceURL {
+                        Text(url.absoluteString)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
+                    // Show assigned categories (using precomputed lookup)
+                    let docCategories = categoriesByDocumentId[doc.id] ?? []
+                    if !docCategories.isEmpty {
+                        HStack(spacing: 4) {
+                            ForEach(docCategories.prefix(3)) { category in
+                                HStack(spacing: 2) {
+                                    Image(systemName: category.icon)
+                                        .font(.caption2)
+                                    Text(category.name)
+                                        .font(.caption2)
+                                }
+                                .padding(.horizontal, 4)
+                                .padding(.vertical, 2)
+                                .background(Color(platformColor: category.color).opacity(0.2))
+                                .cornerRadius(4)
                             }
-                            .padding(.horizontal, 4)
-                            .padding(.vertical, 2)
-                            .background(Color(platformColor: category.color).opacity(0.2))
-                            .cornerRadius(4)
-                        }
-                        if docCategories.count > 3 {
-                            Text("+\(docCategories.count - 3)")
-                                .font(.caption2)
-                                .foregroundStyle(.secondary)
+                            if docCategories.count > 3 {
+                                Text("+\(docCategories.count - 3)")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                     }
                 }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
             }
+            .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
         .contextMenu {
             Button {
                 documentToRename = doc
@@ -503,32 +569,6 @@ struct DocumentsListView: View {
             Logger.error("Failed to rename document", error: error)
         }
     }
-
-    @ViewBuilder
-    private func destination(for doc: Document) -> some View {
-        let config = themeManager.makeDocumentConfig()
-
-        switch doc.content {
-        case .plain(let s):
-            DocHighlightingView(documentId: doc.id, string: s, config: config) { url in
-                if !coordinator.handleInternalLink(url) {
-                    Logger.debug("Unhandled link: \(url.absoluteString)")
-                }
-            }
-            .navigationTitle(doc.title)
-            .navigationBarTitleDisplayMode(.inline)
-        case .attributed(let a):
-            DocHighlightingView(documentId: doc.id, attributedString: a, config: config) { url in
-                if !coordinator.handleInternalLink(url) {
-                    Logger.debug("Unhandled link: \(url.absoluteString)")
-                }
-            }
-            .navigationTitle(doc.title)
-            .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-
-    // makeConfig() moved to ThemeManager.makeDocumentConfig() (DRY)
 }
 
 // MARK: - Category Assignment Sheet
@@ -716,9 +756,21 @@ struct CaseSearchResultRow: View {
                     }
                 }
 
-                // Title or parties
-                if let title = result.caseLaw.title, !title.isEmpty {
-                    // Extract parties from title (format: "Case C-xxx/xx. PartyA v PartyB")
+                // Short title, parties, or title (in order of usefulness)
+                // title is often generic "Official Journal..." text, shortTitle has actual case description
+                if let shortTitle = result.caseLaw.shortTitle, !shortTitle.isEmpty {
+                    Text(shortTitle)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(2)
+                } else if let parties = result.caseLaw.parties, !parties.isEmpty {
+                    Text(parties)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(2)
+                } else if let title = result.caseLaw.title, !title.isEmpty,
+                          !title.hasPrefix("Official Journal") {
+                    // Only show title if it's not the generic OJ text
                     let displayTitle = extractDisplayTitle(from: title)
                     Text(displayTitle)
                         .font(.subheadline)

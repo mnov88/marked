@@ -162,6 +162,42 @@ CREATE TABLE IF NOT EXISTS case_citation (
 
 CREATE INDEX IF NOT EXISTS idx_case_citation_citing ON case_citation(citing_case_id);
 CREATE INDEX IF NOT EXISTS idx_case_citation_cited ON case_citation(cited_case_id);
+
+-- Additional indexes for common query patterns
+CREATE INDEX IF NOT EXISTS idx_case_law_court ON case_law(court);
+CREATE INDEX IF NOT EXISTS idx_case_law_origin ON case_law(origin_country);
+CREATE INDEX IF NOT EXISTS idx_legal_relation_target_type ON legal_relation(target_celex, relation_type);
+"""
+
+# FTS5 virtual tables for full-text search (created after data import)
+FTS5_SCHEMA_SQL = """
+-- FTS5 full-text search for case law
+-- Uses content= for external content table (keeps FTS in sync with case_law)
+CREATE VIRTUAL TABLE IF NOT EXISTS case_law_fts USING fts5(
+    celex,
+    ecli,
+    case_number,
+    title,
+    short_title,
+    parties,
+    court,
+    content=case_law,
+    content_rowid=rowid,
+    tokenize='unicode61'
+);
+
+-- FTS5 full-text search for legislation
+CREATE VIRTUAL TABLE IF NOT EXISTS legislation_fts USING fts5(
+    celex,
+    eli,
+    title,
+    short_title,
+    subject_matter,
+    created_by,
+    content=legislation,
+    content_rowid=rowid,
+    tokenize='unicode61'
+);
 """
 
 
@@ -754,6 +790,15 @@ def export_sqlite(store: DataStore, output_path: Path, verbose: bool = False):
            VALUES (:id, :citing_case_id, :cited_celex, :cited_case_id, :cited_ecli)""",
         store.case_citations
     )
+
+    # Create FTS5 virtual tables for full-text search
+    if verbose:
+        print("  📝 Creating FTS5 search indexes...")
+    conn.executescript(FTS5_SCHEMA_SQL)
+
+    # Rebuild FTS indexes to populate with data
+    conn.execute("INSERT INTO case_law_fts(case_law_fts) VALUES('rebuild')")
+    conn.execute("INSERT INTO legislation_fts(legislation_fts) VALUES('rebuild')")
 
     conn.commit()
     conn.close()

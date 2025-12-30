@@ -188,9 +188,8 @@ struct MockDocList: View {
     }
 
     private func loadCaseFromResult(_ result: CaseLawSearchResult) {
-        let caseItem = result.toCase()
-        guard let url = caseItem.celexURL else {
-            Logger.debug("No valid URL for case")
+        guard let url = result.caseLaw.cellarURL else {
+            Logger.debug("No valid URL for case: \(result.caseLaw.celex)")
             return
         }
 
@@ -198,7 +197,7 @@ struct MockDocList: View {
 
         Task {
             do {
-                let document = try await contentLoader.loadContent(from: url.absoluteString, title: caseItem.displayTitle)
+                let document = try await contentLoader.loadContent(from: url.absoluteString, title: result.caseLaw.displayTitle)
                 try documentsManager.addDocument(document)
                 isLoadingCase = false
                 searchText = ""

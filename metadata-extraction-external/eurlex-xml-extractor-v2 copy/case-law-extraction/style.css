@@ -1673,3 +1673,55 @@ select.form-control {
 .xml-preview::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
 }
+
+/* Paragraph Number Styling for Reader View */
+p[data-pattern-paragraph="true"] {
+  position: relative;
+  padding-left: 40px; /* Space for paragraph number in margin */
+  margin: 0 auto;
+  max-width: 720px; /* Center content on 'paper' page */
+}
+
+.pattern-paragraph-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 35px;
+  text-align: right;
+  font-size: 0.85em;
+  font-weight: var(--font-weight-medium, 500);
+  opacity: 0.6;
+  color: var(--color-text-secondary, #626C71);
+  user-select: none;
+  line-height: inherit;
+}
+
+.pattern-paragraph-content {
+  display: inline;
+}
+
+/* Hover effect: make paragraph number more visible */
+p[data-pattern-paragraph="true"]:hover .pattern-paragraph-number {
+  opacity: 0.85;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .pattern-paragraph-number {
+    opacity: 0.5;
+    color: var(--color-text-secondary, #a7a9a9);
+  }
+
+  p[data-pattern-paragraph="true"]:hover .pattern-paragraph-number {
+    opacity: 0.75;
+  }
+}
+
+[data-color-scheme="dark"] .pattern-paragraph-number {
+  opacity: 0.5;
+  color: var(--color-text-secondary, #a7a9a9);
+}
+
+[data-color-scheme="dark"] p[data-pattern-paragraph="true"]:hover .pattern-paragraph-number {
+  opacity: 0.75;
+}
